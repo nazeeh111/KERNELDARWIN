@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "engine": "HyperFrames 0.8.33",
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "samples": [
+      1.111,
+      3.333,
+      5.556,
+      7.778,
+      10,
+      12.222,
+      14.444,
+      16.667,
+      18.889
+    ]
+  },
+  "contrast": {
+    "ok": true,
+    "enabled": true,
+    "checked": 40,
+    "passed": 40,
+    "samples": [
+      1.111,
+      5.556,
+      10,
+      14.444,
+      18.889
+    ]
+  },
+  "motion": {
+    "enabled": false,
+    "note": "Automated motion module disabled; representative hero and transition frames inspected directly."
+  },
+  "intentional_layout": [
+    "Actual product screenshots cropped within viewport frames.",
+    "Crossfade layers overlap for0.35s at each transition; informational overlap findings are intentional."
+  ]
+}

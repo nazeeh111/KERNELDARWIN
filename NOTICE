@@ -1,0 +1,7 @@
+KERNELDARWIN
+Copyright 2026 Nazeeh Abdul-Hadi
+
+Original software released under Apache License 2.0.
+Research foundations, optional tools and their licenses are documented in
+THIRD_PARTY_NOTICES.md and docs/prior-art.md. Third-party benchmark claims
+are source reports and are not local KERNELDARWIN measurements.

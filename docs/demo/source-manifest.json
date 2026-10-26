@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "cpu_control",
+  "presentation": "Recorded screenshot playback, not live CUDA execution",
+  "render": {
+    "engine": "HyperFrames",
+    "version": "0.8.33",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration_seconds": 20,
+    "audio": "intentionally silent"
+  },
+  "source_sha256": {
+    "lab/index.html": "0e4bcb10633f6a23689924a9e23369994cbf401d23670ffe152c5135a7f13687",
+    "lab/style.css": "ef4d53981e6cd1e895774c77136daac4682f17dbe65e9043dee2300b64716a8b",
+    "lab/app.js": "057ab5ef0e1b46becd3541b30f3c041715f5f2ee5dc40f7e2a15ccfc8bfacd18",
+    "lab/mark.svg": "b895d75983de6712d3e9f695ef45ced622bdaa616f898982932c6ed57084366f",
+    "docs/assets/lab-overview.png": "784defc7488496ffb86a16eab1e406a70ef5d137ed0c376f2682159691a1db64",
+    "docs/assets/lab-hypotheses.png": "af1255d30380c9191bac5577d9c40cc4bd86b515dae0721be5637377f1e1ede7",
+    "docs/assets/lab-evolution.png": "046a3ad2abeaedfad2da67091092d933299dea5ee14059c700fe8709a0baf9dd",
+    "docs/assets/lab-qa.json": "40efacd463ae962c35af217b4d8a5c949a5a40092a3dd67e878f51c5a537a510",
+    "lab/data/index.json": "05cf93afeb18980561e00b51dea4334a414965a12b0dc2727b87e4883c83e701",
+    "lab/data/cpu-evaluation.json": "8981a53f95a8698453563693cc42382efd640f451c892c02b3562b404601c45e",
+    "docs/demo/composition/index.html": "51240adf99b28b69d9f41f2b16734542e18ef16d402830e3d6f0c8fbeb5629f6",
+    "docs/demo/composition/assets/gsap.min.js": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+  },
+  "output_sha256": {
+    "docs/demo/brag.mp4": "155de5d4bfbc22f1c484f461c8810216fba5734c4b39f6d0e7a2d6806033fcb2",
+    "docs/demo/brag.jpg": "aded1d7cb20d5d9080f58c68cebdf81273d89a922601681486ef614c011667fc",
+    "docs/demo/check.json": "6913cd9554262f7ac3d71511b042153457e33b164719f448f1785c1b6e5b4228",
+    "docs/demo/ffprobe.json": "e6262a0f6997fb70a4a038e4733b39d8d90a2174c430a90b42d1c8199acfdbbc"
+  }
+}

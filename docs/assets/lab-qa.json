@@ -1,0 +1,141 @@
+{
+  "results": [
+    {
+      "negativeImport": "null-experiment",
+      "preserved": true
+    },
+    {
+      "negativeImport": "null-hypothesis",
+      "preserved": true
+    },
+    {
+      "negativeImport": "null-config",
+      "preserved": true
+    },
+    {
+      "negativeImport": "missing-confirmation",
+      "preserved": true
+    },
+    {
+      "negativeImport": "false-gpu-provenance",
+      "preserved": true
+    },
+    {
+      "atlasSearch": true
+    },
+    {
+      "evaluationControls": true
+    },
+    {
+      "exportRoundTrip": true
+    },
+    {
+      "view": "overview",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "timeline",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "bottlenecks",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "hypotheses",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "evolution",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "code",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "atlas",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "research",
+      "mobile": false,
+      "overflow": false
+    },
+    {
+      "view": "overview",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "timeline",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "bottlenecks",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "hypotheses",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "evolution",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "code",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "atlas",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "view": "research",
+      "mobile": true,
+      "overflow": false
+    },
+    {
+      "nativeKeyboardFocus": {
+        "class": "skip",
+        "outline": "solid",
+        "top": 10
+      }
+    }
+  ],
+  "errors": [],
+  "source_sha256": {
+    "lab/index.html": "0e4bcb10633f6a23689924a9e23369994cbf401d23670ffe152c5135a7f13687",
+    "lab/style.css": "ef4d53981e6cd1e895774c77136daac4682f17dbe65e9043dee2300b64716a8b",
+    "lab/app.js": "057ab5ef0e1b46becd3541b30f3c041715f5f2ee5dc40f7e2a15ccfc8bfacd18",
+    "lab/data/control-fused.json": "b4839f9391a6378b3cb894aadaf6194c496e2ba36042ca826a506af86508ae3e",
+    "lab/data/control-layernorm-strided.json": "0baaa7027e37c73254884e828566dd7503a78a2760a722cc88442b955a0e449d",
+    "lab/data/control-softmax.json": "e80d44ed93350c96077ca86d0452814d5812ce5f54bbac947ddfeb7b40e784c7",
+    "lab/data/control-sum-no-improvement.json": "6e64195d9d3b3ae58cb2d0d50877983a262937a2c33f9efc15f5c87265deda0d",
+    "lab/data/cpu-evaluation.json": "8981a53f95a8698453563693cc42382efd640f451c892c02b3562b404601c45e",
+    "lab/data/index.json": "05cf93afeb18980561e00b51dea4334a414965a12b0dc2727b87e4883c83e701"
+  },
+  "desktop_viewport": [
+    1440,
+    1080
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "browser": "Native Google Chrome, temporary Playwright profile"
+}

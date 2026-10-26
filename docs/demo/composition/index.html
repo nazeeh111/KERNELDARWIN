@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KERNELDARWIN · Evidence before optimization</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#f5f3ed;color:#242724;font-family:"Helvetica Neue",Arial,sans-serif}#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#f5f3ed}.scene{position:absolute;inset:0;width:1920px;height:1080px;background:#f5f3ed;overflow:hidden}.scene:not(#s1){opacity:0}.scene-content{width:100%;height:100%;padding:120px 96px 90px;display:flex;flex-direction:column;justify-content:center;gap:28px}.eyebrow{font:20px SFMono-Regular,Consolas,monospace;letter-spacing:2px;color:#686c63}.hook{font-size:142px;font-weight:800;letter-spacing:-7px;line-height:1.02;max-width:1380px;margin:0}.accent{color:#c63f27}.intro-description{font-size:30px;color:#686c63;max-width:1100px;margin:4px 0}.brand{display:flex;align-items:center;gap:18px;font-size:29px;font-weight:800;letter-spacing:-.9px}.brand img{width:56px;height:56px}.persistent{position:absolute;inset:0;z-index:100;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:35px 96px 30px}.label-row{display:flex;justify-content:space-between;align-items:center}.label{font:18px SFMono-Regular,Consolas,monospace;letter-spacing:.6px;color:#813723;background:#f8e9e1;border:1px solid #dba08e;padding:10px 15px}.serial{font:18px SFMono-Regular,Consolas,monospace;color:#686c63;letter-spacing:1px}.lower{border-top:1px solid #d8dbd0;padding-top:16px;display:flex;justify-content:space-between;font:17px SFMono-Regular,Consolas,monospace;letter-spacing:.3px;color:#686c63}.content-row{width:100%;height:100%;display:grid;grid-template-columns:500px 1fr;gap:48px;align-items:center}.side-copy{display:flex;flex-direction:column;gap:25px}.side-copy h2{font-size:78px;line-height:1.06;letter-spacing:-3.5px;font-weight:700;margin:0}.side-copy p{font-size:29px;line-height:1.5;margin:0;color:#686c63}.rule{width:60px;height:7px;background:#c63f27}.screen-frame{width:1180px;height:785px;border:1px solid #cdd0c4;background:#fffefa;box-shadow:0 8px 24px #2427240c;overflow:hidden;position:relative}.screen-image{display:block;width:1440px;height:auto;max-width:none;margin-left:-252px;margin-top:-256px}.screen-image.hypotheses{margin-top:-310px}.screen-image.evolution{margin-top:-315px}.screen-note{font:17px SFMono-Regular,Consolas,monospace;color:#686c63;margin-top:17px}.ending{align-items:flex-start}.ending .brand{font-size:66px;letter-spacing:-2px;gap:26px}.ending .brand img{width:104px;height:104px}.outro-mark{display:block;width:104px;height:104px;background:url(assets/mark.svg) center/contain no-repeat}.outro-line{font-size:82px;letter-spacing:-3px;font-weight:700;line-height:1.08;margin:18px 0 0;max-width:1400px}.repo{font:32px SFMono-Regular,Consolas,monospace;letter-spacing:-1px;margin:4px 0;color:#242724}.pending{font-size:26px;color:#813723;border-left:4px solid #c63f27;padding:12px 22px;background:#f8e9e1;align-self:flex-start}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="20">
+  <div id="s1" class="scene" data-layout-allow-overlap><div class="scene-content">
+    <div id="intro-brand" class="brand"><img src="assets/mark.svg" alt="KERNELDARWIN mark"><span>KERNELDARWIN LAB</span></div>
+    <div id="intro-rule" class="rule"></div>
+    <h1 id="hook" class="hook">Why is this workload <span class="accent">slow?</span></h1>
+    <p id="intro-description" class="intro-description">Evidence before optimization.</p>
+  </div></div>
+  <div id="s2" class="scene" data-layout-allow-overlap style="opacity:0"><div class="scene-content"><div class="content-row">
+    <div class="side-copy"><div id="overview-kicker" class="eyebrow">01 / INSPECT</div><h2 id="overview-title">Evidence before optimization.</h2><div id="overview-rule" class="rule"></div><p id="overview-copy">The latency distribution. The verification ledger.</p></div>
+    <div id="overview-product"><div class="screen-frame" data-layout-allow-overflow><img class="screen-image" src="assets/overview.png" alt="Actual recorded CPU control Overview view"></div><div class="screen-note">Actual LAB screenshot / CPU control</div></div>
+  </div></div></div>
+  <div id="s3" class="scene" data-layout-allow-overlap style="opacity:0"><div class="scene-content"><div class="content-row">
+    <div class="side-copy"><div id="hypothesis-kicker" class="eyebrow">02 / QUESTION</div><h2 id="hypothesis-title">A better question. A controlled test.</h2><div id="hypothesis-rule" class="rule"></div><p id="hypothesis-copy">Supporting evidence. Missing evidence. A falsifier.</p></div>
+    <div id="hypothesis-product"><div class="screen-frame" data-layout-allow-overflow><img class="screen-image hypotheses" src="assets/hypotheses.png" alt="Actual Hypothesis Laboratory with evidence and falsifying tests"></div><div class="screen-note">Unconfirmed explanations stay visible</div></div>
+  </div></div></div>
+  <div id="s4" class="scene" data-layout-allow-overlap style="opacity:0"><div class="scene-content"><div class="content-row">
+    <div class="side-copy"><div id="evolution-kicker" class="eyebrow">03 / KEEP THE RECORD</div><h2 id="evolution-title">Keep the unsuccessful experiments.</h2><div id="evolution-rule" class="rule"></div><p id="evolution-copy">Rejected candidates are part of the result.</p></div>
+    <div id="evolution-product"><div class="screen-frame" data-layout-allow-overflow><img class="screen-image evolution" src="assets/evolution.png" alt="Actual Optimization Evolution with accepted and rejected CPU candidates"></div><div class="screen-note">Recorded interventions and their outcomes</div></div>
+  </div></div></div>
+  <div id="s5" class="scene" data-layout-allow-overlap style="opacity:0"><div class="scene-content ending">
+    <div id="outro-brand" class="brand"><span class="outro-mark" role="img" aria-label="KERNELDARWIN mark"></span><span>KERNELDARWIN</span></div>
+    <h2 id="outro-title" class="outro-line">Research preview.</h2>
+    <p id="outro-repo" class="repo">github.com/nazeeh111/KERNELDARWIN</p>
+    <div id="outro-pending" class="pending">CUDA validation pending.</div>
+  </div></div>
+  <div class="persistent"><div class="label-row"><span class="label">CPU CONTROL / RECORDED PLAYBACK</span><span class="serial">KERNELDARWIN · RESEARCH PREVIEW</span></div><div class="lower"><span>Recorded evidence. No live GPU connection.</span><span>PERFORMANCE LABORATORY / v0.1</span></div></div>
+</div>
+<script>
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+tl.from('#intro-brand',{y:14,opacity:0,duration:.45,ease:'power2.out'},.12);
+tl.from('#intro-rule',{scaleX:0,transformOrigin:'left',duration:.5,ease:'expo.out'},.2);
+tl.from('#hook',{y:28,opacity:0,duration:.55,ease:'power3.out'},.25);
+tl.from('#intro-description',{x:18,opacity:0,duration:.5,ease:'sine.out'},.55);
+function crossfade(oldScene,newScene,at){tl.to(oldScene,{opacity:0,duration:.35,ease:'power2.inOut'},at);tl.to(newScene,{opacity:1,duration:.35,ease:'power2.inOut'},at);}
+function show(prefix,at){tl.from('#'+prefix+'-kicker',{y:12,opacity:0,duration:.4,ease:'sine.out'},at+.08);tl.from('#'+prefix+'-title',{y:18,opacity:0,duration:.5,ease:'power3.out'},at+.12);tl.from('#'+prefix+'-rule',{scaleX:0,transformOrigin:'left',duration:.4,ease:'expo.out'},at+.22);tl.from('#'+prefix+'-copy',{x:12,opacity:0,duration:.45,ease:'power2.out'},at+.3);tl.from('#'+prefix+'-product',{y:16,opacity:0,duration:.55,ease:'power2.out'},at+.15);}
+crossfade('#s1','#s2',3.65);show('overview',3.65);
+crossfade('#s2','#s3',7.65);show('hypothesis',7.65);
+crossfade('#s3','#s4',12.65);show('evolution',12.65);
+crossfade('#s4','#s5',16.65);
+tl.from('#outro-brand',{y:16,opacity:0,duration:.45,ease:'power2.out'},16.85);
+tl.from('#outro-title',{y:20,opacity:0,duration:.5,ease:'power3.out'},16.95);
+tl.from('#outro-repo',{x:20,opacity:0,duration:.45,ease:'sine.out'},17.1);
+tl.from('#outro-pending',{x:12,opacity:0,duration:.4,ease:'expo.out'},17.25);
+window.__timelines.main=tl;
+</script>
+</body>
+</html>

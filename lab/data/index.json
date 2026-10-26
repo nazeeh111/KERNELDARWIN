@@ -1,0 +1,9 @@
+{
+  "records": [
+    "control-softmax.json",
+    "control-sum-no-improvement.json",
+    "control-layernorm-strided.json",
+    "control-fused.json"
+  ],
+  "evaluation": "cpu-evaluation.json"
+}

@@ -1,0 +1,16 @@
+GSAP 3.14.2 license notice
+
+Copyright 2025, GreenSock. All rights reserved.
+Subject to the terms at https://gsap.com/standard-license.
+Author: Jack Doyle, https://gsap.com
+
+The upstream package metadata declares:
+Standard 'no charge' license: https://gsap.com/standard-license.
+
+This is a retained license notice, not a replacement or paraphrase of the
+full upstream terms. The full terms are available at the URL above.
+The minified runtime's original copyright/license header is preserved.
+The project Apache-2.0 license does not relicense this third-party runtime.
+
+Source: https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+Package metadata: https://cdn.jsdelivr.net/npm/gsap@3.14.2/package.json

@@ -1,0 +1,1 @@
+KERNELDARWIN: an evidence-first performance laboratory. Inspect real CPU control experiments, falsifiable hypotheses and rejected candidates in the research preview; CUDA validation remains pending.

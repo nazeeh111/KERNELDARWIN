@@ -1,0 +1,370 @@
+{
+  "status": "evaluated",
+  "schema_version": 1,
+  "device_kind": "cpu",
+  "observations": 72,
+  "seed": 0,
+  "method": "leave-one-family/shape-out offline candidate replay; repeated seeds kept together",
+  "bayesian_baseline": {
+    "method": "sequential finite-pool GP-UCB",
+    "kernel": "RBF, unit variance, zero mean",
+    "length_scale": 0.25,
+    "observation_noise_variance": 0.0001,
+    "exploration": 2.0,
+    "configuration_features": "log2(block_size)/16, log2(num_warps)/5",
+    "initialization": "one seeded random configuration",
+    "restarts_per_workload": 32,
+    "implementation": "stdlib baseline; not BoTorch"
+  },
+  "limitations": [
+    "No GPU benefit can be inferred from CPU controls.",
+    "Offline replay uses only observed candidates. GP-UCB updates after each selected outcome; other policies use fixed initial rankings.",
+    "Leverage uncertainty is uncalibrated; no hardware holdout or causal-diagnosis ablation is claimed.",
+    "Triton autotuning and profile-guided agent comparisons are not reproduced. GP-UCB is a fixed-hyperparameter finite-pool baseline, not BoTorch.",
+    "Costs use the unit supplied by the observation recorder; policies compared by equal candidate budget."
+  ],
+  "evidence_kind": "cpu_control",
+  "training_record_ids": [
+    "1667064a503b487eb7d34c49c451f7a5",
+    "1890afe4bfcf47e3acc86c4d0cad474c",
+    "1e6189e68ea24b2da4c46249980becef",
+    "35f99a575cb34181873d905bff35eb0d",
+    "3cb968069d61404b851238fa7961ed0a",
+    "433d92fbc5324b2c8d54fc39eef3d459",
+    "435a674415e04f7ea1511ffb75963d3d",
+    "45f7ee69388d42699b65937f08e86b33",
+    "534ab037f403414e999fe82aa2679f02",
+    "735352a037d6427cbdb56b811376bb43",
+    "76a5dbd5db2545dea68c666f5a01c4eb",
+    "7ce46ad5ec9248869efa53424e1bb37f",
+    "8b82b83c82e94113adc632ea9c31f5c2",
+    "8c7fe0308aaf4858b35cc08bbecdc856",
+    "8ed53c6da9764ad0b057e58eef4eb734",
+    "b501e2a23f984749ad9c2b360d430588",
+    "bacad9d8a1ac4e6a824c76a68c4d4277",
+    "cedb53ce635e492da7690bab5f1b28af",
+    "d78c24d22de34026a1ca99d9bb126a97",
+    "e45c27393219456ca2547cf4be32bd5a",
+    "e4ceaf2478814961be8d480dc4019444",
+    "efccce656e90487fa2ca99b15333b9fe",
+    "f446df23e1834d49bb993b2ef4ad18cb",
+    "fc9fe910c3f7458aa0c28ae390275627"
+  ],
+  "source": "24 actual NumPy CPU workloads, 72 measured interventions. No CUDA execution.",
+  "splits": {
+    "family": {
+      "status": "evaluated",
+      "groups": [
+        "fused",
+        "layernorm",
+        "softmax",
+        "sum"
+      ],
+      "folds": 4,
+      "aggregates": [
+        {
+          "policy": "bayesian_ucb",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.26751707716485834,
+          "mean_cost": 0.11051368823624823,
+          "mean_oracle_gap": 0.08228570505216402
+        },
+        {
+          "policy": "bayesian_ucb",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.3213421580318631,
+          "mean_cost": 0.2307739706467752,
+          "mean_oracle_gap": 0.028460624185159194
+        },
+        {
+          "policy": "bayesian_ucb",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "heuristic",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "heuristic",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "heuristic",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "learned_ucb",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "learned_ucb",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "learned_ucb",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "no_context",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "no_context",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "no_context",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "no_uncertainty",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "no_uncertainty",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "no_uncertainty",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "random",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.2654170043699384,
+          "mean_cost": 0.10883803665168064,
+          "mean_oracle_gap": 0.08438577784708391
+        },
+        {
+          "policy": "random",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.3299254094053641,
+          "mean_cost": 0.2154590393562709,
+          "mean_oracle_gap": 0.019877372811658238
+        },
+        {
+          "policy": "random",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        }
+      ]
+    },
+    "shape": {
+      "status": "evaluated",
+      "groups": [
+        "[128, 1024]",
+        "[128, 257]",
+        "[256, 513]",
+        "[32, 31]",
+        "[512, 2048]",
+        "[96, 4095]"
+      ],
+      "folds": 6,
+      "aggregates": [
+        {
+          "policy": "bayesian_ucb",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.2680589732897666,
+          "mean_cost": 0.10845895393822502,
+          "mean_oracle_gap": 0.08174380892725576
+        },
+        {
+          "policy": "bayesian_ucb",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.32238481329918883,
+          "mean_cost": 0.22736194748252578,
+          "mean_oracle_gap": 0.027417968917833466
+        },
+        {
+          "policy": "bayesian_ucb",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "heuristic",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "heuristic",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "heuristic",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "learned_ucb",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "learned_ucb",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "learned_ucb",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "no_context",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "no_context",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "no_context",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "no_uncertainty",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.30706081757528914,
+          "mean_cost": 0.10751539762228883,
+          "mean_oracle_gap": 0.04274196464173321
+        },
+        {
+          "policy": "no_uncertainty",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.34102244376270696,
+          "mean_cost": 0.19850069629804543,
+          "mean_oracle_gap": 0.008780338454315369
+        },
+        {
+          "policy": "no_uncertainty",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        },
+        {
+          "policy": "random",
+          "budget": 1,
+          "workloads": 24,
+          "mean_best_reward": 0.2699659737616713,
+          "mean_cost": 0.11053169514525507,
+          "mean_oracle_gap": 0.07983680845535103
+        },
+        {
+          "policy": "random",
+          "budget": 2,
+          "workloads": 24,
+          "mean_best_reward": 0.327473784680869,
+          "mean_cost": 0.21871601927189963,
+          "mean_oracle_gap": 0.022328997536153295
+        },
+        {
+          "policy": "random",
+          "budget": 3,
+          "workloads": 24,
+          "mean_best_reward": 0.3498027822170224,
+          "mean_cost": 0.32485893603976973,
+          "mean_oracle_gap": 0.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.runs/
+*.ncu-rep
+*.nsys-rep
+.DS_Store
+.playwright/
+
+.work/
+
+TASK_STATE.md
+CONTRACT.md

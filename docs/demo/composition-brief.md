@@ -1,0 +1,5 @@
+# Composition brief
+
+Build the 20-second landscape film from brag-plan.md and DESIGN.md. All factual copy is derived from the LAB source. Show current-source product screenshots from docs/assets/lab-overview.png, lab-hypotheses.png and lab-evolution.png; preserve a copy and SHA256 manifest after final UI/data review. Use the original lab/mark.svg. Place the evidence label CPU CONTROL / RECORDED PLAYBACK above every scene. Use clean GSAP entrances and crossfades. Source screenshots may be cropped to actual panels using CSS, without changing any displayed measurements. No fabricated cursor, progress or kernel timeline. No audio. This is a clearly labeled silent technical demonstration, not a live CUDA claim.
+
+Local renderer: installed pinned HyperFrames via hyperframes-local/local.py. One worker. Lint, inspect sampled hero/transition moments, render, inspect representative frames, full decode, ffprobe, then bake the strongest settled product frame as frame 0. Preserve editable composition and render provenance. No publishing from this subtask.

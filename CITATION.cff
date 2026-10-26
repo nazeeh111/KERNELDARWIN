@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+message: "If you use KERNELDARWIN, cite this software and the relevant research foundations in docs/prior-art.md."
+title: "KERNELDARWIN: An evidence-first performance investigation laboratory"
+type: software
+authors:
+  - name: "Nazeeh"
+repository-code: "https://github.com/nazeeh111/KERNELDARWIN"
+url: "https://github.com/nazeeh111/KERNELDARWIN"
+version: "0.1.0"
+date-released: 2026-10-26
+abstract: >-
+  A research-preview laboratory for bounded GPU workload investigation,
+  reproducible verification records, hypothesis tracking, and learned
+  intervention selection. CPU controls do not establish CUDA performance.
+keywords:
+  - GPU performance
+  - reproducible benchmarking
+  - Triton
+  - performance diagnosis
+  - intervention selection
+references:
+  - type: article
+    title: "KernelBench: Can LLMs Write Efficient GPU Kernels?"
+    authors:
+      - family-names: "Ouyang"
+        given-names: "Anne"
+      - family-names: "Guo"
+        given-names: "Simon"
+      - family-names: "Arora"
+        given-names: "Simran"
+      - family-names: "Zhang"
+        given-names: "Alex L."
+      - family-names: "Hu"
+        given-names: "William"
+      - family-names: "Ré"
+        given-names: "Christopher"
+      - family-names: "Mirhoseini"
+        given-names: "Azalia"
+    year: 2025
+    doi: "10.48550/arXiv.2502.10517"
+    url: "https://arxiv.org/abs/2502.10517"
+  - type: article
+    title: "Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels"
+    authors:
+      - family-names: "Brodsky"
+        given-names: "Joshua"
+      - family-names: "Kumar"
+        given-names: "Dhravid"
+      - family-names: "Kashmira"
+        given-names: "Savini"
+      - family-names: "Danatanarayana"
+        given-names: "Jayanaka"
+      - family-names: "Mars"
+        given-names: "Jason"
+      - family-names: "Flautner"
+        given-names: "Krisztian"
+      - family-names: "Tang"
+        given-names: "Lingjia"
+    year: 2026
+    doi: "10.48550/arXiv.2607.24762"
+    url: "https://arxiv.org/abs/2607.24762"
