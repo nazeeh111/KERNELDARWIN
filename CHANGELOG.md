@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 · Investigation workbench · 2026-10-26
+
+- Rebuilt the LAB around the measured experiment: latency fingerprint, matched-pair inspection, linked candidate selection, and a compact verification rail.
+- Added self-hosted IBM Plex typography, a purpose-built dark instrument system, readable source comparison, parent-aware lineage groups, and accessible responsive navigation.
+- Split the frontend into controller, validation, pure data transforms, charts, lineage, views, DOM primitives, and reduced-motion-aware animation modules.
+- Hardened malformed-import handling, nonwinner sample pairing, large trace imports, source identity display, keyboard focus, and trace truncation disclosure.
+- Added frontend unit regressions and reproducible Playwright browser CI. Recorded experiment bytes and GPU validation limits are unchanged.
+- Previous release and demo remain available as v0.1 artifacts. This UI release makes no new CUDA performance claim.
+
 ## 0.1.0 · Research preview · 2026-10-26
 
 - Evidence records with immutable persistence, falsifiable analytical hypotheses and independent confirmation gates.

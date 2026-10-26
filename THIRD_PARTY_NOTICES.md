@@ -26,3 +26,8 @@ If code or media is later copied or adapted, add exact revision and original cop
 ## Launch demonstration runtime
 
 The editable HyperFrames composition under `docs/demo/composition` includes GSAP 3.14.2 for local animation. Its original header is retained. GSAP is available without charge under the [GSAP Standard License](https://gsap.com/standard-license/), which is separate from this repository's Apache-2.0 license and is not an OSI license. See `docs/demo/composition/assets/GSAP-LICENSE.txt` for the source and license notice. No GSAP paid service or plugin is used. HyperFrames and FFmpeg are local rendering tools, not bundled runtime dependencies of KERNELDARWIN's Python core or LAB.
+
+
+## Workbench typography
+
+Unmodified IBM Plex Sans (Regular, Medium, SemiBold) and IBM Plex Mono (Regular) WOFF2 fonts are bundled under `lab/assets/fonts`. Copyright 2017 IBM Corp.; Reserved Font Name Plex. The full SIL Open Font License 1.1 is retained at `lab/assets/fonts/OFL.txt`. Source: [IBM/plex](https://github.com/IBM/plex), official complete WOFF2 files. Font files retain their own license; the project's Apache license does not replace it. The LAB makes no external font requests.

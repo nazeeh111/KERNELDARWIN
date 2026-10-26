@@ -15,6 +15,10 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install '.[control]'
       - run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tests/frontend/*.test.mjs
       - run: kd doctor
       - run: kd control --family softmax --shape 32 31 --repeats 20
       - run: python scripts/check_evidence.py

@@ -1,0 +1,341 @@
+{
+  "version": "0.2.0",
+  "python_tests": 22,
+  "frontend_unit_tests": 16,
+  "browser_regressions": 7,
+  "responsive_checks": {
+    "errors": [],
+    "results": [
+      {
+        "view": "overview",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "timeline",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "bottlenecks",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "hypotheses",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "evolution",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "code",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "atlas",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "research",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      {
+        "view": "overview",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "timeline",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "bottlenecks",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "hypotheses",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "evolution",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "code",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "atlas",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "research",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "view": "overview",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "timeline",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "bottlenecks",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "hypotheses",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "evolution",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "code",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "atlas",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "research",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "view": "overview",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "timeline",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "bottlenecks",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "hypotheses",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "evolution",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "code",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "atlas",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "research",
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "view": "overview",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "timeline",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "bottlenecks",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "hypotheses",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "evolution",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "code",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "atlas",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "view": "research",
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      }
+    ]
+  },
+  "interaction_and_contrast": {
+    "results": [
+      {
+        "candidateUpdatesMatchedEvidence": true,
+        "keyboardFocusPreserved": true
+      },
+      {
+        "pairedInspector": true
+      },
+      {
+        "import": "null-experiment",
+        "preserved": true
+      },
+      {
+        "import": "null-config",
+        "preserved": true
+      },
+      {
+        "import": "false-confirmation",
+        "preserved": true
+      },
+      {
+        "import": "missing-provenance",
+        "preserved": true
+      },
+      {
+        "exportRoundtrip": true
+      },
+      {
+        "lineageSelection": true
+      },
+      {
+        "atlasFilter": true
+      },
+      {
+        "evaluationControls": true
+      },
+      {
+        "rapidTransitionsSettle": true
+      },
+      {
+        "reducedMotionResolved": true
+      },
+      {
+        "iconRailAccessibleNames": true
+      }
+    ],
+    "contrast": [
+      {
+        "view": "overview",
+        "failures": []
+      },
+      {
+        "view": "hypotheses",
+        "failures": []
+      },
+      {
+        "view": "evolution",
+        "failures": []
+      },
+      {
+        "view": "code",
+        "failures": []
+      },
+      {
+        "view": "research",
+        "failures": []
+      }
+    ],
+    "errors": []
+  },
+  "data_unchanged": true,
+  "source_sha256": {
+    "lab/app.js": "f8a5eaa5f8c53b8469fd94f3ef3fda16c3ba81deeec0c6740cbe96bc1ad2ae2e",
+    "lab/index.html": "6d1a6efb50083f47411e41bd9de8a290deb2a28e2de3da45ec9ab82e84827539",
+    "lab/style.css": "19ec93b505148e246890cdd6cc56f23397545c72df4a7889518a681a81171e0f",
+    "lab/js/charts.js": "d87927ed5e419d9e1433d4a3cafb11ea7bd9a88c4e0a9fdce9226dc4ed680433",
+    "lab/js/dom.js": "2f95865045099a35853fed5e023a0caa02e34ee317c235804b8d52120a54d1bb",
+    "lab/js/inspection.js": "a374a100f90bbe13c8b863c9b173e858f1b28c1c8f34ed549c361e1ec8f5c048",
+    "lab/js/lineage.js": "055139220bdbaab0c9e28b020ab560de8153605c8b823b7c37b3bdf383c6f4ff",
+    "lab/js/model.js": "7b11709107e75bff65a5abc644777860b43093f5f266f4c592e966daa618e6c7",
+    "lab/js/motion.js": "69033ca598acfb42b4c561502bbadfcbec175adef238c6e1cfa8d577decf4f65",
+    "lab/js/overview.js": "1ab4e01788956cdcfefa547377dbf285dc26a5825520c7428e803214ffcdf191",
+    "lab/js/records.js": "3d674c8c4f72d59eec73c0652920f013f66a3312f220d70ebf3c08f1b2ba6bcb"
+  },
+  "limits": [
+    "Native Google Chrome exercised locally; cross-platform CI checked separately after publication.",
+    "No new CUDA execution or benchmark result.",
+    "Motion state/interruption and representative frames checked; no universal perceptual or accessibility conformance claim."
+  ]
+}

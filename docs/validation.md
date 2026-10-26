@@ -1,4 +1,4 @@
-# Validation status · v0.1.0 research preview
+# Validation status · v0.2.0 research preview
 
 ## Established on this host
 
@@ -24,3 +24,12 @@ The research hypothesis requires a substantially richer measured CUDA corpus and
 ## Presentation limit
 
 An original social preview image is included at `docs/assets/social-preview.png`. GitHub's UI exposes the upload control, but its file picker could not be completed because Codex's native-app safety policy rejects control of `com.openai.codex`. No alternate route was used to bypass that control; the repository's custom social image remains unset.
+
+
+## v0.2 workbench verification
+
+The redesign adds 16 pure frontend tests and 7 reproducible Playwright browser regressions alongside the 22 Python tests. Native Chrome checks cover all eight views across five desktop/tablet/phone widths, plus the independent review's four-record/route matrix including 320 px phones. Selected text contrast was checked programmatically across overview, hypotheses, evolution, source and research views. This is scoped evidence, not a universal accessibility guarantee.
+
+Concrete checks cover matched timing-phase display, candidate and select focus preservation, malformed dormant-view imports, reduced-motion resolution, rapid navigation, atlas/evaluation controls, a 150,000-event synthetic trace, and non-flat parent histories. Synthetic records are test fixtures only, never published benchmark evidence. The 24 recorded CPU experiments and four bundled records remain byte-identical. `assets/v0.2/qa.json` records the source identities and check scope.
+
+The recorded UI clip is silent, labeled CPU-control playback, and derived from actual browser interactions. Full media decode and representative paired/evolution frames were inspected. It demonstrates functional motion; sampled images and automated state checks are not full normal-speed perceptual approval on every platform.

@@ -1,6 +1,10 @@
 include LICENSE NOTICE README.md THIRD_PARTY_NOTICES.md CITATION.cff CHANGELOG.md CONTRIBUTING.md
-recursive-include lab *.html *.css *.js *.svg *.json *.py
+recursive-include lab *.html *.css *.js *.svg *.json *.py *.woff2 *.txt
 recursive-include docs *.md *.svg *.png *.jpg *.mp4 *.html *.js *.txt
 recursive-include evidence *.json
 recursive-include examples *.py
 recursive-include scripts *.py
+
+include package.json package-lock.json playwright.config.js
+recursive-include tests *.py *.mjs *.js
+recursive-include scripts *.mjs

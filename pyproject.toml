@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kerneldarwin"
-version = "0.1.0"
+version = "0.2.0"
 description = "Evidence-first GPU performance investigations with falsifiable hypotheses and reproducible experiments"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -31,4 +31,4 @@ packages = ["kerneldarwin", "kerneldarwin.lab"]
 package-dir = {"kerneldarwin" = "src/kerneldarwin", "kerneldarwin.lab" = "lab"}
 
 [tool.setuptools.package-data]
-"kerneldarwin.lab" = ["*.html", "*.css", "*.js", "*.svg", "data/*.json"]
+"kerneldarwin.lab" = ["*.html", "*.css", "*.js", "*.svg", "data/*.json", "js/*.js", "assets/fonts/*.woff2", "assets/fonts/OFL.txt", "package.json"]

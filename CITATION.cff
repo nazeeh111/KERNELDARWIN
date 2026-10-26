@@ -6,7 +6,7 @@ authors:
   - name: "Nazeeh"
 repository-code: "https://github.com/nazeeh111/KERNELDARWIN"
 url: "https://github.com/nazeeh111/KERNELDARWIN"
-version: "0.1.0"
+version: "0.2.0"
 date-released: 2026-10-26
 abstract: >-
   A research-preview laboratory for bounded GPU workload investigation,

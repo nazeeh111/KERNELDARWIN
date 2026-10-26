@@ -14,6 +14,7 @@ import time
 import uuid
 from pathlib import Path
 
+from . import __version__
 from .records import WorkloadSpec, ExperimentStore
 from .statistics import summarize, compare_paired
 from .hypotheses import diagnose
@@ -27,7 +28,7 @@ def new_record(spec, kind: str, device: dict) -> dict:
             'winner_id':None,'trace':{'status':'unavailable','events':[],'reason':'Not requested'},
             'diagnosis':{'summary':'Investigation pending','limitations':[]},
             'provenance':{'gpu_execution':kind=='cuda_run','measurement':'CUDA events' if kind=='cuda_run' else 'perf_counter_ns',
-                          'timing_mode':'normal_launch' if kind=='cuda_run' else 'host_cpu', 'author':'KERNELDARWIN 0.1.0'}}
+                          'timing_mode':'normal_launch' if kind=='cuda_run' else 'host_cpu', 'author':f'KERNELDARWIN {__version__}'}}
 
 
 def blocked_record(spec, reason: str) -> dict:
