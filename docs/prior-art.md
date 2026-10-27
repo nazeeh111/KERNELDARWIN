@@ -15,12 +15,6 @@ Reviewed against primary project documentation and papers on **26 October 2026**
 | [AutoTVM](https://arxiv.org/abs/1805.08166), [Ansor](https://arxiv.org/abs/2006.06762) | Learned tensor-program cost models and transfer predate this project; Ansor combines learned ranking, evolutionary search and task scheduling. | Learned intervention ranking alone is not a novel research contribution. Demonstrate a measurable benefit from explicit diagnosis and controlled experiments, or report that it does not help. |
 | [KTT](https://github.com/HiPerCoRe/KTT), [counter-guided tuning data paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8633859/) | KTT supports correctness checking, dynamic autotuning and counter/ML-guided search. Its historical dataset contains measured CUDA tuning spaces from five benchmark types and four GPUs. | Even counter-guided learned search has close precedents. Historical replay is an optional distinct evaluation route, not current-device replication. KTT code is MIT; the [dataset](https://data.mendeley.com/datasets/nn53dskr7z/1) is CC BY 4.0. No data are bundled here. |
 
-## Visual-production tools investigated
-
-[PaperVizAgent](https://github.com/google-research/papervizagent), formerly PaperBanana, is the official reference-driven academic-illustration pipeline, with retrieval, planning, styling, rendering and critique agents. The code is Apache-2.0; its documented configuration uses model API credentials or Google Cloud settings. It was inspected, not executed. Editable authored SVG diagrams avoid a separately billed API and keep technical labels reviewable. Numerical plots must always be generated from experiment data.
-
-[/brag](https://github.com/latent-spaces/brag) is an MIT-licensed agent skill for short product launch videos, using Hyperframes in its regular workflow. It is available in the local skill installation. The release presentation can use that free local workflow; any footage must identify CPU controls or recorded playback and must not imply a live CUDA optimization on this host. Tool availability is not evidence of a successful video render.
-
 ## Licensing boundary
 
 KERNELDARWIN is separately authored software. This review did not copy upstream implementation, benchmark tasks, figures or trained model weights. Optional dependencies retain their own licenses; NVIDIA binaries are not redistributed. See [third-party notices](../THIRD_PARTY_NOTICES.md). If later work vendors upstream code or data, retain its exact license, copyright, required notices and revision provenance at the copied artifact.

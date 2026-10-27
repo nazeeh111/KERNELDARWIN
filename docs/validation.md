@@ -21,10 +21,9 @@ A trusted Linux machine with NVIDIA compute capability >=8.0 and compatible driv
 
 The research hypothesis requires a substantially richer measured CUDA corpus and matched comparisons. Profiler-feature and diagnosis-conditioned ablations are not implemented or evaluated by the CPU preview. The original full GPU research objective remains unmet without this evidence.
 
-## Presentation limit
+## Presentation assets
 
-An original social preview image is included at `docs/assets/social-preview.png`. GitHub's UI exposes the upload control, but its file picker could not be completed because Codex's native-app safety policy rejects control of `com.openai.codex`. No alternate route was used to bypass that control; the repository's custom social image remains unset.
-
+An original social preview image is included at `docs/assets/social-preview.png`.
 
 ## v0.2 workbench verification
 

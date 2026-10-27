@@ -18,8 +18,6 @@ Research foundations, reviewed 26 October 2026:
 - [Kernel Forge](https://github.com/TheJoshBrod/KernelForge): MIT, copyright 2026 Joshua Brodsky. Brodsky et al., [*Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels*](https://arxiv.org/abs/2607.24762), 2026.
 - Chen et al., [*Learning to Optimize Tensor Programs*](https://arxiv.org/abs/1805.08166), 2018, and Zheng et al., [*Ansor*](https://arxiv.org/abs/2006.06762), 2020: learned program-cost models/search precedents.
 - [Kernel Tuning Toolkit](https://github.com/HiPerCoRe/KTT): MIT. Hozzová et al., [counter-guided autotuning data article](https://pmc.ncbi.nlm.nih.gov/articles/PMC8633859/), 2021. [Dataset DOI 10.17632/nn53dskr7z.1](https://data.mendeley.com/datasets/nn53dskr7z/1), CC BY 4.0, is a potential external replay dataset, not bundled or remeasured here.
-- [PaperVizAgent](https://github.com/google-research/papervizagent), formerly PaperBanana: Apache-2.0, Google Research contributors. Investigated illustration workflow; no pipeline output or upstream figure is copied.
-- [/brag](https://github.com/latent-spaces/brag): MIT, copyright 2026 Shunit Haviv Hakimi. Investigated launch-video workflow; the locally installed skill may be used for release presentation.
 
 If code or media is later copied or adapted, add exact revision and original copyright, ship the full applicable license and preserve required notices beside the artifact. Installed dependency licenses are not replaced by KERNELDARWIN's license. Authored SVG assets do not contain upstream logos or research figures.
 
