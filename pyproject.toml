@@ -4,18 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kerneldarwin"
-version = "0.2.0"
-description = "Evidence-first GPU performance investigations with falsifiable hypotheses and reproducible experiments"
+version = "0.3.0"
+description = "Workload-aware Metal kernel artifacts with verified MLX fallbacks and preserved investigation evidence"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 authors = [{name = "Nazeeh Abdul-Hadi"}]
-keywords = ["cuda", "triton", "performance", "profiling"]
+keywords = ["metal", "mlx", "performance", "gpu-optimization", "auto-tuning"]
 classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Topic :: Scientific/Engineering"]
 
 [project.optional-dependencies]
 cuda = ["torch>=2.5,<3", "triton>=3.1,<4; platform_system == 'Linux'"]
 control = ["numpy>=1.26,<3"]
+metal = ["mlx==0.32.0; platform_system == 'Darwin' and platform_machine == 'arm64'", "mlx-metal==0.32.0; platform_system == 'Darwin' and platform_machine == 'arm64'", "numpy==2.3.5"]
 
 [project.scripts]
 kerneldarwin = "kerneldarwin.cli:main"
@@ -31,4 +32,5 @@ packages = ["kerneldarwin", "kerneldarwin.lab"]
 package-dir = {"kerneldarwin" = "src/kerneldarwin", "kerneldarwin.lab" = "lab"}
 
 [tool.setuptools.package-data]
+"kerneldarwin" = ["metal/*.metal", "artifacts/*/*.json", "artifacts/*/*.metal", "study-source.json", "fused-study-source.json", "py.typed"]
 "kerneldarwin.lab" = ["*.html", "*.css", "*.js", "*.svg", "data/*.json", "js/*.js", "assets/fonts/*.woff2", "assets/fonts/OFL.txt", "package.json"]

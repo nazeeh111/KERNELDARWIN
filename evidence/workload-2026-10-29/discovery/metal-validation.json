@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "kind": "executed_metal_numerical_validation",
+  "source_sha256": "75ec7863b204f724bee0294b575db2637e300c1b16994b382c837e65dac3c833",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "gpu_executed": true,
+  "success": true,
+  "tests_run": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "wall_seconds": 60.151440208021086,
+  "output": "test_adversarial_magnitudes_cancellation_and_tails (test_metal_workload.MetalWorkloadTests.test_adversarial_magnitudes_cancellation_and_tails) ... ok\ntest_application_changes_inputs_and_matches_independent_scores (test_metal_workload.MetalWorkloadTests.test_application_changes_inputs_and_matches_independent_scores) ... ok\ntest_float32_subnormal_behavior_is_explicit (test_metal_workload.MetalWorkloadTests.test_float32_subnormal_behavior_is_explicit) ... ok\ntest_layouts_offsets_repeated_calls_and_changed_contents (test_metal_workload.MetalWorkloadTests.test_layouts_offsets_repeated_calls_and_changed_contents) ... ok\ntest_nonfinite_rows_and_library_fallback_contract (test_metal_workload.MetalWorkloadTests.test_nonfinite_rows_and_library_fallback_contract) ... ok\ntest_optimized_library_alternatives_and_injected_regression (test_metal_workload.MetalWorkloadTests.test_optimized_library_alternatives_and_injected_regression) ... ok\ntest_static_dispatch_changed_inputs_and_plan_invalidations (test_metal_workload.MetalWorkloadTests.test_static_dispatch_changed_inputs_and_plan_invalidations) ... ok\ntest_tiny_normal_values_are_not_silently_zeroed (test_metal_workload.MetalWorkloadTests.test_tiny_normal_values_are_not_silently_zeroed) ... ok\ntest_loaded_source_identity_does_not_relabel_cached_code_on_disk_change (test_workload.WorkloadPlanTests.test_loaded_source_identity_does_not_relabel_cached_code_on_disk_change) ... ok\ntest_malformed_missing_oversized_and_stale_plan_fail_closed (test_workload.WorkloadPlanTests.test_malformed_missing_oversized_and_stale_plan_fail_closed) ... ok\ntest_no_plan_is_explicit_library_mode (test_workload.WorkloadPlanTests.test_no_plan_is_explicit_library_mode) ... ok\ntest_stale_source_never_probes_device_or_loads_code (test_workload.WorkloadPlanTests.test_stale_source_never_probes_device_or_loads_code) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 60.094s\n\nOK\n",
+  "requested_validation_environment": {
+    "MTL_DEBUG_LAYER": "1",
+    "MTL_SHADER_VALIDATION": "1"
+  },
+  "test_sources": {
+    "test_metal_workload.py": "365ccf206115d0de840fa226fd869d02508dcb085d0f046e403c7b401d4bee22",
+    "test_workload.py": "729232e842e41d3265770e61b0f3664f1da0b6ebf983904e116eeb1577ebfd96"
+  },
+  "time_utc": "2026-10-29T05:38:30Z",
+  "limitations": [
+    "Numerical correctness is separate from performance coverage.",
+    "Float32 input subnormals follow observed Metal flush-to-zero.",
+    "No CUDA sanitizer or cross-device pass is claimed."
+  ]
+}

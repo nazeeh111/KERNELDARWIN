@@ -1,102 +1,87 @@
 <p align="left"><img src="lab/mark.svg" width="64" alt="KERNELDARWIN branching K mark"></p>
 
-# KERNELDARWIN
+# KERNELDARWIN Workload
 
-### Why is this GPU program slow? Keep the experiment that answers it.
+Investigate a real GPU workload, then install only what survives independent checks.
 
-An evidence-first performance investigation laboratory. Profile a bounded workload, keep competing explanations, test targeted Triton configurations, and preserve the numerical checks and timing uncertainty behind each decision.
+**v0.3.0 is in development.** The local cosine-search application and six authored Metal configurations have executed on an Apple M4. The first frozen optimization study failed its application performance gate. The second target, fused query normalization and scoring, passed numerical checks but failed its prospective baseline-stability gate before tuning. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
 
-**v0.2.0 is a research preview.** The development host is an Apple M4, with no NVIDIA CUDA device. The release includes actual CPU control experiments, a fitted CPU intervention selector, and a prepared CUDA/Triton execution path. **No GPU speedup, GPU-trained policy, causal GPU diagnosis, sanitizer pass, or GPU superiority is claimed.** [Validation status →](docs/validation.md)
+[Run the workload](docs/workload.md) · [Semantic contract](docs/workload-semantics.md) · [Readable kernels](src/kerneldarwin/metal/) · [Interface and editable architecture](docs/workload-interface.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
-[Explore the LAB](https://nazeeh111.github.io/KERNELDARWIN/) · [Quickstart](#try-the-laboratory) · [Research](docs/research.md) · [Methodology](docs/methodology.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
+## Run from the current source
 
-![Actual LAB overview with an explicitly labeled CPU control, paired latency distribution and verification ledger](docs/assets/v0.2/lab-desktop.png)
-
-## One investigation, all the evidence
-
-The shipped controls compare a higher-precision NumPy reference with batched float32-intermediate implementations within declared tolerances. They exercise the same record, correctness, paired timing, confirmation and learning components used by the CUDA path. They are **CPU software controls**, not evidence of GPU optimization.
-
-The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
-
-The LAB now places the measured latency fingerprint and verification ledger together, with a keyboard-accessible timing-pair inspector, parent-aware candidate history, and synchronized evidence selection. Its self-hosted IBM Plex typography and interruptible, reduced-motion-aware transitions serve the investigation.
-
-The LAB lets you follow the useful questions: what was measured, which explanation remains plausible, what changed, and what passed independent confirmation? GPU timelines, utilization and rooflines stay unavailable when their required measurements are absent.
-
-<p><a href="docs/assets/v0.2/workbench.mp4"><img src="docs/assets/v0.2/lab-desktop.png" alt="Watch the recorded CPU-control workbench demonstration" width="800"></a></p>
-
-[Watch the current workbench recording](docs/assets/v0.2/workbench.mp4). The [original v0.1 demo](docs/demo/brag.mp4) is preserved. The current v0.2 workbench has a redesigned interface with paired-sample inspection, linked candidate selection, accessible lineage, and source comparison. CPU control playback remains labeled; it is not live GPU optimization.
-
-## Try the laboratory
-
-Python 3.11 or later. Basic installation has no runtime dependencies or model-provider credentials.
+Use Apple Silicon macOS and Python 3.11 or later. The executed environment used Python 3.12.13, MLX and MLX Metal 0.32.0, macOS 27.2 build 26B123, and a 10-core Apple M4 GPU. The basic package remains CPU-compatible; the following extra installs the pinned Metal dependencies.
 
 ```bash
-git clone https://github.com/nazeeh111/KERNELDARWIN.git
-cd KERNELDARWIN
-python -m pip install .
-kd doctor
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install '.[metal]'
+kd workload doctor
+kd workload demo --query "cosine search vectors"
+```
+
+`doctor` executes a tiny GPU arithmetic check. The demo refreshes a local document index and returns actual ranked matches, artifact status, fallback counts and its dispatch decision. Without an accepted artifact, it uses the complete compiled stable MLX query. Its single-call `compute_ms` includes cold work and is not a speedup measurement.
+
+Bring your own `float32` or `float16` vectors in an NPZ archive with `documents` and `queries` arrays:
+
+```bash
+kd workload search vectors.npz --k 5
 kd lab
-# Open http://127.0.0.1:8765
+# Open http://127.0.0.1:8765/workload.html
 ```
 
-The public LAB is static and reads recorded JSON. It never compiles or executes uploaded code. Import a record or inspect the bundled controls. No public GPU execution service is exposed.
+The included corpus uses deterministic token-count features, with no downloaded weights. The application also accepts caller-provided embeddings. No LLM, runtime network access, answer cache or online tuning is needed. The static LAB displays recorded evidence; it does not offer public GPU execution.
 
-For actual local CPU controls:
+[Complete quickstart and typed Python API](docs/workload.md).
+
+![Workload interface with the retained null result](docs/assets/v0.3/final/workload-desktop.png)
+
+[Recorded walkthrough](docs/assets/v0.3/final/workload-interaction.mp4) · [Actual installed CLI outputs](evidence/workload-2026-10-29/discovery/installed-cli-demo.json). The browser recording shows recorded GPU results and library fallback; it does not run GPU code in the browser.
+
+## What was investigated
+
+The measured application performs one index refresh and three top-k searches across a declared distribution of document sizes, feature widths and layouts. Costs include allocation, GPU dispatch, materialization and host results. The study compares eager MLX, stable compiled normalization, an equivalent optimized RMS-based implementation, complete compiled query graphs, a fixed candidate, bounded per-shape tuning and a two-kernel portfolio.
+
+| Target | Implemented variants | Current evidence |
+| --- | --- | --- |
+| Stable row L2 normalization | SIMD reduction, four-row SIMD grouping, packed vector access, shared reduction | 16 numerical/guard tests passed; three frozen confirmation sessions completed; application gate failed |
+| Query normalization fused with similarity scoring | One SIMD group per query/document pair; shared normalized query reused across four documents | Seven further Metal numerical/application tests passed; baseline instability stopped tuning |
+
+The first target's development portfolio reduced weighted normalization cost by about 6% versus its best fixed candidate. That did **not** establish a complete-application benefit. In confirmation session 0, the portfolio was slower at the point estimate than the complete compiled stable library query: **0.970×**, 95% interval **[0.908, 1.038]**. Later sessions also failed the frozen improvement gate. Every session and all losses remain in [the preserved study](evidence/workload-2026-10-29/target1-normalization/).
+
+Actual Instruments evidence records GPU compute intervals for the installed application. Hardware counters and a shader timeline were unavailable. Instrumented interval observations and compiler graphs are diagnostic evidence, not a causal explanation or a replacement for the failed application confirmation.
+
+## Installable computation and guards
+
+`FusedPlan().index(vectors)` supplies the current compiled-library application path. A future accepted `FusedPlan("artifact")` can route exact query/document/width tuples to at most two authored score kernels. Unknown tuples, unsupported candidate dtypes and incompatible plans use the complete compiled stable query. The original `Normalizer` and `CosineIndex` injection API remains available for the first target.
+
+Plans are data. They bind semantic operation, loaded source bytes, application and baseline implementation, study code, MLX/runtime/compiler options and device identity. Readable Metal sources accompany a confirmed manifest. Replacing installed source invalidates stale performance decisions; a running process uses one immutable source snapshot. Inputs are never mutated, and supported noncontiguous views are indexed through their actual device strides.
+
+Stable L2 uses a clamped norm floor of `1e-12`, float32 accumulation and safe Metal math. Native float32 subnormal flushing and inference-only scope are explicit. Numerical validity is distinct from measured performance coverage. [Full contract](docs/workload-semantics.md).
+
+An export requires current-source GPU numerical evidence, a frozen baseline noise gate, bounded development, three independent sessions beating the optimized libraries, exercised unseen-input fallback and resource checks. The first target failed those requirements, so it has no accepted export. Manufactured unit-test plans are never performance artifacts.
+
+## Preserved research laboratory
+
+The [original LAB](https://nazeeh111.github.io/KERNELDARWIN/) and earlier releases retain 24 real CPU control workloads, 72 interventions, selector evaluation and the prepared CUDA/Triton path. Their recorded bytes and evidence levels remain unchanged. The CUDA path has not executed on this Apple M4 host and still requires actual NVIDIA hardware; Metal execution does not validate CUDA.
+
+![Preserved v0.2 CPU-control workbench](docs/assets/v0.2/lab-desktop.png)
+
+[Recorded v0.2 workbench](docs/assets/v0.2/workbench.mp4) · [Original v0.1 demo](docs/demo/brag.mp4) · [CPU results](docs/results.md) · [CUDA/legacy usage](docs/usage.md) · [Prior art and attribution](docs/prior-art.md)
+
+## Build and review
+
+The CPU-compatible checks validate record handling, source pins, fallback and export rejection. Metal tests require explicit local execution; skips do not count as GPU evidence.
 
 ```bash
-python -m pip install '.[control]'
-kd control --family softmax --shape 128 1024 --store .runs
-kd train --store evidence/cpu-2026-10-26/records --device-kind cpu --output .runs/cpu-model.json
 python -m unittest discover -s tests -v
+# Apple Silicon, pinned Metal environment:
+MTL_DEBUG_LAYER=1 MTL_SHADER_VALIDATION=1 python scripts/validate_metal.py --output NEW_ROWS_REPORT.json
+MTL_DEBUG_LAYER=1 MTL_SHADER_VALIDATION=1 python scripts/validate_fused.py --output NEW_SCORES_REPORT.json
 ```
 
-CPU models cannot be used to choose CUDA interventions. [CLI and Python API →](docs/usage.md)
+Use fresh report paths. Validation instrumentation is disabled for performance measurements. Follow the bounded, immutable workflow in [the workload guide](docs/workload.md), and retain failed studies rather than retrying for a favorable result.
 
-## Run the CUDA path
-
-**Requires Linux, an NVIDIA GPU with compute capability 8.0 or newer, a compatible driver, PyTorch and Triton. This path has not been executed on the release host.** Optional dependencies are version-bounded; inspect `kd doctor` and your platform's PyTorch installation requirements.
-
-```bash
-python -m pip install '.[cuda]'
-kd doctor
-kd investigate --family softmax --shape 128 1024 --max-candidates 6 --trace --store .runs
-kd validate .runs/RECORD_ID.json
-# Export only after correctness + discovery + independent confirmation pass:
-kd export .runs/RECORD_ID.json --output optimized.py
-```
-
-The authored templates cover these finite-input, two-dimensional workloads:
-
-| Family | Declared semantics | Initial configuration search |
-|---|---|---|
-| `sum` | Last-dimension reduction | Row block size and warp count |
-| `softmax` | Stable row softmax | Row block size and warp count |
-| `layernorm` | Row normalization, population variance, configurable epsilon, no affine parameters | Row block size and warp count |
-| `fused` | `relu(float32(x) * 1.5 + 0.25)`, cast to input dtype | Element tile size and warp count |
-
-Supported dtypes: float32, float16, bfloat16. Positive strides, nonempty shapes, at most 8,192 columns. No autograd/backward contract, arbitrary CUDA source, matmul optimizer or whole-model replacement is claimed. These are inference adapters. The exported callable enforces the verified shape, dtype, strides, device and source identity.
-
-GPU timing uses warmup, synchronization, randomized paired baseline/candidate ordering, and repeated CUDA events. Compilation/first dispatch is reported separately. Promotion requires reference correctness, a bootstrap lower speedup bound above 1.03, then a fresh-input confirmation. `torch.compile` is measured separately when available. Memory safety remains unverified until independently checked with the supported [sanitizer procedure](docs/usage.md#memory-safety-and-profiling). A constrained subprocess runs only finite authored templates, with a timeout and an environment allowlist; it is not a hostile-code sandbox.
-
-[An attention application benchmark](examples/attention.py) integrates an exported softmax into `QKᵀ → softmax → V` and compares eager, compiled and optimized application paths. It requires a real accepted CUDA export. **No application-level GPU result has been collected.**
-
-## From hypothesis to intervention
-
-![Implemented experiment workflow and future causal evidence boundary](docs/assets/workflow.svg)
-
-The current selector is a compact contextual ridge model with an uncertainty bonus. It learns from recorded rewards, failure outcomes and experiment costs. Offline evaluation holds out whole families and shapes, compares random selection, fixed rules and sequential Gaussian-process Bayesian selection, and ablates workload context and uncertainty. CPU replay results do not establish the GPU research question. Standard Triton autotuning and existing agent baselines still require an actual matched CUDA study.
-
-Hypotheses preserve evidence, missing measurements and falsifiers. The preview does not update them into proven causes merely because one candidate is faster. Diagnosis-conditioned learning, profiler-feature ablations and hardware holdouts remain research work. [Prior art and licensing →](docs/prior-art.md)
-
-## Build on it
-
-- [Install, CLI/API, export and troubleshooting](docs/usage.md)
-- [Benchmark credibility and semantic contracts](docs/methodology.md)
-- [Research question, comparisons and limits](docs/research.md)
-- [Selector features, training and evaluation](docs/selector.md)
-- [Architecture](docs/architecture.md) and [contributing](CONTRIBUTING.md)
-- [License and attribution](THIRD_PARTY_NOTICES.md), [citation](CITATION.cff), [release notes](CHANGELOG.md)
-
-CPU CI validates contracts and distributions. GPU validation is a manual workflow requiring an explicitly provisioned trusted self-hosted runner; this project supplies no paid compute. Open an issue with a reproducible record, workload specification and environment when reporting a problem. Do not include private data or credentials.
+[Contributing](CONTRIBUTING.md) · [License and notices](THIRD_PARTY_NOTICES.md) · [Citation](CITATION.cff) · [Release notes](CHANGELOG.md)
 
 Apache-2.0 · Copyright 2026 Nazeeh Abdul-Hadi

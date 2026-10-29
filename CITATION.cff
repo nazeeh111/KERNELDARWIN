@@ -1,23 +1,26 @@
 cff-version: 1.2.0
 message: "If you use KERNELDARWIN, cite this software and the relevant research foundations in docs/prior-art.md."
-title: "KERNELDARWIN: An evidence-first performance investigation laboratory"
+title: "KERNELDARWIN Workload: Verified GPU workload investigation and guarded computation"
 type: software
 authors:
-  - name: "Nazeeh"
+  - family-names: "Abdul-Hadi"
+    given-names: "Nazeeh"
 repository-code: "https://github.com/nazeeh111/KERNELDARWIN"
 url: "https://github.com/nazeeh111/KERNELDARWIN"
-version: "0.2.0"
-date-released: 2026-10-26
+version: "0.3.0"
 abstract: >-
-  A research-preview laboratory for bounded GPU workload investigation,
-  reproducible verification records, hypothesis tracking, and learned
-  intervention selection. CPU controls do not establish CUDA performance.
+  Local cosine-search computation, bounded authored Metal kernels and
+  source/device-bound static dispatch with compiled MLX fallback. Executed
+  numerical evidence is separate from performance confirmation. The first
+  frozen workload study failed application promotion; no acceleration is
+  claimed. Earlier CPU investigation controls remain preserved.
 keywords:
-  - GPU performance
+  - gpu-optimization
+  - Metal
+  - MLX
+  - performance engineering
+  - auto-tuning
   - reproducible benchmarking
-  - Triton
-  - performance diagnosis
-  - intervention selection
 references:
   - type: article
     title: "KernelBench: Can LLMs Write Efficient GPU Kernels?"

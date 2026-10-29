@@ -28,6 +28,8 @@ def parser():
     p=argparse.ArgumentParser(prog='kd',description='Evidence-first GPU performance investigations')
     p.add_argument('--version',action='version',version=__version__)
     commands=p.add_subparsers(dest='command',required=True)
+    from .workload_cli import add_parser
+    add_parser(commands)
     commands.add_parser('doctor',help='Report GPU capability and exact missing requirements')
     for name in ('investigate','control'):
         c=commands.add_parser(name,help='Run CUDA investigation' if name=='investigate' else 'Measure actual CPU controls (not GPU results)')
@@ -109,6 +111,10 @@ def export_record(record,output):
 def main(argv=None):
     args=parser().parse_args(argv)
     try:
+        if args.command=='workload':
+            from .workload_cli import run
+            result=run(args);dump(result)
+            return 2 if result.get('metal_executed') is False else 0
         if args.command=='doctor':
             from .gpu import doctor
             dump(doctor());return 0
@@ -177,7 +183,7 @@ def main(argv=None):
     except (ValueError,RuntimeError,OSError,KeyError,TypeError,subprocess.TimeoutExpired) as exc:
         print(f'kerneldarwin: {exc}',file=sys.stderr);return 1
     except ImportError as exc:
-        print(f'Missing optional dependency: {exc}. Install .[control] or .[cuda] for the requested backend.',file=sys.stderr);return 1
+        print(f'Missing optional dependency: {exc}. Install .[metal], .[control] or .[cuda] for the requested backend.',file=sys.stderr);return 1
     except KeyboardInterrupt:
         return 130
 

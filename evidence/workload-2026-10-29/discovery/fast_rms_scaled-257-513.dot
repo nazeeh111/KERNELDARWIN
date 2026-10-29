@@ -1,0 +1,46 @@
+digraph {
+{ rank=source; "x"; }
+{ 524748835144 [label ="Abs", shape=rectangle]; }
+"x" -> 524748835144
+{ "B"; }
+524748835144 -> "B"
+{ 524743364776 [label ="Max", shape=rectangle]; }
+"B" -> 524743364776
+{ "C"; }
+524743364776 -> "C"
+{ rank=source; "D"; }
+{ 524743338136 [label ="Broadcast", shape=rectangle]; }
+"D" -> 524743338136
+{ "E"; }
+524743338136 -> "E"
+{ 524743301048 [label ="Maximum", shape=rectangle]; }
+"C" -> 524743301048
+"E" -> 524743301048
+{ "F"; }
+524743301048 -> "F"
+{ 524743337752 [label ="Broadcast", shape=rectangle]; }
+"F" -> 524743337752
+{ "G"; }
+524743337752 -> "G"
+{ 524748419288 [label ="Divide", shape=rectangle]; }
+"x" -> 524748419288
+"G" -> 524748419288
+{ "H"; }
+524748419288 -> "H"
+{ rank=source; "I"; }
+{ 524747768504 [label ="RMSNorm", shape=rectangle]; }
+"H" -> 524747768504
+"I" -> 524747768504
+{ "J"; }
+524747768504 -> "J"
+{ rank=source; "K"; }
+{ 524743338392 [label ="Broadcast", shape=rectangle]; }
+"K" -> 524743338392
+{ "L"; }
+524743338392 -> "L"
+{ 524748419096 [label ="Multiply", shape=rectangle]; }
+"J" -> 524748419096
+"L" -> 524748419096
+{ rank=sink; "M"; }
+524748419096 -> "M"
+}

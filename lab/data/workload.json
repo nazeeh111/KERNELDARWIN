@@ -1,0 +1,61 @@
+{
+  "status": "measured_null",
+  "headline": "GPU checks passed. Application gain unconfirmed.",
+  "summary": "The first target completed three frozen sessions and failed its application performance criterion. Both fused-score variants passed actual GPU numerical checks, but their identical-baseline timing gate failed before tuning. No optimized dispatch artifact has been accepted.",
+  "device": "Apple M4 \u00b7 MLX 0.32.0 \u00b7 float32 accumulation",
+  "operation": "stable_l2_scores_v1",
+  "methods": [
+    {
+      "name": "Compiled normalization + ranking",
+      "observed_cost_ms": 33.459032112500005,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Eager normalization + compiled ranking",
+      "observed_cost_ms": 37.28573064375,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Optimized RMSNorm + compiled ranking",
+      "observed_cost_ms": 33.25178480625,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Whole compiled stable application",
+      "observed_cost_ms": 33.006256175000004,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Whole compiled fast application",
+      "observed_cost_ms": 30.886612847916666,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Best fixed candidate",
+      "observed_cost_ms": 30.5517182375,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Bounded per-shape tuning",
+      "observed_cost_ms": 29.219205822916663,
+      "status": "Measured comparator"
+    },
+    {
+      "name": "Two-kernel static portfolio",
+      "observed_cost_ms": 29.297183077083332,
+      "status": "Measured; confirmation failed"
+    }
+  ],
+  "limits": [
+    "Numerical validity and performance coverage are separate. No acceleration or portfolio advantage is claimed.",
+    "The table describes target one: one refresh and three queries for each of four tasks per sequence. All 120 samples, including losses and background contention, are retained.",
+    "In the least noisy first session, the dispatcher versus the whole compiled stable application was 0.970\u00d7 with a 95% interval of 0.908\u20131.038\u00d7. Later intervals were wider.",
+    "The second target stopped before candidate timing: identical library 95% intervals ranged from about 0.42 to 1.45 under host load around 474.",
+    "Sixteen normalization/application numerical and guard tests and seven fused-score tests passed. Native Metal API and GPU Validation were enabled. Clean installed consumers changed inputs and checked scores and document identifiers.",
+    "Actual application GPU intervals were captured with Instruments. Hardware counters were unavailable; no bandwidth, spill or causal bottleneck claim is made.",
+    "Float32 subnormal inputs follow native Metal flush-to-zero. Normal tiny values pass strict relative checks with zero absolute tolerance.",
+    "The application is local lexical/vector cosine search. No pretrained model, external data, adoption or cross-device claim is implied."
+  ],
+  "evidence_url": "https://github.com/nazeeh111/KERNELDARWIN/tree/main/evidence/workload-2026-10-29",
+  "version": "0.3.0"
+}

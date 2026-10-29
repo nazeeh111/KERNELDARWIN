@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "kind": "owned_process_metal_trace_summary",
+  "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+  "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+  "trace_target_exit_status": 0,
+  "trace_duration_seconds": 2.569795,
+  "own_gpu_interval_rows": 157,
+  "channels": [
+    "Compute"
+  ],
+  "minimum_event_depth": 0,
+  "method_observations": [
+    {
+      "method": "compiled_norm_application",
+      "iterations": 8,
+      "gpu_interval_count": 16,
+      "gpu_busy_us_per_iteration": 296.260625,
+      "median_cpu_to_gpu_latency_us": 245.625
+    },
+    {
+      "method": "whole_stable_application",
+      "iterations": 8,
+      "gpu_interval_count": 15,
+      "gpu_busy_us_per_iteration": 247.635375,
+      "median_cpu_to_gpu_latency_us": 217.917
+    },
+    {
+      "method": "whole_fast_application",
+      "iterations": 8,
+      "gpu_interval_count": 15,
+      "gpu_busy_us_per_iteration": 255.687375,
+      "median_cpu_to_gpu_latency_us": 242.125
+    },
+    {
+      "method": "simd",
+      "iterations": 8,
+      "gpu_interval_count": 15,
+      "gpu_busy_us_per_iteration": 198.7085,
+      "median_cpu_to_gpu_latency_us": 207.041
+    },
+    {
+      "method": "simd4",
+      "iterations": 8,
+      "gpu_interval_count": 15,
+      "gpu_busy_us_per_iteration": 200.911625,
+      "median_cpu_to_gpu_latency_us": 197.375
+    },
+    {
+      "method": "vector4",
+      "iterations": 8,
+      "gpu_interval_count": 16,
+      "gpu_busy_us_per_iteration": 210.276375,
+      "median_cpu_to_gpu_latency_us": 209.7505
+    },
+    {
+      "method": "group128",
+      "iterations": 8,
+      "gpu_interval_count": 15,
+      "gpu_busy_us_per_iteration": 182.76575,
+      "median_cpu_to_gpu_latency_us": 199.458
+    }
+  ],
+  "hardware_counter_set": null,
+  "shader_timeline": "disabled",
+  "limits": [
+    "GPU busy intervals from an instrumented diagnostic run, not the frozen benchmark.",
+    "Phase alignment uses trace wall start and host wall phase markers; submillisecond alignment is approximate.",
+    "Event counts are GPU intervals, not assumed kernel launch counts.",
+    "No hardware counter, bandwidth, register-spill or roofline claim.",
+    "Unrelated system trace records remain local and are not published."
+  ]
+}

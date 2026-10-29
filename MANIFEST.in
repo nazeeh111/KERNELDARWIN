@@ -1,7 +1,7 @@
 include LICENSE NOTICE README.md THIRD_PARTY_NOTICES.md CITATION.cff CHANGELOG.md CONTRIBUTING.md
 recursive-include lab *.html *.css *.js *.svg *.json *.py *.woff2 *.txt
 recursive-include docs *.md *.svg *.png *.jpg *.mp4 *.html *.js *.txt
-recursive-include evidence *.json
+recursive-include evidence *.json *.md *.py *.zip *.dot
 recursive-include examples *.py
 recursive-include scripts *.py
 

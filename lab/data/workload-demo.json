@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "kind": "recorded_installed_gpu_cli_execution",
+  "recorded_at": "2026-10-29T23:19:31Z",
+  "live_browser_compute": false,
+  "performance_claim": false,
+  "script_sha256": "de496b6b9614f82931feda6005f0f97fe9596a17583f6e810bda29afdeae15bc",
+  "rows": [
+    {
+      "command": "kd workload doctor",
+      "result": {
+        "metal_executed": true,
+        "environment": {
+          "mlx": "0.32.0",
+          "mlx_metal": "0.32.0",
+          "system": "Darwin",
+          "os_version": "27.2",
+          "os_build": "26B123",
+          "kernel_release": "27.2.0",
+          "machine": "arm64",
+          "python": "3.12.13",
+          "device": {
+            "device_name": "Apple M4",
+            "architecture": "applegpu_g16g",
+            "memory_size": 34359738368
+          },
+          "gpu_cores": 10,
+          "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+          "compile_options": {
+            "math_mode": "safe"
+          }
+        },
+        "probe_sum_squares": 690880.0,
+        "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+        "timing_note": "A correctness probe is not a performance confirmation",
+        "bundled_artifact": false
+      }
+    },
+    {
+      "command": "kd workload demo --query Metal GPU numerical precision",
+      "result": {
+        "application": "cosine index refresh + top-k search",
+        "artifact_status": "library_only",
+        "dispatch_scope": "query_scoring",
+        "input_prepare_ms": 1.0322920279577374,
+        "compute_ms": 188.2881250057835,
+        "calls": 1,
+        "fallback_calls": 1,
+        "last_decision": {
+          "implementation": "library",
+          "reason": "Unfamiliar tuple/dtype/device or no compatible fused plan"
+        },
+        "ids": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "scores": [
+          [
+            0.5163977742195129,
+            0.30151134729385376,
+            0.0
+          ]
+        ],
+        "timing_note": "Single invocation including cold work; not an acceleration claim",
+        "matches": [
+          "Verify numerical precision using an independent high precision reference.",
+          "Metal GPU kernels normalize vectors with stable reductions and readable source.",
+          "A cosine search index returns documents matching the query vocabulary."
+        ]
+      }
+    },
+    {
+      "command": "kd workload demo --query unknown shapes library fallback",
+      "result": {
+        "application": "cosine index refresh + top-k search",
+        "artifact_status": "library_only",
+        "dispatch_scope": "query_scoring",
+        "input_prepare_ms": 0.7638750248588622,
+        "compute_ms": 17.455374996643513,
+        "calls": 1,
+        "fallback_calls": 1,
+        "last_decision": {
+          "implementation": "library",
+          "reason": "Unfamiliar tuple/dtype/device or no compatible fused plan"
+        },
+        "ids": [
+          [
+            3,
+            0,
+            1
+          ]
+        ],
+        "scores": [
+          [
+            0.5547001957893372,
+            0.0,
+            0.0
+          ]
+        ],
+        "timing_note": "Single invocation including cold work; not an acceleration claim",
+        "matches": [
+          "Unknown shapes and changed environments use a verified MLX library fallback.",
+          "Verify numerical precision using an independent high precision reference.",
+          "Metal GPU kernels normalize vectors with stable reductions and readable source."
+        ]
+      }
+    }
+  ],
+  "note": "These are recorded outputs from the installed CLI on Apple M4. The browser does not execute GPU code. Single-call cold times are not performance evidence."
+}

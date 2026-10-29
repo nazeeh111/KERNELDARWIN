@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Install KERNELDARWIN locally, run cosine search, and inspect the Metal computation plans and its library fallback." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <title>KERNELDARWIN / Workload</title>
+    <link rel="icon" href="mark.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="workload.css" />
+    <script type="module" src="workload.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to workload</a>
+    <header class="site-header">
+      <a class="brand" href="workload.html" aria-label="KERNELDARWIN Workload home"><img src="mark.svg" alt="" width="31" height="31" /><span>KERNELDARWIN<small>WORKLOAD / LOCAL COMPUTE</small></span></a>
+      <nav aria-label="Product navigation"><a href="#install">Install</a><a href="#run">Run</a><a href="#inspect">Inspect</a><a class="lab-link" href="index.html">Open laboratory <span aria-hidden="true">↗</span></a></nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> APPLE SILICON / INFERENCE ONLY</p>
+          <h1 id="page-title">Put vectors<br />to work.</h1>
+          <p class="lede">Run local cosine search with a compiled MLX fallback. Inspect the executed Metal candidates and the evidence required before a plan can run.</p>
+          <a class="button primary" href="#install">Install locally <span aria-hidden="true">↓</span></a>
+          <p class="quiet">Python 3.11+ · macOS arm64 · MLX 0.32.0</p>
+        </div>
+        <div class="operation-panel" aria-label="Computation in context">
+          <div class="panel-caption"><span>THE WORKLOAD</span><span class="muted">stable_l2_scores_v1</span></div>
+          <div class="flow-row"><span class="flow-label">Your vectors</span><span class="flow-note">index + queries</span></div>
+          <div class="flow-connector" aria-hidden="true">↓</div>
+          <div class="flow-row highlighted"><span class="flow-label">Normalize rows</span><code>x / max(‖x‖₂, 1e−12)</code></div>
+          <div class="flow-connector" aria-hidden="true">↓</div>
+          <div class="flow-row"><span class="flow-label">Cosine search</span><span class="flow-note">multiply → rank → top k</span></div>
+          <p class="panel-foot">On your Mac. No model download or runtime network call.</p>
+        </div>
+      </section>
+
+      <section class="evidence-strip" aria-labelledby="evidence-heading" aria-busy="true" id="evidence">
+        <div><p class="eyebrow" id="evidence-heading">MEASUREMENT STATUS</p><h2 id="evidence-headline">Performance confirmation pending</h2><p id="evidence-summary">Numerical execution has been checked on Apple M4. Timing claims require accepted measurements.</p></div>
+        <div class="evidence-action"><span class="status-label" id="evidence-status">Loading evidence</span><a id="evidence-link" hidden>Read evidence <span aria-hidden="true">↗</span></a><button class="text-button" id="retry-evidence" type="button" hidden>Retry loading evidence</button></div>
+        <p class="load-feedback" id="data-feedback" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="task-section" id="install" aria-labelledby="install-title">
+        <div class="step-heading"><span class="step-number">01</span><div><p class="eyebrow">INSTALL</p><h2 id="install-title">One pinned local environment.</h2><p>Use the v0.3.0 wheel with the Metal extra, which installs the pinned MLX and NumPy dependencies. Start in an isolated Python environment.</p><a class="inline-link" id="wheel-link" href="https://github.com/nazeeh111/KERNELDARWIN/releases">Find release files <span aria-hidden="true">↗</span></a></div></div>
+        <div class="code-panel"><div class="panel-caption"><span>TERMINAL / MACOS ARM64</span><button class="copy-button" type="button" data-copy="install-code" aria-label="Copy installation commands">Copy commands</button></div><pre><code id="install-code">python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install './kerneldarwin-0.3.0-py3-none-any.whl[metal]'
+kd workload doctor</code></pre><p class="panel-foot">Download the wheel into this directory first. Doctor reports the local environment and available Metal device.</p></div>
+      </section>
+
+      <section class="task-section" id="run" aria-labelledby="run-title">
+        <div class="step-heading"><span class="step-number">02</span><div><p class="eyebrow">RUN</p><h2 id="run-title">Search something real.</h2><p>The demo builds a local index and returns ranked matches. Its deterministic token-count features require no pretrained model. Bring your own embeddings for your application.</p><label class="field-label" for="consumer">Choose an input</label><select id="consumer"><option value="demo">Included local corpus</option><option value="vectors">My embedding vectors (.npz)</option></select><p class="field-help" id="consumer-help">Start with the bundled corpus. Results are lexical matches from hashed token counts.</p></div></div>
+        <div class="run-panel"><div class="code-panel"><div class="panel-caption"><span>TERMINAL / LOCAL SEARCH</span><button class="copy-button" type="button" data-copy="run-code" aria-label="Copy local search command">Copy command</button></div><pre><code id="run-code">kd workload demo</code></pre><p class="panel-foot" id="run-note">Uses a compatible bundled artifact if present, otherwise the compiled MLX fallback. Override with --artifact PATH.</p></div><details class="code-disclosure"><summary>Use the callable in Python <span aria-hidden="true">+</span></summary><div class="disclosure-content"><div class="code-toolbar"><span>APPLICATION API</span><button class="copy-button" type="button" data-copy="python-code" aria-label="Copy Python example">Copy Python</button></div><pre><code id="python-code">from kerneldarwin.fused_search import FusedPlan
+from kerneldarwin.search import text_vectors
+
+plan = FusedPlan()  # complete compiled MLX fallback
+documents = ["Metal kernel", "cosine vector search", "CPU control"]
+index = plan.index(text_vectors(documents))
+ids, scores = index.search(text_vectors(["vector search"]), k=2)
+print([(documents[i], score) for i, score in zip(ids[0], scores[0])])
+print(plan.last_decision)</code></pre><p>To install an exported plan, replace the first line of setup with <code>plan = FusedPlan("artifact")</code>. Invalid or stale plans select the library fallback.</p></div></details><details class="code-disclosure" id="recorded-demo"><summary>See the actual installed search <span aria-hidden="true">+</span></summary><div class="disclosure-content"><p class="source-label">RECORDED ON APPLE M4 / READ-ONLY OUTPUT</p><p id="recorded-note">Loading the installed CLI recording. The browser does not execute GPU code.</p><label class="field-label" for="recorded-query">Choose a recorded query</label><select id="recorded-query" disabled><option value="0">Metal GPU numerical precision</option><option value="1">Unknown shapes and library fallback</option></select><pre><code id="recorded-output">Recording pending.</code></pre><p>This recording shows real computation and library fallback. It is separate from the frozen performance study.</p></div></details></div>
+      </section>
+
+      <section class="task-section inspection-section" id="inspect" aria-labelledby="inspect-title">
+        <div class="step-heading"><span class="step-number">03</span><div><p class="eyebrow">INSPECT</p><h2 id="inspect-title">Know what gets dispatched.</h2><p>A plan is data: exact shape rules, source hashes, environment identity, and confirmation evidence. The export includes the readable Metal source.</p><a class="button secondary" id="artifact-link" hidden>Download confirmed artifact <span aria-hidden="true">↓</span></a><p class="artifact-note" id="artifact-note">A confirmed artifact is not available yet. The fallback remains usable.</p><p class="quiet">No online tuning, LLM, or answer cache.</p></div></div>
+        <div class="inspection-panel"><div class="panel-caption"><span>STATIC DISPATCH / EXAMPLES</span><span class="muted">Not a live device check</span></div><label class="field-label" for="guard-example">Inspect a guard outcome</label><select id="guard-example"><option value="matched">Float32 + exact shape + matching plan</option><option value="shape">Shape absent from the plan</option><option value="dtype">Float16 or bfloat16 input</option><option value="identity">Source or environment changed</option><option value="strides">Supported input with noncontiguous strides</option><option value="autodiff">Request a backward / autodiff pass</option></select><div class="guard-result" id="guard-result" role="status" aria-live="polite"><span class="decision" id="guard-decision">Eligible for a plan rule</span><p id="guard-explanation">A candidate can run only when the installed artifact passed numerical checks and independent performance confirmation. Eligibility alone is not a speedup claim.</p></div><details class="source-disclosure"><summary>Read the kernel and semantic contract <span aria-hidden="true">+</span></summary><div class="disclosure-content"><p class="source-label">score_simd.metal · authored source excerpt</p><pre><code>const long query_base = long(query) * long(queries_strides[0]);
+// Each read uses the actual device strides.
+const float value = column &lt; D
+    ? queries[query_base + long(column) * long(queries_strides[1])]
+    : 0.0f;</code></pre><ul class="contract-list"><li>Float32 accumulation with stable maximum scaling.</li><li>Denominator clamped at <code>1e-12</code>; zero rows stay zero.</li><li>Any NaN or infinity makes the entire output row NaN.</li><li>Float16 and bfloat16 use the library fallback.</li><li>Only two-dimensional MLX arrays; inference only.</li></ul><p>A confirmed scoring export would contain <code>manifest.json</code>, <code>score_simd.metal</code> and <code>score_tile4.metal</code>. No plan passed the performance gates in this investigation. Source and environment must match before a rule can run.</p></div></details></div>
+      </section>
+
+      <section class="measurement-section" aria-labelledby="measurement-title"><div class="measurement-heading"><div><p class="eyebrow">EVIDENCE / SCOPE</p><h2 id="measurement-title">Measure the application too.</h2></div><p id="measurement-device">Apple M4 · local Metal investigation</p></div><div class="result-columns"><div><span class="metric-label">Target one / normalization gain</span><strong id="normalization-value">Pending</strong><p id="normalization-ci">No accepted confidence interval.</p></div><div><span class="metric-label">Target one / application gain</span><strong id="application-value">Pending</strong><p id="application-ci">No accepted confidence interval.</p></div></div><details id="methods-details"><summary>Methods and reported costs <span aria-hidden="true">+</span></summary><div class="method-table-wrap"><table><caption id="methods-caption">Reported comparison methods; missing costs are pending.</caption><thead><tr><th scope="col">Method</th><th scope="col">Cost</th><th scope="col">Status</th></tr></thead><tbody id="methods-body"><tr><td colspan="3">Method results await accepted measurements.</td></tr></tbody></table></div></details><ul class="limits" id="evidence-limits"><li>Numerical correctness does not establish performance.</li><li>A timing baseline was rejected because of host contention. Performance confirmation is pending.</li><li>No claim of generalization across devices, shapes, or applications.</li></ul></section>
+
+      <div class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></div>
+      <footer><span>KERNELDARWIN <span class="muted">/</span> <span id="version-label">WORKLOAD v0.3.0</span></span><a href="index.html">Original CPU controls and research evidence <span aria-hidden="true">↗</span></a><a href="https://github.com/nazeeh111/KERNELDARWIN">Source on GitHub <span aria-hidden="true">↗</span></a></footer>
+    </main>
+  </body>
+</html>

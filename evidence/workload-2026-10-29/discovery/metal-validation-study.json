@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "kind": "executed_metal_numerical_validation",
+  "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+  "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "gpu_executed": true,
+  "success": true,
+  "tests_run": 16,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "wall_seconds": 5.399647207988892,
+  "output": "test_adversarial_magnitudes_cancellation_and_tails (test_metal_workload.MetalWorkloadTests.test_adversarial_magnitudes_cancellation_and_tails) ... ok\ntest_application_changes_inputs_and_matches_independent_scores (test_metal_workload.MetalWorkloadTests.test_application_changes_inputs_and_matches_independent_scores) ... ok\ntest_application_rejects_nonfinite_vectors_explicitly (test_metal_workload.MetalWorkloadTests.test_application_rejects_nonfinite_vectors_explicitly) ... ok\ntest_float32_subnormal_behavior_is_explicit (test_metal_workload.MetalWorkloadTests.test_float32_subnormal_behavior_is_explicit) ... ok\ntest_layouts_offsets_repeated_calls_and_changed_contents (test_metal_workload.MetalWorkloadTests.test_layouts_offsets_repeated_calls_and_changed_contents) ... ok\ntest_nonfinite_rows_and_library_fallback_contract (test_metal_workload.MetalWorkloadTests.test_nonfinite_rows_and_library_fallback_contract) ... ok\ntest_optimized_library_alternatives_and_injected_regression (test_metal_workload.MetalWorkloadTests.test_optimized_library_alternatives_and_injected_regression) ... ok\ntest_static_dispatch_changed_inputs_and_plan_invalidations (test_metal_workload.MetalWorkloadTests.test_static_dispatch_changed_inputs_and_plan_invalidations) ... ok\ntest_tiny_normal_values_are_not_silently_zeroed (test_metal_workload.MetalWorkloadTests.test_tiny_normal_values_are_not_silently_zeroed) ... ok\ntest_installed_measurement_source_pin_matches_repository (test_workload.WorkloadPlanTests.test_installed_measurement_source_pin_matches_repository) ... ok\ntest_loaded_source_identity_does_not_relabel_cached_code_on_disk_change (test_workload.WorkloadPlanTests.test_loaded_source_identity_does_not_relabel_cached_code_on_disk_change) ... ok\ntest_malformed_missing_oversized_and_stale_plan_fail_closed (test_workload.WorkloadPlanTests.test_malformed_missing_oversized_and_stale_plan_fail_closed) ... ok\ntest_no_plan_is_explicit_library_mode (test_workload.WorkloadPlanTests.test_no_plan_is_explicit_library_mode) ... ok\ntest_stale_source_never_probes_device_or_loads_code (test_workload.WorkloadPlanTests.test_stale_source_never_probes_device_or_loads_code) ... ok\ntest_study_identity_changes_with_application_or_competing_baseline (test_workload.WorkloadPlanTests.test_study_identity_changes_with_application_or_competing_baseline) ... ok\ntest_unavailable_native_identity_probe_keeps_library_fallback (test_workload.WorkloadPlanTests.test_unavailable_native_identity_probe_keeps_library_fallback) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 4.974s\n\nOK\n",
+  "requested_validation_environment": {
+    "MTL_DEBUG_LAYER": "1",
+    "MTL_SHADER_VALIDATION": "1"
+  },
+  "test_sources": {
+    "test_metal_workload.py": "e255a41c0c6aafcebf525846b17adc51b4249dbc0610327fbd542004b85e8e9f",
+    "test_workload.py": "8f457f43e5e30264a0b9ad4bff4666f9cdeeb46a5a4752bed6b4d2377af30b72"
+  },
+  "time_utc": "2026-10-29T07:00:44Z",
+  "limitations": [
+    "Numerical correctness is separate from performance coverage.",
+    "Float32 input subnormals follow observed Metal flush-to-zero.",
+    "No CUDA sanitizer or cross-device pass is claimed."
+  ]
+}
