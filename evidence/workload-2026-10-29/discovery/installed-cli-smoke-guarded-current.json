@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "success": true,
+  "gpu_executed": true,
+  "package_location": "/private/tmp/kd-workload-final-consumer-20261029/env/lib/python3.12/site-packages/kerneldarwin/__init__.py",
+  "version": "0.3.0",
+  "source_sha256": "fae44c8d69dd6ac9ef0ef0a4459bcb6d2a0e4aabb02c733a2398615028423803",
+  "study_identity": "5d2857e32e7cebdc26cddae82cefcec362ac6d3bcc385b891713b7d0cc2b1be3",
+  "checks": [
+    {
+      "kind": "changed_npz",
+      "change": 0,
+      "independent_scores_and_ids": true,
+      "artifact_status": "library_only",
+      "fallback_calls": 1
+    },
+    {
+      "kind": "changed_npz",
+      "change": 1,
+      "independent_scores_and_ids": true,
+      "artifact_status": "library_only",
+      "fallback_calls": 1
+    },
+    {
+      "kind": "integer",
+      "returncode": 1,
+      "explicit_error": "kerneldarwin: Both matrices must share explicit float32 or float16 dtype"
+    },
+    {
+      "kind": "width",
+      "returncode": 1,
+      "explicit_error": "kerneldarwin: Query width must match index width"
+    },
+    {
+      "kind": "empty_index",
+      "returncode": 1,
+      "explicit_error": "kerneldarwin: An index needs nonempty two-dimensional vectors"
+    }
+  ],
+  "limitation": "A correctness/CLI check does not establish acceleration."
+}

@@ -13,6 +13,8 @@ Investigate a real GPU workload, then install only what survives independent che
 Use Apple Silicon macOS and Python 3.11 or later. The executed environment used Python 3.12.13, MLX and MLX Metal 0.32.0, macOS 27.2 build 26B123, and a 10-core Apple M4 GPU. The basic package remains CPU-compatible; the following extra installs the pinned Metal dependencies.
 
 ```bash
+git clone --branch codex/workload-metal --single-branch https://github.com/nazeeh111/KERNELDARWIN.git
+cd KERNELDARWIN
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install '.[metal]'
@@ -34,9 +36,9 @@ The included corpus uses deterministic token-count features, with no downloaded 
 
 [Complete quickstart and typed Python API](docs/workload.md).
 
-![Workload interface with the retained null result](docs/assets/v0.3/final/workload-desktop.png)
+![Workload interface with the retained null result](docs/assets/v0.3/verified-source/workload-desktop.png)
 
-[Recorded walkthrough](docs/assets/v0.3/final/workload-interaction.mp4) · [Actual installed CLI outputs](evidence/workload-2026-10-29/discovery/installed-cli-demo.json). The browser recording shows recorded GPU results and library fallback; it does not run GPU code in the browser.
+[Recorded walkthrough](docs/assets/v0.3/verified-source/workload-interaction.mp4) · [Actual installed CLI outputs](evidence/workload-2026-10-29/discovery/installed-cli-demo.json). The browser recording shows recorded GPU results and library fallback; it does not run GPU code in the browser.
 
 ## What was investigated
 
@@ -44,12 +46,12 @@ The measured application performs one index refresh and three top-k searches acr
 
 | Target | Implemented variants | Current evidence |
 | --- | --- | --- |
-| Stable row L2 normalization | SIMD reduction, four-row SIMD grouping, packed vector access, shared reduction | 16 numerical/guard tests passed; three frozen confirmation sessions completed; application gate failed |
+| Stable row L2 normalization | SIMD reduction, four-row SIMD grouping, packed vector access, shared reduction | 18 current numerical/guard tests passed; historical three-session study failed application gate |
 | Query normalization fused with similarity scoring | One SIMD group per query/document pair; shared normalized query reused across four documents | Seven further Metal numerical/application tests passed; baseline instability stopped tuning |
 
 The first target's development portfolio reduced weighted normalization cost by about 6% versus its best fixed candidate. That did **not** establish a complete-application benefit. In confirmation session 0, the portfolio was slower at the point estimate than the complete compiled stable library query: **0.970×**, 95% interval **[0.908, 1.038]**. Later sessions also failed the frozen improvement gate. Every session and all losses remain in [the preserved study](evidence/workload-2026-10-29/target1-normalization/).
 
-Actual Instruments evidence records GPU compute intervals for the installed application. Hardware counters and a shader timeline were unavailable. Instrumented interval observations and compiler graphs are diagnostic evidence, not a causal explanation or a replacement for the failed application confirmation.
+Actual Instruments evidence records GPU compute intervals for the installed application. The captured trace has no hardware counter set, and its shader timeline was disabled. Instrumented interval observations and compiler graphs are diagnostic evidence, not a causal explanation or a replacement for the failed application confirmation.
 
 ## Installable computation and guards
 

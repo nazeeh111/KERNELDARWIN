@@ -47,11 +47,11 @@
       </section>
 
       <section class="task-section" id="install" aria-labelledby="install-title">
-        <div class="step-heading"><span class="step-number">01</span><div><p class="eyebrow">INSTALL</p><h2 id="install-title">One pinned local environment.</h2><p>Use the v0.3.0 wheel with the Metal extra, which installs the pinned MLX and NumPy dependencies. Start in an isolated Python environment.</p><a class="inline-link" id="wheel-link" href="https://github.com/nazeeh111/KERNELDARWIN/releases">Find release files <span aria-hidden="true">↗</span></a></div></div>
+        <div class="step-heading"><span class="step-number">01</span><div><p class="eyebrow">INSTALL</p><h2 id="install-title">One pinned local environment.</h2><p>v0.3.0 is an unreleased source preview. From the Workload checkout, create an isolated environment. The Metal extra installs pinned MLX and NumPy dependencies.</p><a class="inline-link" id="wheel-link" href="https://github.com/nazeeh111/KERNELDARWIN/tree/codex/workload-metal">Open Workload source <span aria-hidden="true">↗</span></a></div></div>
         <div class="code-panel"><div class="panel-caption"><span>TERMINAL / MACOS ARM64</span><button class="copy-button" type="button" data-copy="install-code" aria-label="Copy installation commands">Copy commands</button></div><pre><code id="install-code">python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install './kerneldarwin-0.3.0-py3-none-any.whl[metal]'
-kd workload doctor</code></pre><p class="panel-foot">Download the wheel into this directory first. Doctor reports the local environment and available Metal device.</p></div>
+python -m pip install '.[metal]'
+kd workload doctor</code></pre><p class="panel-foot">Start in the source checkout. Doctor executes GPU arithmetic and reports the local environment. No accepted optimized artifact is bundled.</p></div>
       </section>
 
       <section class="task-section" id="run" aria-labelledby="run-title">

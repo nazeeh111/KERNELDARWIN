@@ -38,13 +38,13 @@ Only **`status: "confirmed"`** permits supplied ratios, `methods[].cost_ms` and 
 
 All other statuses, including `pending`, ignore both cost fields, ratios and artifact links. Missing costs remain pending. Browser regression source includes a dedicated measured-null injection case that supplies favorable fake ratios, a fake artifact and conflicting cost fields; only the explicit observed cost may appear. Test source is not a claim that the final browser suite has executed successfully.
 
-The original seven-test fused report and 15-check installed consumer retain the [historical `d733761…` measurement pin](../evidence/workload-2026-10-29/target2-fused-scores/fused-study-source-rejected.json). The [current seven-test report](../evidence/workload-2026-10-29/discovery/metal-validation-fused-current.json) re-executed the final adapter and new `628cfe4…` study binding successfully. Its kernel/adapter identity remains `e10fbfb…`. The corrected prospective selector measures actual routed application costs and empty-plan overhead; it has no new performance study. Rejected source and raw pairs remain preserved.
+The original seven-test fused report and 15-check installed consumer retain the [historical `d733761…` measurement pin](../evidence/workload-2026-10-29/target2-fused-scores/fused-study-source-rejected.json). The [final seven-test report](../evidence/workload-2026-10-29/discovery/metal-validation-fused-guarded-current.json) re-executed the adapter with the tightened row-source guards and current study bindings successfully. Its score kernel/adapter identity remains `e10fbfb…`. The corrected prospective selector measures actual routed application costs and empty-plan overhead; it has no new performance study. Rejected source and raw pairs remain preserved.
 
 An unavailable or malformed JSON file presents an explicit retry state while leaving local instructions usable. No fabricated timing curve, favorable placeholder or browser GPU claim is supplied. A denied clipboard operation selects the source and explains the system-copy fallback.
 
 The run section also fetches `data/workload-demo.json`, a recording made by `scripts/record_workload_demo.py` from an independent installed CLI. Two changed queries show actual different matches and an explicit library fallback. The page states that the browser does not execute GPU code and omits single-call times from the display. The raw recording retains those times with their cold-call limitation.
 
-The wheel command expects a downloaded pinned `kerneldarwin-0.3.0-py3-none-any.whl` in the working directory. Publication and download verification are separate delivery gates. A release link is not proof that this asset has already been published.
+The install panel identifies v0.3.0 as an unreleased source preview, links to the Workload source branch and installs `.[metal]` from its checkout into an isolated environment. The Metal dependencies are pinned. A versioned wheel and public successful release remain separate delivery gates; the interface does not offer an unavailable artifact.
 
 ## Review and handoff
 

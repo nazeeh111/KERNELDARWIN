@@ -9,6 +9,8 @@ The application performs local cosine search on caller vectors or deterministic 
 Use Apple Silicon macOS and Python 3.11 or later. The executed environment used Python `3.12.13`. From the current source checkout:
 
 ```bash
+git clone --branch codex/workload-metal --single-branch https://github.com/nazeeh111/KERNELDARWIN.git
+cd KERNELDARWIN
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install '.[metal]'

@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "kind": "local_workload_source_review_evidence",
+  "version": "0.3.0-unreleased",
+  "accepted_optimized_artifact": false,
+  "performance_confirmation_passed": false,
+  "public_successful_release": false,
+  "merged_upstream": "dd8e1e1a7eebb35e6b160ba354e2aa6268de726d",
+  "python": {
+    "tests_run": 79,
+    "passed_cpu_compatible": 63,
+    "explicit_metal_skips": 16
+  },
+  "frontend": {
+    "tests_passed": 22
+  },
+  "browser": {
+    "full_run_passed": 19,
+    "full_run_failed": 1,
+    "isolated_recheck_passed": 1,
+    "behaviors_checked": 20,
+    "interruption": "Initial local js/inspection.js fetch did not finish before a five-second setup expectation; the large-trace feature had not run. The isolated recheck passed without changing source or assertions."
+  },
+  "actual_metal": {
+    "metal-validation-row-guarded-current.json": {
+      "tests_run": 18,
+      "source_sha256": "fae44c8d69dd6ac9ef0ef0a4459bcb6d2a0e4aabb02c733a2398615028423803",
+      "study_identity": "5d2857e32e7cebdc26cddae82cefcec362ac6d3bcc385b891713b7d0cc2b1be3"
+    },
+    "metal-validation-fused-guarded-current.json": {
+      "tests_run": 7,
+      "source_sha256": "e10fbfb5fb613d8d271c87bcc832bd0aca30d4ac12b1f954253f8237f8bd4e10",
+      "study_identity": "a8e0344ec36f79b4c264cce8c3a8d9c3b4088fdae8008f777768a70c6e061c9a"
+    }
+  },
+  "independent_installed": {
+    "row_checks": 28,
+    "fused_checks": 15,
+    "changed_npz_checks": 2,
+    "cli_failure_checks": 3,
+    "accepted_custom_dispatch": false,
+    "no_source_or_tuning_files_copied": true
+  },
+  "report_sha256": {
+    "evidence/workload-2026-10-29/discovery/metal-validation-row-guarded-current.json": "629b83d30278dc812e81963eada48cfad16741b3b98843cf1964fd45fa840e8c",
+    "evidence/workload-2026-10-29/discovery/metal-validation-fused-guarded-current.json": "0f9096a97d54530c224dcb7b38f65c27c358de98c17dead31def80435bd5ea9b",
+    "evidence/workload-2026-10-29/discovery/installed-row-consumer-guarded-current.json": "5ac440a45616fbb38a7a3bd6bf2b9525d123f3d979289f451aff230992212904",
+    "evidence/workload-2026-10-29/discovery/installed-fused-consumer-guarded-current.json": "27d7111455405e2081ef9a17a9a82b153210c1704fca43cd1b9033e53299c90f",
+    "evidence/workload-2026-10-29/discovery/installed-cli-smoke-guarded-current.json": "0bb5feeb3c43754ffcc8d90bda8af42c8a9beb80ea9e213895a09acf7d1a29ac"
+  },
+  "visual_source": {
+    "kind": "actual_browser_interaction_recording",
+    "performance_claim": false,
+    "note": "Actual browser interaction with read-only recorded installed GPU CLI outputs and retained null performance study. No live GPU browser execution.",
+    "source_sha256": {
+      "workload.html": "5c4ec89f5d41ac13c25328a82eb278df25455b869c752cdb284753b52a5161cc",
+      "workload.css": "8002c680986b4022317321afb8fe3c45e6b228954d2232836937311e15676138",
+      "workload.js": "f1843825a3e441698e0fa1bff22b2ca91e658e22bc1811dc6fe1141e8e014708",
+      "data/workload.json": "88330ff9acd4fab09293aefb1fd505a5e18b777d1612c6283e14327e24011a69",
+      "data/workload-demo.json": "94221b2ca5c165e16dab6edcb3dca98dc75bc6b10a936e93139558aa1834b078"
+    },
+    "browser": "156.0.8078.49",
+    "captured_at": "2026-10-29T23:50:24.538Z"
+  },
+  "root_inspected": [
+    "workload-desktop.png",
+    "workload-mobile.png",
+    "workload-recorded-computation.png",
+    "workload-measured-null.png"
+  ],
+  "media": {
+    "duration_seconds": 20.24,
+    "bytes": 896694,
+    "sha256": "7532f027dcc93cad89be864bfebc3cedc6bd046b5e5e9a22e64a2d33f84254c0",
+    "full_decode_passed": true
+  },
+  "review": "Three concrete row-source/export findings were fixed and independently rechecked with targeted CPU probes. This is bounded agent-assisted review, not a correctness guarantee.",
+  "preservation": "Original CPU measurement files and v0.2/v0.2.1 assets have no diff versus merged upstream. Raw Instruments trace remains local because it contains unrelated system context.",
+  "limits": [
+    "Actual numerical execution does not establish acceleration.",
+    "First target failed frozen application confirmation.",
+    "Fused target stopped at baseline instability before candidate timing.",
+    "Public source, remote CI, clean clone and any later release require separate verification."
+  ]
+}

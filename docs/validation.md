@@ -1,4 +1,14 @@
-# Validation status · v0.2.1 research preview
+# Current validation status
+
+## Workload source preview, v0.3.0 unreleased
+
+The current local Python suite passes 63 CPU-compatible tests, with 16 Metal methods explicitly skipped in that CPU invocation. The actual M4 Metal runs separately passed 18 row/application/guard methods (nine GPU and nine CPU guards) and seven fused-score GPU methods, with native API and GPU shader validation enabled. [Executed reports and limits](workload-results.md). The merged frontend suite passes 22 tests. Final merged browser/package/remote verification is recorded separately when complete.
+
+Actual Metal computation does not establish acceleration. The original frozen row study failed its application criterion; the second target failed its prospective baseline-stability gate before tuning. No accepted optimized artifact or successful Workload release exists. The default application uses the complete compiled stable MLX query. CUDA execution, hardware counters, cross-device results and learned GPU superiority remain unverified.
+
+The remaining sections preserve the earlier v0.2.1 validation snapshot and its CUDA research scope. Their historical statements do not override the current Metal reports above.
+
+## Archived v0.2.1 research preview snapshot
 
 ## Established on this host
 

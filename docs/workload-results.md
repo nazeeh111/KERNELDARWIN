@@ -6,10 +6,10 @@
 
 | Scope | Executed result | Evidence |
 | --- | --- | --- |
-| Stable row normalization, application and installation guards | 16 tests, zero failures, errors or skips; nine GPU test methods and seven CPU contract methods | [Current-source row validation](../evidence/workload-2026-10-29/discovery/metal-validation-study.json) |
-| Fused query normalization and similarity scoring | Seven GPU test methods, zero failures, errors or skips | [Fused validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-v1.json) |
+| Current stable row normalization, application and installation guards | 18 tests, zero failures, errors or skips; nine GPU methods and nine CPU contract methods | [Current row validation](../evidence/workload-2026-10-29/discovery/metal-validation-row-guarded-current.json) |
+| Fused query normalization and similarity scoring | Seven GPU test methods, zero failures, errors or skips | [Current fused validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-guarded-current.json) |
 
-These are separate executed suites, not a claim that every future source revision has passed them. Both used Metal API and GPU shader validation. Recorded hardware was a 10-core Apple M4 GPU with 32 GiB memory, MLX and MLX Metal `0.32.0`, Python `3.12.13`, and arm64 macOS `27.2`, build `26B123`. CUDA sanitizers and other-device validation are not implied.
+The original frozen first study retains its earlier 16-test report and exact source snapshot. Later source-guard changes were separately revalidated in the reports above; historical records were not relabeled. These are separate executed suites, not a claim that every future source revision has passed them. Both used Metal API and GPU shader validation. Recorded hardware was a 10-core Apple M4 GPU with 32 GiB memory, MLX and MLX Metal `0.32.0`, Python `3.12.13`, and arm64 macOS `27.2`, build `26B123`. CUDA sanitizers and other-device validation are not implied.
 
 The checks use independent float64 references, optimized libraries, changed input contents, extreme magnitudes, cancellation, irregular widths, offsets, transposes, negative strides and broadcast views. Application checks verify top-k scores and their associated valid, unique IDs. Failed index refresh preserves the previous index. Strict tiny-normal tests use zero absolute tolerance so an incorrectly zeroed result cannot pass. Float32 subnormals follow native Metal flush-to-zero behavior. [Semantic details](workload-semantics.md).
 
@@ -62,6 +62,8 @@ These pooled costs cannot hide an independent-session loss or establish the requ
 
 [Raw confirmations and replayed verification](../evidence/workload-2026-10-29/target1-normalization/verification-null.json) report `numerical_passed: true`, `resource_passed: true`, `normalization_passed: false`, `application_passed: false` and `confirmation_passed: false`. The frozen policy remains unconfirmed. The exact runtime and measurement source is preserved in [the source snapshot](../evidence/workload-2026-10-29/target1-normalization/runtime-measurement-source.zip).
 
+After the frozen study, independent review tightened three row-path contracts: readable artifact bytes must equal the loaded authored source; the verifier reconstructs prospective minimum criteria and budgets; and future confirmation must independently associate returned IDs with float64 document scores. The old confirmation records checked returned top-k values but did not record ID-association flags, although separate GPU tests and installed consumers did check associations. Current verification therefore also rejects that historical study's older source/contract. It remains a preserved null result, not a current export candidate. Synthetic regression fixtures for these guards are not hardware evidence.
+
 ## Search, startup and resource costs
 
 The bounded development search took **7.15 seconds** and reached **163,264,740 bytes** of MLX peak allocation. Confirmation peaks were at most **217,404,396 bytes**, below the 2 GiB limit. The four authored normalization Metal sources total **4,453 bytes**. There is no accepted artifact whose installed size can be reported.
@@ -85,7 +87,7 @@ Host load was about 6.6 at the successful baseline freeze and increased material
 
 An installed application completed 56 changed-input refresh/search iterations across seven controlled paths with independent score/ID checks. A successful Instruments Metal System Trace contains **157 owned-process active Compute intervals**. [Sanitized execution](../evidence/workload-2026-10-29/discovery/profile-installed.json) and [GPU-interval summary](../evidence/workload-2026-10-29/discovery/profile-gpu-intervals.json) preserve that evidence. Unrelated system context stays local.
 
-The stable and fast complete-query compiler graphs contain 16 and 17 primitive nodes. They reveal graph structure and guide target selection; node counts do not measure time. The interval summary's method alignment is approximate and some phase intervals are omitted. It is not precise device-only benchmark evidence. Hardware counters were unavailable and the shader timeline was disabled, so there is no measured bandwidth, spill, roofline or causal bottleneck claim.
+The stable and fast complete-query compiler graphs contain 16 and 17 primitive nodes. They reveal graph structure and guide target selection; node counts do not measure time. The interval summary's method alignment is approximate and some phase intervals are omitted. It is not precise device-only benchmark evidence. The hardware counter set was null and the shader timeline was disabled, so there is no measured bandwidth, spill, roofline or causal bottleneck claim.
 
 | Competing explanation | Observation and remaining uncertainty |
 | --- | --- |
@@ -114,3 +116,9 @@ The second study was prospectively bounded to two authored variants, 15 minutes 
 A separate [independent installed-wheel consumer](../evidence/workload-2026-10-29/discovery/installed-fused-consumer.json) changed data in three repetitions and passed 15 method checks, covering the installed plan, both optimized libraries and both direct authored candidates. The plan reported `library_only`, zero custom dispatches and four fallback calls, including an unknown tuple. Direct candidate execution proves those authored computations ran; it does not establish an accepted installed custom plan or a performance result.
 
 An accepted artifact still requires repeatable end-to-end improvement against the strongest required libraries under the frozen criterion, installed changed-input execution without private development files, and verified release delivery. There is no learned-selector, cross-device, production-adoption or CUDA validation claim. The broader workload-acceleration objective remains incomplete.
+
+## Current source delivery checks
+
+After the source-guard fixes and concurrent v0.2.1 LAB integration, the current local Python suite passes 63 CPU-compatible methods with 16 explicit Metal skips. The actual Metal suites separately pass 18 row/application/guard methods and seven fused GPU methods. The frontend suite passes 22 methods. Nineteen merged browser cases passed in the full run; one case stopped during an unfinished local module fetch before its feature ran, then passed in a serialized isolated recheck. No application source was changed or assertion weakened for that recheck. These are 20 checked browser behaviors, with the setup interruption retained in the task logs. Remote CI remains a separate gate.
+
+The current independent installed wheel passed [28 row checks](../evidence/workload-2026-10-29/discovery/installed-row-consumer-guarded-current.json), [15 fused checks](../evidence/workload-2026-10-29/discovery/installed-fused-consumer-guarded-current.json), and [two changed NPZ quickstarts plus three explicit CLI failures](../evidence/workload-2026-10-29/discovery/installed-cli-smoke-guarded-current.json). The source tree, corpus and tuning files were absent. Plans remained library-only, while direct authored candidates executed and were independently checked. No accepted custom dispatch or successful optimized release is implied.
