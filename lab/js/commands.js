@@ -4,6 +4,7 @@ import { reveal } from "./motion.js";
 
 /** A native modal and ordinary buttons keep focus and activation browser-owned. */
 export function installCommands({ trigger, routes, getState, actions }) {
+  let opener;
   const results = el("div", { class: "command-results" });
   const count = el("p", { class: "sr-only", role: "status" });
   const search = el("input", {
@@ -26,7 +27,7 @@ export function installCommands({ trigger, routes, getState, actions }) {
         {
           class: "icon-button",
           "aria-label": "Close command search",
-          onclick: () => dialog.close(),
+          onclick: () => close(),
         },
         icon("close"),
       ),
@@ -101,8 +102,13 @@ export function installCommands({ trigger, routes, getState, actions }) {
       );
     count.textContent = `${Math.min(commands.length, 60)} results${commands.length > 60 ? ", refine your search to see more" : ""}`;
   }
+  function close() {
+    dialog.close();
+    if (opener?.isConnected) opener.focus({ preventScroll: true });
+  }
   function open() {
     if (dialog.open) return;
+    opener = document.activeElement;
     search.value = "";
     draw();
     dialog.showModal();
@@ -120,10 +126,15 @@ export function installCommands({ trigger, routes, getState, actions }) {
         event.clientY < rect.top ||
         event.clientY > rect.bottom
       )
-        dialog.close();
+        close();
     }
   });
   dialog.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      close();
+      return;
+    }
     const buttons = [...results.querySelectorAll("button")];
     if (!["ArrowDown", "ArrowUp", "Enter"].includes(event.key)) return;
     if (event.key === "Enter") {
@@ -151,7 +162,7 @@ export function installCommands({ trigger, routes, getState, actions }) {
       event.key.toLowerCase() === "k"
     ) {
       event.preventDefault();
-      if (dialog.open) dialog.close();
+      if (dialog.open) close();
       else open();
     }
   });

@@ -1,5 +1,5 @@
 import { el, svg, icon, section, badge } from "./dom.js";
-import { num, intervalLabel } from "./model.js";
+import { num, intervalLabel, median } from "./model.js";
 import {
   comparisonRows,
   comparisonDomain,
@@ -36,6 +36,8 @@ export function candidateComparison(record, selectedId, onSelect) {
   const rows = comparisonRows(record);
   if (!rows.length) return null;
   const [low, high] = comparisonDomain(rows);
+  const selected =
+    rows.find((row) => row.experiment.id === selectedId) || rows[0];
   const x = (value) => 12 + ((value - low) / (high - low)) * 576;
   const referenceX = x(1);
   const axis = svg("svg", {
@@ -164,6 +166,45 @@ export function candidateComparison(record, selectedId, onSelect) {
             { class: "comparison-status" },
             row.accepted ? icon("check") : icon("chevron"),
           ),
+        ),
+      ),
+      el(
+        "div",
+        { class: "comparison-selection" },
+        el(
+          "div",
+          {},
+          el(
+            "span",
+            { class: "eyebrow" },
+            `SELECTED / ${selected.experiment.id}`,
+          ),
+          el(
+            "p",
+            {},
+            `${num(median(selected.baseline))} µs reference → ${num(median(selected.candidate))} µs candidate`,
+            el(
+              "small",
+              {},
+              `${selected.candidate.length} matched pairs · ${selected.phase.toLowerCase()} · ${selected.experiment.status}`,
+            ),
+          ),
+        ),
+        el(
+          "button",
+          {
+            class: "text-button",
+            onclick: () => {
+              const plot = document.querySelector(".plot-canvas");
+              if (plot) {
+                plot.tabIndex = -1;
+                plot.focus({ preventScroll: true });
+                plot.scrollIntoView({ block: "center", behavior: "instant" });
+              }
+            },
+          },
+          "Inspect samples",
+          icon("arrow"),
         ),
       ),
       el(

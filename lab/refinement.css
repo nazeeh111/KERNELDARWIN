@@ -174,6 +174,31 @@
   font-size: 10px;
   line-height: 1.6;
 }
+.comparison-selection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 12px 0;
+}
+.comparison-selection p {
+  font: 12px var(--mono);
+  color: var(--ink);
+  margin-top: 8px;
+}
+.comparison-selection small {
+  display: block;
+  font: 10px var(--sans);
+  color: var(--muted);
+  margin-top: 6px;
+}
+.comparison-selection > .text-button {
+  flex: none;
+}
+.plot-canvas:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 4px;
+}
 .comparison-note > span:first-child {
   display: flex;
   gap: 8px;
@@ -514,6 +539,18 @@ dialog::backdrop {
   .top-actions {
     flex-wrap: wrap;
     gap: 7px;
+    flex: 1 1 100%;
+  }
+  .top-actions .export-label {
+    display: none;
+  }
+  .comparison-selection {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-inline: 8px;
+  }
+  .comparison-selection p {
+    font-size: 10px;
   }
   .command-trigger kbd {
     display: none;

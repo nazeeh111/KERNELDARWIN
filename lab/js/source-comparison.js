@@ -53,7 +53,8 @@ export function sourceComparison(reference, candidate, id) {
     );
   const diff = lineDiff(reference, candidate);
   const limit = 1600;
-  const rows = diff.rows.slice(0, limit);
+  const rows = diff.rows.map((row, index) => ({ ...row, index }));
+  const changes = rows.filter((row) => row.kind !== "same");
   const container = el("div", { class: "source-comparison" });
   const body = el("div", { class: "diff-body" });
   const output = el("output", {
@@ -61,64 +62,66 @@ export function sourceComparison(reference, candidate, id) {
     "aria-live": "polite",
   });
   let changesOnly = false,
-    current = -1;
+    current = -1,
+    windowStart = 0;
   const draw = () => {
-    current = -1;
-    output.textContent = "";
+    const available = changesOnly ? changes : rows;
+    output.textContent =
+      available.length > limit
+        ? `Preview ${windowStart + 1}–${Math.min(windowStart + limit, available.length)} of ${available.length}`
+        : "";
     body.replaceChildren(
-      ...rows
-        .filter((row) => !changesOnly || row.kind !== "same")
-        .map((row) =>
+      ...available.slice(windowStart, windowStart + limit).map((row) =>
+        el(
+          "div",
+          {
+            class: `diff-line ${row.kind}`,
+            "data-changed": row.kind === "same" ? null : "true",
+            "data-diff-index": row.index,
+            tabindex: row.kind === "same" ? null : -1,
+          },
           el(
-            "div",
+            "span",
             {
-              class: `diff-line ${row.kind}`,
-              "data-changed": row.kind === "same" ? null : "true",
-              tabindex: row.kind === "same" ? null : -1,
+              class: "diff-old",
+              "aria-label":
+                row.old == null
+                  ? "No reference line"
+                  : `Reference line ${row.old}`,
             },
-            el(
-              "span",
-              {
-                class: "diff-old",
-                "aria-label":
-                  row.old == null
-                    ? "No reference line"
-                    : `Reference line ${row.old}`,
-              },
-              row.old ?? "",
-            ),
-            el(
-              "span",
-              {
-                class: "diff-new",
-                "aria-label":
-                  row.new == null
-                    ? "No candidate line"
-                    : `Candidate line ${row.new}`,
-              },
-              row.new ?? "",
-            ),
-            el(
-              "span",
-              {
-                class: "diff-sign",
-                "aria-label": {
-                  same: "Unchanged",
-                  add: "Inserted",
-                  remove: "Deleted",
-                }[row.kind],
-              },
-              { same: " ", add: "+", remove: "−" }[row.kind],
-            ),
-            el("code", {}, row.text.slice(0, 5000) || " "),
+            row.old ?? "",
           ),
+          el(
+            "span",
+            {
+              class: "diff-new",
+              "aria-label":
+                row.new == null
+                  ? "No candidate line"
+                  : `Candidate line ${row.new}`,
+            },
+            row.new ?? "",
+          ),
+          el(
+            "span",
+            {
+              class: "diff-sign",
+              "aria-label": {
+                same: "Unchanged",
+                add: "Inserted",
+                remove: "Deleted",
+              }[row.kind],
+            },
+            { same: " ", add: "+", remove: "−" }[row.kind],
+          ),
+          el("code", {}, row.text.slice(0, 5000) || " "),
         ),
+      ),
     );
     if (!body.childNodes.length)
       body.append(el("p", { class: "empty-inline" }, "No textual changes."));
   };
   const go = (direction) => {
-    const changes = [...body.querySelectorAll('[data-changed="true"]')];
     if (!changes.length) return;
     current =
       current < 0
@@ -126,8 +129,17 @@ export function sourceComparison(reference, candidate, id) {
           ? 0
           : changes.length - 1
         : (current + direction + changes.length) % changes.length;
-    changes.forEach((node) => node.classList.remove("current-change"));
-    const target = changes[current];
+    const position = changesOnly ? current : changes[current].index;
+    if (position < windowStart || position >= windowStart + limit) {
+      windowStart = Math.max(0, position - 5);
+      draw();
+    }
+    body
+      .querySelectorAll(".current-change")
+      .forEach((node) => node.classList.remove("current-change"));
+    const target = body.querySelector(
+      `[data-diff-index="${changes[current].index}"]`,
+    );
     target.classList.add("current-change");
     target.focus({ preventScroll: true });
     target.scrollIntoView({
@@ -144,6 +156,8 @@ export function sourceComparison(reference, candidate, id) {
       "aria-pressed": "false",
       onclick: () => {
         changesOnly = !changesOnly;
+        current = -1;
+        windowStart = 0;
         toggle.setAttribute("aria-pressed", String(changesOnly));
         draw();
       },
@@ -234,7 +248,7 @@ export function sourceComparison(reference, candidate, id) {
         ? " Large input: minimal alignment skipped; changed middle displayed as replacement."
         : "",
       diff.rows.length > limit
-        ? ` Preview limited to ${limit} of ${diff.rows.length} lines. Download the complete sources.`
+        ? ` Preview shows up to ${limit} lines at a time. Change navigation reaches all ${diff.rows.length} lines; downloads contain complete sources.`
         : "",
       rows.some((row) => row.text.length > 5000)
         ? " Lines longer than 5,000 characters are truncated in this preview."

@@ -11,13 +11,11 @@ async function open(page) {
   await expect(page.locator("#record-select")).toHaveValue(fixture().id);
 }
 async function upload(page, record) {
-  await page
-    .locator("#file")
-    .setInputFiles({
-      name: "local.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(JSON.stringify(record)),
-    });
+  await page.locator("#file").setInputFiles({
+    name: "local.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(record)),
+  });
 }
 
 test("interval selection links the finding, measured phase, source and reloadable URL", async ({
@@ -161,6 +159,51 @@ test("oversized source remains downloadable without unbounded interactive diff",
     page.getByRole("button", { name: "Reference source", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".diff-line")).toHaveCount(0);
+});
+test("a shared imported record resumes its requested candidate after import", async ({
+  page,
+}) => {
+  const record = fixture();
+  record.id = "shared-local-record";
+  await page.goto("/#code?record=shared-local-record&candidate=cpu-32");
+  await expect(page.locator("#feedback")).toContainText(
+    "Shared investigation not found",
+  );
+  await upload(page, record);
+  await expect(page.getByLabel("Select implementation candidate")).toHaveValue(
+    "cpu-32",
+  );
+  await expect(page).toHaveURL(/record=shared-local-record&candidate=cpu-32/);
+});
+test("change navigation reaches edits beyond the preview window", async ({
+  page,
+}) => {
+  await open(page);
+  const record = fixture();
+  record.id = "late-source-change";
+  const original = Array.from(
+    { length: 1700 },
+    (_, i) => `unchanged line ${i + 1}`,
+  );
+  const modified = [...original];
+  modified[1649] = "late edit at line 1650";
+  record.experiments[0].source = {
+    baseline: original.join("\n"),
+    candidate: modified.join("\n"),
+  };
+  await upload(page, record);
+  await page.getByRole("link", { name: "Implementation", exact: true }).click();
+  await page
+    .getByLabel("Select implementation candidate")
+    .selectOption(record.experiments[0].id);
+  await page.getByRole("button", { name: "Next changed line" }).click();
+  await expect(page.locator(".current-change")).toBeFocused();
+  await expect(page.locator(".current-change .diff-old")).toHaveText("1650");
+  await page.getByRole("button", { name: "Changes only", exact: true }).click();
+  await expect(page.locator(".diff-line")).toHaveCount(2);
+  await expect(page.locator(".diff-line.add code")).toHaveText(
+    "late edit at line 1650",
+  );
 });
 test("all views remain contained at narrow widths and fresh review images are retained", async ({
   page,

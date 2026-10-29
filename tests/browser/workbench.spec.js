@@ -12,19 +12,20 @@ async function open(page, route = "overview") {
   await expect(page.locator("#record-select")).toHaveValue(fixture().id);
 }
 async function upload(page, record) {
-  await page
-    .locator("#file")
-    .setInputFiles({
-      name: "test-record.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(JSON.stringify(record)),
-    });
+  await page.locator("#file").setInputFiles({
+    name: "test-record.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(record)),
+  });
 }
 
 test("candidate selection and timing inspector use matching recorded evidence", async ({
   page,
 }) => {
   await open(page);
+  await page
+    .getByText("Complete intervention ledger · 3 attempts", { exact: true })
+    .click();
   await page.locator('.candidate-button[data-candidate="cpu-32"]').click();
   await expect(page.locator(".improvement-value")).toContainText("1.59");
   await expect(

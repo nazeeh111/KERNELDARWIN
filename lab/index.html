@@ -43,9 +43,7 @@
         >
         <div class="workspace-label">
           <span class="workspace-mark">K</span
-          ><span
-            >Research workspace<small>Local evidence / read only</small></span
-          >
+          ><span>Research workspace<small>Recorded investigations</small></span>
         </div>
         <div class="nav-label">INVESTIGATION</div>
         <nav id="navigation" aria-label="Investigation views"></nav>
@@ -86,8 +84,13 @@
               Share selection
             </button>
             <span class="preview-label">RESEARCH PREVIEW</span
-            ><button id="download" class="button ghost" disabled>
-              Export JSON</button
+            ><button
+              id="download"
+              class="button ghost"
+              disabled
+              aria-label="Export JSON"
+            >
+              <span class="export-label">Export JSON</span></button
             ><button id="import" class="button primary">Import record</button
             ><input
               id="file"

@@ -408,16 +408,9 @@ export function renderOverview(state, actions) {
       evidenceRail(record, experiment, actions),
     ),
     candidateComparison(record, experiment?.id, actions.selectCandidate),
-    section(
-      "Intervention ledger",
-      `${arr(record.experiments).length} attempted configurations. Select a candidate to inspect its paired evidence.`,
+    detail(
+      `Complete intervention ledger · ${arr(record.experiments).length} attempts`,
       candidateLedger(record, experiment?.id, actions.selectCandidate),
-      el(
-        "button",
-        { class: "text-button", onclick: () => actions.navigate("evolution") },
-        "View lineage",
-        icon("evolution"),
-      ),
     ),
     diagnostics,
     detail(

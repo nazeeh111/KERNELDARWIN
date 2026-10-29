@@ -64,7 +64,9 @@ export function resultNarrative(record, experiment) {
   return {
     title: "Measured, but not promoted.",
     text:
-      experiment?.timing?.comparison?.reason ||
+      (experiment?.timing?.comparison?.reason
+        ? `Discovery gate: ${experiment.timing.comparison.reason}. No accepted independent confirmation is attached to this attempt.`
+        : null) ||
       experiment?.error ||
       "This attempt has no accepted independent confirmation. Inspect its recorded gate before drawing a conclusion.",
     tone: "neutral",

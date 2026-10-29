@@ -85,6 +85,11 @@ function navigate(view) {
 function render(animate = true) {
   const record = state.record;
   const route = routeMap.get(state.view);
+  const openedDetails = new Set(
+    [...$("view").querySelectorAll("details[open]")].map(
+      (node) => node.querySelector("summary")?.textContent,
+    ),
+  );
   const focusedCandidate = document.activeElement?.dataset?.candidate;
   const focusedRecord = document.activeElement?.dataset?.record;
   const focusedSelect =
@@ -177,6 +182,9 @@ function render(animate = true) {
     ),
   );
   $("view").replaceChildren(next);
+  for (const node of next.querySelectorAll("details"))
+    if (openedDetails.has(node.querySelector("summary")?.textContent))
+      node.open = true;
   if (focusedSelect)
     document.querySelector(focusedSelect)?.focus({ preventScroll: true });
   if (focusedRecord)
@@ -252,7 +260,14 @@ async function importFile(file) {
     if (file.size > 20 * 1024 * 1024)
       throw Error("The 20 MB record limit was exceeded.");
     const record = validateRecord(JSON.parse(await file.text()));
-    if (sequence === importSequence) activate(record, true);
+    if (sequence === importSequence) {
+      const requested = readLocation(location.hash);
+      activate(
+        record,
+        true,
+        requested.record === record.id ? requested.candidate : null,
+      );
+    }
   } catch (error) {
     if (sequence === importSequence)
       feedback(
