@@ -10,6 +10,15 @@
 - Added a static Workload interface, semantic and installation guides, editable architecture, complete negative results and an unsent launch draft. Final browser/package/release verification remains pending.
 - Preserved the original CPU records, v0.1/v0.2 releases and media. Actual Metal execution does not validate the prepared CUDA/Triton path.
 
+## 0.2.1 · Evidence comparison · 2026-10-29
+
+- Added a plain-language finding and an interval comparison for every attempt, retaining each matched reference, discovery/confirmation phase and failed decision.
+- Added shareable record/candidate/view links with browser-history navigation; local import contents are never uploaded or implied to be shared.
+- Added native command search (Command/Control K), exact timing-pair CSV export and safe source downloads.
+- Replaced line-membership highlights with a bounded exact line diff, explicit insertion/deletion markers, original line numbers and keyboard-accessible change navigation.
+- Retained the product identity and all original CPU measurements. No additional GPU claim or compute result.
+- Added meaningful unit/browser regressions and hosted responsive screenshots, keeping local benchmark timing undisturbed.
+
 ## 0.2.0 · Investigation workbench · 2026-10-26
 
 - Rebuilt the LAB around the measured experiment: latency fingerprint, matched-pair inspection, linked candidate selection, and a compact verification rail.

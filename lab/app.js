@@ -1,3 +1,6 @@
+import { readLocation, locationHash } from "./js/evidence-model.js";
+import { installCommands } from "./js/commands.js";
+import { downloadText } from "./js/download.js";
 /** KERNELDARWIN workbench controller. No compute backend and no source evaluation. */
 import { el, icon, badge } from "./js/dom.js";
 import {
@@ -31,16 +34,26 @@ const routes = [
   ["research", "Research", renderResearch],
 ];
 const routeMap = new Map(routes.map((route) => [route[0], route]));
-const routeFromURL = () =>
-  routeMap.has(location.hash.slice(1)) ? location.hash.slice(1) : "overview";
+const initialLocation = readLocation(location.hash);
 const state = {
   record: null,
   records: [],
   evaluation: null,
   chosen: null,
-  view: routeFromURL(),
+  view: initialLocation.view,
 };
 let importSequence = 0;
+const bundledRecords = new Map();
+
+function syncLocation(push = false) {
+  const hash = locationHash(state.view, state.record?.id, state.chosen);
+  if (location.hash !== hash)
+    history[push ? "pushState" : "replaceState"](null, "", hash);
+}
+function focusView() {
+  window.scrollTo(0, 0);
+  $("main").focus({ preventScroll: true });
+}
 
 function feedback(message, error = false) {
   $("feedback").hidden = false;
@@ -64,11 +77,19 @@ function feedback(message, error = false) {
 function navigate(view) {
   if (!routeMap.has(view)) return;
   if (state.view === view) return;
-  location.hash = view;
+  state.view = view;
+  syncLocation(true);
+  render();
+  focusView();
 }
 function render(animate = true) {
   const record = state.record;
   const route = routeMap.get(state.view);
+  const openedDetails = new Set(
+    [...$("view").querySelectorAll("details[open]")].map(
+      (node) => node.querySelector("summary")?.textContent,
+    ),
+  );
   const focusedCandidate = document.activeElement?.dataset?.candidate;
   const focusedRecord = document.activeElement?.dataset?.record;
   const focusedSelect =
@@ -78,19 +99,23 @@ function render(animate = true) {
         ? ".code-selector select"
         : null;
 
-  const focusedKind = document.activeElement?.classList.contains("lineage-node")
-    ? "lineage-node"
-    : "candidate-button";
+  const focusedKind = [
+    "lineage-node",
+    "candidate-button",
+    "comparison-row",
+  ].find((name) => document.activeElement?.classList.contains(name));
   // Build the next view before changing the DOM so a rejected import preserves it.
   const next = route[2](state, actions);
   $("breadcrumb").textContent = route[1];
   document.title = `${route[1]} / KERNELDARWIN LAB`;
   for (const link of document.querySelectorAll(".nav-link")) {
+    link.href = locationHash(link.dataset.view, record?.id, state.chosen);
     if (link.dataset.view === state.view)
       link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
   $("download").disabled = !record;
+  $("share").disabled = !record;
   $("record-count").textContent = String(state.records.length).padStart(2, "0");
   const select = el(
     "select",
@@ -157,6 +182,9 @@ function render(animate = true) {
     ),
   );
   $("view").replaceChildren(next);
+  for (const node of next.querySelectorAll("details"))
+    if (openedDetails.has(node.querySelector("summary")?.textContent))
+      node.open = true;
   if (focusedSelect)
     document.querySelector(focusedSelect)?.focus({ preventScroll: true });
   if (focusedRecord)
@@ -179,7 +207,12 @@ function render(animate = true) {
         button.focus({ preventScroll: true });
     });
 }
-function activate(record, announce = false) {
+function activate(
+  record,
+  announce = false,
+  chosen = null,
+  updateHistory = true,
+) {
   validateRecord(record);
   const previous = {
     record: state.record,
@@ -189,13 +222,18 @@ function activate(record, announce = false) {
   const records = state.records.filter((item) => item.id !== record.id);
   const index = state.records.findIndex((item) => item.id === record.id);
   records.splice(index < 0 ? records.length : index, 0, record);
-  Object.assign(state, { record, chosen: null, records });
+  Object.assign(state, {
+    record,
+    chosen: selectedExperiment(record, chosen)?.id || null,
+    records,
+  });
   try {
     render();
   } catch (error) {
     Object.assign(state, previous);
     throw error;
   }
+  if (updateHistory) syncLocation(true);
   if (announce)
     feedback(
       `Loaded ${recordName(record)}. Record claims remain reported; kd validate recomputes statistical gates.`,
@@ -211,6 +249,7 @@ const actions = {
   selectCandidate: (id) => {
     if (!state.record?.experiments.some((item) => item.id === id)) return;
     state.chosen = id;
+    syncLocation(true);
     render();
   },
 };
@@ -221,7 +260,14 @@ async function importFile(file) {
     if (file.size > 20 * 1024 * 1024)
       throw Error("The 20 MB record limit was exceeded.");
     const record = validateRecord(JSON.parse(await file.text()));
-    if (sequence === importSequence) activate(record, true);
+    if (sequence === importSequence) {
+      const requested = readLocation(location.hash);
+      activate(
+        record,
+        true,
+        requested.record === record.id ? requested.candidate : null,
+      );
+    }
   } catch (error) {
     if (sequence === importSequence)
       feedback(
@@ -234,14 +280,11 @@ async function importFile(file) {
 }
 function downloadRecord() {
   if (!state.record) return;
-  const url = URL.createObjectURL(
-    new Blob([JSON.stringify(state.record, null, 2) + "\n"], {
-      type: "application/json",
-    }),
+  downloadText(
+    JSON.stringify(state.record, null, 2) + "\n",
+    `${state.record.id}.json`,
+    "application/json",
   );
-  const link = el("a", { href: url, download: `${state.record.id}.json` });
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 for (const [view, label] of routes) {
   const link = el(
@@ -256,6 +299,18 @@ for (const [view, label] of routes) {
     icon(view),
     el("span", {}, label),
   );
+  link.addEventListener("click", (event) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
+    event.preventDefault();
+    navigate(view);
+  });
   $("navigation").append(link);
 }
 $("import").prepend(icon("plus"));
@@ -263,11 +318,48 @@ $("download").prepend(icon("download"));
 $("import").addEventListener("click", actions.importRecord);
 $("file").addEventListener("change", () => importFile($("file").files[0]));
 $("download").addEventListener("click", downloadRecord);
+installCommands({
+  trigger: $("commands"),
+  routes,
+  getState: () => state,
+  actions,
+});
+$("share").addEventListener("click", () => {
+  if (!state.record) return;
+  syncLocation(false);
+  $("share-copy-status").textContent = "";
+  $("selection-url").value = location.href;
+  $("share-note").textContent =
+    bundledRecords.get(state.record.id) === state.record
+      ? "This link opens the bundled investigation, candidate and view. Measurements remain recorded evidence."
+      : "This record was imported locally. The link contains its ID only. The recipient must import the same JSON record; no record contents are uploaded or stored.";
+  $("share-dialog").showModal();
+  $("selection-url").focus();
+  $("selection-url").select();
+});
+$("share-close").addEventListener("click", () => $("share-dialog").close());
+$("copy-selection").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText($("selection-url").value);
+    $("share-copy-status").textContent = "Selection link copied.";
+  } catch {
+    $("share-copy-status").textContent =
+      "Clipboard access was unavailable. Select the link and copy it with your browser's standard controls.";
+  }
+});
 window.addEventListener("hashchange", () => {
-  state.view = routeFromURL();
-  render();
-  window.scrollTo(0, 0);
-  $("main").focus({ preventScroll: true });
+  const desired = readLocation(location.hash);
+  state.view = desired.view;
+  const record =
+    state.records.find((item) => item.id === desired.record) || state.record;
+  if (record) activate(record, false, desired.candidate, false);
+  else render();
+  if (desired.record && record?.id !== desired.record)
+    feedback(
+      "This investigation is not in the local library. Import its JSON record to open the shared selection.",
+      true,
+    );
+  focusView();
 });
 // Redraw SVG geometry only when the responsive chart width changes.
 let compact = innerWidth < 760;
@@ -326,6 +418,7 @@ async function loadLibrary() {
     const records = results
       .filter((result) => result.status === "fulfilled")
       .map((result) => result.value);
+    for (const record of records) bundledRecords.set(record.id, record);
     // Preserve an investigation imported while the library was loading.
     for (const record of records)
       if (!state.records.some((item) => item.id === record.id))
@@ -347,8 +440,19 @@ async function loadLibrary() {
         failed++;
       }
     }
-    if (!state.record && state.records.length) activate(state.records[0]);
-    else render(false);
+    if (!state.record && state.records.length) {
+      const desired = readLocation(location.hash);
+      const target =
+        state.records.find((item) => item.id === desired.record) ||
+        state.records[0];
+      activate(target, false, desired.candidate, false);
+      if (desired.record && target.id !== desired.record)
+        feedback(
+          "Shared investigation not found. Import the original JSON record to inspect it. The bundled reference is shown meanwhile.",
+          true,
+        );
+      else syncLocation(false);
+    } else render(false);
     if (failed)
       feedback(
         `${failed} bundled file${failed === 1 ? "" : "s"} could not be read. You can still import a valid local record.`,

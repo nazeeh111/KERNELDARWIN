@@ -63,9 +63,11 @@ An export requires current-source GPU numerical evidence, a frozen baseline nois
 
 ## Preserved research laboratory
 
-The [original LAB](https://nazeeh111.github.io/KERNELDARWIN/) and earlier releases retain 24 real CPU control workloads, 72 interventions, selector evaluation and the prepared CUDA/Triton path. Their recorded bytes and evidence levels remain unchanged. The CUDA path has not executed on this Apple M4 host and still requires actual NVIDIA hardware; Metal execution does not validate CUDA.
+The [research LAB](https://nazeeh111.github.io/KERNELDARWIN/) and earlier releases retain 24 real CPU control workloads, 72 interventions, selector evaluation and the prepared CUDA/Triton path. Their recorded bytes and evidence levels remain unchanged. The CUDA path has not executed on this Apple M4 host and still requires actual NVIDIA hardware; Metal execution does not validate CUDA.
 
-![Preserved v0.2 CPU-control workbench](docs/assets/v0.2/lab-desktop.png)
+The preserved v0.2.1 refinements lead with a plain-language finding and a shared speedup axis showing each attempt's own uncertainty and measurement phase. Select matching raw samples and exact source changes, navigate long diffs with the keyboard, share a record/candidate/view, export unrounded timing CSVs or press **⌘/Ctrl K** to search. Local import contents remain local. [Design research and verification](docs/lab-refinement.md) · [Recorded comparison](docs/assets/v0.2.1/evidence-comparison-1440.png).
+
+![Preserved v0.2.1 CPU-control workbench](docs/assets/v0.2.1/lab-desktop.png)
 
 [Recorded v0.2 workbench](docs/assets/v0.2/workbench.mp4) · [Original v0.1 demo](docs/demo/brag.mp4) · [CPU results](docs/results.md) · [CUDA/legacy usage](docs/usage.md) · [Prior art and attribution](docs/prior-art.md)
 

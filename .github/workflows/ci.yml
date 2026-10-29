@@ -23,7 +23,18 @@ jobs:
       - run: kd control --family softmax --shape 32 31 --repeats 20
       - run: python scripts/check_evidence.py
       - run: python -m pip wheel --no-deps . --wheel-dir dist
+      - run: python scripts/check_lab_package.py dist/*.whl
+      - name: Verify the installed wheel
+        run: |
+          python -m pip install --force-reinstall --no-deps dist/*.whl
+          kd doctor
+          python -c "from importlib.resources import files; assert (files('kerneldarwin.lab') / 'js/commands.js').is_file(); assert (files('kerneldarwin.lab') / 'refinement.css').is_file()"
+      - name: Build source archive
+        if: matrix.python == '3.12'
+        run: |
+          python -m pip install build
+          python -m build --sdist --outdir dist
       - uses: actions/upload-artifact@v4
         with:
           name: wheel-python-${{ matrix.python }}
-          path: dist/*.whl
+          path: dist/

@@ -95,3 +95,14 @@ The suite uses 40 paired measurements after warmup, 4 families × 6 shapes × 3 
 - **Source mismatch:** rerun the investigation with current code; never transplant old acceptance metadata onto changed source.
 - **LAB has no bundled records:** serve over HTTP with `kd lab`; local-file fetch restrictions vary. Local import still reads JSON as data. Run `kd validate` to independently re-evaluate record consistency and timing gates.
 - **Missing model/service API key:** none is required. No billed model provider is used.
+
+
+## Inspect and share evidence in the LAB
+
+Use the candidate interval comparison to select an attempt. The finding, matched timing samples, verification ledger and implementation view follow that selection. Discovery and independent confirmation remain distinct; the 1× reference axis does not replace the recorded promotion threshold. Open the complete intervention ledger when you need its additional columns.
+
+Press Command K on macOS or Control K elsewhere to search views, investigations and candidate IDs. Arrow keys move through results, Enter opens one, and Escape closes search and restores focus.
+
+Share selection creates a URL identifying the record, candidate and view. Bundled records open directly; a recipient of a local-record link must import the same JSON. Record contents are never uploaded or persisted by sharing. Raw samples downloads matched timing pairs as an unrounded CSV.
+
+Implementation comparison marks actual line insertions and deletions, retaining both original line numbers. Changes only filters the full comparison; Previous/Next changed line reaches changes outside the current preview window. This is a textual comparison, not semantic equivalence or correctness verification. Oversized source remains downloadable for external review.

@@ -29,6 +29,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="refinement.css" />
     <script type="module" src="app.js"></script>
   </head>
   <body>
@@ -42,7 +43,7 @@
         >
         <div class="workspace-label">
           <span class="workspace-mark">K</span
-          ><span>Research workspace<small>Local records / v0.2</small></span>
+          ><span>Research workspace<small>Recorded investigations</small></span>
         </div>
         <div class="nav-label">INVESTIGATION</div>
         <nav id="navigation" aria-label="Investigation views"></nav>
@@ -72,9 +73,26 @@
           </div>
           <div class="top-actions">
             <a class="button ghost" href="workload.html">Workload ↗</a>
+
+            <button
+              id="commands"
+              class="button ghost command-trigger"
+              aria-label="Search views and evidence"
+              title="Search views and evidence (Control or Command K)"
+            >
+              Search <kbd>⌘ K</kbd>
+            </button>
+            <button id="share" class="button ghost" disabled>
+              Share selection
+            </button>
             <span class="preview-label">RESEARCH PREVIEW</span
-            ><button id="download" class="button ghost" disabled>
-              Export JSON</button
+            ><button
+              id="download"
+              class="button ghost"
+              disabled
+              aria-label="Export JSON"
+            >
+              <span class="export-label">Export JSON</span></button
             ><button id="import" class="button primary">Import record</button
             ><input
               id="file"
@@ -106,6 +124,27 @@
         </main>
       </div>
     </div>
+    <dialog
+      id="share-dialog"
+      class="share-dialog"
+      aria-labelledby="share-title"
+    >
+      <div class="command-dialog-heading">
+        <h2 id="share-title">Share this selection</h2>
+        <button
+          id="share-close"
+          class="icon-button"
+          aria-label="Close share dialog"
+        >
+          ✕
+        </button>
+      </div>
+      <p id="share-note"></p>
+      <label for="selection-url">Selection URL</label>
+      <input id="selection-url" type="text" readonly />
+      <button id="copy-selection" class="button primary">Copy link</button>
+      <p id="share-copy-status" role="status"></p>
+    </dialog>
     <div id="drop-overlay" hidden>
       <div class="drop-panel">
         <span class="drop-mark">↓</span>

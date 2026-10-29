@@ -1,3 +1,4 @@
+import { investigationFinding, candidateComparison } from "./comparison.js";
 import {
   el,
   icon,
@@ -291,7 +292,7 @@ export function renderOverview(state, actions) {
       ),
       el(
         "div",
-        { class: "improvement-value" },
+        { class: "improvement-value", "data-accepted": String(data.accepted) },
         num(comp?.speedup),
         el("span", {}, "×"),
       ),
@@ -399,22 +400,17 @@ export function renderOverview(state, actions) {
     { class: "overview-view" },
     heading,
     scope,
+    investigationFinding(record, experiment, actions),
     el(
       "div",
       { class: "investigation-grid" },
       el("div", { class: "analysis-main" }, plot, context),
       evidenceRail(record, experiment, actions),
     ),
-    section(
-      "Intervention ledger",
-      `${arr(record.experiments).length} attempted configurations. Select a candidate to inspect its paired evidence.`,
+    candidateComparison(record, experiment?.id, actions.selectCandidate),
+    detail(
+      `Complete intervention ledger · ${arr(record.experiments).length} attempts`,
       candidateLedger(record, experiment?.id, actions.selectCandidate),
-      el(
-        "button",
-        { class: "text-button", onclick: () => actions.navigate("evolution") },
-        "View lineage",
-        icon("evolution"),
-      ),
     ),
     diagnostics,
     detail(

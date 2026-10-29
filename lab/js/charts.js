@@ -1,3 +1,5 @@
+import { timingCSV } from "./evidence-model.js";
+import { downloadText } from "./download.js";
 import { el, svg, icon } from "./dom.js";
 import { histogram, median, quantile, num } from "./model.js";
 
@@ -314,6 +316,22 @@ export function latencyPlot(data) {
         {},
         `${count || baseline.length} ${count ? "timing pairs" : "reference samples"} · microseconds`,
       ),
+      count
+        ? el(
+            "button",
+            {
+              class: "text-button sample-download",
+              onclick: () =>
+                downloadText(
+                  timingCSV(data),
+                  "kerneldarwin-timing-pairs.csv",
+                  "text/csv",
+                ),
+            },
+            "Raw samples",
+            icon("download"),
+          )
+        : null,
     ),
   );
   draw();

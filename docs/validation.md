@@ -1,4 +1,4 @@
-# Validation status · v0.2.0 research preview
+# Validation status · v0.2.1 research preview
 
 ## Established on this host
 
@@ -33,3 +33,12 @@ The redesign adds 16 pure frontend tests and 7 reproducible Playwright browser r
 Concrete checks cover matched timing-phase display, candidate and select focus preservation, malformed dormant-view imports, reduced-motion resolution, rapid navigation, atlas/evaluation controls, a 150,000-event synthetic trace, and non-flat parent histories. Synthetic records are test fixtures only, never published benchmark evidence. The 24 recorded CPU experiments and four bundled records remain byte-identical. `assets/v0.2/qa.json` records the source identities and check scope.
 
 The recorded UI clip is silent, labeled CPU-control playback, and derived from actual browser interactions. Full media decode and representative paired/evolution frames were inspected. It demonstrates functional motion; sampled images and automated state checks are not full normal-speed perceptual approval on every platform.
+
+
+## v0.2.1 evidence comparison verification
+
+The current hosted suites pass 27 Python tests (Python 3.11, 3.12 and 3.13), 22 pure frontend tests and 16 Chromium browser regressions. These are 65 logical tests; repeating the Python suite across versions does not add unique cases. The byte-for-byte CPU evidence checker also passes. Browser checks include all eight routes at 1440, 1024, 768, 390 and 320 px, plus current-source desktop/mobile/source/command previews.
+
+New regressions cover candidate URL/back/reload continuity, shared local-record imports, exact raw CSV values, source text injection, bounded oversized sources, edits beyond the first 1,600 preview rows, command search focus/Escape, disclosure focus, reduced motion and interrupted navigation. Independent source review found two continuity defects; both were fixed and rechecked. The first hosted run also caught an Escape-key focus defect; that correction passes. These are scoped checks, not a guarantee of perfection or universal accessibility.
+
+Current visual artifacts and source identities are in `assets/v0.2.1/qa.json`. Hosted browser capture avoided interfering with a separate local frozen Metal timing study. The v0.2 video is retained and explicitly labeled as historical footage; this refinement adds no new GPU measurement. Public deployment is separately verified against source identities with `scripts/check_live_lab.mjs`.

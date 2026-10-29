@@ -1,0 +1,68 @@
+{
+  "version": "0.2.1",
+  "ui_commit": "0bc3b72cba9c81cf92b5c51b2324d35e25cfdd30",
+  "python_tests": 27,
+  "frontend_tests": 22,
+  "browser_tests": 16,
+  "logical_tests": 65,
+  "python_versions": [
+    "3.11",
+    "3.12",
+    "3.13"
+  ],
+  "responsive": {
+    "widths": [
+      1440,
+      1024,
+      768,
+      390,
+      320
+    ],
+    "routes": 8,
+    "checks": 40,
+    "overflow": false
+  },
+  "hosted_runs": {
+    "browser": 40971762936,
+    "cpu_frontend_distribution": 40971762926
+  },
+  "source_sha256": {
+    "lab/index.html": "e7c7cbf2e5f2f39eb238e5e2f7a87fee568f6836cfa241bec13306fdf7f67004",
+    "lab/style.css": "19ec93b505148e246890cdd6cc56f23397545c72df4a7889518a681a81171e0f",
+    "lab/refinement.css": "bdc9b50764eef29858e2c2b31573b62c24504382fe45b0e738c84115714461f3",
+    "lab/app.js": "77cf91853e3cf6497ae41e7260c9fd868a4e7dee90b5866645aadafc217b3533",
+    "lab/js/records.js": "3d674c8c4f72d59eec73c0652920f013f66a3312f220d70ebf3c08f1b2ba6bcb",
+    "lab/js/download.js": "92d9420f8f67241703734f4ae9cc943656aafee46dd893275228f7b86ac61b6f",
+    "lab/js/evidence-model.js": "45175337e4b58822e31611cd5fe6b16ddbe23b068368803faec20b59c081c1ec",
+    "lab/js/source-comparison.js": "a871ed0ea5877beac1b9e8d85006bd771958a8914578252a14887ede078204e5",
+    "lab/js/charts.js": "0b538acec7febd66789d5f106ef3c1ec0438269af113b7c6fbfd1a66df99e6dd",
+    "lab/js/line-diff.js": "d36f9933ddb4bd62a76f9e9c06f7dbe09f7e5abc6a86487199d580536474f00b",
+    "lab/js/lineage.js": "055139220bdbaab0c9e28b020ab560de8153605c8b823b7c37b3bdf383c6f4ff",
+    "lab/js/dom.js": "2f95865045099a35853fed5e023a0caa02e34ee317c235804b8d52120a54d1bb",
+    "lab/js/commands.js": "81c5ab67956aaa4c146bdf7a8a9b41f676f8d5fcf5065a880822a69b53f39445",
+    "lab/js/motion.js": "69033ca598acfb42b4c561502bbadfcbec175adef238c6e1cfa8d577decf4f65",
+    "lab/js/overview.js": "9fba265b1ffede782a42048b7366a38d40f034de03d81b56c0230bcf1e873af3",
+    "lab/js/model.js": "7b11709107e75bff65a5abc644777860b43093f5f266f4c592e966daa618e6c7",
+    "lab/js/inspection.js": "005ba86207a958dfd7c8da5f65e97b3c81050049d1db9dad79d4aadec85008c8",
+    "lab/js/comparison.js": "77465b1f3673c6acc206c8f2adf7a5e9d307edbad2ace435974f3e9af3fab337"
+  },
+  "screenshots": {
+    "lab-desktop.png": "262357903361c728d0617bc2a1cdc058e5b05ecd0af22ef97a7819ca178354b5",
+    "code-390.png": "a28c8c9220024a16eca560b5f689581ec7cabfdb6dff40958460a28aded75b73",
+    "overview-1440.png": "6b706d557a6536354d158a499bc3074254314045af66ea8be82c4122a48ec2b5",
+    "command-search-1440.png": "1bea5b6d7e57bb88c7df027fd873ce9933e39ae2a20b98572f337b748af0fdf7",
+    "overview-390.png": "a5a926013e3b2a971a0ba01af498ac7df5dec631b8d54c5f21a144e0d292426e",
+    "evidence-comparison-1440.png": "a83dc185b358b8c28efbe2023f86cd707113dc88af88587fa27b55725a857eff",
+    "code-1440.png": "1abdb1ec4641ee0abc9f5280efb7ce98d6ccea0881f44b7a17079dc9a2830fdd"
+  },
+  "review": {
+    "consequential_findings": 2,
+    "fixed_and_rechecked": 2,
+    "remaining": 0
+  },
+  "limits": [
+    "Chromium hosted on Linux; no universal browser or assistive-technology certification.",
+    "No new GPU execution or performance evidence.",
+    "Interactive motion interruption and reduced-motion state checked; screenshots are not full audiovisual judgment."
+  ]
+}
