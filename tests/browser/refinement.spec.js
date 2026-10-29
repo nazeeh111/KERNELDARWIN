@@ -236,6 +236,13 @@ test("all views remain contained at narrow widths and fresh review images are re
           path: `${folder}/${view}-${width}.png`,
           fullPage: true,
         });
+      if (width === 1440 && view === "overview") {
+        await page.screenshot({ path: `${folder}/lab-desktop.png` });
+        await page.locator(".comparison-content").scrollIntoViewIfNeeded();
+        await page.screenshot({
+          path: `${folder}/evidence-comparison-1440.png`,
+        });
+      }
     }
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
@@ -250,4 +257,19 @@ test("all views remain contained at narrow widths and fresh review images are re
   await page.screenshot({ path: `${folder}/command-search-1440.png` });
   expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
   expect(errors).toEqual([]);
+});
+test("rapid command and route changes settle at the latest input", async ({
+  page,
+}) => {
+  await open(page);
+  for (let index = 0; index < 12; index++)
+    await page.keyboard.press("Control+k");
+  await expect(page.locator(".command-dialog")).not.toBeVisible();
+  for (const route of ["hypotheses", "code", "overview"])
+    await page.locator(`.nav-link[data-view="${route}"]`).click();
+  await expect(page.locator("h1")).toContainText("Softmax");
+  await expect
+    .poll(() => page.evaluate(() => document.getAnimations().length))
+    .toBe(0);
+  await expect(page.locator("#main")).toBeFocused();
 });

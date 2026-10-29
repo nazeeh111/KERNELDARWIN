@@ -67,6 +67,9 @@
   display: block;
   width: 100%;
 }
+.mobile-comparison-scale {
+  display: none;
+}
 .comparison-row {
   width: 100%;
   background: transparent;
@@ -585,6 +588,13 @@ dialog::backdrop {
   }
   .comparison-table-head {
     display: none;
+  }
+  .mobile-comparison-scale {
+    display: block;
+    padding: 16px 8px 0;
+  }
+  .mobile-comparison-scale .chart-axis {
+    font-size: 20px;
   }
   .comparison-row {
     grid-template-columns: minmax(0, 1fr) 100px 16px;

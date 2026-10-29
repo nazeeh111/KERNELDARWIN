@@ -117,6 +117,11 @@ export function candidateComparison(record, selectedId, onSelect) {
         axis,
         el("span", {}, "RATIO / INTERVAL"),
       ),
+      el(
+        "div",
+        { class: "mobile-comparison-scale", "aria-hidden": "true" },
+        axis.cloneNode(true),
+      ),
       rows.map((row) =>
         el(
           "button",
