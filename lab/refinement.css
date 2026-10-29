@@ -1,0 +1,619 @@
+/* Investigation comparison, source review and deliberate navigation. */
+.finding {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 15px;
+  padding: 5px 0 26px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+.finding-symbol {
+  width: 30px;
+  height: 30px;
+  align-self: start;
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+.finding.positive .finding-symbol {
+  color: var(--pass);
+  border-color: #44503b;
+}
+.finding h2 {
+  font-size: 26px;
+  letter-spacing: -0.65px;
+  margin: 6px 0 8px;
+  text-wrap: balance;
+}
+.finding p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  max-width: 78ch;
+}
+.finding > .text-button {
+  align-self: end;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+.improvement-value[data-accepted="false"] {
+  color: var(--signal);
+}
+.comparison-content {
+  padding: 8px 22px 0;
+}
+.comparison-table-head,
+.comparison-row {
+  display: grid;
+  grid-template-columns: 158px minmax(90px, 1fr) 110px 18px;
+  gap: 18px;
+  align-items: center;
+}
+.comparison-table-head {
+  padding: 14px 12px 0;
+  font: 9px var(--mono);
+  letter-spacing: 0.4px;
+  color: var(--faint);
+}
+.comparison-table-head > span:last-child {
+  grid-column: 3 / 5;
+  text-align: right;
+}
+.comparison-axis {
+  display: block;
+  width: 100%;
+}
+.comparison-row {
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid var(--soft-line);
+  border-left: 2px solid transparent;
+  padding: 8px 12px;
+  min-height: 72px;
+  text-align: left;
+  color: var(--muted);
+  border-radius: 3px;
+  transition:
+    background-color 140ms,
+    border-color 140ms;
+}
+.comparison-row[aria-pressed="true"] {
+  background: #232824;
+  border-left-color: var(--signal);
+  color: var(--ink);
+}
+.comparison-name {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.attempt-number {
+  color: var(--faint);
+  font: 10px var(--mono);
+}
+.comparison-name > span:last-child {
+  min-width: 0;
+}
+.comparison-name strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font: 12px var(--mono);
+}
+.comparison-name small {
+  display: block;
+  font-size: 10px;
+  color: var(--faint);
+  margin-top: 5px;
+}
+.comparison-value {
+  text-align: right;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.comparison-value strong {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.comparison-value small {
+  display: block;
+  font-size: 9px;
+  margin-top: 4px;
+  color: var(--muted);
+}
+.comparison-status {
+  display: grid;
+  place-items: center;
+}
+.comparison-status .icon {
+  width: 14px;
+  height: 14px;
+}
+.interval-chart {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+.interval-track {
+  stroke: var(--soft-line);
+  stroke-width: 1;
+}
+.reference-rule {
+  stroke: var(--reference);
+  stroke-dasharray: 2 3;
+  stroke-width: 1;
+}
+.interval-whisker,
+.interval-cap {
+  stroke: var(--muted);
+  stroke-width: 2;
+}
+.interval-point {
+  fill: var(--ink);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+.comparison-row[aria-pressed="true"] .interval-whisker,
+.comparison-row[aria-pressed="true"] .interval-cap {
+  stroke: var(--signal);
+}
+.comparison-row[aria-pressed="true"] .interval-point {
+  fill: var(--signal);
+}
+.comparison-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 12px 18px;
+  color: var(--faint);
+  font-size: 10px;
+  line-height: 1.6;
+}
+.comparison-note > span:first-child {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex: none;
+}
+.reference-tick {
+  display: inline-block;
+  height: 14px;
+  border-left: 1px dashed var(--reference);
+}
+.sample-download {
+  padding: 0;
+  font-size: 9px;
+  flex: none;
+}
+.source-comparison {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 26px;
+  background: #141718;
+}
+.diff-toolbar {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.diff-summary,
+.diff-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.diff-summary {
+  font: 10px var(--mono);
+  color: var(--muted);
+}
+.diff-added {
+  color: var(--pass);
+}
+.diff-deleted {
+  color: #e8a79a;
+}
+.diff-controls {
+  gap: 8px;
+}
+.diff-controls .button {
+  min-height: 30px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+.diff-controls .button[aria-pressed="true"] {
+  background: #303637;
+  border-color: var(--faint);
+}
+.reverse {
+  transform: rotate(180deg);
+}
+.diff-labels {
+  display: grid;
+  grid-template-columns: 45px 45px 1fr;
+  padding: 11px 0;
+  color: var(--faint);
+  font: 9px var(--mono);
+  border-bottom: 1px solid var(--soft-line);
+}
+.diff-labels > span {
+  text-align: center;
+}
+.diff-labels > span:last-child {
+  text-align: left;
+  padding-left: 28px;
+  overflow-wrap: anywhere;
+}
+.diff-scroll {
+  max-height: 540px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.diff-body {
+  min-width: 100%;
+  width: max-content;
+  padding: 12px 0;
+}
+.diff-line {
+  display: grid;
+  grid-template-columns: 45px 45px 28px minmax(0, 1fr);
+  min-height: 24px;
+  font: 11px/24px var(--mono);
+}
+.diff-line > code {
+  font: inherit;
+  white-space: pre;
+  padding-right: 24px;
+}
+.diff-old,
+.diff-new {
+  color: var(--faint);
+  text-align: right;
+  padding-right: 12px;
+  user-select: none;
+  border-right: 1px solid var(--soft-line);
+  font-size: 9px;
+}
+.diff-sign {
+  text-align: center;
+  user-select: none;
+}
+.diff-line.add {
+  background: #1e2a21;
+}
+.diff-line.add .diff-sign {
+  color: var(--pass);
+}
+.diff-line.remove {
+  background: #30221f;
+}
+.diff-line.remove .diff-sign {
+  color: #e8a79a;
+}
+.diff-line.current-change {
+  outline: 1px solid var(--signal);
+  outline-offset: -1px;
+}
+.diff-line:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: -2px;
+}
+.diff-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 8px 20px;
+  border-top: 1px solid var(--line);
+}
+.diff-position {
+  margin-right: auto;
+  color: var(--muted);
+  font: 10px var(--mono);
+}
+.diff-disclaimer {
+  padding: 12px 20px;
+  background: var(--base);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+  border-top: 1px solid var(--soft-line);
+}
+.command-trigger {
+  color: var(--muted);
+}
+kbd {
+  font: 9px var(--mono);
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--faint);
+}
+dialog {
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid #4c5551;
+  border-radius: 10px;
+  box-shadow: 0 28px 100px #0009;
+}
+dialog::backdrop {
+  background: #080b0dd9;
+}
+.command-dialog,
+.share-dialog {
+  width: min(620px, calc(100% - 32px));
+  margin: min(15vh, 130px) auto;
+  padding: 0;
+  max-height: 75vh;
+}
+.command-dialog-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px 12px;
+}
+.command-dialog-heading > .icon {
+  width: 17px;
+  color: var(--signal);
+}
+.command-dialog-heading h2 {
+  font-size: 16px;
+}
+.command-dialog-heading > button {
+  margin-left: auto;
+  min-width: 32px;
+  min-height: 32px;
+}
+.command-dialog > input {
+  display: block;
+  width: calc(100% - 44px);
+  margin: 0 22px 16px;
+  background: var(--base);
+  border: 1px solid var(--line);
+  padding: 12px 13px;
+  border-radius: 5px;
+  outline-offset: 2px;
+  font-size: 14px;
+}
+.command-results {
+  padding: 8px 12px 12px;
+  border-top: 1px solid var(--line);
+  overflow-y: auto;
+  max-height: 45vh;
+}
+.command-results h3 {
+  font: 9px var(--mono);
+  letter-spacing: 1px;
+  color: var(--faint);
+  padding: 12px 10px 8px;
+}
+.command-result {
+  width: 100%;
+  padding: 11px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  text-align: left;
+  border-radius: 5px;
+  color: var(--ink);
+}
+.command-result > span {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.command-result small {
+  display: block;
+  font-size: 10px;
+  color: var(--faint);
+  margin-top: 3px;
+}
+.command-result > .icon {
+  width: 14px;
+  color: var(--faint);
+}
+.command-result:focus-visible {
+  background: var(--raised);
+  outline-offset: -2px;
+}
+.command-hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  padding: 13px 22px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.share-dialog {
+  padding-bottom: 22px;
+}
+.share-dialog > p,
+.share-dialog > label,
+.share-dialog > input {
+  margin: 10px 22px;
+}
+.share-dialog > p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.share-dialog > label {
+  display: block;
+  font: 10px var(--mono);
+  color: var(--muted);
+}
+.share-dialog > input {
+  display: block;
+  width: calc(100% - 44px);
+  background: var(--base);
+  border: 1px solid var(--line);
+  padding: 12px;
+  border-radius: 4px;
+  font: 11px var(--mono);
+}
+.share-dialog > .button {
+  margin: 6px 22px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (hover: hover) {
+  .comparison-row:hover {
+    background: #252a28;
+  }
+  .command-result:hover {
+    background: #252b29;
+  }
+}
+@media (max-width: 1250px) {
+  .top-actions .preview-label {
+    display: none;
+  }
+  .finding {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .finding > .text-button {
+    grid-column: 2;
+    margin: 6px 0 0;
+    justify-self: start;
+  }
+  .finding-symbol {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    height: auto;
+    min-height: 61px;
+    padding-block: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .top-actions {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .command-trigger kbd {
+    display: none;
+  }
+  .top-actions .button {
+    font-size: 10px;
+    padding: 8px;
+  }
+  .finding {
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .finding-symbol {
+    width: 20px;
+    height: 20px;
+    margin-top: 24px;
+  }
+  .finding-symbol > .icon {
+    width: 12px;
+  }
+  .finding h2 {
+    font-size: 23px;
+    line-height: 1.2;
+  }
+  .finding p {
+    font-size: 11px;
+  }
+  .comparison-content {
+    padding: 0 12px;
+  }
+  .comparison-table-head {
+    display: none;
+  }
+  .comparison-row {
+    grid-template-columns: minmax(0, 1fr) 100px 16px;
+    gap: 5px 8px;
+    padding: 12px 8px;
+  }
+  .comparison-name {
+    gap: 10px;
+  }
+  .comparison-value {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .comparison-status {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .interval-chart {
+    grid-column: 1 / 4;
+    grid-row: 2;
+  }
+  .comparison-note {
+    flex-direction: column;
+    gap: 6px;
+    padding-inline: 8px;
+  }
+  .diff-toolbar {
+    padding: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .diff-summary {
+    gap: 10px;
+  }
+  .diff-summary > span:last-child {
+    display: none;
+  }
+  .diff-controls {
+    gap: 5px;
+  }
+  .diff-footer {
+    padding-inline: 12px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .diff-position {
+    width: 100%;
+    margin-top: 6px;
+  }
+  .diff-labels {
+    font-size: 8px;
+  }
+  .diff-disclaimer {
+    padding: 12px;
+  }
+  .plot-caption {
+    flex-wrap: wrap;
+    gap: 5px 12px;
+  }
+  .command-hint {
+    font-size: 9px;
+    padding-inline: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .comparison-row {
+    transition: none;
+  }
+}

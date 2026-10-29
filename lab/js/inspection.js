@@ -1,3 +1,4 @@
+import { sourceComparison } from "./source-comparison.js";
 import { renderLineage } from "./lineage.js";
 import {
   el,
@@ -399,38 +400,6 @@ export function renderEvolution(state, actions) {
     ),
   );
 }
-function sourceLines(source, other) {
-  const existing = new Set(
-    (other || "")
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean),
-  );
-  return el(
-    "pre",
-    { class: "source-lines" },
-    el(
-      "code",
-      {},
-      String(source || "Source not recorded.")
-        .split("\n")
-        .map((line, index) =>
-          el(
-            "span",
-            {
-              class: `source-line ${line.trim() && !existing.has(line.trim()) ? "changed" : ""}`,
-            },
-            el(
-              "span",
-              { class: "line-number", "aria-hidden": "true" },
-              index + 1,
-            ),
-            el("span", {}, line || " "),
-          ),
-        ),
-    ),
-  );
-}
 export function renderCode(state, actions) {
   const record = state.record,
     experiment = selectedExperiment(record, state.chosen),
@@ -474,39 +443,7 @@ export function renderCode(state, actions) {
         ),
       ),
     ),
-    el(
-      "div",
-      { class: "code-diff" },
-      el(
-        "section",
-        { class: "source-pane" },
-        el(
-          "header",
-          {},
-          el("span", { class: "source-dot baseline" }),
-          "Declared reference",
-          el("span", {}, "READ ONLY"),
-        ),
-        sourceLines(reference, optimized),
-      ),
-      el(
-        "section",
-        { class: "source-pane candidate-source" },
-        el(
-          "header",
-          {},
-          el("span", { class: "source-dot candidate" }),
-          "Candidate implementation",
-          el("span", {}, "READ ONLY"),
-        ),
-        sourceLines(optimized, reference),
-      ),
-    ),
-    el(
-      "p",
-      { class: "footnote" },
-      "Highlighted lines are unique to that side, not a semantic diff. Imported source is displayed as text and never executed.",
-    ),
+    sourceComparison(reference, optimized, experiment.id),
     el(
       "div",
       { class: "two-column" },

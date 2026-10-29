@@ -6,7 +6,7 @@
 
 An evidence-first performance investigation laboratory. Profile a bounded workload, keep competing explanations, test targeted Triton configurations, and preserve the numerical checks and timing uncertainty behind each decision.
 
-**v0.2.0 is a research preview.** The development host is an Apple M4, with no NVIDIA CUDA device. The release includes actual CPU control experiments, a fitted CPU intervention selector, and a prepared CUDA/Triton execution path. **No GPU speedup, GPU-trained policy, causal GPU diagnosis, sanitizer pass, or GPU superiority is claimed.** [Validation status →](docs/validation.md)
+**v0.2.1 is a research preview.** The development host is an Apple M4, with no NVIDIA CUDA device. The release includes actual CPU control experiments, a fitted CPU intervention selector, and a prepared CUDA/Triton execution path. **No GPU speedup, GPU-trained policy, causal GPU diagnosis, sanitizer pass, or GPU superiority is claimed.** [Validation status →](docs/validation.md)
 
 [Explore the LAB](https://nazeeh111.github.io/KERNELDARWIN/) · [Quickstart](#try-the-laboratory) · [Research](docs/research.md) · [Methodology](docs/methodology.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
@@ -18,13 +18,13 @@ The shipped controls compare a higher-precision NumPy reference with batched flo
 
 The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
 
-The LAB now places the measured latency fingerprint and verification ledger together, with a keyboard-accessible timing-pair inspector, parent-aware candidate history, and synchronized evidence selection. Its self-hosted IBM Plex typography and interruptible, reduced-motion-aware transitions serve the investigation.
+The LAB now leads with a plain-language result and compares every candidate on a shared speedup axis, with its own recorded uncertainty and measurement phase. Select an attempt to inspect matching raw samples, numerical gates and an exact line diff. Share the current record/candidate/view, export unrounded timing CSVs, or press **⌘/Ctrl K** to search views and evidence. Its self-hosted IBM Plex typography and interruptible, reduced-motion-aware transitions serve the investigation. [Design research and verification scope →](docs/lab-refinement.md)
 
 The LAB lets you follow the useful questions: what was measured, which explanation remains plausible, what changed, and what passed independent confirmation? GPU timelines, utilization and rooflines stay unavailable when their required measurements are absent.
 
 <p><a href="docs/assets/v0.2/workbench.mp4"><img src="docs/assets/v0.2/lab-desktop.png" alt="Watch the recorded CPU-control workbench demonstration" width="800"></a></p>
 
-[Watch the current workbench recording](docs/assets/v0.2/workbench.mp4). The [original v0.1 demo](docs/demo/brag.mp4) is preserved. The current v0.2 workbench has a redesigned interface with paired-sample inspection, linked candidate selection, accessible lineage, and source comparison. CPU control playback remains labeled; it is not live GPU optimization.
+[Watch the v0.2 workbench recording](docs/assets/v0.2/workbench.mp4). The [original v0.1 demo](docs/demo/brag.mp4) is preserved. The v0.2 workbench introduced a redesigned interface with paired-sample inspection, linked candidate selection, accessible lineage, and source comparison. CPU control playback remains labeled; it is not live GPU optimization.
 
 ## Try the laboratory
 
