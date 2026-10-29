@@ -1,7 +1,7 @@
 """Authored Triton templates. Import only with CUDA dependencies installed.
 
 Row reductions intentionally bound columns to 8192. No external source is
-compiled or evaluated by the CLI. See THIRD_PARTY_NOTICES.md for prior art.
+compiled or evaluated by the CLI. See docs/prior-art.md for prior art.
 """
 import triton
 import triton.language as tl

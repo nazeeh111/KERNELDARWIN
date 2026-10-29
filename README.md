@@ -95,7 +95,7 @@ Hypotheses preserve evidence, missing measurements and falsifiers. The preview d
 - [Research question, comparisons and limits](docs/research.md)
 - [Selector features, training and evaluation](docs/selector.md)
 - [Architecture](docs/architecture.md) and [contributing](CONTRIBUTING.md)
-- [License and attribution](THIRD_PARTY_NOTICES.md), [citation](CITATION.cff), [release notes](CHANGELOG.md)
+- [License](LICENSE), [citation](CITATION.cff), [release notes](CHANGELOG.md)
 
 CPU CI validates contracts and distributions. GPU validation is a manual workflow requiring an explicitly provisioned trusted self-hosted runner; this project supplies no paid compute. Open an issue with a reproducible record, workload specification and environment when reporting a problem. Do not include private data or credentials.
 

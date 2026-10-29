@@ -17,4 +17,4 @@ Reviewed against primary project documentation and papers on **26 October 2026**
 
 ## Licensing boundary
 
-KERNELDARWIN is separately authored software. This review did not copy upstream implementation, benchmark tasks, figures or trained model weights. Optional dependencies retain their own licenses; NVIDIA binaries are not redistributed. See [third-party notices](../THIRD_PARTY_NOTICES.md). If later work vendors upstream code or data, retain its exact license, copyright, required notices and revision provenance at the copied artifact.
+KERNELDARWIN is separately authored software. This review did not copy upstream implementation, benchmark tasks, figures or trained model weights. Optional dependencies retain their own licenses; NVIDIA binaries are not redistributed. If later work vendors upstream code or data, retain its exact license, copyright, required notices and revision provenance at the copied artifact.
