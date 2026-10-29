@@ -102,7 +102,12 @@ def export_record(record,output):
     source='''"""KERNELDARWIN exported callable. Requires installed kerneldarwin[cuda]."""\nimport json\nfrom kerneldarwin.gpu import candidate\nSPEC = json.loads(RECORD_DATA)\n\ndef run(x):\n    import hashlib\n    from kerneldarwin.gpu import source_pair\n    if hashlib.sha256(json.dumps(source_pair(),sort_keys=True).encode()).hexdigest() != SPEC['source_sha256']:\n        raise ValueError('Installed kernels differ from verified source; re-investigate')\n    w = SPEC['workload']\n    if list(x.shape) != list(w['shape']) or str(x.dtype).removeprefix('torch.') != w['dtype']:\n        raise ValueError('Input differs from verified shape/dtype')\n    if x.device.type != 'cuda' or x.stride(1) != w['stride']:\n        raise ValueError('Input differs from verified CUDA/stride contract')\n    if SPEC['actual_strides'] and list(x.stride()) != SPEC['actual_strides']:\n        raise ValueError('Input differs from verified full stride contract')\n    import torch\n    if torch.cuda.get_device_name(x.device) != SPEC['device']['name']:\n        raise ValueError('GPU differs from verified device')\n    return candidate(w['family'], SPEC['config'], x, w['eps'])\n'''
     source=source.replace('RECORD_DATA',repr(json.dumps(metadata,allow_nan=False)))
     if output.exists():raise ValueError('Output exists; choose a new export path')
-    output.parent.mkdir(parents=True,exist_ok=True);output.write_text(source)
+    output.parent.mkdir(parents=True,exist_ok=True)
+    try:
+        with output.open('x', encoding='utf-8') as handle:
+            handle.write(source)
+    except FileExistsError as exc:
+        raise ValueError('Output exists; choose a new export path') from exc
     return {'export':str(output),'record_id':record['id'],'safety':winner.get('safety')}
 
 
