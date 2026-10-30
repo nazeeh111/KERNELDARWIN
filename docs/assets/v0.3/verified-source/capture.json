@@ -1,0 +1,14 @@
+{
+  "kind": "actual_browser_interaction_recording",
+  "performance_claim": false,
+  "note": "Actual browser interaction with read-only recorded installed GPU CLI outputs and retained null performance study. No live GPU browser execution.",
+  "source_sha256": {
+    "workload.html": "5c4ec89f5d41ac13c25328a82eb278df25455b869c752cdb284753b52a5161cc",
+    "workload.css": "8002c680986b4022317321afb8fe3c45e6b228954d2232836937311e15676138",
+    "workload.js": "f1843825a3e441698e0fa1bff22b2ca91e658e22bc1811dc6fe1141e8e014708",
+    "data/workload.json": "88330ff9acd4fab09293aefb1fd505a5e18b777d1612c6283e14327e24011a69",
+    "data/workload-demo.json": "94221b2ca5c165e16dab6edcb3dca98dc75bc6b10a936e93139558aa1834b078"
+  },
+  "browser": "156.0.8078.49",
+  "captured_at": "2026-10-29T23:50:24.538Z"
+}

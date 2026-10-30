@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "kind": "excluded_baseline_attempt",
+  "study": "quiet-v1",
+  "reasons": [
+    "Root overlapped the initial independently installed numerical consumer with this baseline probe; it is unsuitable for timing promotion.",
+    "A numerical validation process had aborted on an empty-query sort dispatch, and the application source is being repaired. The source-bound study must be frozen again after validation."
+  ],
+  "decision": "Preserve raw output but perform no candidate tuning or export from quiet-v1. These exclusions were recorded before using its timing outcome. Subsequent GPU work must be serialized."
+}

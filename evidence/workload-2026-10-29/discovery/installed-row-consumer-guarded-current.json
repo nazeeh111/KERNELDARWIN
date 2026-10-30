@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "kind": "installed_gpu_numerical_consumer",
+  "package_version": "0.3.0",
+  "package_location": "/private/tmp/kd-workload-final-consumer-20261029/env/lib/python3.12/site-packages/kerneldarwin",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "source_sha256": "fae44c8d69dd6ac9ef0ef0a4459bcb6d2a0e4aabb02c733a2398615028423803",
+  "study_identity": "5d2857e32e7cebdc26cddae82cefcec362ac6d3bcc385b891713b7d0cc2b1be3",
+  "checks": [
+    {
+      "invocation": 0,
+      "implementation": "installed_dispatch",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "eager_library",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "fast_library",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "compiled_application",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "fast_compiled_application",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "simd",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "simd4",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "vector4",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 0,
+      "implementation": "group128",
+      "passed": true,
+      "input_sha256": "842060581ab3ee45e982e483a397be5f71ccaf0e8b2024196d80b830e59f2489"
+    },
+    {
+      "invocation": 1,
+      "implementation": "installed_dispatch",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "eager_library",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "fast_library",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "compiled_application",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "fast_compiled_application",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "simd",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "simd4",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "vector4",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 1,
+      "implementation": "group128",
+      "passed": true,
+      "input_sha256": "5b78510932e80366c5e42462c50249004a1ea0e0921a9c16fb9de0be14d7c59c"
+    },
+    {
+      "invocation": 2,
+      "implementation": "installed_dispatch",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "eager_library",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "fast_library",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "compiled_application",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "fast_compiled_application",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "simd",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "simd4",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "vector4",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "invocation": 2,
+      "implementation": "group128",
+      "passed": true,
+      "input_sha256": "9d28b874ec86b80a878f15fb864e67b1055ec91e9cca6c5499efe9b4bc88ccb6"
+    },
+    {
+      "malformed_plan_fallback": true
+    }
+  ],
+  "changed_inputs": true,
+  "gpu_executed": true,
+  "artifact_status": "library_only",
+  "custom_dispatch_calls": 0,
+  "fallback_calls": 7,
+  "development_caches": "No source tree, tuning records, private files or Python/MLX process caches supplied. Shared OS driver caches are not deleted.",
+  "performance_claim": false,
+  "time_utc": "2026-10-29T23:43:28Z"
+}

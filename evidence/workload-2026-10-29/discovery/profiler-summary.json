@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "profiler": "Apple Instruments Metal System Trace",
+  "configured_time_limit_seconds": 12,
+  "recorded_wall_duration_seconds": 19.943065,
+  "target_terminated_by_time_limit": true,
+  "own_gpu_interval_rows": 0,
+  "own_intervals": [],
+  "shader_timeline": "disabled",
+  "hardware_counter_set": null,
+  "usable_for_kernel_timing": false,
+  "limitation": "Target terminated before a completed labeled library/candidate application sequence. Raw trace includes unrelated system context and is retained locally, not published. Source IR graph is not causal GPU profiler evidence."
+}

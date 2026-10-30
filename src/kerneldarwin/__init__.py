@@ -1,5 +1,5 @@
 """KERNELDARWIN: evidence-first performance investigation.
 
-Core imports are CPU compatible. GPU modules load only on explicit CUDA use.
+Core imports are CPU compatible. GPU runtimes load only on explicit backend use.
 """
-__version__ = "0.2.1"
+__version__ = "0.3.0"

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "investigations": [
+    {
+      "id": "constant-address-space-compile-failure",
+      "stage": "candidate numerical smoke test before timing",
+      "input": {"shape": [1, 1], "dtype": "float32"},
+      "candidate": "vector4",
+      "outcome": "failed compilation",
+      "error": "reinterpret_cast from const constant float* to const device float4* is not allowed",
+      "interpretation": "MLX uses constant address space for small buffers. Candidate source must support both address spaces.",
+      "repair": "Constant/device overloads, subsequently changed to packed_float4 for offset alignment. Every repaired candidate requires fresh numerical checks."
+    },
+    {
+      "id": "fast-rms-standalone-normalization",
+      "stage": "compiler and library target discovery",
+      "outcome": "semantically unsuitable as standalone stable clamped L2 fallback",
+      "reason": "rms_norm(..., eps=0) on a zero row produces NaNs; nonzero additive epsilon differs from max(norm(x), 1e-12). Ordinary L2 also overflows on large finite float32 rows.",
+      "decision": "Retain as competing library implementation for normal-magnitude vectors, never substitute silently for declared stable semantics."
+    },
+    {
+      "id": "contended-baseline-noise",
+      "stage": "pre-tuning workload freeze",
+      "outcome": "rejected for performance confirmation",
+      "evidence": "../protocol.json contains unmodified 40-pair identical-baseline samples for each of three application shapes",
+      "observation": "load_average=[685.9614,543.8423,314.5239]. Identical-baseline 95% speedup intervals include 0.436..2.610. pmset reported no recorded thermal warning, not a temperature measurement.",
+      "decision": "No candidate tuning or promotion from this protocol. Keep it as a failed study. Require a new quiet-period baseline with a prospectively fixed stability gate before freezing replacement confirmation. Never rerun confirmation to seek a lucky win."
+    }
+  ]
+}

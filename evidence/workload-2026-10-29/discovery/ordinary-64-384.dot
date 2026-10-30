@@ -1,0 +1,34 @@
+digraph {
+{ rank=source; "x"; }
+{ 524733228680 [label ="Square", shape=rectangle]; }
+"x" -> 524733228680
+{ "B"; }
+524733228680 -> "B"
+{ 524743364776 [label ="Sum", shape=rectangle]; }
+"B" -> 524743364776
+{ "C"; }
+524743364776 -> "C"
+{ 524743297928 [label ="Sqrt", shape=rectangle]; }
+"C" -> 524743297928
+{ "D"; }
+524743297928 -> "D"
+{ rank=source; "E"; }
+{ 524743335576 [label ="Broadcast", shape=rectangle]; }
+"E" -> 524743335576
+{ "F"; }
+524743335576 -> "F"
+{ 524743297784 [label ="Maximum", shape=rectangle]; }
+"D" -> 524743297784
+"F" -> 524743297784
+{ "G"; }
+524743297784 -> "G"
+{ 524743335704 [label ="Broadcast", shape=rectangle]; }
+"G" -> 524743335704
+{ "H"; }
+524743335704 -> "H"
+{ 524748417656 [label ="Divide", shape=rectangle]; }
+"x" -> 524748417656
+"H" -> 524748417656
+{ rank=sink; "I"; }
+524748417656 -> "I"
+}

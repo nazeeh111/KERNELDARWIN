@@ -1,0 +1,92 @@
+digraph {
+{ rank=source; "queries"; }
+{ 507408691416 [label ="Abs", shape=rectangle]; }
+"queries" -> 507408691416
+{ "C"; }
+507408691416 -> "C"
+{ 507406209992 [label ="Max", shape=rectangle]; }
+"C" -> 507406209992
+{ "D"; }
+507406209992 -> "D"
+{ rank=source; "E"; }
+{ 507406756376 [label ="CompiledBroadcastMaximum", shape=rectangle]; }
+"D" -> 507406756376
+"E" -> 507406756376
+{ "F"; }
+507406756376 -> "F"
+{ 507406755864 [label ="CompiledBroadcastDivide", shape=rectangle]; }
+"queries" -> 507406755864
+"F" -> 507406755864
+{ "G"; }
+507406755864 -> "G"
+{ 507408762536 [label ="Multiply", shape=rectangle]; }
+"G" -> 507408762536
+"G" -> 507408762536
+{ "H"; }
+507408762536 -> "H"
+{ 507406210072 [label ="Sum", shape=rectangle]; }
+"H" -> 507406210072
+{ "I"; }
+507406210072 -> "I"
+{ rank=source; "J"; }
+{ rank=source; "K"; }
+{ 507405967160 [label ="RMSNorm", shape=rectangle]; }
+"G" -> 507405967160
+"K" -> 507405967160
+{ "L"; }
+507405967160 -> "L"
+{ rank=source; "M"; }
+{ 507406756120 [label ="CompiledNotEqualBroadcastBroadcastBroadcastDivideMultiplyGreaterEqualBroadcastBroadcastMultiplyBroadcastDivideSelectSelect", shape=rectangle]; }
+"I" -> 507406756120
+"J" -> 507406756120
+"E" -> 507406756120
+"F" -> 507406756120
+"L" -> 507406756120
+"M" -> 507406756120
+"G" -> 507406756120
+{ "N"; }
+507406756120 -> "N"
+{ rank=source; "index"; }
+{ 507406210232 [label ="Transpose", shape=rectangle]; }
+"index" -> 507406210232
+{ "O"; }
+507406210232 -> "O"
+{ 507408763256 [label ="Matmul", shape=rectangle]; }
+"N" -> 507408763256
+"O" -> 507408763256
+{ "P"; }
+507408763256 -> "P"
+{ 507408763304 [label ="Negative", shape=rectangle]; }
+"P" -> 507408763304
+{ "Q"; }
+507408763304 -> "Q"
+{ 507397181736 [label ="ArgSort", shape=rectangle]; }
+"Q" -> 507397181736
+{ "R"; }
+507397181736 -> "R"
+{ 507408155288 [label ="Slice", shape=rectangle]; }
+"R" -> 507408155288
+{ "S"; }
+507408155288 -> "S"
+{ 507408691224 [label ="GatherAxis", shape=rectangle]; }
+"P" -> 507408691224
+"S" -> 507408691224
+{ rank=sink; "T"; }
+507408691224 -> "T"
+{ rank=source; "U"; }
+{ rank=source; "V"; }
+{ 507406754840 [label ="CompiledBroadcastEqualBroadcastEqualLogicalOrNotEqualLogicalOrLogicalNot", shape=rectangle]; }
+"N" -> 507406754840
+"U" -> 507406754840
+"V" -> 507406754840
+{ "W"; }
+507406754840 -> "W"
+{ 507406210152 [label ="And", shape=rectangle]; }
+"W" -> 507406210152
+{ "X"; }
+507406210152 -> "X"
+{ 507396008760 [label ="Squeeze", shape=rectangle]; }
+"X" -> 507396008760
+{ rank=sink; "Y"; }
+507396008760 -> "Y"
+}
