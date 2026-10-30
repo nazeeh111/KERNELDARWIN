@@ -3,7 +3,8 @@
 ## 0.3.0 · Workload numerical preview · Unreleased
 
 - Added a usable local cosine-search application, typed MLX APIs and `kd workload doctor`, `demo`, `search` and gated `export` commands. The default path uses the complete compiled stable query.
-- Executed four authored stable-normalization configurations and two fused query-score configurations on an Apple M4. Independent numerical suites passed 18 current row/application/guard tests and seven fused GPU test methods, with Metal API and GPU validation enabled.
+- Executed four authored stable-normalization configurations and two fused query-score configurations on an Apple M4. Independent numerical suites passed 18 current row/application/guard tests and eight current fused GPU test methods, with Metal API and GPU validation enabled.
+- Compiled configured scoring and ranking together, keeping request guards outside the graph and matching the compilation scope of the library comparators. An 88-case compatibility probe and the eight-method current GPU suite passed; no timing benefit is implied.
 - Implemented exact input rules, source/application/baseline/study/runtime identities, immutable source snapshots, explicit dtype/shape/layout semantics, finite validation, failed-refresh rollback and library fallback.
 - Completed a frozen first-target study with matched fixed/per-shape/joint search data, three independent sessions and 24 fresh-process starts. It failed application confirmation; no optimized artifact or acceleration claim was accepted.
 - Investigated fused query normalization/scoring as the second bounded target. Numerical and installed changed-input checks passed; an unstable identical-baseline study stopped before tuning. Failed evidence is preserved.

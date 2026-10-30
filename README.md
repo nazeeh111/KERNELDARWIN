@@ -36,9 +36,9 @@ The included corpus uses deterministic token-count features, with no downloaded 
 
 [Complete quickstart and typed Python API](docs/workload.md).
 
-![Workload interface with the retained null result](docs/assets/v0.3/verified-source/workload-desktop.png)
+![Workload interface with the retained null result](docs/assets/v0.3/compiled-source/workload-desktop.png)
 
-[Recorded walkthrough](docs/assets/v0.3/verified-source/workload-interaction.mp4) · [Actual installed CLI outputs](evidence/workload-2026-10-29/discovery/installed-cli-demo.json). The browser recording shows recorded GPU results and library fallback; it does not run GPU code in the browser.
+[Recorded walkthrough](docs/assets/v0.3/verified-source/workload-interaction.mp4) · [Actual installed CLI outputs](evidence/workload-2026-10-29/discovery/installed-cli-demo.json). The browser recording pins the earlier source-preview snapshot and shows real recorded GPU results and library fallback; it does not run GPU code in the browser. Current compiled-path numerical evidence is linked in the results.
 
 ## What was investigated
 
@@ -47,7 +47,7 @@ The measured application performs one index refresh and three top-k searches acr
 | Target | Implemented variants | Current evidence |
 | --- | --- | --- |
 | Stable row L2 normalization | SIMD reduction, four-row SIMD grouping, packed vector access, shared reduction | 18 current numerical/guard tests passed; historical three-session study failed application gate |
-| Query normalization fused with similarity scoring | One SIMD group per query/document pair; shared normalized query reused across four documents | Seven further Metal numerical/application tests passed; baseline instability stopped tuning |
+| Query normalization fused with similarity scoring | One SIMD group per query/document pair; shared normalized query reused across four documents | Eight current Metal numerical/application methods passed; baseline instability stopped tuning |
 
 The first target's development portfolio reduced weighted normalization cost by about 6% versus its best fixed candidate. That did **not** establish a complete-application benefit. In confirmation session 0, the portfolio was slower at the point estimate than the complete compiled stable library query: **0.970×**, 95% interval **[0.908, 1.038]**. Later sessions also failed the frozen improvement gate. Every session and all losses remain in [the preserved study](evidence/workload-2026-10-29/target1-normalization/).
 
@@ -55,7 +55,7 @@ Actual Instruments evidence records GPU compute intervals for the installed appl
 
 ## Installable computation and guards
 
-`FusedPlan().index(vectors)` supplies the current compiled-library application path. A future accepted `FusedPlan("artifact")` can route exact query/document/width tuples to at most two authored score kernels. Unknown tuples, unsupported candidate dtypes and incompatible plans use the complete compiled stable query. The original `Normalizer` and `CosineIndex` injection API remains available for the first target.
+`FusedPlan().index(vectors)` supplies the current compiled-library application path. A future accepted `FusedPlan("artifact")` can route exact query/document/width tuples to at most two authored score kernels. Matching custom queries also compile scoring, finite validation and ranking together. This compilation scope matches the optimized libraries; its performance remains unmeasured. Unknown tuples, unsupported candidate dtypes and incompatible plans use the complete compiled stable query. The original `Normalizer` and `CosineIndex` injection API remains available for the first target.
 
 Plans are data. They bind semantic operation, loaded source bytes, application and baseline implementation, study code, MLX/runtime/compiler options and device identity. Readable Metal sources accompany a confirmed manifest. Replacing installed source invalidates stale performance decisions; a running process uses one immutable source snapshot. Inputs are never mutated, and supported noncontiguous views are indexed through their actual device strides.
 

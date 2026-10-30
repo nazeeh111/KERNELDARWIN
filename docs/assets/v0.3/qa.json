@@ -81,5 +81,7 @@
     "First target failed frozen application confirmation.",
     "Fused target stopped at baseline instability before candidate timing.",
     "Public source, remote CI, clean clone and any later release require separate verification."
-  ]
+  ],
+  "source_stage_commit": "0c312bd66c0e30d015c4f9eda8e5b93dee5ca3ea",
+  "scope_note": "Historical first public source-preview checks. The compiled-query revision has its own compiled-qa.json."
 }

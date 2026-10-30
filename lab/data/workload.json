@@ -51,7 +51,7 @@
     "The table describes target one: one refresh and three queries for each of four tasks per sequence. All 120 samples, including losses and background contention, are retained.",
     "In the least noisy first session, the dispatcher versus the whole compiled stable application was 0.970\u00d7 with a 95% interval of 0.908\u20131.038\u00d7. Later intervals were wider.",
     "The second target stopped before candidate timing: identical library 95% intervals ranged from about 0.42 to 1.45 under host load around 474.",
-    "Eighteen current normalization/application numerical and guard tests and seven fused-score tests passed. Native Metal API and GPU Validation were enabled. Clean installed consumers changed inputs and checked scores and document identifiers.",
+    "Current numerical and source-guard suites passed with native Metal API and GPU Validation. Independent installed consumers changed inputs and checked scores and document identifiers.",
     "Actual application GPU intervals were captured with Instruments. Hardware counters were not present in that capture; no bandwidth, spill or causal bottleneck claim is made.",
     "Float32 subnormal inputs follow native Metal flush-to-zero. Normal tiny values pass strict relative checks with zero absolute tolerance.",
     "The application is local lexical/vector cosine search. No pretrained model, external data, adoption or cross-device claim is implied."

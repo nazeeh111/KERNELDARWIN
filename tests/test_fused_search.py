@@ -172,3 +172,30 @@ class FusedSearchTests(unittest.TestCase):
         q=mx.full((2,33),1e30);docs=self.documents(5,33)
         broken=(q/mx.sqrt(mx.sum(q*q,axis=1,keepdims=True)))@docs.T
         with self.assertRaises(AssertionError):np.testing.assert_allclose(np.array(broken),self.reference(q,docs),rtol=2e-5,atol=2e-6)
+
+    def test_compiled_plan_query_and_score_use_changed_arrays(self):
+        mx,np,f=self.mx,self.np,self.fused
+        rng=np.random.default_rng(911)
+        # Both variants, narrow/irregular/wide rows and document tails exercise
+        # the production compiled graph, with only synthetic dispatch rules.
+        for variant in f.SCORE_CANDIDATES:
+            for q_count,n,width in ((1,5,1),(3,9,33),(5,17,513),(17,161,1536),(2,5,2048)):
+                manifest=self.manifest()
+                manifest['rules']=[{'shape':[q_count,n,width],'candidate':variant,'dtype':'float32','layout':'any_mlx_strides'}]
+                plan=f.FusedPlan._trial(manifest)
+                for change in (0,1):
+                    raw=mx.array(rng.normal(size=(n,width)).astype(np.float32))
+                    q=mx.array(rng.normal(size=(q_count,width)).astype(np.float32))
+                    if change:q=q[:,::-1]
+                    index=plan.index(raw)
+                    expected=self.reference(q,index.vectors)
+                    before=plan.calls
+                    ids,values=index.search(q,k=min(3,n))
+                    self.assertEqual(plan.calls,before+1)
+                    self.assertEqual(plan.fallback_calls,0)
+                    ids=np.asarray(ids);values=np.asarray(values)
+                    self.assertTrue(all(len(set(row.tolist()))==min(3,n) for row in ids))
+                    self.assertTrue(np.all((ids>=0)&(ids<n)))
+                    np.testing.assert_allclose(values,np.take_along_axis(expected,ids,axis=1),rtol=2e-5,atol=2e-6)
+                    np.testing.assert_allclose(values,-np.sort(-expected,axis=1)[:,:min(3,n)],rtol=2e-5,atol=2e-6)
+                    np.testing.assert_allclose(np.array(plan.score(q,index.vectors)),expected,rtol=2e-5,atol=2e-6)

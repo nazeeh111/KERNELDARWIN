@@ -102,14 +102,35 @@ def library_scores(queries: Any, docs: Any, kind: str = "stable") -> Any:
     return _library_scores(kind)(queries, docs)
 
 
+def _score_ranking(scores: Any, k: int) -> tuple[Any, Any, Any]:
+    import mlx.core as mx
+    finite = mx.all(mx.isfinite(scores))
+    ids = mx.argsort(-scores, axis=-1)[:, :k]
+    return ids, mx.take_along_axis(scores, ids, axis=-1), finite
+
+
 @lru_cache(maxsize=32)
 def _rank_scores(k: int) -> Any:
     import mlx.core as mx
-    def graph(scores: Any) -> tuple[Any, Any, Any]:
-        finite = mx.all(mx.isfinite(scores))
-        ids = mx.argsort(-scores, axis=-1)[:, :k]
-        return ids, mx.take_along_axis(scores, ids, axis=-1), finite
-    return mx.compile(graph)
+    return mx.compile(lambda scores: _score_ranking(scores, k))
+
+
+@lru_cache(maxsize=2)
+def _compiled_candidate_scores(variant: str) -> Any:
+    """Cache a graph, never query/document contents or computed results."""
+    import mlx.core as mx
+    return mx.compile(lambda queries, docs: candidate_scores(queries, docs, variant))
+
+
+@lru_cache(maxsize=32)
+def _compiled_score_search(variant: str, k: int) -> Any:
+    """Compile the same complete query scope as the optimized libraries.
+
+    Dispatch guards and counters stay outside this graph. Only the authored
+    variant and ranking width are captured; every call supplies current arrays.
+    """
+    import mlx.core as mx
+    return mx.compile(lambda queries, docs: _score_ranking(candidate_scores(queries, docs, variant), k))
 
 
 class FusedCosineIndex(CompiledCosineIndex):
@@ -130,7 +151,7 @@ class FusedCosineIndex(CompiledCosineIndex):
             candidate = self.scorer._route(queries, self.vectors)
             if candidate is None:
                 return _search_results(_compiled_search("stable", k)(queries, self.vectors))
-            scores = candidate_scores(queries, self.vectors, candidate)
+            return _search_results(_compiled_score_search(candidate, k)(queries, self.vectors))
         else:
             scores = self.scorer(queries, self.vectors)
         return _search_results(_rank_scores(k)(scores))
@@ -219,7 +240,7 @@ class FusedPlan:
         if mode != "inference":
             raise ValueError("Only inference is supported")
         choice = self._route(queries, docs)
-        return candidate_scores(queries, docs, choice) if choice else library_scores(queries, docs)
+        return _compiled_candidate_scores(choice)(queries, docs) if choice else library_scores(queries, docs)
 
     def index(self, vectors: Any) -> FusedCosineIndex:
         """Create an application index with guarded static dispatch and fallback."""

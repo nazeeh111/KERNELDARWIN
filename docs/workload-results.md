@@ -7,7 +7,7 @@
 | Scope | Executed result | Evidence |
 | --- | --- | --- |
 | Current stable row normalization, application and installation guards | 18 tests, zero failures, errors or skips; nine GPU methods and nine CPU contract methods | [Current row validation](../evidence/workload-2026-10-29/discovery/metal-validation-row-guarded-current.json) |
-| Fused query normalization and similarity scoring | Seven GPU test methods, zero failures, errors or skips | [Current fused validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-guarded-current.json) |
+| Current fused query normalization and similarity scoring | Eight GPU test methods, zero failures, errors or skips | [Current compiled-path validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-compiled-current.json) |
 
 The original frozen first study retains its earlier 16-test report and exact source snapshot. Later source-guard changes were separately revalidated in the reports above; historical records were not relabeled. These are separate executed suites, not a claim that every future source revision has passed them. Both used Metal API and GPU shader validation. Recorded hardware was a 10-core Apple M4 GPU with 32 GiB memory, MLX and MLX Metal `0.32.0`, Python `3.12.13`, and arm64 macOS `27.2`, build `26B123`. CUDA sanitizers and other-device validation are not implied.
 
@@ -101,7 +101,7 @@ The equivalent optimized RMS-based baseline preserves the same clamped, max-scal
 
 ## Second target: numerical success, unstable baseline
 
-`score_simd` uses one SIMD group per query/document pair. `score_tile4` normalizes a query in shared memory and reuses it across four documents. Both execute on the actual GPU and passed the seven-method fused validation suite. Index refresh remains the compiled stable library; unfamiliar tuples use the complete compiled stable query, including ranking and finite checks.
+`score_simd` uses one SIMD group per query/document pair. `score_tile4` normalizes a query in shared memory and reuses it across four documents. Both execute on the actual GPU. The current eight-method suite also covers whole-query compilation and changed inputs through both configured paths. Index refresh remains the compiled stable library; unfamiliar tuples use the complete compiled stable query, including ranking and finite checks.
 
 The second study was prospectively bounded to two authored variants, 15 minutes of development, 2 GiB MLX memory and 128 static rules. It reserved fresh input contents, an untouched 113 × 641 index with five query rows and complete sequences. Its identical-baseline intervals failed the unchanged `[0.9, 1.1]` gate:
 
@@ -122,3 +122,11 @@ An accepted artifact still requires repeatable end-to-end improvement against th
 After the source-guard fixes and concurrent v0.2.1 LAB integration, the current local Python suite passes 63 CPU-compatible methods with 16 explicit Metal skips. The actual Metal suites separately pass 18 row/application/guard methods and seven fused GPU methods. The frontend suite passes 22 methods. Nineteen merged browser cases passed in the full run; one case stopped during an unfinished local module fetch before its feature ran, then passed in a serialized isolated recheck. No application source was changed or assertion weakened for that recheck. These are 20 checked browser behaviors, with the setup interruption retained in the task logs. Remote CI remains a separate gate.
 
 The current independent installed wheel passed [28 row checks](../evidence/workload-2026-10-29/discovery/installed-row-consumer-guarded-current.json), [15 fused checks](../evidence/workload-2026-10-29/discovery/installed-fused-consumer-guarded-current.json), and [two changed NPZ quickstarts plus three explicit CLI failures](../evidence/workload-2026-10-29/discovery/installed-cli-smoke-guarded-current.json). The source tree, corpus and tuning files were absent. Plans remained library-only, while direct authored candidates executed and were independently checked. No accepted custom dispatch or successful optimized release is implied.
+
+## Whole-query compilation compatibility
+
+After the first public source preview, a bounded [compatibility probe](../evidence/workload-2026-10-29/discovery/compiled-score-compatibility/) executed both existing score kernels inside one MLX graph with finite validation, sorting and gathering. All 88 checks passed with native Metal validation. No timing or selection occurred. The exported ordinary-case graph has seven primitive nodes; that is graph-structure evidence, not a device-time, copy-count or causal-performance result.
+
+The current implementation and fixed/per-shape comparators now use that same compiled query scope. Python guards and counters run outside the graph once per request. Cached callables capture only variant and ranking width, with current arrays supplied on every call. The new eight-method GPU report validates both variants across five sizes, changing document/query contents, irregular tails and negative query strides. The local Python suite now runs 80 methods with 17 explicit Metal skips and 63 CPU passes. Earlier CI/download evidence at commit0c312bd remains its own recorded source version; the new revision needs separate delivery checks. No frozen performance study or accepted artifact was added.
+
+The [independent installed compiled-path suite](../evidence/workload-2026-10-29/discovery/installed-fused-compiled-suite.json) repeated all eight current GPU methods from a fresh wheel environment with no source tree or tuning files. Its synthetic plans exercise dispatch and source guards only; they do not constitute accepted performance artifacts.

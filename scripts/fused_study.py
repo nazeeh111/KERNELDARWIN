@@ -195,10 +195,10 @@ class StudyMethod:
         return name
 
     def score(self, queries, docs):
-        from kerneldarwin.fused_search import candidate_scores, library_scores
+        from kerneldarwin.fused_search import _compiled_candidate_scores, library_scores
         name = self.route(queries, docs)
         if name in SCORE_NAMES:
-            return candidate_scores(queries, docs, name)
+            return _compiled_candidate_scores(name)(queries, docs)
         if name == "eager_library":
             return eager_scores()(queries, docs)
         return library_scores(queries, docs, "fast" if name == "fast_library" else "stable")
@@ -225,7 +225,7 @@ def study_index_class():
     # Lazy import keeps CPU-only script inspection free of Metal setup. Cache
     # the class itself, so a comparator does not pay class-construction cost on
     # every application refresh.
-    from kerneldarwin.fused_search import FusedCosineIndex, _rank_scores, candidate_scores
+    from kerneldarwin.fused_search import FusedCosineIndex, _compiled_score_search
     from kerneldarwin.search import _compiled_search, _search_inputs, _search_results
     class StudyIndex(FusedCosineIndex):
         def search(self, queries, k=5):
@@ -236,7 +236,7 @@ def study_index_class():
             if name in LIBRARIES:
                 kind = "fast" if name == "fast_library" else "stable"
                 return _search_results(_compiled_search(kind, k)(queries, self.vectors))
-            return _search_results(_rank_scores(k)(candidate_scores(queries, self.vectors, name)))
+            return _search_results(_compiled_score_search(name, k)(queries, self.vectors))
     return StudyIndex
 
 
