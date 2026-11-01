@@ -171,11 +171,14 @@ The first prerequisite measured identical compiled library ranking in randomized
 | Identical-library diagnostic | Notes interval | Manuals interval | Archive interval | Outcome |
 | --- | --- | --- | --- | --- |
 | Prospective 128-input baseline | [0.8473, 1.0094] | [0.9468, 1.1399] | [0.9450, 1.1804] | Rejected before candidate timing |
-| One 1,024-input library-only diagnostic | [0.9519, 1.1287] | [0.9487, 1.0338] | [0.9489, 1.0722] | Rejected; no canonical retry |
+| One 1,024-input library-only diagnostic | [0.9519, 1.1287] | [0.9487, 1.0338] | [0.9489, 1.0722] | Rejected; no 1,024-input canonical study |
+| One fresh original 128-input check after substantial external load reduction | [0.8604, 1.0000] | [0.9815, 1.1283] | [0.9096, 1.0380] | Rejected before candidate timing |
 
 The longer-block diagnostic used one persistent normalized document matrix per task, distinct queries across the original perturbation range and separately evaluated scores. This avoided retaining 1,024 copies of every document matrix. It took **11.81 seconds** and peaked at **142,830,552 bytes**, within its 180-second/2-GiB caps. Its unchanged noise gate still failed. These are comparisons of the library with itself, not kernel speedups. No custom candidate timing, selection, accepted artifact, portfolio advantage or amortization estimate follows from them.
 
 The [rejected baseline](../evidence/workload-2026-11-01/rank-v1/rejected-baseline.json), [42-file exact source snapshot](../evidence/workload-2026-11-01/rank-v1/source-frozen.zip) and [longer-block raw diagnostic](../evidence/workload-2026-11-01/rank-longblock-assay/result.json) remain preserved. Performance attempts stop under these conditions; repeated trials or weaker gates would not establish a repeatable benefit.
+
+A later audit observed a substantial external change: load had fallen to 12.79/27.87/53.71, compared with 272.56/206.28/191.54 at the original rejection and 121.31/196.96/194.02 before the longer-block diagnostic. Independent review supported exactly one fresh original 128-input check, preserving all source, gates, seeds and prior failures. That [separate prospective attempt](../evidence/workload-2026-11-01/rank-v1-lower-load-20261101/) failed for notes and manuals even as recorded load fell to 8.25/24.04/50.66. No candidate was timed. CPU load is not a measurement of GPU contention or temperature; its reduction did not establish usable timing stability. No further timing attempt follows this rejection.
 
 ## Later owned-process shader diagnostic
 

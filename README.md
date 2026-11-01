@@ -4,7 +4,7 @@
 
 Investigate a real GPU workload, then install only what survives independent checks.
 
-**v0.3.0 is in development.** The local cosine-search application and eight authored Metal configurations have executed on an Apple M4. The first two frozen optimization studies failed their performance gates. Two new stable top-five ranking kernels passed independent numerical checks, but their prospective baseline was too noisy to begin candidate timing. One longer-block library-only diagnostic also failed the unchanged noise gate. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
+**v0.3.0 is in development.** The local cosine-search application and eight authored Metal configurations have executed on an Apple M4. The first two frozen optimization studies failed their performance gates. Two new stable top-five ranking kernels passed independent numerical checks, but their prospective baseline was too noisy to begin candidate timing. A longer-block library-only diagnostic and one fresh unchanged check after substantial external load reduction also failed the noise gate. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
 
 [Run the workload](docs/workload.md) · [Semantic contract](docs/workload-semantics.md) · [Readable kernels](src/kerneldarwin/metal/) · [Interface and editable architecture](docs/workload-interface.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
