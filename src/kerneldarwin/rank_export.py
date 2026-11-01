@@ -34,9 +34,19 @@ APP_ARMS = (*("global:" + name for name in GLOBAL_NAMES),
 SOURCE_FILES = ("rank_key.metal", "rank_simd32.metal", "rank_group128.metal")
 SEEDS = [23101, 24203, 25307]
 SEQUENCES = [[1, 0, 3, 2], [2, 3, 0, 1], [0, 2, 1, 3]]
+DESIGN = "application_primary_symmetric_noise_v2"
+UNCERTAINTY = {"resamples": 4000, "circular_block_lengths": [4, 8],
+               "block_seed_stride": 100003, "primary_interval": "envelope_iid_block4_block8"}
+CALIBRATION_SEEDS = list(range(21101, 21141))
+CALIBRATION_ORDERS = [[0, 1, 2], [1, 2, 0], [2, 0, 1]]
+CALIBRATION = {"rank_order_seed": 21441, "application_order_seed": 21443,
+    "application_input_seeds": CALIBRATION_SEEDS,
+    "application_sequence_orders": [CALIBRATION_ORDERS[r % 3] for r in range(40)],
+    "negative_control_method": "stable_library", "application_first_warmup_order": [0, 1, 2],
+    "shared_method_instance": True}
 LIMITS = {"candidates_per_shape": 2, "portfolio_kernels": 2, "max_rules": 128,
           "source_bytes": 12 * 1024, "development_wall_seconds": 900,
-          "cold_study_wall_seconds": 180, "memory_bytes": 2 * 1024 ** 3,
+          "cold_study_wall_seconds": 180, "freeze_wall_seconds": 120, "memory_bytes": 2 * 1024 ** 3,
           "cache_bytes": 256 * 1024 ** 2}
 DEBUG_FLAGS = ("MTL_DEBUG_LAYER", "MTL_SHADER_VALIDATION", "MTL_SHADER_VALIDATION_ENABLE_PIPELINES",
                "METAL_DEVICE_WRAPPER_TYPE", "METAL_DEBUG_ERROR_MODE", "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS",
@@ -112,21 +122,36 @@ def _samples(values: Any, count: int = 40) -> None:
 
 
 def _interval(a: list[float], b: list[float], seed: int = 1404) -> dict[str, Any]:
-    if len(a) != len(b) or not 40 <= len(a) <= 1000:
-        raise ValueError("Need 40..1000 paired costs")
+    if len(a) != len(b) or not 40 <= len(a) <= 1000 or len(a) % 8:
+        raise ValueError("Need 40..1000 paired costs divisible by 4 and 8")
+    if type(seed) is not int:
+        raise ValueError("Invalid interval seed")
     _samples(a, len(a)); _samples(b, len(b))
     ratio = sum(a) / sum(b)
+    _number(ratio, sys.float_info.max)
     if all(x == a[0] for x in a) and all(x == b[0] for x in b):
-        bounds = [ratio, ratio]
+        families = {name: [ratio, ratio] for name in ("iid_ci95", "block4_ci95", "block8_ci95")}
     else:
-        rng, ratios = random.Random(seed), []
-        for _ in range(4000):
-            ids = rng.choices(range(len(a)), k=len(a))
-            ratios.append(sum(a[i] for i in ids) / sum(b[i] for i in ids))
-        ratios.sort()
-        bounds = [ratios[100], ratios[-101]]
+        families = {}
+        for block, name in ((0, "iid_ci95"), (4, "block4_ci95"), (8, "block8_ci95")):
+            rng = random.Random(seed if block == 0 else seed + block * 100003)
+            ratios = []
+            for _ in range(4000):
+                if block == 0:
+                    ids = rng.choices(range(len(a)), k=len(a))
+                else:
+                    ids = []
+                    for _ in range(len(a) // block):
+                        start = rng.randrange(len(a))
+                        ids.extend((start + offset) % len(a) for offset in range(block))
+                ratios.append(sum(a[i] for i in ids) / sum(b[i] for i in ids))
+            if any(not math.isfinite(value) or value <= 0 for value in ratios):
+                raise ValueError("Nonfinite or underflowed resampled cost ratio")
+            ratios.sort()
+            families[name] = [ratios[100], ratios[-101]]
+    bounds = [min(interval[0] for interval in families.values()), max(interval[1] for interval in families.values())]
     return {"speedup_total_cost": ratio, "ci95": bounds,
-            "baseline_total_us": sum(a), "candidate_total_us": sum(b)}
+            "baseline_total_us": sum(a), "candidate_total_us": sum(b), **families}
 
 
 def _arrays(record: dict, key: str, names: tuple[str, ...]) -> None:
@@ -155,6 +180,28 @@ def _flags(record: dict) -> None:
             raise ValueError("Unknown timing validation flag")
         if value is not None and (not isinstance(value, str) or value.lower() not in ("", "0", "false", "no", "off")):
             raise ValueError("Timing under native debug/validation is prohibited")
+
+
+def _telemetry(observed: Any) -> None:
+    if not isinstance(observed, dict) or not isinstance(observed.get("time_utc"), str):
+        raise ValueError("Missing observed telemetry timestamp")
+    loads = observed.get("load_average")
+    if not isinstance(loads, list) or len(loads) != 3:
+        raise ValueError("Missing observed load telemetry")
+    for load in loads:
+        _number(load, 1e9, zero=True)
+    for name in ("thermal", "power"):
+        probe = observed.get(name)
+        if not isinstance(probe, dict):
+            raise ValueError("Missing observed or explicitly unavailable telemetry")
+        if set(probe) == {"unavailable"}:
+            if not isinstance(probe["unavailable"], str) or not probe["unavailable"]:
+                raise ValueError("Invalid unavailable telemetry")
+        elif (set(probe) != {"returncode", "observation"} or type(probe["returncode"]) is not int
+              or not isinstance(probe["observation"], str)):
+            raise ValueError("Invalid observed telemetry")
+    if not isinstance(observed.get("thermal_limit"), str) or not observed["thermal_limit"]:
+        raise ValueError("Missing telemetry limitations")
 
 
 def _source_snapshot(rank):
@@ -229,7 +276,8 @@ def _verify(directory: Path) -> dict[str, Any]:
                 raise ValueError("Frozen evidence bytes changed: " + key)
 
     identity(protocol)
-    _require(protocol.get("schema"), 1, "Invalid protocol schema")
+    _require(protocol.get("schema"), 2, "Invalid V2 protocol schema")
+    _require(protocol.get("measurement_design"), DESIGN, "Invalid prospective measurement design")
     if protocol.get("target") != "stable_top5_pairs_v1" or protocol.get("script_sha256") != pin:
         raise ValueError("Incompatible rank target or measurement pin")
     _require(protocol.get("limits"), LIMITS, "Changed resource limits")
@@ -246,8 +294,10 @@ def _verify(directory: Path) -> dict[str, Any]:
              {"id": "manuals", "rows": min(256, len(chunks)), "width": 768, "queries": 8, "layout": "column_stride2"},
              {"id": "archive", "rows": len(chunks), "width": 1536, "queries": 17, "layout": "transpose"}]
     confirmation = {"sessions": 3, "repeats_per_session": 40, "seeds": SEEDS, "sequence_orders": SEQUENCES,
-                    "unseen_task": {"id": "unseen", "rows": 97, "width": 1025, "queries": 7, "layout": "column_stride2"}}
+                    "unseen_task": {"id": "unseen", "rows": 97, "width": 1025, "queries": 7, "layout": "column_stride2"},
+                    "minimum_separation_seconds": 120}
     expected = {"tasks": tasks, "confirmation": confirmation,
+        "uncertainty": UNCERTAINTY, "calibration": CALIBRATION,
         "development": {"seed": 21104, "repeats": 40, "order_seed": 21207, "authored_configurations": 2,
                         "rank_observations_per_round": 9, "application_adapter_observations_per_round": 16},
         "measurement_batch": 128, "application_measurement_batch": 16,
@@ -260,35 +310,70 @@ def _verify(directory: Path) -> dict[str, Any]:
         "source_budget_scope": "All three authored MSL files including shared header"}
     for key, value in expected.items():
         _require(protocol.get(key), value, "Changed frozen workload/protocol: " + key)
+    allowed = set(expected) | {"schema", "target", "measurement_design", "frozen_at", "limits",
+        "criterion", "selection", "comparator_domain", "stability_gate", "timing", "confirmation_rule",
+        "environment", "telemetry_before", "telemetry", "baseline_noise", "application_baseline_noise",
+        "calibration_wall_seconds", "timing_validation_flags", "peak_memory_bytes", "source_sha256",
+        "study_identity", "sources", "source_bytes", "script_sha256", "numerical_report_sha256",
+        "corpus_chunks", "corpus_sha256"}
+    if set(protocol) - allowed:
+        raise ValueError("Unknown frozen protocol field")
     for task in tasks:
         if task["queries"] * task["rows"] * task["width"] > 16_777_216:
             raise ValueError("Unsupported frozen rank task shape")
-    # Every prospective identical-library pair is checked independently.
+    # Rank controls calibrate the symmetric margin without a rank-only entry cap.
     noise = protocol["baseline_noise"]
     if not isinstance(noise, list) or len(noise) != 3:
         raise ValueError("Incomplete prospective noise")
-    rng, worst = random.Random(21441), 0.
+    rng, rank_envelope, measured_calibration_us = random.Random(21441), 1., 0.
     for row, task in zip(noise, tasks):
+        if not isinstance(row, dict) or set(row) != {"task", "baseline_a_us", "baseline_b_us", "orders", "comparison", "first_rank_ms"}:
+            raise ValueError("Unknown or missing rank control field")
         _require(row["task"], task, "Noise task changed")
         _samples(row["baseline_a_us"]); _samples(row["baseline_b_us"])
         orders = []
         for _ in range(40):
             order = [0, 1]; rng.shuffle(order); orders.append(order)
         _require(row["orders"], orders, "Changed noise pair order")
-        _number(row["first_rank_ms"], 900_000)
+        _number(row["first_rank_ms"], 120_000)
         comparison = _interval(row["baseline_a_us"], row["baseline_b_us"])
         _require(row["comparison"], comparison, "Noise summary differs from raw timings")
         low, high = comparison["ci95"]
-        if not .9 <= low <= high <= 1.1:
-            raise ValueError("Prospective noise stability gate failed")
-        worst = max(worst, abs(low - 1), abs(high - 1))
-    criterion = {"rank_ci95_lower_speedup": max(1.10, 1 + 2 * worst), "application_ci95_lower_speedup": 1.03,
+        rank_envelope = max(rank_envelope, high, 1 / low)
+        measured_calibration_us += 128 * (sum(row["baseline_a_us"]) + sum(row["baseline_b_us"])) + row["first_rank_ms"] * 1000
+    app_noise = protocol["application_baseline_noise"]
+    for key in ("baseline_a_us", "baseline_b_us"):
+        _samples(app_noise[key])
+    rng, orders = random.Random(21443), []
+    for _ in range(40):
+        order = [0, 1]; rng.shuffle(order); orders.append(order)
+    control = {"orders": orders, "input_seeds": CALIBRATION_SEEDS,
+        "sequence_orders": CALIBRATION["application_sequence_orders"],
+        "method": "stable_library", "sequences_per_block": 16}
+    if set(app_noise) != {*control, "baseline_a_us", "baseline_b_us", "comparison", "first_application_sequence_ms"}:
+        raise ValueError("Unknown or missing application control field")
+    for key, value in control.items():
+        _require(app_noise.get(key), value, "Changed application calibration protocol: " + key)
+    app_comparison = _interval(app_noise["baseline_a_us"], app_noise["baseline_b_us"])
+    _require(app_noise["comparison"], app_comparison, "Application noise summary differs from raw timings")
+    app_low, app_high = app_comparison["ci95"]
+    if not .9 <= app_low <= app_high <= 1.1:
+        raise ValueError("Prospective complete-application noise stability gate failed")
+    app_envelope = max(1., app_high, 1 / app_low)
+    _number(app_noise["first_application_sequence_ms"], 120_000)
+    measured_calibration_us += 16 * (sum(app_noise["baseline_a_us"]) + sum(app_noise["baseline_b_us"])) + app_noise["first_application_sequence_ms"] * 1000
+    _number(protocol["calibration_wall_seconds"], 120)
+    if measured_calibration_us > protocol["calibration_wall_seconds"] * 1e6:
+        raise ValueError("Recorded calibration costs exceed complete calibration wall time")
+    _telemetry(protocol["telemetry_before"]); _telemetry(protocol["telemetry"])
+    criterion = {"rank_ci95_lower_speedup": max(1.10, rank_envelope ** 2),
+                 "application_ci95_lower_speedup": max(1.03, app_envelope ** 2),
                  "portfolio_over_fixed_minimum_total_cost_gain": .02, "numerical_rtol": 2e-5, "numerical_atol": 2e-6}
     _require(protocol["criterion"], criterion, "Changed frozen acceptance criterion")
     identity(numerical, corpus=False)
     if (numerical.get("kind") != "executed_rank_metal_numerical_validation"
             or numerical.get("success") is not True or numerical.get("gpu_executed") is not True
-            or type(numerical.get("tests_run")) is not int or numerical["tests_run"] < 8
+            or type(numerical.get("tests_run")) is not int or numerical["tests_run"] < 12
             or any(type(numerical.get(k)) is not int or numerical[k] != 0 for k in ("failures", "errors", "skipped"))):
         raise ValueError("Independent current-source executed rank Metal numerical report required")
     evidence = policy["evidence"]
@@ -372,7 +457,7 @@ def _verify(directory: Path) -> dict[str, Any]:
     _require(policy["policy_selection"], selection, "Frozen fixed/per-shape/joint selection differs from raw adapter costs")
     all_tasks = [*tasks, confirmation["unseen_task"]]
     expected_checks = {(task["id"], method) for task in all_tasks for method in METHODS}
-    sessions, per_session = [], []
+    sessions, per_session, portfolio_sessions, session_spans = [], [], [], []
     for i in range(3):
         result = records[f"confirmation-{i}.json"]
         identity(result); _flags(result)
@@ -380,6 +465,23 @@ def _verify(directory: Path) -> dict[str, Any]:
             _require(result.get(key), value, "Changed independent session identity/order")
         bindings(result, [("protocol_sha256", "protocol.json"), ("policy_sha256", "policy-frozen.json"),
                          ("development_sha256", "development.json"), ("numerical_report_sha256", "numerical-validation.json")])
+        _count(result["process_id"], 2 ** 31 - 1)
+        if result["process_id"] == 0:
+            raise ValueError("Positive confirmation process ID required")
+        span = {"session": i, "process_id": result["process_id"]}
+        for clock in ("unix", "monotonic"):
+            start, end = result[f"session_start_{clock}_ns"], result[f"session_end_{clock}_ns"]
+            for stamp in (start, end):
+                _count(stamp, 2 ** 63 - 1)
+            if start <= 0 or end <= start:
+                raise ValueError("Confirmation must have positive spans on both clocks")
+            span[clock + "_span_seconds"] = (end - start) / 1e9
+            gap = None if i == 0 else start - sessions[-1][f"session_end_{clock}_ns"]
+            if gap is not None and gap < 120_000_000_000:
+                raise ValueError("Confirmation sessions lack 120-second separation on both clocks")
+            span[clock + "_gap_seconds"] = None if gap is None else gap / 1e9
+        session_spans.append(span)
+        _telemetry(result["telemetry_before"]); _telemetry(result["telemetry_after"])
         checks = result["checks"]
         if (not isinstance(checks, list) or len(checks) != len(expected_checks)
                 or {(c["task"], c["method"]) for c in checks} != expected_checks
@@ -418,13 +520,21 @@ def _verify(directory: Path) -> dict[str, Any]:
                        for base in LIBRARIES} for method in METHODS}
         _require(result["comparisons"], comparisons, "Session comparisons differ from raw costs")
         gates = {"rank": all(comparisons["dispatcher"][b]["rank"]["ci95"][0] > criterion["rank_ci95_lower_speedup"] for b in CANONICAL_RANK_LIBRARIES),
-                 "application": all(comparisons["dispatcher"][b]["application"]["ci95"][0] > 1.03 for b in LIBRARIES)}
+                 "application": all(comparisons["dispatcher"][b]["application"]["ci95"][0] > criterion["application_ci95_lower_speedup"] for b in LIBRARIES)}
         _require(result["session_gate"], gates, "Session gate differs from raw costs")
+        portfolio_comparisons = {method: _interval(result["application_samples_us"][method],
+            result["application_samples_us"]["dispatcher"], SEEDS[i]) for method in ("best_fixed", "per_shape")}
+        portfolio_gates = {"over_best_fixed": portfolio_comparisons["best_fixed"]["ci95"][0] > 1.02,
+            "over_per_shape": portfolio_comparisons["per_shape"]["ci95"][0] > 1.,
+            "two_authored_configs": len(selection["joint_subset"]) == 2}
+        _require(result["portfolio_comparisons"], portfolio_comparisons, "Untouched portfolio comparisons differ from raw costs")
+        _require(result["portfolio_session_gate"], portfolio_gates, "Untouched portfolio flags differ from raw costs/config count")
+        portfolio_sessions.append({"comparisons": portfolio_comparisons, "gates": portfolio_gates})
         per_session.append({stage: {method: {base: comparisons[method][base][stage] for base in LIBRARIES}
                                    for method in METHODS} for stage in ("rank", "application")})
         sessions.append(result)
     rank_passed = all(s["rank"]["dispatcher"][b]["ci95"][0] > criterion["rank_ci95_lower_speedup"] for s in per_session for b in CANONICAL_RANK_LIBRARIES)
-    app_passed = all(s["application"]["dispatcher"][b]["ci95"][0] > 1.03 for s in per_session for b in LIBRARIES)
+    app_passed = all(s["application"]["dispatcher"][b]["ci95"][0] > criterion["application_ci95_lower_speedup"] for s in per_session for b in LIBRARIES)
     pooled = {}
     for stage, key in (("rank", "rank_samples_us"), ("application", "application_samples_us")):
         values = {m: [v for s in sessions for v in s[key][m]] for m in METHODS}
@@ -467,21 +577,39 @@ def _verify(directory: Path) -> dict[str, Any]:
     # offline development and positive incremental median process startup cost.
     cold_extra_ms = max(0., cold_summary["dispatcher"]["median_process_wall_ms"] - min(cold_summary[b]["median_process_wall_ms"] for b in LIBRARIES))
     payback = math.ceil((development["search_wall_seconds"] * 1e6 + cold_extra_ms * 1000) / savings) if passed and savings > 0 else None
+    over_fixed = all(s["gates"]["over_best_fixed"] for s in portfolio_sessions)
+    over_per_shape = all(s["gates"]["over_per_shape"] for s in portfolio_sessions)
+    two_configs = len(selection["joint_subset"]) == 2
     return {"schema": 1, "numerical_passed": True, "rank_passed": rank_passed, "application_passed": app_passed,
         "resource_passed": True, "confirmation_passed": passed, "source_sha256": source, "study_identity": implementation,
+        "measurement_design": DESIGN, "uncertainty": UNCERTAINTY, "criterion": criterion,
         "environment": environment, "per_session": per_session, "comparisons": pooled, "cold_start": cold_summary,
         "evidence_sha256": hashes, "authored_source_bytes": source_bytes, "selection": selection,
         "search_cost": {"wall_seconds": development["search_wall_seconds"], "recorded_first_and_sample_seconds": measured_us / 1e6,
                         "authored_configurations": 2, "rank_arms": 9, "application_arms": 16},
+        "calibration": {"wall_seconds": protocol["calibration_wall_seconds"],
+            "recorded_first_and_sample_seconds": measured_calibration_us / 1e6,
+            "rank_symmetric_envelope": rank_envelope, "application_symmetric_envelope": app_envelope},
+        "sessions": session_spans, "cold_wall_seconds": cold["wall_seconds"],
+        "fallback_counts": [s["fallback_counts"] for s in sessions],
+        "portfolio": {"per_session": portfolio_sessions, "over_best_fixed": over_fixed,
+            "over_per_shape": over_per_shape, "two_authored_configs": two_configs,
+            "two_authored_kernel_advantage_over_fixed": two_configs and over_fixed,
+            "two_authored_kernel_advantage_over_per_shape": two_configs and over_per_shape},
         "memory": {"limit_bytes": LIMITS["memory_bytes"], "cache_limit_bytes": LIMITS["cache_bytes"],
                    "maximum_observed_peak_bytes": max(protocol["peak_memory_bytes"], development["peak_memory_bytes"],
                        *[s["peak_memory_bytes"] for s in sessions], *[r["peak_memory_bytes"] for r in cold_rows])},
-        "break_even": {"full_four_task_sequences": payback, "reliable_payback": passed and payback is not None,
+        "break_even": {"full_four_task_sequences": payback, "reliable_payback": False, "guaranteed": False,
+                       "estimate_conditions_passed": passed and payback is not None,
+                       "included_costs": "Development wall time plus positive incremental median cold-process startup cost",
+                       "excluded_research_costs": "Calibration, independent numerical validation, confirmation execution and inter-session waiting",
                        "baseline_mean_sequence_us": baseline_sequence_us, "dispatcher_mean_sequence_us": dispatcher_us},
         "limitations": ["Local JSON provenance is not cryptographic GPU attestation.",
             "Every independent session must pass both canonical rank and all four complete-application library gates; pooled intervals are descriptive.",
             "Synchronized host wall includes dispatch, allocation and materialization; rank excludes normalization/GEMM.",
             "Fresh processes retain OS/driver caches; pure compiler time is not isolated.",
+            "IID/block4/block8 envelopes are conservative sensitivity decisions, not guaranteed formal 95% coverage, stationarity or independence; longer dependence remains possible.",
+            "Two-clock session separation and process IDs are provenance and operational separation, not proof of independent environments.",
             "Break-even uses mean confirmation savings and development plus incremental median cold-process cost; excludes freeze/validation/confirmation research costs and is not a guaranteed bound."]}
 
 

@@ -34,6 +34,21 @@ def comparison_rows(record, seed):
             for base in export.LIBRARIES} for method in export.METHODS}
 
 
+def portfolio_rows(record, two_configs=False):
+    comparisons = {m: export._interval(record["application_samples_us"][m],
+        record["application_samples_us"]["dispatcher"], record["seed"]) for m in ("best_fixed", "per_shape")}
+    record["portfolio_comparisons"] = comparisons
+    record["portfolio_session_gate"] = {"over_best_fixed": comparisons["best_fixed"]["ci95"][0] > 1.02,
+        "over_per_shape": comparisons["per_shape"]["ci95"][0] > 1., "two_authored_configs": two_configs}
+
+
+def synthetic_telemetry():
+    return {"time_utc": "2026-11-01T00:00:00Z", "load_average": [0., 0., 0.],
+        "thermal": {"unavailable": "Synthetic CPU fixture, no observation"},
+        "power": {"unavailable": "Synthetic CPU fixture, no observation"},
+        "thermal_limit": "CPU fixture does not observe a GPU or temperature"}
+
+
 def fixture(root):
     """Fabricated constants exercise guards only. Runtime/GPU identities mocked."""
     environment = {"device": "SYNTHETIC CPU TEST ONLY", "mlx": "not executed"}
@@ -51,7 +66,7 @@ def fixture(root):
     binding = {**identity, "corpus_sha256": corpus}
     flags = dict.fromkeys(export.DEBUG_FLAGS)
     write(root / "numerical-validation.json", {**identity, "kind": "executed_rank_metal_numerical_validation",
-        "success": True, "gpu_executed": True, "tests_run": 8, "failures": 0, "errors": 0, "skipped": 0,
+        "success": True, "gpu_executed": True, "tests_run": 12, "failures": 0, "errors": 0, "skipped": 0,
         "SYNTHETIC_FIXTURE": "This is fabricated CPU test data, not executed GPU evidence"})
     numerical = sha(root / "numerical-validation.json")
     tasks = [{"id": "notes", "rows": 64, "width": 384, "queries": 1, "layout": "contiguous"},
@@ -65,11 +80,28 @@ def fixture(root):
             row = [0, 1]; rng.shuffle(row); noise_orders.append(row)
         noise.append({"task": task, "baseline_a_us": [10.] * 40, "baseline_b_us": [10.] * 40,
                       "comparison": export._interval([10.] * 40, [10.] * 40), "orders": noise_orders, "first_rank_ms": 1.})
-    protocol = {**binding, "schema": 1, "target": "stable_top5_pairs_v1", "script_sha256": script,
+    app_orders, app_rng = [], random.Random(21443)
+    for _ in range(40):
+        order = [0, 1]; app_rng.shuffle(order); app_orders.append(order)
+    app_noise = {"baseline_a_us": [10.] * 40, "baseline_b_us": [10.] * 40, "orders": app_orders,
+        "comparison": export._interval([10.] * 40, [10.] * 40), "first_application_sequence_ms": 1.,
+        "input_seeds": list(range(21101, 21141)),
+        "sequence_orders": [[[0, 1, 2], [1, 2, 0], [2, 0, 1]][r % 3] for r in range(40)],
+        "method": "stable_library", "sequences_per_block": 16}
+    protocol = {**binding, "schema": 2, "measurement_design": "application_primary_symmetric_noise_v2",
+        "uncertainty": {"resamples": 4000, "circular_block_lengths": [4, 8], "block_seed_stride": 100003,
+                        "primary_interval": "envelope_iid_block4_block8"},
+        "calibration": {"rank_order_seed": 21441, "application_order_seed": 21443,
+            "application_input_seeds": list(range(21101, 21141)), "application_sequence_orders": app_noise["sequence_orders"],
+            "negative_control_method": "stable_library", "application_first_warmup_order": [0, 1, 2], "shared_method_instance": True},
+        "calibration_wall_seconds": 2., "application_baseline_noise": app_noise,
+        "telemetry_before": synthetic_telemetry(), "telemetry": synthetic_telemetry(),
+        "target": "stable_top5_pairs_v1", "script_sha256": script,
         "limits": export.LIMITS, "sources": {n: hashlib.sha256(v).hexdigest() for n, v in rank._SOURCES},
         "source_bytes": sum(len(v) for _, v in rank._SOURCES), "corpus_chunks": 161,
         "tasks": tasks, "confirmation": {"sessions": 3, "repeats_per_session": 40, "seeds": [23101, 24203, 25307],
-            "sequence_orders": [[1, 0, 3, 2], [2, 3, 0, 1], [0, 2, 1, 3]], "unseen_task": unseen},
+            "sequence_orders": [[1, 0, 3, 2], [2, 3, 0, 1], [0, 2, 1, 3]], "unseen_task": unseen,
+            "minimum_separation_seconds": 120},
         "development": {"seed": 21104, "repeats": 40, "order_seed": 21207, "authored_configurations": 2,
                         "rank_observations_per_round": 9, "application_adapter_observations_per_round": 16},
         "measurement_batch": 128, "application_measurement_batch": 16,
@@ -128,6 +160,11 @@ def fixture(root):
     for i, seed in enumerate(export.SEEDS):
         rank_orders, app_orders = orders(export.METHODS, export.METHODS, random.Random(seed))
         record = {**binding, "schema": 1, "session": i, "seed": seed, "sequence_order": export.SEQUENCES[i],
+            "session_start_unix_ns": 1_700_000_000_000_000_000 + i * 130_000_000_000,
+            "session_end_unix_ns": 1_700_000_001_000_000_000 + i * 130_000_000_000,
+            "session_start_monotonic_ns": 1_000_000_000_000 + i * 130_000_000_000,
+            "session_end_monotonic_ns": 1_001_000_000_000 + i * 130_000_000_000,
+            "process_id": 10000 + i, "telemetry_before": synthetic_telemetry(), "telemetry_after": synthetic_telemetry(),
             "protocol_sha256": sha(root / "protocol.json"), "policy_sha256": policy_sha,
             "development_sha256": sha(root / "development.json"), "numerical_report_sha256": numerical,
             "rank_samples_us": {m: [10. if m in export.LIBRARIES else 1.] * 40 for m in export.METHODS},
@@ -140,6 +177,7 @@ def fixture(root):
             "artifact_load_ms": 1., "peak_memory_bytes": 2048, "timing_validation_flags": flags,
             "fallback_counts": fallback_counts, "session_gate": {"rank": True, "application": True}}
         record["comparisons"] = comparison_rows(record, seed)
+        portfolio_rows(record)
         write(root / f"confirmation-{i}.json", record)
     rng, cold_orders, cold_rows = random.Random(21667), [], []
     for repeat in range(3):
@@ -192,7 +230,9 @@ class RankExportTests(unittest.TestCase):
 
     def repin(self, root):
         """Rebind fabricated bytes to exercise semantic checks beyond hashes."""
-        numerical, protocol, development = [sha(root / n) for n in ("numerical-validation.json", "protocol.json", "development.json")]
+        numerical, protocol = [sha(root / n) for n in ("numerical-validation.json", "protocol.json")]
+        self.mutate(root, "development.json", lambda p: p.update(protocol_sha256=protocol, numerical_report_sha256=numerical))
+        development = sha(root / "development.json")
         self.mutate(root, "policy-frozen.json", lambda p: p["evidence"].update(numerical_report_sha256=numerical,
                     protocol_sha256=protocol, development_sha256=development))
         policy = sha(root / "policy-frozen.json")
@@ -211,7 +251,9 @@ class RankExportTests(unittest.TestCase):
             with self.context(root):
                 verified = export.verify_study(root)
                 self.assertTrue(all(verified[k] for k in ("numerical_passed", "rank_passed", "application_passed", "resource_passed", "confirmation_passed")))
-                self.assertTrue(verified["break_even"]["reliable_payback"])
+                self.assertTrue(verified["break_even"]["estimate_conditions_passed"])
+                self.assertFalse(verified["break_even"]["reliable_payback"])
+                self.assertFalse(verified["break_even"]["guaranteed"])
                 export.export_artifact(root, root / "artifact")
                 self.assertFalse(json.loads((root / "policy-frozen.json").read_text())["evidence"]["confirmation_passed"])
                 self.assertEqual({p.name for p in (root / "artifact").iterdir()}, {"manifest.json", "verification.json", *export.SOURCE_FILES})
@@ -229,6 +271,21 @@ class RankExportTests(unittest.TestCase):
                  lambda p: p.update(rank_arms=list(export.GLOBAL_NAMES)),
                  lambda p: p.update(peak_memory_bytes=True),
                  lambda p: p["timing_validation_flags"].update(MTL_DEBUG_LAYER="1")]
+        cases.extend([lambda p: p.update(schema=1), lambda p: p.update(measurement_design="old_rank_only"),
+            lambda p: p["uncertainty"].update(circular_block_lengths=[4]),
+            lambda p: p["uncertainty"].update(resamples=3999),
+            lambda p: p["uncertainty"].update(block_seed_stride=1),
+            lambda p: p["uncertainty"].update(primary_interval="iid"),
+            lambda p: p["calibration"].update(shared_method_instance=False),
+            lambda p: p["calibration"]["application_input_seeds"].__setitem__(0, 23101),
+            lambda p: p["calibration"].update(application_first_warmup_order=[2, 1, 0]),
+            lambda p: p["calibration"].update(extra_control=True),
+            lambda p: p.update(freeze_wall_seconds_ignored=True),
+            lambda p: p.update(calibration_wall_seconds=121),
+            lambda p: p.update(calibration_wall_seconds=.01),
+            lambda p: p["confirmation"].update(minimum_separation_seconds=119),
+            lambda p: p.pop("telemetry_before"),
+            lambda p: p["telemetry"].pop("power")])
         for operation in cases:
             with self.subTest(operation=operation), tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
@@ -249,6 +306,110 @@ class RankExportTests(unittest.TestCase):
                     self.mutate(root, "protocol.json", operation); self.repin(root)
                     with self.assertRaises(ValueError):
                         export.verify_study(root)
+
+    def test_v2_block_bootstrap_golden_case_and_input_counts(self):
+        # Fixed known CPU calculation makes the widening visible: IID passes
+        # 1.03 while a contiguous run of slow observations fails block8.
+        interval = export._interval([1.8] * 20 + [.8] * 20, [1.] * 40, 23101)
+        self.assertEqual(interval, {"speedup_total_cost": 1.3, "ci95": [.925, 1.65],
+            "baseline_total_us": 52., "candidate_total_us": 40., "iid_ci95": [1.15, 1.45],
+            "block4_ci95": [1.025, 1.6], "block8_ci95": [.925, 1.65]})
+        for length in (39, 41, 44, 1001):
+            with self.subTest(length=length), self.assertRaises(ValueError):
+                export._interval([1.] * length, [1.] * length)
+        with self.assertRaises(ValueError):
+            export._interval([1.] * 40, [1.] * 40, True)
+
+    def test_rank_entry_cap_relaxed_but_symmetric_squared_threshold_enforced(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.context(root):
+                def controls(p):
+                    row = p["baseline_noise"][0]
+                    row["baseline_b_us"] = [5.] * 40
+                    row["comparison"] = export._interval(row["baseline_a_us"], row["baseline_b_us"])
+                    p["criterion"]["rank_ci95_lower_speedup"] = 4.
+                self.mutate(root, "protocol.json", controls); self.repin(root)
+                self.assertTrue(export.verify_study(root)["confirmation_passed"])
+                self.mutate(root, "protocol.json", lambda p: p["criterion"].update(rank_ci95_lower_speedup=3.))
+                self.repin(root)
+                with self.assertRaisesRegex(ValueError, "criterion"):
+                    export.verify_study(root)
+
+    def test_application_threshold_comes_from_symmetric_noise_in_all_gates(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.context(root):
+                def controls(p):
+                    row = p["application_baseline_noise"]
+                    row["baseline_a_us"] = [10.5] * 40
+                    row["comparison"] = export._interval(row["baseline_a_us"], row["baseline_b_us"])
+                    p["criterion"]["application_ci95_lower_speedup"] = 1.05 ** 2
+                self.mutate(root, "protocol.json", controls); self.repin(root)
+                for i in range(3):
+                    def session(p):
+                        for base in export.LIBRARIES:
+                            p["application_samples_us"][base] = [1.05] * 40
+                        p["comparisons"] = comparison_rows(p, p["seed"])
+                        p["session_gate"]["application"] = False
+                    self.mutate(root, f"confirmation-{i}.json", session)
+                result = export.verify_study(root)
+                self.assertFalse(result["application_passed"])
+                self.assertFalse(result["confirmation_passed"])
+                self.assertTrue(all(s["application"]["dispatcher"]["stable_library"]["ci95"][0] > 1.03 for s in result["per_session"]))
+
+    def test_repinned_application_control_iid_pass_does_not_hide_block_failure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.context(root):
+                def controls(p):
+                    row = p["application_baseline_noise"]
+                    row["baseline_a_us"], row["baseline_b_us"] = [1.2] * 20 + [.8] * 20, [1.] * 40
+                    row["comparison"] = export._interval(row["baseline_a_us"], row["baseline_b_us"])
+                    interval = row["comparison"]
+                    self.assertGreaterEqual(interval["iid_ci95"][0], .9)
+                    self.assertLessEqual(interval["iid_ci95"][1], 1.1)
+                    self.assertLess(interval["ci95"][0], .9)
+                    p["criterion"]["application_ci95_lower_speedup"] = max(1., interval["ci95"][1], 1 / interval["ci95"][0]) ** 2
+                self.mutate(root, "protocol.json", controls); self.repin(root)
+                with self.assertRaisesRegex(ValueError, "noise stability"):
+                    export.verify_study(root)
+
+    def test_application_control_exact_calibration_fields_and_families(self):
+        cases = [lambda a: a["orders"][0].reverse(), lambda a: a["input_seeds"].__setitem__(0, 21100),
+            lambda a: a["sequence_orders"][1].reverse(), lambda a: a.update(method="fast_library"),
+            lambda a: a.update(sequences_per_block=8), lambda a: a.update(first_application_sequence_ms=True),
+            lambda a: a["baseline_a_us"].pop(), lambda a: a["comparison"].pop("block8_ci95"),
+            lambda a: a["comparison"].update(block4_ci95=[1., 2.]), lambda a: a.update(extra_control=True)]
+        for operation in cases:
+            with self.subTest(operation=operation), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                with self.context(root):
+                    self.mutate(root, "protocol.json", lambda p: operation(p["application_baseline_noise"]))
+                    self.repin(root)
+                    with self.assertRaises(ValueError):
+                        export.verify_study(root)
+
+    def test_repinned_session_iid_win_with_block_loss_is_complete_losing_study(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.context(root):
+                def session(p):
+                    p["application_samples_us"]["stable_library"] = [1.8] * 20 + [.8] * 20
+                    p["comparisons"] = comparison_rows(p, p["seed"])
+                    p["session_gate"]["application"] = False
+                    self.assertGreater(p["comparisons"]["dispatcher"]["stable_library"]["application"]["iid_ci95"][0], 1.03)
+                self.mutate(root, "confirmation-0.json", session)
+                result = export.verify_study(root)
+                self.assertFalse(result["application_passed"])
+                self.assertFalse(result["confirmation_passed"])
+                self.assertIsNone(result["break_even"]["full_four_task_sequences"])
+                # Forging the primary interval from the narrower IID family is
+                # rejected even with all other fields left internally intact.
+                self.mutate(root, "confirmation-0.json", lambda p: p["comparisons"]["dispatcher"]["stable_library"]["application"].update(
+                    ci95=p["comparisons"]["dispatcher"]["stable_library"]["application"]["iid_ci95"]))
+                with self.assertRaisesRegex(ValueError, "raw costs"):
+                    export.verify_study(root)
 
     def test_development_rejects_malformed_arrays_checks_budgets_and_global_cost_substitution(self):
         cases = [lambda p: p.update(search_wall_seconds=901),
@@ -304,7 +465,12 @@ class RankExportTests(unittest.TestCase):
                             development_application_cost_us=6. + archive_cost)
                     self.mutate(root, "policy-frozen.json", two); self.repin(root)
                     if two_allowed:
-                        self.assertTrue(export.verify_study(root)["confirmation_passed"])
+                        for i in range(3):
+                            self.mutate(root, f"confirmation-{i}.json", lambda p: portfolio_rows(p, True))
+                        result = export.verify_study(root)
+                        self.assertTrue(result["confirmation_passed"])
+                        self.assertTrue(result["portfolio"]["two_authored_configs"])
+                        self.assertFalse(result["portfolio"]["two_authored_kernel_advantage_over_fixed"])
                     else:
                         with self.assertRaisesRegex(ValueError, "portfolio"):
                             export.verify_study(root)
@@ -385,8 +551,64 @@ class RankExportTests(unittest.TestCase):
                     with self.assertRaises(ValueError):
                         export.verify_study(root)
 
+    def test_confirmation_requires_positive_two_clock_spans_gaps_and_pid(self):
+        cases = [lambda p: p.pop("session_start_unix_ns"),
+            lambda p: p.update(session_start_unix_ns=True), lambda p: p.update(session_end_unix_ns=1),
+            lambda p: p.update(session_end_monotonic_ns=p["session_start_monotonic_ns"]),
+            lambda p: p.update(session_start_unix_ns=1_700_000_120_000_000_000),
+            lambda p: p.update(session_start_monotonic_ns=1_120_000_000_000),
+            lambda p: p.update(process_id=0), lambda p: p.update(process_id=True),
+            lambda p: p.update(process_id=1.5), lambda p: p.pop("telemetry_after"),
+            lambda p: p["telemetry_before"].pop("thermal")]
+        for operation in cases:
+            with self.subTest(operation=operation), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                with self.context(root):
+                    self.mutate(root, "confirmation-1.json", operation)
+                    with self.assertRaises(ValueError):
+                        export.verify_study(root)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.context(root):
+                self.mutate(root, "confirmation-1.json", lambda p: p.update(
+                    session_start_unix_ns=1_700_000_121_000_000_000, session_start_monotonic_ns=1_121_000_000_000))
+                result = export.verify_study(root)
+                self.assertTrue(result["confirmation_passed"])
+                self.assertEqual(result["sessions"][1]["unix_gap_seconds"], 120.)
+                self.assertEqual(result["sessions"][1]["monotonic_gap_seconds"], 120.)
+
+    def test_untouched_portfolio_flags_are_separate_and_require_all_sessions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.context(root):
+                result = export.verify_study(root)
+                self.assertTrue(result["confirmation_passed"])
+                self.assertFalse(result["portfolio"]["over_best_fixed"])
+                for i in range(3):
+                    def session(p):
+                        p["application_samples_us"].update(best_fixed=[2.] * 40, per_shape=[1.1] * 40)
+                        p["comparisons"] = comparison_rows(p, p["seed"])
+                        portfolio_rows(p)
+                    self.mutate(root, f"confirmation-{i}.json", session)
+                result = export.verify_study(root)
+                self.assertTrue(result["portfolio"]["over_best_fixed"])
+                self.assertTrue(result["portfolio"]["over_per_shape"])
+                self.assertFalse(result["portfolio"]["two_authored_kernel_advantage_over_fixed"])
+                def loss(p):
+                    p["application_samples_us"]["best_fixed"] = [1.01] * 40
+                    p["comparisons"] = comparison_rows(p, p["seed"])
+                    portfolio_rows(p)
+                self.mutate(root, "confirmation-2.json", loss)
+                result = export.verify_study(root)
+                self.assertTrue(result["confirmation_passed"])
+                self.assertFalse(result["portfolio"]["over_best_fixed"])
+                self.assertTrue(result["portfolio"]["over_per_shape"])
+                self.mutate(root, "confirmation-2.json", lambda p: p["portfolio_session_gate"].update(over_best_fixed=True))
+                with self.assertRaisesRegex(ValueError, "portfolio flags"):
+                    export.verify_study(root)
+
     def test_numerical_exact_kind_counts_and_current_identities(self):
-        cases = [lambda p: p.update(tests_run=True), lambda p: p.update(tests_run=7),
+        cases = [lambda p: p.update(tests_run=True), lambda p: p.update(tests_run=11),
                  lambda p: p.update(errors=True), lambda p: p.update(skipped=1),
                  lambda p: p.update(kind="executed_fused_metal_numerical_validation"),
                  lambda p: p.update(source_sha256="stale"), lambda p: p.update(gpu_executed=False),

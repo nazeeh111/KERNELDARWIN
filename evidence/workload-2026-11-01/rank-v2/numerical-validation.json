@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "kind": "executed_rank_metal_numerical_validation",
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "gpu_executed": true,
+  "success": true,
+  "tests_run": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "requested_validation_environment": {
+    "METAL_DEBUG_ERROR_MODE": null,
+    "METAL_DEVICE_WRAPPER_TYPE": null,
+    "MTL_DEBUG_LAYER": "1",
+    "MTL_SHADER_VALIDATION": "1"
+  },
+  "validator_sha256": "94dbb3533df8cba7f495490fbed49d713624160240a394725fa12dce4560f4a4",
+  "test_sources": {
+    "test_rank_search.py": "d80cf5fd01d0d0ac59d489cbc4785531d19ccf60debd47532eb2bd8a8018902b"
+  },
+  "time_utc": "2026-11-01T15:42:28Z",
+  "candidate_timing": false,
+  "candidate_selection": false,
+  "accepted_artifact": false,
+  "limitations": [
+    "Numerical validity alone does not establish acceleration.",
+    "Native Metal and GPU-validation flags require external log verification.",
+    "Synthetic manifests exercise production guards and never establish performance acceptance.",
+    "FTZ comparison keys preserve selected original float32 bits; inference-only contract."
+  ],
+  "runtime_modules": {
+    "rank_search": {
+      "path": "/private/tmp/kd-rank-v2-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/rank_search.py",
+      "sha256": "4930466357116f6c11904976d0b293f33d276bd269531bb464f89182f2baf31f"
+    },
+    "search": {
+      "path": "/private/tmp/kd-rank-v2-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/search.py",
+      "sha256": "cf5ddc0ecb1e0fca1caf29cc982ddb6f4ef0df6f0b4044a677bd80fe150ab6ba"
+    },
+    "library_baselines": {
+      "path": "/private/tmp/kd-rank-v2-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/library_baselines.py",
+      "sha256": "32a8ab268fd7e58dbec0a29a1fae1e22037e6ed8c71d870036ff2e2fa7847f14"
+    },
+    "workload": {
+      "path": "/private/tmp/kd-rank-v2-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/workload.py",
+      "sha256": "f4936a2b553cdd08965f81d23e09cc1cfafbad04004b25df8fbd8890ab85e8a7"
+    }
+  },
+  "validation_root": "/private/tmp/kd-rank-v2-installed-20261101",
+  "validation_root_src_exists": false,
+  "completed_methods": [
+    "test_01_rank_shapes_tails_maximum_and_changed_inputs",
+    "test_02_rank_signed_strides_offsets_and_broadcast",
+    "test_03_exact_ties_signed_zero_and_extreme_bits",
+    "test_04_discriminating_subnormals_original_bits",
+    "test_05_nonfinite_private_rows_direct_and_compiled",
+    "test_06_whole_queries_changed_refresh_all_libraries_float64",
+    "test_07_complete_query_duplicate_document_ties",
+    "test_08_plan_counters_shape_k_dtype_and_empty_fallback",
+    "test_09_public_nonfinite_empty_rollback_all_indexes",
+    "test_10_artifact_source_schema_and_confirmation_guards",
+    "test_11_bounds_mode_and_autodiff_regression",
+    "test_12_plan_layouts_and_extreme_application_inputs"
+  ],
+  "peak_memory_bytes": 12357492,
+  "wall_seconds": 31.06684512499487,
+  "output": "test_01_rank_shapes_tails_maximum_and_changed_inputs (kd_rank_validation_tests.RankSearchTests.test_01_rank_shapes_tails_maximum_and_changed_inputs) ... ok\ntest_02_rank_signed_strides_offsets_and_broadcast (kd_rank_validation_tests.RankSearchTests.test_02_rank_signed_strides_offsets_and_broadcast) ... ok\ntest_03_exact_ties_signed_zero_and_extreme_bits (kd_rank_validation_tests.RankSearchTests.test_03_exact_ties_signed_zero_and_extreme_bits) ... ok\ntest_04_discriminating_subnormals_original_bits (kd_rank_validation_tests.RankSearchTests.test_04_discriminating_subnormals_original_bits) ... ok\ntest_05_nonfinite_private_rows_direct_and_compiled (kd_rank_validation_tests.RankSearchTests.test_05_nonfinite_private_rows_direct_and_compiled) ... ok\ntest_06_whole_queries_changed_refresh_all_libraries_float64 (kd_rank_validation_tests.RankSearchTests.test_06_whole_queries_changed_refresh_all_libraries_float64) ... ok\ntest_07_complete_query_duplicate_document_ties (kd_rank_validation_tests.RankSearchTests.test_07_complete_query_duplicate_document_ties) ... ok\ntest_08_plan_counters_shape_k_dtype_and_empty_fallback (kd_rank_validation_tests.RankSearchTests.test_08_plan_counters_shape_k_dtype_and_empty_fallback) ... ok\ntest_09_public_nonfinite_empty_rollback_all_indexes (kd_rank_validation_tests.RankSearchTests.test_09_public_nonfinite_empty_rollback_all_indexes) ... ok\ntest_10_artifact_source_schema_and_confirmation_guards (kd_rank_validation_tests.RankSearchTests.test_10_artifact_source_schema_and_confirmation_guards) ... ok\ntest_11_bounds_mode_and_autodiff_regression (kd_rank_validation_tests.RankSearchTests.test_11_bounds_mode_and_autodiff_regression) ... ok\ntest_12_plan_layouts_and_extreme_application_inputs (kd_rank_validation_tests.RankSearchTests.test_12_plan_layouts_and_extreme_application_inputs) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 29.927s\n\nOK\n"
+}

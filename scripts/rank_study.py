@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Prospectively frozen fixed-top-five study. No stage runs on import.
+"""V2 application-primary fixed-top-five study. No stage runs on import.
 
 Synchronized host-wall rank samples exclude norm/GEMM; application samples
 include input transfers, one refresh and three executed changed-query searches.
 Every stage is exclusive and failed/timeout evidence is preserved. This study
 never revises either older study and never executes code from an artifact.
+The new application entry control and squared symmetric noise floors amend
+V1 prospectively; no earlier rejection is reinterpreted as a success.
 """
 from __future__ import annotations
 
@@ -24,7 +26,10 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-EVIDENCE = ROOT / "evidence/workload-2026-11-01/rank-v1"
+EVIDENCE = ROOT / "evidence/workload-2026-11-01/rank-v2"
+MEASUREMENT_DESIGN = "application_primary_symmetric_noise_v2"
+UNCERTAINTY = {"resamples": 4000, "circular_block_lengths": [4, 8],
+               "block_seed_stride": 100003, "primary_interval": "envelope_iid_block4_block8"}
 METHODS = ("stable_library", "fast_library", "stable_reduction", "fast_reduction",
            "eager_library", "best_fixed", "per_shape", "dispatcher")
 LIBRARIES = METHODS[:4]
@@ -363,19 +368,47 @@ def check_rank(output, scores):
 
 
 def intervals(baseline, candidate, seed=1404, count=4000):
-    if not 40 <= len(baseline) <= 1000 or len(candidate) != len(baseline):
-        raise ValueError("Need 40..1000 paired samples")
-    if any(not math.isfinite(v) or v <= 0 for v in [*baseline, *candidate]):
+    n = len(baseline)
+    if not 40 <= n <= 1000 or len(candidate) != n or n % 8:
+        raise ValueError("Need 40..1000 paired samples divisible by both four and eight")
+    if count != UNCERTAINTY["resamples"]:
+        raise ValueError("V2 requires exactly 4000 bootstrap resamples per family")
+    if any(type(v) not in (int, float) or not math.isfinite(v) or v <= 0
+           for v in [*baseline, *candidate]):
         raise ValueError("Every timing must be finite and positive")
-    rng = random.Random(seed)
-    samples = []
-    for _ in range(count):
-        indices = rng.choices(range(len(baseline)), k=len(baseline))
-        samples.append(sum(baseline[i] for i in indices) / sum(candidate[i] for i in indices))
-    samples.sort()
-    return {"speedup_total_cost": sum(baseline) / sum(candidate),
-            "ci95": [samples[count // 40], samples[-count // 40 - 1]],
-            "baseline_total_us": sum(baseline), "candidate_total_us": sum(candidate)}
+    point = sum(baseline) / sum(candidate)
+    families = {}
+    if len(set(baseline)) == len(set(candidate)) == 1:
+        families = {name: [point, point] for name in ("iid_ci95", "block4_ci95", "block8_ci95")}
+    else:
+        for block, name in ((1, "iid_ci95"), (4, "block4_ci95"), (8, "block8_ci95")):
+            rng = random.Random(seed if block == 1 else seed + block * UNCERTAINTY["block_seed_stride"])
+            samples = []
+            for _ in range(count):
+                if block == 1:
+                    indices = rng.choices(range(n), k=n)
+                else:
+                    indices = [(start + offset) % n for start in
+                               (rng.randrange(n) for _ in range(n // block)) for offset in range(block)]
+                samples.append(sum(baseline[i] for i in indices) / sum(candidate[i] for i in indices))
+            samples.sort()
+            families[name] = [samples[100], samples[-101]]
+    return {"speedup_total_cost": point,
+            "ci95": [min(value[0] for value in families.values()), max(value[1] for value in families.values())],
+            **families, "baseline_total_us": sum(baseline), "candidate_total_us": sum(candidate)}
+
+
+def calibration_spec():
+    return {"rank_order_seed": 21441, "application_order_seed": 21443,
+            "application_input_seeds": list(range(21101, 21141)),
+            "application_sequence_orders": [[0, 1, 2], [1, 2, 0], [2, 0, 1]] * 13 + [[0, 1, 2]],
+            "negative_control_method": "stable_library", "application_first_warmup_order": [0, 1, 2],
+            "shared_method_instance": True}
+
+
+def symmetric_noise_floor(comparisons, minimum):
+    envelope = max(max(1., row["ci95"][1], 1. / row["ci95"][0]) for row in comparisons)
+    return max(minimum, envelope ** 2)
 
 
 def verify_numerical():
@@ -389,7 +422,7 @@ def verify_numerical():
             or result.get("environment") != environment_identity()
             or any(type(result.get(key)) is not int or result[key] != 0
                    for key in ("failures", "errors", "skipped"))
-            or type(result.get("tests_run")) is not int or result["tests_run"] < 8):
+            or type(result.get("tests_run")) is not int or result["tests_run"] < 12):
         raise ValueError("Current independent executed rank Metal numerical report required")
     return result
 
@@ -398,7 +431,11 @@ def verify_frozen(policy=None):
     from kerneldarwin.rank_search import rank_source_identity
     from kerneldarwin.workload import environment_identity
     protocol = read("protocol.json")
-    if (protocol["study_identity"] != current_implementation()
+    if (protocol.get("schema") != 2 or protocol.get("measurement_design") != MEASUREMENT_DESIGN
+            or protocol.get("uncertainty") != UNCERTAINTY or protocol.get("calibration") != calibration_spec()
+            or protocol["limits"].get("freeze_wall_seconds") != 120
+            or protocol["confirmation"].get("minimum_separation_seconds") != 120
+            or protocol["study_identity"] != current_implementation()
             or protocol["source_sha256"] != rank_source_identity()
             or protocol["environment"] != environment_identity()
             or protocol["script_sha256"] != MEASUREMENT_SHA
@@ -440,85 +477,162 @@ def trial_plan(protocol, rules):
 
 
 def freeze():
+    start = time.perf_counter()
     reserve("freeze", ("protocol.json", "rejected-baseline.json"))
-    mx = setup()
-    from kerneldarwin.rank_search import rank_source_identity
-    from kerneldarwin.workload import environment_identity
-    implementation = current_implementation()
-    verify_numerical()
-    data = corpus()
-    n = len(data["chunks"])
-    if n < 97:
-        raise ValueError("Need at least 97 real licensed corpus chunks")
-    tasks = [
-        {"id": "notes", "rows": 64, "width": 384, "queries": 1, "layout": "contiguous"},
-        {"id": "manuals", "rows": min(256, n), "width": 768, "queries": 8, "layout": "column_stride2"},
-        {"id": "archive", "rows": n, "width": 1536, "queries": 17, "layout": "transpose"}]
-    sources, size = source_metadata()
-    rng, noise = random.Random(21441), []
-    baseline = StudyMethod("stable_library")
-    for task in tasks:
-        docs, query = arrays(task, data["chunks"], 21100)
-        staged = rank_inputs(task, docs, query)
-        first = measure(lambda: rank_call(baseline, *staged[0])) / 1000
-        check_rank(rank_call(baseline, *staged[0]), staged[0][2])
+    mx = None
+    state = {"schema": 2, "measurement_design": MEASUREMENT_DESIGN,
+             "script_sha256": MEASUREMENT_SHA, "baseline_noise": [], "stage": "setup",
+             "timing_validation_flags": timing_flags()}
+    def budget(stage):
+        state["stage"] = stage
+        elapsed = time.perf_counter() - start
+        if elapsed > 120:
+            raise TimeoutError("120-second calibration wall budget exhausted; no retry")
+        if mx is not None and mx.get_peak_memory() > 2 * 1024 ** 3:
+            raise RuntimeError("Calibration exceeded 2 GiB MLX peak memory")
+        return elapsed
+    try:
+        state["telemetry_before"] = telemetry()
+        mx = setup()
+        from kerneldarwin.rank_search import rank_source_identity
+        from kerneldarwin.workload import environment_identity
+        implementation = current_implementation()
+        verify_numerical()
+        sources, size = source_metadata()
+        state.update(source_sha256=rank_source_identity(), study_identity=implementation,
+                     environment=environment_identity(), timing_validation_flags=timing_flags())
+        budget("initial_identity_and_numerical_validation")
+        data = corpus()
+        n = len(data["chunks"])
+        if n < 97:
+            raise ValueError("Need at least 97 real licensed corpus chunks")
+        tasks = [
+            {"id": "notes", "rows": 64, "width": 384, "queries": 1, "layout": "contiguous"},
+            {"id": "manuals", "rows": min(256, n), "width": 768, "queries": 8, "layout": "column_stride2"},
+            {"id": "archive", "rows": n, "width": 1536, "queries": 17, "layout": "transpose"}]
+        calibration = calibration_spec()
+        rng = random.Random(calibration["rank_order_seed"])
+        noise = state["baseline_noise"]
+        # One instance throughout rank/application A and B; no alternative path.
+        baseline = StudyMethod(calibration["negative_control_method"])
+        for task in tasks:
+            docs, query = arrays(task, data["chunks"], 21100)
+            staged = rank_inputs(task, docs, query)
+            active = {"task": task, "baseline_a_us": [], "baseline_b_us": [], "orders": []}
+            state["partial_rank_control"] = active
+            budget("rank_staging")
+            active["first_rank_ms"] = measure(lambda: rank_call(baseline, *staged[0])) / 1000
+            check_rank(rank_call(baseline, *staged[0]), staged[0][2])
+            budget("rank_first_call_and_validation")
+            for _ in range(5):
+                measure_burst(baseline, staged)
+                budget("rank_warmup")
+            for _ in range(40):
+                order = [0, 1]
+                rng.shuffle(order)
+                active["orders"].append(order)
+                for arm in order:
+                    active["baseline_a_us" if arm == 0 else "baseline_b_us"].append(measure_burst(baseline, staged))
+                    budget("rank_negative_control")
+            active["comparison"] = intervals(active["baseline_a_us"], active["baseline_b_us"])
+            noise.append(active)
+            del state["partial_rank_control"]
+            budget("rank_control_analysis")
+        # Do not exercise the held-out task or confirmation-only seeds here.
+        prepared = [arrays(task, data["chunks"], 21100) for task in tasks]
+        fixed_order = calibration["application_first_warmup_order"]
+        app = {"baseline_a_us": [], "baseline_b_us": [], "orders": [],
+               "input_seeds": calibration["application_input_seeds"],
+               "sequence_orders": calibration["application_sequence_orders"],
+               "method": "stable_library", "sequences_per_block": 16}
+        state["application_baseline_noise"] = app
+        budget("application_initial_input_staging")
+        app["first_application_sequence_ms"] = measure(lambda: [
+            application(baseline, tasks[i], *prepared[i]) for i in fixed_order]) / 1000
+        for i in fixed_order:
+            check_application(application(baseline, tasks[i], *prepared[i]), *prepared[i])
+        budget("application_first_sequence_and_validation")
         for _ in range(5):
-            measure_burst(baseline, staged)
-        pairs, orders = [], []
-        for _ in range(40):
+            measure(lambda: [[application(baseline, tasks[i], *prepared[i])
+                              for i in fixed_order] for _ in range(16)]) / 16
+            budget("application_warmup_block")
+        rng = random.Random(calibration["application_order_seed"])
+        for seed, sequence_order in zip(app["input_seeds"], app["sequence_orders"]):
+            prepared = [arrays(task, data["chunks"], seed) for task in tasks]
+            budget("application_changed_input_staging")
             order = [0, 1]
             rng.shuffle(order)
-            observed = {arm: measure_burst(baseline, staged) for arm in order}
-            pairs.append([observed[0], observed[1]])
-            orders.append(order)
-        a, b = map(list, zip(*pairs))
-        noise.append({"task": task, "baseline_a_us": a, "baseline_b_us": b,
-                      "orders": orders, "comparison": intervals(a, b), "first_rank_ms": first})
-    worst = max(abs(bound - 1) for row in noise for bound in row["comparison"]["ci95"])
-    observed = telemetry()
-    if any(not 0.9 <= bound <= 1.1 for row in noise for bound in row["comparison"]["ci95"]):
-        save(EVIDENCE / "rejected-baseline.json", {"reason": "Identical library-sort CI outside [0.9,1.1]",
-             "noise": noise, "telemetry": observed, "source_sha256": rank_source_identity(),
-             "study_identity": implementation, "script_sha256": MEASUREMENT_SHA})
-        raise RuntimeError("Prospective stability gate failed; no candidate timing")
-    save(EVIDENCE / "corpus.json", data)
-    protocol = {"schema": 1, "target": "stable_top5_pairs_v1", "frozen_at": observed["time_utc"],
-        "application": "One index refresh plus three executed changed-query top5 searches per task",
-        "tasks": tasks, "corpus_chunks": n, "corpus_sha256": digest(EVIDENCE / "corpus.json"),
-        "weights": "Equal task frequency; sum three rank costs per task and complete application costs",
-        "methods": list(METHODS), "libraries": list(LIBRARIES),
-        "canonical_rank_libraries": list(CANONICAL_RANK_LIBRARIES),
-        "global_names": list(GLOBAL_NAMES), "routed_choices": list(ROUTED_CHOICES),
-        "rank_arms": list(RANK_ARMS), "application_arms": list(APP_ARMS),
-        "development": {"seed": 21104, "repeats": 40, "order_seed": 21207,
-                        "authored_configurations": 2, "rank_observations_per_round": 9,
-                        "application_adapter_observations_per_round": 16},
-        "measurement_batch": 128, "application_measurement_batch": 16,
-        "confirmation": {"sessions": 3, "repeats_per_session": 40, "seeds": [23101, 24203, 25307],
-            "sequence_orders": [[1, 0, 3, 2], [2, 3, 0, 1], [0, 2, 1, 3]],
-            "unseen_task": {"id": "unseen", "rows": 97, "width": 1025, "queries": 7, "layout": "column_stride2"}},
-        "criterion": {"rank_ci95_lower_speedup": max(1.10, 1 + 2 * worst),
-                      "application_ci95_lower_speedup": 1.03,
-                      "portfolio_over_fixed_minimum_total_cost_gain": 0.02,
-                      "numerical_rtol": 2e-5, "numerical_atol": 2e-6},
-        "limits": {"candidates_per_shape": 2, "portfolio_kernels": 2, "max_rules": 128,
-                   "source_bytes": 12 * 1024, "development_wall_seconds": 900,
-                   "cold_study_wall_seconds": 180, "memory_bytes": 2 * 1024 ** 3,
-                   "cache_bytes": 256 * 1024 ** 2},
-        "selection": "Same two configs/observations: fixed global costs, per-shape routed costs, joint actual RankPlan costs including empty fallback; rank eligibility uses actual one-rule plan versus both canonical rank libraries",
-        "comparator_domain": "Global libraries own stable/fast refresh; fixed custom stable refresh; routed stable storage with stable/fast sort/reduction or custom query. Eager descriptive only. Dispatcher actual RankPlan/RankIndex.",
-        "stability_gate": "Only identical stable-library sort pairs, every 95% total-cost CI in [0.9,1.1]",
-        "timing": "Synchronized host wall us; rank128 evaluated inputs excludes normalization/GEMM and forces IDs+values; application16 includes transfers, allocations, refresh, all three changed searches and host outputs",
-        "qos": "user_initiated_current_thread_only", "confirmation_rule": "No retries/retuning; all four full-app library gates in every independent session, both canonical rank gates, no pooled rescue",
-        "environment": environment_identity(), "telemetry": observed, "baseline_noise": noise,
-        "timing_validation_flags": timing_flags(),
-        "peak_memory_bytes": mx.get_peak_memory(), "source_sha256": rank_source_identity(),
-        "study_identity": implementation, "sources": sources, "source_bytes": size,
-        "script_sha256": MEASUREMENT_SHA,
-        "numerical_report_sha256": digest(EVIDENCE / "numerical-validation.json"),
-        "source_budget_scope": "All three authored MSL files including shared header"}
-    save(EVIDENCE / "protocol.json", protocol)
-    print(json.dumps({"required_rank_speedup": protocol["criterion"]["rank_ci95_lower_speedup"]}))
+            app["orders"].append(order)
+            for arm in order:
+                elapsed = measure(lambda: [[application(baseline, tasks[i], *prepared[i])
+                    for i in sequence_order] for _ in range(16)]) / 16
+                app["baseline_a_us" if arm == 0 else "baseline_b_us"].append(elapsed)
+                budget("application_negative_control")
+        app["comparison"] = intervals(app["baseline_a_us"], app["baseline_b_us"])
+        rank_floor = symmetric_noise_floor([row["comparison"] for row in noise], 1.10)
+        app_floor = symmetric_noise_floor([app["comparison"]], 1.03)
+        budget("control_analysis")
+        observed = telemetry()
+        state["telemetry"] = observed
+        if current_implementation() != implementation or source_metadata() != (sources, size):
+            raise ValueError("Source changed during calibration")
+        verify_numerical()
+        if any(value is not None and value.lower() not in ("", "0", "false", "no", "off")
+               for value in timing_flags().values()):
+            raise RuntimeError("Debug/validation timing flags changed during calibration")
+        budget("final_source_resource_and_numerical_checks")
+        if any(not 0.9 <= bound <= 1.1 for bound in app["comparison"]["ci95"]):
+            raise RuntimeError("Application negative-control primary CI outside [0.9,1.1]; no candidate timing")
+        save(EVIDENCE / "corpus.json", data)
+        protocol = {"schema": 2, "target": "stable_top5_pairs_v1", "measurement_design": MEASUREMENT_DESIGN,
+            "frozen_at": observed["time_utc"], "uncertainty": dict(UNCERTAINTY), "calibration": calibration,
+            "application": "One index refresh plus three executed changed-query top5 searches per task",
+            "tasks": tasks, "corpus_chunks": n, "corpus_sha256": digest(EVIDENCE / "corpus.json"),
+            "weights": "Equal task frequency; sum three rank costs per task and complete application costs",
+            "methods": list(METHODS), "libraries": list(LIBRARIES),
+            "canonical_rank_libraries": list(CANONICAL_RANK_LIBRARIES),
+            "global_names": list(GLOBAL_NAMES), "routed_choices": list(ROUTED_CHOICES),
+            "rank_arms": list(RANK_ARMS), "application_arms": list(APP_ARMS),
+            "development": {"seed": 21104, "repeats": 40, "order_seed": 21207,
+                            "authored_configurations": 2, "rank_observations_per_round": 9,
+                            "application_adapter_observations_per_round": 16},
+            "measurement_batch": 128, "application_measurement_batch": 16,
+            "confirmation": {"sessions": 3, "repeats_per_session": 40, "seeds": [23101, 24203, 25307],
+                "sequence_orders": [[1, 0, 3, 2], [2, 3, 0, 1], [0, 2, 1, 3]],
+                "minimum_separation_seconds": 120,
+                "unseen_task": {"id": "unseen", "rows": 97, "width": 1025, "queries": 7, "layout": "column_stride2"}},
+            "criterion": {"rank_ci95_lower_speedup": rank_floor,
+                          "application_ci95_lower_speedup": app_floor,
+                          "portfolio_over_fixed_minimum_total_cost_gain": 0.02,
+                          "numerical_rtol": 2e-5, "numerical_atol": 2e-6},
+            "limits": {"candidates_per_shape": 2, "portfolio_kernels": 2, "max_rules": 128,
+                       "source_bytes": 12 * 1024, "development_wall_seconds": 900,
+                       "freeze_wall_seconds": 120, "cold_study_wall_seconds": 180,
+                       "memory_bytes": 2 * 1024 ** 3, "cache_bytes": 256 * 1024 ** 2},
+            "selection": "Same two configs/observations: fixed global costs, per-shape routed costs, joint actual RankPlan costs including empty fallback; rank eligibility uses actual one-rule plan versus both canonical rank libraries",
+            "comparator_domain": "Global libraries own stable/fast refresh; fixed custom stable refresh; routed stable storage with stable/fast sort/reduction or custom query. Eager descriptive only. Dispatcher actual RankPlan/RankIndex.",
+            "stability_gate": "Complete three-development-task application16 negative control primary CI in [0.9,1.1]; rank-only entry cap relaxed prospectively; squared symmetric noise floors retain minimum 1.10/1.03",
+            "timing": "Synchronized host wall us; rank128 evaluated inputs excludes normalization/GEMM and forces IDs+values; application16 retains nested host outputs and includes transfers, allocations, refresh and three changed searches per task",
+            "qos": "user_initiated_current_thread_only",
+            "confirmation_rule": "No retries/retuning or pooled rescue; primary library gates every session; separate processes at least120 seconds apart by both clocks; no favorable-load scheduling",
+            "environment": environment_identity(), "telemetry_before": state["telemetry_before"],
+            "telemetry": observed, "baseline_noise": noise, "application_baseline_noise": app,
+            "timing_validation_flags": timing_flags(), "peak_memory_bytes": mx.get_peak_memory(),
+            "source_sha256": rank_source_identity(), "study_identity": implementation,
+            "sources": sources, "source_bytes": size, "script_sha256": MEASUREMENT_SHA,
+            "numerical_report_sha256": digest(EVIDENCE / "numerical-validation.json"),
+            "source_budget_scope": "All three authored MSL files including shared header"}
+        protocol["calibration_wall_seconds"] = budget("final_before_protocol_save")
+        save(EVIDENCE / "protocol.json", protocol)
+        print(json.dumps({"required_rank_speedup": rank_floor, "required_application_speedup": app_floor}))
+    except Exception as exc:
+        state.update(reason=type(exc).__name__ + ": " + str(exc),
+                     calibration_wall_seconds=time.perf_counter() - start,
+                     peak_memory_bytes=mx.get_peak_memory() if mx is not None else None)
+        if "telemetry" not in state:
+            state["telemetry"] = telemetry()
+        save(EVIDENCE / "rejected-baseline.json", state)
+        raise
 
 
 def development_arms(protocol, task):
@@ -669,13 +783,43 @@ def policies(policy, requested=None):
     return result
 
 
+def session_preflight(session, policy, protocol, start_unix_ns, start_monotonic_ns):
+    """Pure file/clock checks, before reserving a session or doing GPU work."""
+    if session == 0:
+        return
+    previous = read(f"confirmation-{session - 1}.json")
+    expected = {"schema": 1, "session": session - 1, "source_sha256": protocol["source_sha256"],
+                "study_identity": protocol["study_identity"], "environment": protocol["environment"],
+                "corpus_sha256": protocol["corpus_sha256"],
+                "protocol_sha256": digest(EVIDENCE / "protocol.json"),
+                "policy_sha256": digest(EVIDENCE / "policy-frozen.json"),
+                "development_sha256": digest(EVIDENCE / "development.json"),
+                "numerical_report_sha256": protocol["numerical_report_sha256"],
+                "seed": protocol["confirmation"]["seeds"][session - 1],
+                "sequence_order": protocol["confirmation"]["sequence_orders"][session - 1]}
+    if (any(previous.get(key) != value for key, value in expected.items())
+            or policy["study_identity"] != protocol["study_identity"]
+            or type(previous.get("process_id")) is not int or previous["process_id"] <= 0):
+        raise ValueError("Previous session identity/provenance differs from the frozen study")
+    separation = protocol["confirmation"]["minimum_separation_seconds"] * 1_000_000_000
+    for clock, current in (("unix", start_unix_ns), ("monotonic", start_monotonic_ns)):
+        start = previous.get(f"session_start_{clock}_ns")
+        end = previous.get(f"session_end_{clock}_ns")
+        if type(start) is not int or type(end) is not int or start <= 0 or end <= start:
+            raise ValueError("Previous session must have positive spans on both clocks")
+        if current - end < separation:
+            raise RuntimeError("Confirmation sessions require 120 seconds separation on both clocks; no marker created")
+
+
 def confirm(session):
     if session not in (0, 1, 2):
         raise ValueError("Session must be 0, 1 or 2")
+    start_unix_ns, start_monotonic_ns = time.time_ns(), time.monotonic_ns()
+    policy = read("policy-frozen.json")
+    session_preflight(session, policy, read("protocol.json"), start_unix_ns, start_monotonic_ns)
+    protocol = verify_frozen(policy)
     reserve(f"confirmation-{session}", (f"confirmation-{session}.json",))
     mx = setup()
-    policy = read("policy-frozen.json")
-    protocol = verify_frozen(policy)
     seed = protocol["confirmation"]["seeds"][session]
     order = protocol["confirmation"]["sequence_orders"][session]
     tasks = [*protocol["tasks"], protocol["confirmation"]["unseen_task"]]
@@ -716,7 +860,13 @@ def confirm(session):
              > protocol["criterion"]["rank_ci95_lower_speedup"] for base in CANONICAL_RANK_LIBRARIES),
              "application": all(comparisons["dispatcher"][base]["application"]["ci95"][0]
              > protocol["criterion"]["application_ci95_lower_speedup"] for base in LIBRARIES)}
+    portfolio = {name: intervals(apps[name], apps["dispatcher"], seed) for name in ("best_fixed", "per_shape")}
+    portfolio_gate = {"over_best_fixed": portfolio["best_fixed"]["ci95"][0] > 1.02,
+                      "over_per_shape": portfolio["per_shape"]["ci95"][0] > 1.00,
+                      "two_authored_configs": len(set(policy["policy_selection"]["joint_subset"])) == 2}
     result = {"schema": 1, "session": session, "seed": seed, "sequence_order": order,
+        "session_start_unix_ns": start_unix_ns, "session_start_monotonic_ns": start_monotonic_ns,
+        "process_id": os.getpid(),
         "source_sha256": policy["source_sha256"], "study_identity": current_implementation(),
         "environment": protocol["environment"], "corpus_sha256": protocol["corpus_sha256"],
         "protocol_sha256": digest(EVIDENCE / "protocol.json"), "policy_sha256": digest(EVIDENCE / "policy-frozen.json"),
@@ -729,8 +879,13 @@ def confirm(session):
         "rank_samples_us": ranks, "application_samples_us": apps,
         "rank_orders": rank_orders, "application_orders": app_orders, "checks": checks,
         "peak_memory_bytes": mx.get_peak_memory(), "comparisons": comparisons, "session_gate": gates,
+        "portfolio_comparisons": portfolio, "portfolio_session_gate": portfolio_gate,
         "fallback_count_scope": "Calls across validation, rank bursts and application searches; global libraries count rank adapter calls but app calls bypass their adapter",
         "fallback_counts": {name: {"calls": method.calls, "fallback_calls": method.fallback_calls} for name, method in methods.items()}}
+    result.update(session_end_unix_ns=time.time_ns(), session_end_monotonic_ns=time.monotonic_ns())
+    if (result["session_end_unix_ns"] <= start_unix_ns
+            or result["session_end_monotonic_ns"] <= start_monotonic_ns):
+        raise RuntimeError("Confirmation session must have positive spans on both clocks")
     save(EVIDENCE / f"confirmation-{session}.json", result)
     print(json.dumps({"session_gate": gates, "dispatcher": comparisons["dispatcher"]}))
 

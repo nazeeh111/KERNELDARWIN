@@ -2,6 +2,7 @@
 
 ## 0.3.0 · Workload numerical preview · Unreleased
 
+- Added a prospectively reviewed V2 ranking protocol with complete-application controls, paired IID/block4/block8 interval envelopes, symmetric noise margins, two-clock session separation and independent replay. This materially changes rank-only entry and preserves all old rejections. The 147-method CPU suite and fresh twelve-method installed Metal validation passed; calibration and candidate performance are pending.
 - Added two stable top-five Metal ranking kernels, a typed guarded `RankPlan`/`RankIndex`, complete library reduction comparators and strict independent study replay/export. Twelve production GPU methods passed from a separate installed wheel with native validation enabled. Prospective baseline and one larger-block library-only diagnostic both failed the noise gate; no ranking candidate was timed or selected.
 - Retained exact rejected ranking source/evidence and process-filtered shader diagnostics. Raw system traces remain private; no application numeric-counter attribution or causal speedup claim is made.
 - After substantial external load reduction, ran one fresh original ranking baseline with unchanged source and criteria. It also failed before candidate timing; the separate preflight, exact source and raw rejection are preserved. Lower CPU load did not establish measurement stability.

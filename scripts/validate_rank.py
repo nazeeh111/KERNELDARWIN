@@ -50,6 +50,17 @@ def main():
             os.environ["KD_RUN_METAL"] = "1"
             from kerneldarwin.rank_search import rank_source_identity, rank_implementation_identity
             from kerneldarwin.workload import environment_identity
+            import kerneldarwin.rank_search as rank_module
+            import kerneldarwin.search as application_module
+            import kerneldarwin.library_baselines as baseline_module
+            import kerneldarwin.workload as normalization_module
+            record["runtime_modules"] = {name: {
+                "path": str(Path(module.__file__).resolve()),
+                "sha256": hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()}
+                for name, module in (("rank_search", rank_module), ("search", application_module),
+                                     ("library_baselines", baseline_module), ("workload", normalization_module))}
+            record["validation_root"] = str(ROOT)
+            record["validation_root_src_exists"] = (ROOT / "src").exists()
             record.update(source_sha256=rank_source_identity(), study_identity=rank_implementation_identity(),
                           environment=environment_identity())
             spec = importlib.util.spec_from_file_location("kd_rank_validation_tests", ROOT / "tests/test_rank_search.py")
@@ -57,15 +68,15 @@ def main():
             spec.loader.exec_module(module)
             suite = unittest.defaultTestLoader.loadTestsFromTestCase(module.RankSearchTests)
             planned = suite.countTestCases()
-            if planned < 8:
-                raise ValueError("At least eight actual Metal test methods are required")
+            if planned < 12:
+                raise ValueError("At least twelve actual Metal test methods are required")
             result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
             record.update(tests_run=result.testsRun, failures=len(result.failures), errors=len(result.errors),
                           skipped=len(result.skipped), gpu_executed=module.RankSearchTests.gpu_executed,
                           completed_methods=list(module.RankSearchTests.completed_methods))
             if record["gpu_executed"]:
                 record["peak_memory_bytes"] = module.RankSearchTests.mx.get_peak_memory()
-            record["success"] = (result.wasSuccessful() and not result.skipped and result.testsRun >= 8
+            record["success"] = (result.wasSuccessful() and not result.skipped and result.testsRun >= 12
                 and len(record["completed_methods"]) == result.testsRun and record["gpu_executed"] is True)
         except Exception:
             record["errors"] += 1
