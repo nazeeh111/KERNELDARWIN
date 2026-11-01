@@ -107,7 +107,7 @@ function render(animate = true) {
   // Build the next view before changing the DOM so a rejected import preserves it.
   const next = route[2](state, actions);
   $("breadcrumb").textContent = route[1];
-  document.title = `${route[1]} / KERNELDARWIN LAB`;
+  document.title = `${route[1]} / KernelDarwin Lab`;
   for (const link of document.querySelectorAll(".nav-link")) {
     link.href = locationHash(link.dataset.view, record?.id, state.chosen);
     if (link.dataset.view === state.view)
