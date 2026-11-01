@@ -1,0 +1,28 @@
+{
+  "kind": "post_execution_installed_import_provenance_audit",
+  "historical_execution_command": "MTL_DEBUG_LAYER=1 MTL_SHADER_VALIDATION=1 PYTHONDONTWRITEBYTECODE=1 env/bin/python scripts/validate_rank.py --output numerical-validation.json",
+  "execution_root": "/private/tmp/kd-rank-installed-20261101",
+  "root_src_absent": true,
+  "execution_root_contains": [
+    "env",
+    "scripts/validate_rank.py",
+    "tests/test_rank_search.py"
+  ],
+  "initial_wheel_sha256": "61f9321456707402d9002a78835806fb5909b9c5ebaf907c7f1867b010014855",
+  "numerical_report_sha256": "64690cf2b3ac8f3192221e25b14555e26fab554dfb876473580e8696e035e8ab",
+  "validator_sha256": "21c2093b635eb8ec690e361d7212022f97e57f21681586958932533e04a6d23b",
+  "tests_sha256": "d80cf5fd01d0d0ac59d489cbc4785531d19ccf60debd47532eb2bd8a8018902b",
+  "resolved_modules": {
+    "rank_search": "/private/tmp/kd-rank-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/rank_search.py",
+    "search": "/private/tmp/kd-rank-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/search.py"
+  },
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "3fe8387f897a851a3848714370fe1e36fba602eb269e1c11179552a36899835d",
+  "validated_rank_files_equal_initial_wheel": true,
+  "current_pythonpath_environment": null,
+  "limitations": [
+    "Post-run audit of unchanged consumer root and rank sources; initial numerical report is not rewritten.",
+    "After validation a wheel containing exporter-only fixes was installed; rank/application/MSL bytes remain equal to the initial executed wheel.",
+    "No accepted performance artifact or independent acceleration claim is implied."
+  ]
+}

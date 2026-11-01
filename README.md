@@ -4,7 +4,7 @@
 
 Investigate a real GPU workload, then install only what survives independent checks.
 
-**v0.3.0 is in development.** The local cosine-search application and six authored Metal configurations have executed on an Apple M4. The first frozen optimization study failed its application performance gate. The second target, fused query normalization and scoring, also completed three frozen sessions and failed its performance gates. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
+**v0.3.0 is in development.** The local cosine-search application and eight authored Metal configurations have executed on an Apple M4. The first two frozen optimization studies failed their performance gates. Two new stable top-five ranking kernels passed independent numerical checks, but their prospective baseline was too noisy to begin candidate timing. One longer-block library-only diagnostic also failed the unchanged noise gate. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
 
 [Run the workload](docs/workload.md) · [Semantic contract](docs/workload-semantics.md) · [Readable kernels](src/kerneldarwin/metal/) · [Interface and editable architecture](docs/workload-interface.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
@@ -48,14 +48,17 @@ The measured application performs one index refresh and three top-k searches acr
 | --- | --- | --- |
 | Stable row L2 normalization | SIMD reduction, four-row SIMD grouping, packed vector access, shared reduction | 18 current numerical/guard tests passed; historical three-session study failed application gate |
 | Query normalization fused with similarity scoring | One SIMD group per query/document pair; shared normalized query reused across four documents | Eight current Metal numerical/application methods passed; three frozen sessions failed both performance gates |
+| Stable top-five ranking | One SIMD group per score row; four cooperating SIMD groups per row | 12 production GPU methods passed from an independent wheel installation; baseline and one longer-block diagnostic failed noise gate before candidate timing |
 
 The first target's development portfolio reduced weighted normalization cost by about 6% versus its best fixed candidate. That did **not** establish a complete-application benefit. In confirmation session 0, the portfolio was slower at the point estimate than the complete compiled stable library query: **0.970×**, 95% interval **[0.908, 1.038]**. Later sessions also failed the frozen improvement gate. Every session and all losses remain in [the preserved study](evidence/workload-2026-10-29/target1-normalization/).
 
-Actual Instruments evidence records GPU compute intervals for the installed application. The captured trace has no hardware counter set, and its shader timeline was disabled. Instrumented interval observations and compiler graphs are diagnostic evidence, not a causal explanation or a replacement for the failed application confirmation.
+The original Instruments capture records compute intervals without a shader timeline. A later baseline-only capture produced 1,304 process-filtered shader records, including sort and gather. Its numeric counters could not be attributed to the application. [Sanitized diagnostic and limits](evidence/workload-2026-11-01/owned-shader-diagnostic/). Instrumented intervals and compiler graphs do not establish a causal bottleneck or application benefit.
 
 ## Installable computation and guards
 
 `FusedPlan().index(vectors)` supplies the current compiled-library application path. A future accepted `FusedPlan("artifact")` can route exact query/document/width tuples to at most two authored score kernels. Matching custom queries also compile scoring, finite validation and ranking together. This compilation scope matches the optimized libraries; its frozen performance study did not confirm an application benefit. Unknown tuples, unsupported candidate dtypes and incompatible plans use the complete compiled stable query. The original `Normalizer` and `CosineIndex` injection API remains available for the first target.
+
+`RankPlan().index(vectors)` provides a separate guarded stable-query API for the new ranking investigation. Custom rules require exact `[Q,N,D,5]` tuples and confirmed evidence. No such artifact exists; its default remains the complete library query. Numerical ranking tests verify exact tie order and original selected float32 bits, including subnormals. [Ranking contract](docs/workload-semantics.md#stable-top-five-ranking).
 
 Plans are data. They bind semantic operation, loaded source bytes, application and baseline implementation, study code, MLX/runtime/compiler options and device identity. Readable Metal sources accompany a confirmed manifest. Replacing installed source invalidates stale performance decisions; a running process uses one immutable source snapshot. Inputs are never mutated, and supported noncontiguous views are indexed through their actual device strides.
 
@@ -82,6 +85,7 @@ python -m unittest discover -s tests -v
 # Apple Silicon, pinned Metal environment:
 MTL_DEBUG_LAYER=1 MTL_SHADER_VALIDATION=1 python scripts/validate_metal.py --output NEW_ROWS_REPORT.json
 MTL_DEBUG_LAYER=1 MTL_SHADER_VALIDATION=1 python scripts/validate_fused.py --output NEW_SCORES_REPORT.json
+MTL_DEBUG_LAYER=1 MTL_SHADER_VALIDATION=1 python scripts/validate_rank.py --output NEW_RANK_REPORT.json
 ```
 
 Use fresh report paths. Validation instrumentation is disabled for performance measurements. Follow the bounded, immutable workflow in [the workload guide](docs/workload.md), and retain failed studies rather than retrying for a favorable result.

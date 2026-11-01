@@ -37,8 +37,13 @@ def application_adapter(artifact: Path | None) -> tuple[Any, str]:
     if artifact is not None:
         path=artifact/'manifest.json' if artifact.is_dir() else artifact
         try:
-            if path.stat().st_size<=1_000_000 and json.loads(path.read_text()).get('operation')=='stable_l2_rows_v1':
-                return Normalizer(artifact),'row_normalization'
+            if path.stat().st_size<=1_000_000:
+                operation=json.loads(path.read_text()).get('operation')
+                if operation=='stable_l2_rows_v1':
+                    return Normalizer(artifact),'row_normalization'
+                if operation=='stable_top5_pairs_v1':
+                    from .rank_search import RankPlan
+                    return RankPlan(artifact),'top5_ranking'
         except (OSError,ValueError,TypeError,AttributeError):
             pass
     return FusedPlan(artifact),'query_scoring'
@@ -65,6 +70,8 @@ def run(args: Any) -> dict[str,Any]:
         protocol=json.loads((args.study/'protocol.json').read_text())
         if protocol.get('target')=='fused_query_scores_v1':
             from .fused_export import export_artifact
+        elif protocol.get('target')=='stable_top5_pairs_v1':
+            from .rank_export import export_artifact
         else:
             from .workload_export import export_artifact
         return export_artifact(args.study,args.output)
@@ -100,7 +107,7 @@ def run(args: Any) -> dict[str,Any]:
             documents,queries=mx.array(docs),mx.array(qs)
         encoding_ms=(time.perf_counter()-t)*1000;k=args.k;texts=None
     mx.synchronize();start=time.perf_counter()
-    index=adapter.index(documents) if scope=='query_scoring' else CosineIndex(documents,adapter)
+    index=adapter.index(documents) if scope in ('query_scoring','top5_ranking') else CosineIndex(documents,adapter)
     ids,scores=index.search(queries,k)
     mx.synchronize();compute_ms=(time.perf_counter()-start)*1000
     result={"application":"cosine index refresh + top-k search","artifact_status":adapter.status,"dispatch_scope":scope,

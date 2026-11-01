@@ -2,12 +2,15 @@
 
 **The first frozen study failed its application performance gate.** Its numerical and resource checks passed, all three confirmation sessions and 24 fresh-process startup runs completed, and no optimized artifact was accepted. The compiled fused-score target also completed three frozen sessions and 18 fresh-process starts, but failed both performance gates. These results do not establish acceleration.
 
+The third target changes stable top-five ranking rather than normalization or scoring. Twelve production Metal methods passed from an independent installed wheel. Its prospective identical-library baseline and one longer-block diagnostic both failed the unchanged noise gate, so no ranking candidate was timed, tuned or selected. A performance result and accepted artifact remain unavailable.
+
 ## Executed numerical evidence
 
 | Scope | Executed result | Evidence |
 | --- | --- | --- |
 | Current stable row normalization, application and installation guards | 18 tests, zero failures, errors or skips; nine GPU methods and nine CPU contract methods | [Current row validation](../evidence/workload-2026-10-29/discovery/metal-validation-row-guarded-current.json) |
 | Current fused query normalization and similarity scoring | Eight GPU test methods, zero failures, errors or skips | [Current compiled-path validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-block128.json) |
+| Stable top-five ranking, complete query, guards and fallback | 12 production GPU methods, zero failures, errors or skips; separate installed wheel; native API/GPU validation enabled | [Ranking validation](../evidence/workload-2026-11-01/rank-v1/numerical-validation.json), [native log](../evidence/workload-2026-11-01/rank-v1/native-validation.log) |
 
 The original frozen first study retains its earlier 16-test report and exact source snapshot. Later source-guard changes were separately revalidated in the reports above; historical records were not relabeled. These are separate executed suites, not a claim that every future source revision has passed them. Both used Metal API and GPU shader validation. Recorded hardware was a 10-core Apple M4 GPU with 32 GiB memory, MLX and MLX Metal `0.32.0`, Python `3.12.13`, and arm64 macOS `27.2`, build `26B123`. CUDA sanitizers and other-device validation are not implied.
 
@@ -156,3 +159,26 @@ After the first public source preview, a bounded [compatibility probe](../eviden
 The current implementation and fixed/per-shape comparators now use that same compiled query scope. Python guards and counters run outside the graph once per request. Cached callables capture only variant and ranking width, with current arrays supplied on every call. The new eight-method GPU report validates both variants across five sizes, changing document/query contents, irregular tails and negative query strides. The local Python suite now runs 80 methods with 17 explicit Metal skips and 63 CPU passes. Earlier CI/download evidence at commit0c312bd remains its own recorded source version; the new revision needs separate delivery checks. That compatibility revision preceded the frozen second-target study above; compatibility alone made no performance claim.
 
 The [independent installed compiled-path suite](../evidence/workload-2026-10-29/discovery/installed-fused-compiled-suite.json) repeated all eight current GPU methods from a fresh wheel environment with no source tree or tuning files. Its synthetic plans exercise dispatch and source guards only; they do not constitute accepted performance artifacts.
+
+## Third target: ranking validated, performance study did not start
+
+The new operation selects five stable `(score, document index)` pairs without sorting the entire score row. It retains stable normalization, vendor matrix multiplication and query validation. Two authored configurations use one SIMD group or four cooperating groups per row. Their 5,572 source bytes passed the production suite from an independently installed wheel: **12 methods, zero failures/errors/skips**, native Metal API and GPU validation enabled, **15,166,683 bytes** peak MLX memory. The earlier private prototype passed 318 composite checks; those prototype cases are distinct from the production report.
+
+The prospective study includes compiled stable/fast normalization with both full sorting and a library-only repeated-reduction ranker, as well as eager, fixed, per-shape and actual static-dispatch adapters. Development would compare separately measured global, routed and actual-plan costs. Acceptance would require both canonical ranking baselines and all four complete-application libraries in every independent session. No development observations, frozen policy, confirmation sessions or cold study were produced.
+
+The first prerequisite measured identical compiled library ranking in randomized pairs, each block forcing both IDs and values for 128 separately evaluated inputs. Every 95% total-cost ratio interval had to fit inside `[0.9,1.1]`. All three tasks failed that gate. Load averages were approximately 273/206/192; power was AC and `pmset` reported no recorded thermal warning. That observation does not identify the cause of the variation.
+
+| Identical-library diagnostic | Notes interval | Manuals interval | Archive interval | Outcome |
+| --- | --- | --- | --- | --- |
+| Prospective 128-input baseline | [0.8473, 1.0094] | [0.9468, 1.1399] | [0.9450, 1.1804] | Rejected before candidate timing |
+| One 1,024-input library-only diagnostic | [0.9519, 1.1287] | [0.9487, 1.0338] | [0.9489, 1.0722] | Rejected; no canonical retry |
+
+The longer-block diagnostic used one persistent normalized document matrix per task, distinct queries across the original perturbation range and separately evaluated scores. This avoided retaining 1,024 copies of every document matrix. It took **11.81 seconds** and peaked at **142,830,552 bytes**, within its 180-second/2-GiB caps. Its unchanged noise gate still failed. These are comparisons of the library with itself, not kernel speedups. No custom candidate timing, selection, accepted artifact, portfolio advantage or amortization estimate follows from them.
+
+The [rejected baseline](../evidence/workload-2026-11-01/rank-v1/rejected-baseline.json), [42-file exact source snapshot](../evidence/workload-2026-11-01/rank-v1/source-frozen.zip) and [longer-block raw diagnostic](../evidence/workload-2026-11-01/rank-longblock-assay/result.json) remain preserved. Performance attempts stop under these conditions; repeated trials or weaker gates would not establish a repeatable benefit.
+
+## Later owned-process shader diagnostic
+
+A separate baseline-only Instruments capture on the installed public source produced **1,304 exact-process shader records** with 61 registered shader names. Sort/gather, reductions and matrix multiplication are present. The captured application passed 72 independent float64 score/ID checks. [Sanitized rows, summary and provenance](../evidence/workload-2026-11-01/owned-shader-diagnostic/) retain the source/runtime bindings.
+
+Overlapping and nested intervals are unioned. Per-shader unions are not additive percentages; records are not assumed to equal launch counts. Host markers include input and numerical work, have approximate alignment and omit boundary records through a 2-ms guard. These partial instrumented observations do not establish causal application headroom. Shared accelerator identifiers could not attribute global numeric counters to this process, and the available counter definition described raytracing activity rather than bandwidth or register spills. Raw trace/XML files include unrelated system context and remain private. No application numeric-counter claim is made.

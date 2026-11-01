@@ -1,6 +1,6 @@
 # Workload numerical and dispatch contract
 
-Both operations are inference-only. Inputs are rank-two MLX arrays; host conversion is explicit. Kernels allocate new outputs and never write inputs or their aliases. A package cache stores compiled graphs/templates, never input contents, normalized answers or search results. Numerical validity and measured performance coverage are separate.
+All authored operations are inference-only. Inputs are rank-two MLX arrays; host conversion is explicit. Kernels allocate new outputs and never write inputs or their aliases. A package cache stores compiled graphs/templates, never input contents, normalized answers or search results. Numerical validity and measured performance coverage are separate.
 
 ## Stable row normalization
 
@@ -24,13 +24,23 @@ Candidate bounds are `1 <= Q <= 128`, `1 <= N <= 2048`, `1 <= D <= 2048`, and `Q
 
 A `FusedPlan` application fallback runs the entire compiled stable query, including normalization, finite validation, matrix multiplication, ranking and gathering. It does not force a separated normalization/scoring path on an unknown tuple. Refresh remains the compiled stable library. Float16/bfloat16 and mixed float inputs use MLX library operations and their normal dtype behavior; the custom adversarial guarantees are for float32. Lower-precision application cases are separate smoke checks, not the full float32 adversarial study.
 
+## Stable top-five ranking
+
+`candidate_rank(scores, variant)` selects exactly five `(document ID, original score)` pairs from float32 `[Q,N]` scores, with `1 <= Q <= 128` and `5 <= N <= 2048`. It reads actual signed strides, offsets and broadcast views. Outputs are new contiguous uint32 IDs and float32 values. `simd32` assigns one SIMD group per row; `group128` coordinates four groups with explicit shared-pair barriers. The two configurations and shared key header total 5,572 Metal source bytes.
+
+The pinned MLX stable `argsort(-scores)` orders finite comparison keys from largest to smallest and resolves ties by ascending original document index. On the executed Metal backend, subnormal comparison keys flush to zero and both signed zeros tie. The authored kernels reproduce that key policy while copying the selected original score bits, including signed zeros and subnormals. The low-level tests require exact IDs and value bits, rather than a tolerance. Any NaN or infinity in a private score row yields five `UINT32_MAX` IDs and quiet NaNs; no sentinel ID is dereferenced.
+
+`RankPlan.index(raw_documents)` keeps stable library refresh, normalization, vendor matrix multiplication and the executed query-finite check. Only ranking changes in a matching compiled query. Static rules require exact `[Q,N,D,5]`, float32, `1 <= D <= 2048` and `Q*N*D <= 16,777,216`. An absent, stale, unconfirmed or unfamiliar plan, another `k`, unsupported custom dtype or non-GPU default device uses the complete compiled stable query. Empty query batches return empty host lists; invalid `k`, widths and nonfinite application inputs retain explicit errors. A failed refresh preserves the old index.
+
+The numerical suite compares both custom paths with full stable sorting, a library-only repeated argmax/mask/gather alternative and an independent integer-key reference. Whole-query checks include both stable and fast library normalization with both ranking algorithms, changed documents/queries, original ID associations and float64 scores. No numerical fixture establishes performance acceptance. No ranking artifact is accepted: the prospective baseline and a separate longer-block library-only diagnostic failed stability before candidate timing.
+
 ## Layouts, tolerance and application results
 
 Both custom operations read actual Metal-side signed strides with `ensure_row_contiguous=False`. Covered layouts include contiguous inputs, row/column slices, transposes, offset views, reversed axes and broadcast views. Python does not infer strides from shape. The original vectorized row candidate uses `packed_float4` to retain float alignment for offset views; scalar paths handle non-unit column strides and irregular tails. The fused candidates use scalar device-stride loads. Broad layout semantics do not imply measured performance coverage for every possible view.
 
 Normal-magnitude float32 numerical checks use independent float64 maximum-scaled references with relative tolerance `2e-5` and absolute tolerance `2e-6`, allowing different parallel reduction orders. Tiny-normal row checks use relative tolerance `2e-5` and zero absolute tolerance; the fused tiny-score test uses relative tolerance `3e-5` and zero absolute tolerance. These tolerances are operation-specific, not a promise of identical bits. Native subnormal handling is applied explicitly to the reference policy.
 
-The application requires finite index/query vectors and validates outputs on the GPU. Such validation and synchronization belong in application cost. `search` returns nested host lists of unique, in-range document IDs and scores. Tests associate each returned score with its independently calculated document score and compare the top-k score set. Equal-score ID order follows MLX and is not guaranteed stable across implementations. Zero vectors are valid and have zero similarity.
+The application requires finite index/query vectors and validates outputs on the GPU. Such validation and synchronization belong in application cost. `search` returns nested host lists of unique, in-range document IDs and scores. Tests associate each returned score with its independently calculated document score and compare the top-k score set. The ranking operation above additionally fixes ascending-ID tie order to the executed pinned stable library; older score/row APIs do not promise cross-implementation tie identity. Zero vectors are valid and have zero similarity.
 
 Refresh creates a new normalized index. Mutating a source array cannot be treated as a cached-answer key; changed queries and index contents are exercised in repeated calls. No backward/gradient contract is supplied for either authored operation. Lower-level `score` accepts only inference mode.
 

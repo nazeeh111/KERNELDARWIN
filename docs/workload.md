@@ -75,6 +75,8 @@ index.refresh(text_vectors(["Metal source", "local vector index", "test record"]
 
 For a future accepted score export, use `FusedPlan("artifact")` or `--artifact PATH`. `Normalizer("artifact")` with `CosineIndex(vectors, normalize=...)` remains the separate row-normalization API. The CLI selects the authored operation from manifest data; invalid plans keep a recorded library fallback. These APIs do not imply that an accepted artifact exists today.
 
+The separately investigated ranking API is `from kerneldarwin.rank_search import RankPlan`, followed by `RankPlan().index(vectors).search(queries, k=5)`. Its default also uses the full compiled stable query. `RankPlan("artifact")` and the same CLI `--artifact` option recognize confirmed `stable_top5_pairs_v1` manifests; none is currently accepted. It preserves stable tie order and original selected float32 score bits. See the [ranking contract](workload-semantics.md#stable-top-five-ranking) and [rejected baseline evidence](../evidence/workload-2026-11-01/rank-v1/).
+
 ## Guards and numerical scope
 
 Normalization is row-wise `x / max(norm(x), 1e-12)`. Maximum scaling avoids overflow from directly squaring large finite float32 values. Normalization accumulates in float32 and restores the input dtype. Fused custom scoring accumulates float32 dot products and returns float32 `[query_count, document_count]` scores.

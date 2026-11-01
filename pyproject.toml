@@ -32,5 +32,5 @@ packages = ["kerneldarwin", "kerneldarwin.lab"]
 package-dir = {"kerneldarwin" = "src/kerneldarwin", "kerneldarwin.lab" = "lab"}
 
 [tool.setuptools.package-data]
-"kerneldarwin" = ["metal/*.metal", "artifacts/*/*.json", "artifacts/*/*.metal", "study-source.json", "fused-study-source.json", "py.typed"]
+"kerneldarwin" = ["metal/*.metal", "artifacts/*/*.json", "artifacts/*/*.metal", "study-source.json", "fused-study-source.json", "rank-study-source.json", "py.typed"]
 "kerneldarwin.lab" = ["*.html", "*.css", "*.js", "*.svg", "data/*.json", "js/*.js", "assets/fonts/*.woff2", "assets/fonts/OFL.txt", "package.json"]

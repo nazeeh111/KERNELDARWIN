@@ -1,0 +1,761 @@
+{
+  "kind": "owned_baseline_shader_timeline_diagnostic",
+  "source_commit": "65c090f994af8e37ad53ff6e14eb9d2bc4c90043",
+  "pid": 47528,
+  "application_success": true,
+  "base_implementation_identity": "5d2857e32e7cebdc26cddae82cefcec362ac6d3bcc385b891713b7d0cc2b1be3",
+  "row_source_identity": "fae44c8d69dd6ac9ef0ef0a4459bcb6d2a0e4aabb02c733a2398615028423803",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "profile_script_sha256": "9806399bfe306b37b10c02f669292f34f5037a067f12cb1e84c0dc02262c9583",
+  "sanitizer_sha256": "dedfbcf82922ab9687eb1016b96e3ac97eef04c09db51e69cee96aecbad0d538",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "independent_score_id_checks": 72,
+  "owned_shader_records": 1304,
+  "owned_registered_shader_names": 61,
+  "channels": {
+    "Compute": 1304
+  },
+  "depths": {
+    "0": 1080,
+    "1": 216,
+    "2": 8
+  },
+  "candidate_timing": false,
+  "candidate_selection": false,
+  "frozen_benchmark": false,
+  "boundary_guard_ns": 2000000,
+  "phase_summaries": [
+    {
+      "method": "stable",
+      "task": "notes",
+      "application_iterations": 4,
+      "independent_score_id_checks": 12,
+      "marker_interval_ns": 54625000,
+      "guarded_owned_records": 88,
+      "guarded_owned_interval_union_ns": 258792,
+      "by_shader": [
+        {
+          "shader": "carg_block_sort_float32_uint32_bn32_tn4",
+          "records": 10,
+          "interval_union_ns": 80375
+        },
+        {
+          "shader": "gemv_float32_bm4_bn1_sm1_sn32_tm4_tn4_nc0_axpby0",
+          "records": 10,
+          "interval_union_ns": 62668
+        },
+        {
+          "shader": "all_reduce_andbool_",
+          "records": 13,
+          "interval_union_ns": 32500
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_maxfloat32",
+          "records": 8,
+          "interval_union_ns": 24542
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_sumfloat32",
+          "records": 9,
+          "interval_union_ns": 17375
+        },
+        {
+          "shader": "row_reduce_simple_maxfloat32",
+          "records": 3,
+          "interval_union_ns": 14874
+        },
+        {
+          "shader": "row_reduce_simple_sumfloat32",
+          "records": 3,
+          "interval_union_ns": 9792
+        },
+        {
+          "shader": "Ef4ISqrtBFf4IBroadcastCGf4IDivideFDHf4IMaximumEGIf4IBroadcastHJf4ODivideAI_VVCV_f4f4f4_13854666810136874371_strided_1",
+          "records": 6,
+          "interval_union_ns": 8626
+        },
+        {
+          "shader": "gather_axisfloat32uint32_intcc",
+          "records": 3,
+          "interval_union_ns": 8291
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_1",
+          "records": 4,
+          "interval_union_ns": 5667
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4OMaximumAC_VC_f4_13854666810136874371_contiguous",
+          "records": 4,
+          "interval_union_ns": 5040
+        },
+        {
+          "shader": "v_Absfloat32float32",
+          "records": 4,
+          "interval_union_ns": 4833
+        },
+        {
+          "shader": "Df4IBroadcastBEb1IEqualADFf4IBroadcastCGb1IEqualAFHb1ILogicalOrEGIb1INotEqualAAJb1ILogicalOrHIKb1OLogicalNotJ_VCC_f4_15650656621965503723_contiguous",
+          "records": 3,
+          "interval_union_ns": 4084
+        },
+        {
+          "shader": "vv_Multiplyfloat32",
+          "records": 4,
+          "interval_union_ns": 3625
+        },
+        {
+          "shader": "v_Negativefloat32float32",
+          "records": 2,
+          "interval_union_ns": 2916
+        },
+        {
+          "shader": "Gf4ISqrtBHf4IBroadcastCIf4IDivideHDJf4IMaximumGIKf4IBroadcastJLf4ODivideAKMf4IBroadcastENb1IEqualLMOf4IBroadcastFPb1IEqualLOQb1ILogicalOrNPRb1INotEqualLLSb1ILogicalOrQRTb1OLogicalNotS_VVCVCC_f4f4f4_15272011659340133755_strided_2",
+          "records": 2,
+          "interval_union_ns": 1750
+        }
+      ]
+    },
+    {
+      "method": "stable",
+      "task": "manuals",
+      "application_iterations": 4,
+      "independent_score_id_checks": 12,
+      "marker_interval_ns": 29306000,
+      "guarded_owned_records": 108,
+      "guarded_owned_interval_union_ns": 379834,
+      "by_shader": [
+        {
+          "shader": "carg_block_sort_float32_uint32_bn64_tn4",
+          "records": 11,
+          "interval_union_ns": 92834
+        },
+        {
+          "shader": "steel_gemm_splitk_nt_float32_float32_bm16_bn32_bk16_wm2_wn2_MN_naligned_K_taligned",
+          "records": 11,
+          "interval_union_ns": 84876
+        },
+        {
+          "shader": "gn1_Absfloat32float32",
+          "records": 3,
+          "interval_union_ns": 55126
+        },
+        {
+          "shader": "steel_gemm_splitk_accum_float32_float32",
+          "records": 11,
+          "interval_union_ns": 21459
+        },
+        {
+          "shader": "all_reduce_andbool_",
+          "records": 12,
+          "interval_union_ns": 19125
+        },
+        {
+          "shader": "Gf4ISqrtBHf4IBroadcastCIf4IDivideHDJf4IMaximumGIKf4IBroadcastJLf4ODivideAKMf4IBroadcastENb1IEqualLMOf4IBroadcastFPb1IEqualLOQb1ILogicalOrNPRb1INotEqualLLSb1ILogicalOrQRTb1OLogicalNotS_VVCVCC_f4f4f4_15272011659340133755_strided_2",
+          "records": 3,
+          "interval_union_ns": 17834
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_maxfloat32",
+          "records": 11,
+          "interval_union_ns": 16417
+        },
+        {
+          "shader": "row_reduce_simple_maxfloat32",
+          "records": 3,
+          "interval_union_ns": 13417
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_2",
+          "records": 7,
+          "interval_union_ns": 13376
+        },
+        {
+          "shader": "Ef4ISqrtBFf4IBroadcastCGf4IDivideFDHf4IMaximumEGIf4IBroadcastHJf4ODivideAI_VVCV_f4f4f4_13854666810136874371_strided_2",
+          "records": 8,
+          "interval_union_ns": 12209
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_sumfloat32",
+          "records": 6,
+          "interval_union_ns": 10041
+        },
+        {
+          "shader": "gather_axisfloat32uint32_intcnc",
+          "records": 7,
+          "interval_union_ns": 9249
+        },
+        {
+          "shader": "row_reduce_simple_sumfloat32",
+          "records": 3,
+          "interval_union_ns": 7415
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4OMaximumAC_VC_f4_13854666810136874371_contiguous",
+          "records": 4,
+          "interval_union_ns": 4998
+        },
+        {
+          "shader": "Df4IBroadcastBEb1IEqualADFf4IBroadcastCGb1IEqualAFHb1ILogicalOrEGIb1INotEqualAAJb1ILogicalOrHIKb1OLogicalNotJ_VCC_f4_15650656621965503723_contiguous",
+          "records": 4,
+          "interval_union_ns": 4917
+        },
+        {
+          "shader": "vvn_Multiplyfloat32",
+          "records": 3,
+          "interval_union_ns": 4458
+        },
+        {
+          "shader": "v_Negativefloat32float32",
+          "records": 1,
+          "interval_union_ns": 708
+        }
+      ]
+    },
+    {
+      "method": "stable",
+      "task": "archive",
+      "application_iterations": 4,
+      "independent_score_id_checks": 12,
+      "marker_interval_ns": 66230000,
+      "guarded_owned_records": 138,
+      "guarded_owned_interval_union_ns": 1052332,
+      "by_shader": [
+        {
+          "shader": "steel_gemm_splitk_nt_float32_float32_bm16_bn32_bk16_wm2_wn2_MN_naligned_K_taligned",
+          "records": 12,
+          "interval_union_ns": 271750
+        },
+        {
+          "shader": "carg_block_sort_float32_uint32_bn64_tn4",
+          "records": 12,
+          "interval_union_ns": 145668
+        },
+        {
+          "shader": "vn_Absfloat32float32",
+          "records": 3,
+          "interval_union_ns": 140666
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_2",
+          "records": 13,
+          "interval_union_ns": 67624
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_maxfloat32",
+          "records": 11,
+          "interval_union_ns": 67293
+        },
+        {
+          "shader": "steel_gemm_splitk_accum_float32_float32",
+          "records": 11,
+          "interval_union_ns": 65292
+        },
+        {
+          "shader": "col_reduce_2pass_1_32_32_reduce_maxfloat32",
+          "records": 3,
+          "interval_union_ns": 59500
+        },
+        {
+          "shader": "Gf4ISqrtBHf4IBroadcastCIf4IDivideHDJf4IMaximumGIKf4IBroadcastJLf4ODivideAKMf4IBroadcastENb1IEqualLMOf4IBroadcastFPb1IEqualLOQb1ILogicalOrNPRb1INotEqualLLSb1ILogicalOrQRTb1OLogicalNotS_VVCVCC_f4f4f4_15272011659340133755_strided_2",
+          "records": 3,
+          "interval_union_ns": 52875
+        },
+        {
+          "shader": "all_reduce_andbool_",
+          "records": 12,
+          "interval_union_ns": 52083
+        },
+        {
+          "shader": "Ef4ISqrtBFf4IBroadcastCGf4IDivideFDHf4IMaximumEGIf4IBroadcastHJf4ODivideAI_VVCV_f4f4f4_13854666810136874371_strided_2",
+          "records": 12,
+          "interval_union_ns": 33456
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_sumfloat32",
+          "records": 11,
+          "interval_union_ns": 24500
+        },
+        {
+          "shader": "row_reduce_simple_sumfloat32",
+          "records": 3,
+          "interval_union_ns": 20958
+        },
+        {
+          "shader": "vvn_Multiplyfloat32",
+          "records": 3,
+          "interval_union_ns": 20625
+        },
+        {
+          "shader": "gather_axisfloat32uint32_intcnc",
+          "records": 9,
+          "interval_union_ns": 14709
+        },
+        {
+          "shader": "v_Absfloat32float32",
+          "records": 4,
+          "interval_union_ns": 9251
+        },
+        {
+          "shader": "vv_Multiplyfloat32",
+          "records": 5,
+          "interval_union_ns": 8042
+        },
+        {
+          "shader": "col_reduce_looped_1_32_32_reduce_maxfloat32",
+          "records": 2,
+          "interval_union_ns": 7333
+        },
+        {
+          "shader": "Df4IBroadcastBEb1IEqualADFf4IBroadcastCGb1IEqualAFHb1ILogicalOrEGIb1INotEqualAAJb1ILogicalOrHIKb1OLogicalNotJ_VCC_f4_15650656621965503723_contiguous",
+          "records": 4,
+          "interval_union_ns": 6874
+        },
+        {
+          "shader": "v_Negativefloat32float32",
+          "records": 3,
+          "interval_union_ns": 4499
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4OMaximumAC_VC_f4_13854666810136874371_contiguous",
+          "records": 2,
+          "interval_union_ns": 3875
+        }
+      ]
+    },
+    {
+      "method": "fast",
+      "task": "notes",
+      "application_iterations": 4,
+      "independent_score_id_checks": 12,
+      "marker_interval_ns": 22858000,
+      "guarded_owned_records": 94,
+      "guarded_owned_interval_union_ns": 628632,
+      "by_shader": [
+        {
+          "shader": "Cf4IBroadcastBDf4OMaximumAC_VC_f4_13854666810136874371_contiguous",
+          "records": 4,
+          "interval_union_ns": 234750
+        },
+        {
+          "shader": "carg_block_sort_float32_uint32_bn32_tn4",
+          "records": 11,
+          "interval_union_ns": 112334
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_1",
+          "records": 4,
+          "interval_union_ns": 49625
+        },
+        {
+          "shader": "gemv_float32_bm4_bn1_sm1_sn32_tm4_tn4_nc0_axpby0",
+          "records": 11,
+          "interval_union_ns": 41711
+        },
+        {
+          "shader": "rmsfloat32",
+          "records": 10,
+          "interval_union_ns": 41251
+        },
+        {
+          "shader": "all_reduce_andbool_",
+          "records": 12,
+          "interval_union_ns": 34919
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_sumfloat32",
+          "records": 11,
+          "interval_union_ns": 26499
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_maxfloat32",
+          "records": 10,
+          "interval_union_ns": 25169
+        },
+        {
+          "shader": "vv_Multiplyfloat32",
+          "records": 5,
+          "interval_union_ns": 22417
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_2",
+          "records": 2,
+          "interval_union_ns": 22167
+        },
+        {
+          "shader": "row_reduce_simple_maxfloat32",
+          "records": 3,
+          "interval_union_ns": 16833
+        },
+        {
+          "shader": "gather_axisfloat32uint32_intcc",
+          "records": 5,
+          "interval_union_ns": 8957
+        },
+        {
+          "shader": "row_reduce_simple_sumfloat32",
+          "records": 2,
+          "interval_union_ns": 6583
+        },
+        {
+          "shader": "v_Absfloat32float32",
+          "records": 3,
+          "interval_union_ns": 6459
+        },
+        {
+          "shader": "Df4IBroadcastBEb1IEqualADFf4IBroadcastCGb1IEqualAFHb1ILogicalOrEGIb1INotEqualAAJb1ILogicalOrHIKb1OLogicalNotJ_VCC_f4_15650656621965503723_contiguous",
+          "records": 1,
+          "interval_union_ns": 2167
+        }
+      ]
+    },
+    {
+      "method": "fast",
+      "task": "manuals",
+      "application_iterations": 4,
+      "independent_score_id_checks": 12,
+      "marker_interval_ns": 42001000,
+      "guarded_owned_records": 113,
+      "guarded_owned_interval_union_ns": 676501,
+      "by_shader": [
+        {
+          "shader": "gn1_Absfloat32float32",
+          "records": 3,
+          "interval_union_ns": 130043
+        },
+        {
+          "shader": "steel_gemm_splitk_nt_float32_float32_bm16_bn32_bk16_wm2_wn2_MN_naligned_K_taligned",
+          "records": 11,
+          "interval_union_ns": 117500
+        },
+        {
+          "shader": "all_reduce_andbool_",
+          "records": 11,
+          "interval_union_ns": 65665
+        },
+        {
+          "shader": "carg_block_sort_float32_uint32_bn64_tn4",
+          "records": 7,
+          "interval_union_ns": 59501
+        },
+        {
+          "shader": "rmsfloat32",
+          "records": 12,
+          "interval_union_ns": 55875
+        },
+        {
+          "shader": "Df4IBroadcastBEb1IEqualADFf4IBroadcastCGb1IEqualAFHb1ILogicalOrEGIb1INotEqualAAJb1ILogicalOrHIKb1OLogicalNotJ_VCC_f4_15650656621965503723_contiguous",
+          "records": 6,
+          "interval_union_ns": 51666
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_2",
+          "records": 9,
+          "interval_union_ns": 50501
+        },
+        {
+          "shader": "v_Negativefloat32float32",
+          "records": 5,
+          "interval_union_ns": 43208
+        },
+        {
+          "shader": "Jb1INotEqualAAKb1IBroadcastJLf4IBroadcastBMf4IBroadcastCNf4IDivideMDOf4IMultiplyNNPb1IGreaterEqualAOQb1IBroadcastPRf4IBroadcastFSf4IMultiplyERTf4IBroadcastNUf4IDivideGTVf4ISelectQSUWf4OSelectKLVXf4IBroadcastHYb1IEqualWXZf4IBroadcastIAAb1IEqualWZABb1ILogicalOrYAAACb1INotEqualWWADb1ILogicalOrABACAEb1OLogicalNotAD_VCCVVCVCC_f4f4f4f4_3846674874654404809_strided_2",
+          "records": 3,
+          "interval_union_ns": 26793
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_maxfloat32",
+          "records": 9,
+          "interval_union_ns": 25333
+        },
+        {
+          "shader": "steel_gemm_splitk_accum_float32_float32",
+          "records": 9,
+          "interval_union_ns": 25249
+        },
+        {
+          "shader": "Hb1INotEqualAAIb1IBroadcastHJf4IBroadcastBKf4IBroadcastCLf4IDivideKDMf4IMultiplyLLNb1IGreaterEqualAMOb1IBroadcastNPf4IBroadcastFQf4IMultiplyEPRf4IBroadcastLSf4IDivideGRTf4ISelectOQSUf4OSelectIJT_VCCVVCV_f4f4f4f4_230496395035804254_strided_2",
+          "records": 8,
+          "interval_union_ns": 18126
+        },
+        {
+          "shader": "row_reduce_simple_sumfloat32",
+          "records": 3,
+          "interval_union_ns": 15875
+        },
+        {
+          "shader": "vvn_Multiplyfloat32",
+          "records": 3,
+          "interval_union_ns": 14416
+        },
+        {
+          "shader": "vv_Multiplyfloat32",
+          "records": 3,
+          "interval_union_ns": 11792
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_sumfloat32",
+          "records": 5,
+          "interval_union_ns": 7708
+        },
+        {
+          "shader": "gather_axisfloat32uint32_intcnc",
+          "records": 3,
+          "interval_union_ns": 3541
+        },
+        {
+          "shader": "v_Absfloat32float32",
+          "records": 2,
+          "interval_union_ns": 3459
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4OMaximumAC_VC_f4_13854666810136874371_contiguous",
+          "records": 1,
+          "interval_union_ns": 2584
+        }
+      ]
+    },
+    {
+      "method": "fast",
+      "task": "archive",
+      "application_iterations": 4,
+      "independent_score_id_checks": 12,
+      "marker_interval_ns": 81996000,
+      "guarded_owned_records": 154,
+      "guarded_owned_interval_union_ns": 3028830,
+      "by_shader": [
+        {
+          "shader": "steel_gemm_splitk_nt_float32_float32_bm16_bn32_bk16_wm2_wn2_MN_naligned_K_taligned",
+          "records": 12,
+          "interval_union_ns": 602627
+        },
+        {
+          "shader": "carg_block_sort_float32_uint32_bn64_tn4",
+          "records": 12,
+          "interval_union_ns": 417999
+        },
+        {
+          "shader": "Jb1INotEqualAAKb1IBroadcastJLf4IBroadcastBMf4IBroadcastCNf4IDivideMDOf4IMultiplyNNPb1IGreaterEqualAOQb1IBroadcastPRf4IBroadcastFSf4IMultiplyERTf4IBroadcastNUf4IDivideGTVf4ISelectQSUWf4OSelectKLVXf4IBroadcastHYb1IEqualWXZf4IBroadcastIAAb1IEqualWZABb1ILogicalOrYAAACb1INotEqualWWADb1ILogicalOrABACAEb1OLogicalNotAD_VCCVVCVCC_f4f4f4f4_17577196050132211967_strided_2",
+          "records": 4,
+          "interval_union_ns": 276250
+        },
+        {
+          "shader": "rmsfloat32",
+          "records": 12,
+          "interval_union_ns": 245253
+        },
+        {
+          "shader": "steel_gemm_splitk_accum_float32_float32",
+          "records": 12,
+          "interval_union_ns": 224834
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4ODivideAC_VV_f4f4_11160318154034397263_strided_2",
+          "records": 13,
+          "interval_union_ns": 223166
+        },
+        {
+          "shader": "all_reduce_andbool_",
+          "records": 13,
+          "interval_union_ns": 200164
+        },
+        {
+          "shader": "row_reduce_simple_sumfloat32",
+          "records": 4,
+          "interval_union_ns": 195083
+        },
+        {
+          "shader": "vn_Absfloat32float32",
+          "records": 3,
+          "interval_union_ns": 123542
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_maxfloat32",
+          "records": 11,
+          "interval_union_ns": 123374
+        },
+        {
+          "shader": "row_reduce_looped_1_reduce_sumfloat32",
+          "records": 12,
+          "interval_union_ns": 84998
+        },
+        {
+          "shader": "Hb1INotEqualAAIb1IBroadcastHJf4IBroadcastBKf4IBroadcastCLf4IDivideKDMf4IMultiplyLLNb1IGreaterEqualAMOb1IBroadcastNPf4IBroadcastFQf4IMultiplyEPRf4IBroadcastLSf4IDivideGRTf4ISelectOQSUf4OSelectIJT_VCCVVCV_f4f4f4f4_2699361496749853436_strided_2",
+          "records": 12,
+          "interval_union_ns": 78873
+        },
+        {
+          "shader": "vvn_Multiplyfloat32",
+          "records": 4,
+          "interval_union_ns": 70501
+        },
+        {
+          "shader": "Df4IBroadcastBEb1IEqualADFf4IBroadcastCGb1IEqualAFHb1ILogicalOrEGIb1INotEqualAAJb1ILogicalOrHIKb1OLogicalNotJ_VCC_f4_15650656621965503723_contiguous",
+          "records": 6,
+          "interval_union_ns": 59916
+        },
+        {
+          "shader": "v_Absfloat32float32",
+          "records": 2,
+          "interval_union_ns": 46251
+        },
+        {
+          "shader": "gather_axisfloat32uint32_intcnc",
+          "records": 8,
+          "interval_union_ns": 37998
+        },
+        {
+          "shader": "col_reduce_looped_1_32_32_reduce_maxfloat32",
+          "records": 4,
+          "interval_union_ns": 36918
+        },
+        {
+          "shader": "v_Negativefloat32float32",
+          "records": 4,
+          "interval_union_ns": 35999
+        },
+        {
+          "shader": "vv_Multiplyfloat32",
+          "records": 3,
+          "interval_union_ns": 15290
+        },
+        {
+          "shader": "Cf4IBroadcastBDf4OMaximumAC_VC_f4_13854666810136874371_contiguous",
+          "records": 3,
+          "interval_union_ns": 14250
+        }
+      ]
+    }
+  ],
+  "numeric_counter_scope": {
+    "owned_mapping_rows": 336,
+    "owned_accelerator_ids": 1,
+    "shared_accelerator_ids": 1,
+    "accelerator_id_proves_exclusive_process_ownership": false,
+    "counter_profile3_rows": 0,
+    "exported_counter_definitions": [
+      {
+        "counter_id": "0",
+        "name": "RT Unit Active",
+        "description": "Percentage of GPU Cores where raytracing unit is active.",
+        "type": "Percentage",
+        "requires_weighted_accumulation": "0"
+      }
+    ],
+    "application_bandwidth_or_spill_measurement_established": false
+  },
+  "schemas": [
+    {
+      "name": "metal-shader-profiler-intervals",
+      "columns": [
+        "start",
+        "duration",
+        "name",
+        "label",
+        "pso-label",
+        "event-name",
+        "shader-type",
+        "percent-of-kick",
+        "total-kick-percent",
+        "color",
+        "event-priority",
+        "process",
+        "gpu",
+        "channel-name",
+        "event-depth",
+        "connection-UUID"
+      ]
+    },
+    {
+      "name": "metal-shader-profiler-shader-list",
+      "columns": [
+        "timestamp",
+        "name",
+        "label",
+        "pso-name",
+        "id",
+        "pc-start",
+        "pc-end",
+        "shader-type",
+        "process",
+        "gpu"
+      ]
+    },
+    {
+      "name": "metal-gpu-submission-to-command-buffer-id",
+      "columns": [
+        "timestamp",
+        "cmdbuffer-id",
+        "gpu-submission-id",
+        "segment-id",
+        "segmentlist-id",
+        "encoder-id",
+        "accelerator-id",
+        "channel-id",
+        "submission-type",
+        "metadata-1",
+        "metadata-2",
+        "pid",
+        "process",
+        "model",
+        "commit-id",
+        "num-coalasced-encoders"
+      ]
+    },
+    {
+      "name": "gpu-counter-info",
+      "columns": [
+        "timestamp",
+        "counter-id",
+        "name",
+        "max-value",
+        "accelerator-id",
+        "description",
+        "group-index",
+        "type",
+        "ring-buffer-count",
+        "require-weighted-accumulation",
+        "sample-interval"
+      ]
+    }
+  ],
+  "input_sha256": {
+    "application.json": "95bffdc9b11a298dc2b37b82abec422cac94886a1e81f6350f12943c0a749bdd",
+    "toc.xml": "330eb94b47528a32b3f64be85b679e13002f35a4104063ce5ff06ce8bf0aa8b8",
+    "shader-intervals.xml": "95081f9d5fbde345c7025c6692a06dea80950c50d72dfffd0a5e7db5657c577c",
+    "shader-list.xml": "475f24fb7453a2618e919eaf0cca7bd163e96eca03ecaf15de9904fd08c85c99",
+    "submission-map.xml": "c7ac6ba68cfc37d38f727c59a410c2421c1ff1463939ba0e5ee0980c609916ee",
+    "counter-info.xml": "3a46bcdc16be9024f6086bf1f6e47e84dfb4dea4e6398c21551cc6c12ac070b2",
+    "counter-profile3.xml": "aed3b73fd50b77e82dc92ae5a6abd0240f81a47f7599b479470d0a82c5755fca"
+  },
+  "limits": [
+    "Shader timeline intervals from an instrumented baseline-only diagnostic, not frozen performance samples.",
+    "Timeline records are not assumed kernel launch counts; overlapping and nested intervals are unioned within each reported set.",
+    "Per-shader unions can overlap each other; their totals are not additive or percentages of application cost.",
+    "Host markers include numerical validation and input work, not just the compute API; no device/host speedup ratio is derived.",
+    "Wall start has millisecond precision; phase alignment is approximate. The 2ms boundary guard omits records, so phase summaries are partial.",
+    "Shared accelerator IDs do not identify the launched process; global numeric counter values are not attributed to it.",
+    "One exported definition describes raytracing-unit activity, not application bandwidth or register spills; shader counter profile3 had no rows.",
+    "Raw traces and XML contain unrelated system context and remain private. Only exact PID-filtered shader rows are emitted.",
+    "No accepted artifact, accelerated application, portfolio advantage or causal bottleneck is established."
+  ]
+}
