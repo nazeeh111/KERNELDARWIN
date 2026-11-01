@@ -1,0 +1,74 @@
+{
+  "kind": "owned_baseline_resource_accounting",
+  "source_commit": "65c090f994af8e37ad53ff6e14eb9d2bc4c90043",
+  "application_sha256": "95bffdc9b11a298dc2b37b82abec422cac94886a1e81f6350f12943c0a749bdd",
+  "pid": 47528,
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "base_implementation_identity": "5d2857e32e7cebdc26cddae82cefcec362ac6d3bcc385b891713b7d0cc2b1be3",
+  "extractor_sha256": "a8b742794b0f2c23874608d2bbdee050db20d90e6ede55776553e513c698907f",
+  "raw_export_sha256": {
+    "kd-rank-owned-command-submissions-20261101.xml": "1342b075938c2c516b9d9bd9b829ea0b25f81530a943ad3c5c80ff1a0cc365e4",
+    "kd-rank-owned-encoder-list-20261101.xml": "66190f81270286900e271cfa0dca333f7f309bcb59bb9f321ca1de6a3627a7e6",
+    "kd-rank-owned-resource-events-20261101.xml": "1271f5276020f5c9d784b40fbdc0b99f1ff97d0ad4c4e9e149ca2cbc311fb2b7",
+    "kd-rank-owned-resource-accounting-20261101.xml": "21ef672f1e71b8e45278d0091461520bdfe7b1f5a50436166df68ee193bacc04"
+  },
+  "owned_command_buffer_submissions": 181,
+  "reported_encoder_count_total": 168,
+  "submissions_with_zero_reported_encoders": 13,
+  "owned_encoder_records": 168,
+  "encoder_labels": {
+    "Compute Command 0": 168
+  },
+  "owned_buffer_allocation_events": 86,
+  "allocation_resource_types": {
+    "Buffer": 86
+  },
+  "allocation_event_types": {
+    "Allocation": 86
+  },
+  "allocation_resource_size_sum_bytes": 19038208,
+  "owned_mtl_current_allocated_size_records": 122,
+  "max_observed_mtl_current_allocated_size_bytes": 14385152,
+  "cross_table_encoder_counts_match": true,
+  "candidate_timing": false,
+  "candidate_selection": false,
+  "accepted_artifact": false,
+  "unavailable": [
+    "Exact kernel-dispatch count",
+    "Implicit contiguous-copy count",
+    "Tensor materialization count",
+    "CPU/GPU transfer byte count",
+    "Allocation-to-tensor association",
+    "Pure GPU elapsed time for each application call"
+  ],
+  "limits": [
+    "Whole instrumented baseline process includes setup, compilation, input preparation, numerical validation and searches; counts are not per-search rates.",
+    "Command-buffer and encoder counts are distinct from shader records and kernel launches.",
+    "Encoder labels are recorded labels, not a guarantee that all copy activity uses a separately named blit encoder.",
+    "Summed resource creation sizes are cumulative recorded allocation sizes, not live bytes or transfer/copy volume.",
+    "MTLDevice.currentAllocatedSize and MLX peak allocation measure different resource scopes; neither is physical GPU residency.",
+    "Observed memory levels are trace records; an unobserved transient maximum is not ruled out.",
+    "Missing allocation duration or zero-encoder encoding-time fields remain null, not zero latency.",
+    "No raw XML, foreign process row or allocation backtrace is emitted. Local provenance is not cryptographic attestation.",
+    "No causal bottleneck, application headroom or acceleration follows from these counts."
+  ]
+}

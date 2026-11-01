@@ -1,0 +1,4483 @@
+{
+  "pid": 47528,
+  "tables": {
+    "submissions": [
+      {
+        "start_ns": 8261556333,
+        "duration_ns": 1333408917,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 1316759250,
+        "command_buffer_id": "8160006658"
+      },
+      {
+        "start_ns": 9595077458,
+        "duration_ns": 467963292,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 459737667,
+        "command_buffer_id": "8160006660"
+      },
+      {
+        "start_ns": 10063059416,
+        "duration_ns": 719042,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 166334,
+        "command_buffer_id": "8160006662"
+      },
+      {
+        "start_ns": 10063790791,
+        "duration_ns": 969042,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 161416,
+        "command_buffer_id": "8160006664"
+      },
+      {
+        "start_ns": 10064779916,
+        "duration_ns": 1520292,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 201084,
+        "command_buffer_id": "8160006666"
+      },
+      {
+        "start_ns": 10066349041,
+        "duration_ns": 991959,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 239250,
+        "command_buffer_id": "8160006668"
+      },
+      {
+        "start_ns": 10067370791,
+        "duration_ns": 923125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 144459,
+        "command_buffer_id": "8160006670"
+      },
+      {
+        "start_ns": 10068303916,
+        "duration_ns": 834834,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 156750,
+        "command_buffer_id": "8160006672"
+      },
+      {
+        "start_ns": 10069154291,
+        "duration_ns": 919042,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 111083,
+        "command_buffer_id": "8160006674"
+      },
+      {
+        "start_ns": 10070086583,
+        "duration_ns": 888958,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 142416,
+        "command_buffer_id": "8160006676"
+      },
+      {
+        "start_ns": 10070988250,
+        "duration_ns": 805291,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 185417,
+        "command_buffer_id": "8160006678"
+      },
+      {
+        "start_ns": 10071808708,
+        "duration_ns": 866125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 195458,
+        "command_buffer_id": "8160006680"
+      },
+      {
+        "start_ns": 10072695458,
+        "duration_ns": 636083,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006682"
+      },
+      {
+        "start_ns": 10073421166,
+        "duration_ns": 343250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 124459,
+        "command_buffer_id": "8160006683"
+      },
+      {
+        "start_ns": 10073786166,
+        "duration_ns": 764084,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 154083,
+        "command_buffer_id": "8160006685"
+      },
+      {
+        "start_ns": 10074568625,
+        "duration_ns": 1248916,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 188500,
+        "command_buffer_id": "8160006687"
+      },
+      {
+        "start_ns": 10075841875,
+        "duration_ns": 696583,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 156083,
+        "command_buffer_id": "8160006689"
+      },
+      {
+        "start_ns": 10076553208,
+        "duration_ns": 29387250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 185459,
+        "command_buffer_id": "8160006691"
+      },
+      {
+        "start_ns": 10105969625,
+        "duration_ns": 2070708,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 1139875,
+        "command_buffer_id": "8160006693"
+      },
+      {
+        "start_ns": 10108051291,
+        "duration_ns": 1086667,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 163875,
+        "command_buffer_id": "8160006695"
+      },
+      {
+        "start_ns": 10109157416,
+        "duration_ns": 653375,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 157167,
+        "command_buffer_id": "8160006697"
+      },
+      {
+        "start_ns": 10109986000,
+        "duration_ns": 2739958,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 152083,
+        "command_buffer_id": "8160006699"
+      },
+      {
+        "start_ns": 10112745375,
+        "duration_ns": 2039291,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 172459,
+        "command_buffer_id": "8160006701"
+      },
+      {
+        "start_ns": 10114803375,
+        "duration_ns": 2623458,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 147291,
+        "command_buffer_id": "8160006703"
+      },
+      {
+        "start_ns": 10117439708,
+        "duration_ns": 1311583,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 216958,
+        "command_buffer_id": "8160006705"
+      },
+      {
+        "start_ns": 10118878583,
+        "duration_ns": 3988833,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 137334,
+        "command_buffer_id": "8160006707"
+      },
+      {
+        "start_ns": 10122885416,
+        "duration_ns": 923584,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 131792,
+        "command_buffer_id": "8160006709"
+      },
+      {
+        "start_ns": 10123818375,
+        "duration_ns": 1407000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 121208,
+        "command_buffer_id": "8160006711"
+      },
+      {
+        "start_ns": 10125236791,
+        "duration_ns": 628250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 107834,
+        "command_buffer_id": "8160006713"
+      },
+      {
+        "start_ns": 10125873666,
+        "duration_ns": 2086084,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006715"
+      },
+      {
+        "start_ns": 10127973916,
+        "duration_ns": 37518625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 679042,
+        "command_buffer_id": "8160006716"
+      },
+      {
+        "start_ns": 10165508000,
+        "duration_ns": 3724291,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 2477709,
+        "command_buffer_id": "8160006718"
+      },
+      {
+        "start_ns": 10169246875,
+        "duration_ns": 980000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 169750,
+        "command_buffer_id": "8160006720"
+      },
+      {
+        "start_ns": 10170243833,
+        "duration_ns": 788000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 267834,
+        "command_buffer_id": "8160006722"
+      },
+      {
+        "start_ns": 10171047333,
+        "duration_ns": 963000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 165417,
+        "command_buffer_id": "8160006724"
+      },
+      {
+        "start_ns": 10172021416,
+        "duration_ns": 830459,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 138542,
+        "command_buffer_id": "8160006726"
+      },
+      {
+        "start_ns": 10172863250,
+        "duration_ns": 1268333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 714458,
+        "command_buffer_id": "8160006728"
+      },
+      {
+        "start_ns": 10174162791,
+        "duration_ns": 1498417,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 179000,
+        "command_buffer_id": "8160006730"
+      },
+      {
+        "start_ns": 10175674458,
+        "duration_ns": 742125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 94125,
+        "command_buffer_id": "8160006732"
+      },
+      {
+        "start_ns": 10176426500,
+        "duration_ns": 744916,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 161125,
+        "command_buffer_id": "8160006734"
+      },
+      {
+        "start_ns": 10177189208,
+        "duration_ns": 563000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 140708,
+        "command_buffer_id": "8160006736"
+      },
+      {
+        "start_ns": 10177763041,
+        "duration_ns": 1042875,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 575500,
+        "command_buffer_id": "8160006738"
+      },
+      {
+        "start_ns": 10178816958,
+        "duration_ns": 647333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006740"
+      },
+      {
+        "start_ns": 10179472583,
+        "duration_ns": 885333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 129833,
+        "command_buffer_id": "8160006741"
+      },
+      {
+        "start_ns": 10180376708,
+        "duration_ns": 1037917,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 165208,
+        "command_buffer_id": "8160006743"
+      },
+      {
+        "start_ns": 10181429833,
+        "duration_ns": 576333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 157042,
+        "command_buffer_id": "8160006745"
+      },
+      {
+        "start_ns": 10182017375,
+        "duration_ns": 609125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 177083,
+        "command_buffer_id": "8160006747"
+      },
+      {
+        "start_ns": 10182637000,
+        "duration_ns": 5526916,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 163584,
+        "command_buffer_id": "8160006749"
+      },
+      {
+        "start_ns": 10188184166,
+        "duration_ns": 1224792,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 268584,
+        "command_buffer_id": "8160006751"
+      },
+      {
+        "start_ns": 10189425750,
+        "duration_ns": 624875,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 157750,
+        "command_buffer_id": "8160006753"
+      },
+      {
+        "start_ns": 10190065458,
+        "duration_ns": 503458,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 132833,
+        "command_buffer_id": "8160006755"
+      },
+      {
+        "start_ns": 10190580291,
+        "duration_ns": 4779709,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 144958,
+        "command_buffer_id": "8160006757"
+      },
+      {
+        "start_ns": 10195376541,
+        "duration_ns": 697584,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 188958,
+        "command_buffer_id": "8160006759"
+      },
+      {
+        "start_ns": 10196090791,
+        "duration_ns": 567792,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 156167,
+        "command_buffer_id": "8160006761"
+      },
+      {
+        "start_ns": 10196669291,
+        "duration_ns": 785792,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 139291,
+        "command_buffer_id": "8160006763"
+      },
+      {
+        "start_ns": 10197465750,
+        "duration_ns": 5310625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 105792,
+        "command_buffer_id": "8160006765"
+      },
+      {
+        "start_ns": 10202786875,
+        "duration_ns": 1122000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 183750,
+        "command_buffer_id": "8160006767"
+      },
+      {
+        "start_ns": 10204046791,
+        "duration_ns": 642875,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 166041,
+        "command_buffer_id": "8160006769"
+      },
+      {
+        "start_ns": 10204699416,
+        "duration_ns": 646084,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 112917,
+        "command_buffer_id": "8160006771"
+      },
+      {
+        "start_ns": 10205356375,
+        "duration_ns": 3437125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006773"
+      },
+      {
+        "start_ns": 10208813125,
+        "duration_ns": 48616166,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 1998167,
+        "command_buffer_id": "8160006774"
+      },
+      {
+        "start_ns": 10257447625,
+        "duration_ns": 1920708,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 305209,
+        "command_buffer_id": "8160006776"
+      },
+      {
+        "start_ns": 10259383458,
+        "duration_ns": 993208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 233250,
+        "command_buffer_id": "8160006778"
+      },
+      {
+        "start_ns": 10260386000,
+        "duration_ns": 1564125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 183917,
+        "command_buffer_id": "8160006780"
+      },
+      {
+        "start_ns": 10261966458,
+        "duration_ns": 1266167,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 167709,
+        "command_buffer_id": "8160006782"
+      },
+      {
+        "start_ns": 10263250375,
+        "duration_ns": 868708,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 162375,
+        "command_buffer_id": "8160006784"
+      },
+      {
+        "start_ns": 10264131250,
+        "duration_ns": 7676458,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 352125,
+        "command_buffer_id": "8160006786"
+      },
+      {
+        "start_ns": 10271823166,
+        "duration_ns": 27779125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 249541,
+        "command_buffer_id": "8160006788"
+      },
+      {
+        "start_ns": 10299869041,
+        "duration_ns": 20317625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 335625,
+        "command_buffer_id": "8160006790"
+      },
+      {
+        "start_ns": 10320208500,
+        "duration_ns": 17428083,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 185459,
+        "command_buffer_id": "8160006792"
+      },
+      {
+        "start_ns": 10337655458,
+        "duration_ns": 17557917,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 215250,
+        "command_buffer_id": "8160006794"
+      },
+      {
+        "start_ns": 10355231875,
+        "duration_ns": 3966625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 240583,
+        "command_buffer_id": "8160006796"
+      },
+      {
+        "start_ns": 10359216875,
+        "duration_ns": 829083,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006798"
+      },
+      {
+        "start_ns": 10360062125,
+        "duration_ns": 1317250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 182667,
+        "command_buffer_id": "8160006799"
+      },
+      {
+        "start_ns": 10361397791,
+        "duration_ns": 1191250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 201042,
+        "command_buffer_id": "8160006801"
+      },
+      {
+        "start_ns": 10362610541,
+        "duration_ns": 1189625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 160083,
+        "command_buffer_id": "8160006803"
+      },
+      {
+        "start_ns": 10363810208,
+        "duration_ns": 624833,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 170541,
+        "command_buffer_id": "8160006805"
+      },
+      {
+        "start_ns": 10364450833,
+        "duration_ns": 10581333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 205333,
+        "command_buffer_id": "8160006807"
+      },
+      {
+        "start_ns": 10375057000,
+        "duration_ns": 1378250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 156625,
+        "command_buffer_id": "8160006809"
+      },
+      {
+        "start_ns": 10376449458,
+        "duration_ns": 1058000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 418042,
+        "command_buffer_id": "8160006811"
+      },
+      {
+        "start_ns": 10377520708,
+        "duration_ns": 789125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 170000,
+        "command_buffer_id": "8160006813"
+      },
+      {
+        "start_ns": 10378322666,
+        "duration_ns": 11846000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 137250,
+        "command_buffer_id": "8160006815"
+      },
+      {
+        "start_ns": 10390188291,
+        "duration_ns": 2237084,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 259667,
+        "command_buffer_id": "8160006817"
+      },
+      {
+        "start_ns": 10392438083,
+        "duration_ns": 1569208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 393500,
+        "command_buffer_id": "8160006819"
+      },
+      {
+        "start_ns": 10394016916,
+        "duration_ns": 893334,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 175875,
+        "command_buffer_id": "8160006821"
+      },
+      {
+        "start_ns": 10394928791,
+        "duration_ns": 13602584,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 192500,
+        "command_buffer_id": "8160006823"
+      },
+      {
+        "start_ns": 10408544916,
+        "duration_ns": 1841125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 195875,
+        "command_buffer_id": "8160006825"
+      },
+      {
+        "start_ns": 10410401333,
+        "duration_ns": 1146292,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 198334,
+        "command_buffer_id": "8160006827"
+      },
+      {
+        "start_ns": 10411564208,
+        "duration_ns": 1604750,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 649875,
+        "command_buffer_id": "8160006829"
+      },
+      {
+        "start_ns": 10413186708,
+        "duration_ns": 13017250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006831"
+      },
+      {
+        "start_ns": 10426231250,
+        "duration_ns": 292976333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 256571917,
+        "command_buffer_id": "8160006832"
+      },
+      {
+        "start_ns": 10719228125,
+        "duration_ns": 248316666,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 238289458,
+        "command_buffer_id": "8160006834"
+      },
+      {
+        "start_ns": 10967568541,
+        "duration_ns": 1157375,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 209791,
+        "command_buffer_id": "8160006836"
+      },
+      {
+        "start_ns": 10968743166,
+        "duration_ns": 702709,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 175875,
+        "command_buffer_id": "8160006838"
+      },
+      {
+        "start_ns": 10969461750,
+        "duration_ns": 819500,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 124958,
+        "command_buffer_id": "8160006840"
+      },
+      {
+        "start_ns": 10970293375,
+        "duration_ns": 858166,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 184125,
+        "command_buffer_id": "8160006842"
+      },
+      {
+        "start_ns": 10971163250,
+        "duration_ns": 842333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 162208,
+        "command_buffer_id": "8160006844"
+      },
+      {
+        "start_ns": 10972019583,
+        "duration_ns": 862583,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 183042,
+        "command_buffer_id": "8160006846"
+      },
+      {
+        "start_ns": 10972898541,
+        "duration_ns": 892417,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 157125,
+        "command_buffer_id": "8160006848"
+      },
+      {
+        "start_ns": 10973810958,
+        "duration_ns": 975167,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 213167,
+        "command_buffer_id": "8160006850"
+      },
+      {
+        "start_ns": 10974805750,
+        "duration_ns": 1222208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 288041,
+        "command_buffer_id": "8160006852"
+      },
+      {
+        "start_ns": 10976042416,
+        "duration_ns": 1028375,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 183750,
+        "command_buffer_id": "8160006854"
+      },
+      {
+        "start_ns": 10977094291,
+        "duration_ns": 927834,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006856"
+      },
+      {
+        "start_ns": 10978104750,
+        "duration_ns": 370125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 154541,
+        "command_buffer_id": "8160006857"
+      },
+      {
+        "start_ns": 10978627916,
+        "duration_ns": 3210792,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 197000,
+        "command_buffer_id": "8160006859"
+      },
+      {
+        "start_ns": 10981860458,
+        "duration_ns": 1311250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 311833,
+        "command_buffer_id": "8160006861"
+      },
+      {
+        "start_ns": 10983202500,
+        "duration_ns": 894125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 310833,
+        "command_buffer_id": "8160006863"
+      },
+      {
+        "start_ns": 10984107958,
+        "duration_ns": 2044125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 179792,
+        "command_buffer_id": "8160006865"
+      },
+      {
+        "start_ns": 10986181625,
+        "duration_ns": 1106333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 259250,
+        "command_buffer_id": "8160006867"
+      },
+      {
+        "start_ns": 10987315250,
+        "duration_ns": 722958,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 179166,
+        "command_buffer_id": "8160006869"
+      },
+      {
+        "start_ns": 10988052375,
+        "duration_ns": 889625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 207959,
+        "command_buffer_id": "8160006871"
+      },
+      {
+        "start_ns": 10988954666,
+        "duration_ns": 1878667,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 159500,
+        "command_buffer_id": "8160006873"
+      },
+      {
+        "start_ns": 10990856916,
+        "duration_ns": 781167,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 190167,
+        "command_buffer_id": "8160006875"
+      },
+      {
+        "start_ns": 10991653208,
+        "duration_ns": 559958,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 142667,
+        "command_buffer_id": "8160006877"
+      },
+      {
+        "start_ns": 10992224458,
+        "duration_ns": 501542,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 145125,
+        "command_buffer_id": "8160006879"
+      },
+      {
+        "start_ns": 10992737000,
+        "duration_ns": 1774500,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 130708,
+        "command_buffer_id": "8160006881"
+      },
+      {
+        "start_ns": 10994528416,
+        "duration_ns": 1140750,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 187958,
+        "command_buffer_id": "8160006883"
+      },
+      {
+        "start_ns": 10995688791,
+        "duration_ns": 785584,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 190625,
+        "command_buffer_id": "8160006885"
+      },
+      {
+        "start_ns": 10996489708,
+        "duration_ns": 2239583,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 312209,
+        "command_buffer_id": "8160006887"
+      },
+      {
+        "start_ns": 10998781541,
+        "duration_ns": 2004792,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006889"
+      },
+      {
+        "start_ns": 11000827416,
+        "duration_ns": 311456334,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 274904375,
+        "command_buffer_id": "8160006890"
+      },
+      {
+        "start_ns": 11312302750,
+        "duration_ns": 299172000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 297515875,
+        "command_buffer_id": "8160006892"
+      },
+      {
+        "start_ns": 11611500875,
+        "duration_ns": 1486083,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 269417,
+        "command_buffer_id": "8160006894"
+      },
+      {
+        "start_ns": 11613004916,
+        "duration_ns": 1352292,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 257542,
+        "command_buffer_id": "8160006896"
+      },
+      {
+        "start_ns": 11614374500,
+        "duration_ns": 1596833,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 164625,
+        "command_buffer_id": "8160006898"
+      },
+      {
+        "start_ns": 11615988458,
+        "duration_ns": 1291208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 249291,
+        "command_buffer_id": "8160006900"
+      },
+      {
+        "start_ns": 11617304375,
+        "duration_ns": 1044416,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 226000,
+        "command_buffer_id": "8160006902"
+      },
+      {
+        "start_ns": 11618390333,
+        "duration_ns": 1054042,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 254083,
+        "command_buffer_id": "8160006904"
+      },
+      {
+        "start_ns": 11619460916,
+        "duration_ns": 1079334,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 157542,
+        "command_buffer_id": "8160006906"
+      },
+      {
+        "start_ns": 11620558875,
+        "duration_ns": 1050458,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 234750,
+        "command_buffer_id": "8160006908"
+      },
+      {
+        "start_ns": 11621626416,
+        "duration_ns": 1089834,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 197250,
+        "command_buffer_id": "8160006910"
+      },
+      {
+        "start_ns": 11622736666,
+        "duration_ns": 760125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 200125,
+        "command_buffer_id": "8160006912"
+      },
+      {
+        "start_ns": 11623513875,
+        "duration_ns": 430000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006914"
+      },
+      {
+        "start_ns": 11623961500,
+        "duration_ns": 651000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 149250,
+        "command_buffer_id": "8160006915"
+      },
+      {
+        "start_ns": 11624633416,
+        "duration_ns": 874500,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 194583,
+        "command_buffer_id": "8160006917"
+      },
+      {
+        "start_ns": 11625526333,
+        "duration_ns": 747750,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 240250,
+        "command_buffer_id": "8160006919"
+      },
+      {
+        "start_ns": 11626289875,
+        "duration_ns": 776625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 177666,
+        "command_buffer_id": "8160006921"
+      },
+      {
+        "start_ns": 11627080166,
+        "duration_ns": 6068917,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 165084,
+        "command_buffer_id": "8160006923"
+      },
+      {
+        "start_ns": 11633174125,
+        "duration_ns": 984208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 211875,
+        "command_buffer_id": "8160006925"
+      },
+      {
+        "start_ns": 11634177333,
+        "duration_ns": 833542,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 208958,
+        "command_buffer_id": "8160006927"
+      },
+      {
+        "start_ns": 11635027958,
+        "duration_ns": 1089375,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 461208,
+        "command_buffer_id": "8160006929"
+      },
+      {
+        "start_ns": 11636140500,
+        "duration_ns": 6845666,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 282791,
+        "command_buffer_id": "8160006931"
+      },
+      {
+        "start_ns": 11643028416,
+        "duration_ns": 1436584,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 222334,
+        "command_buffer_id": "8160006933"
+      },
+      {
+        "start_ns": 11644479000,
+        "duration_ns": 607375,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 173084,
+        "command_buffer_id": "8160006935"
+      },
+      {
+        "start_ns": 11645113000,
+        "duration_ns": 522000,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 155959,
+        "command_buffer_id": "8160006937"
+      },
+      {
+        "start_ns": 11645645500,
+        "duration_ns": 7881750,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 246625,
+        "command_buffer_id": "8160006939"
+      },
+      {
+        "start_ns": 11653561541,
+        "duration_ns": 1804459,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 231334,
+        "command_buffer_id": "8160006941"
+      },
+      {
+        "start_ns": 11655381625,
+        "duration_ns": 1096916,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 183208,
+        "command_buffer_id": "8160006943"
+      },
+      {
+        "start_ns": 11656491250,
+        "duration_ns": 725208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 168417,
+        "command_buffer_id": "8160006945"
+      },
+      {
+        "start_ns": 11657228083,
+        "duration_ns": 8658667,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006947"
+      },
+      {
+        "start_ns": 11665910500,
+        "duration_ns": 453712958,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 416996375,
+        "command_buffer_id": "8160006948"
+      },
+      {
+        "start_ns": 12119650416,
+        "duration_ns": 351754625,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 301553833,
+        "command_buffer_id": "8160006950"
+      },
+      {
+        "start_ns": 12471425291,
+        "duration_ns": 5620209,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 376792,
+        "command_buffer_id": "8160006952"
+      },
+      {
+        "start_ns": 12477064208,
+        "duration_ns": 3168833,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 199709,
+        "command_buffer_id": "8160006954"
+      },
+      {
+        "start_ns": 12480248500,
+        "duration_ns": 1950916,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 134167,
+        "command_buffer_id": "8160006956"
+      },
+      {
+        "start_ns": 12482212208,
+        "duration_ns": 1579125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 198625,
+        "command_buffer_id": "8160006958"
+      },
+      {
+        "start_ns": 12483811416,
+        "duration_ns": 1092584,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 191583,
+        "command_buffer_id": "8160006960"
+      },
+      {
+        "start_ns": 12484913666,
+        "duration_ns": 1426500,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 185833,
+        "command_buffer_id": "8160006962"
+      },
+      {
+        "start_ns": 12486350625,
+        "duration_ns": 1663416,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 119167,
+        "command_buffer_id": "8160006964"
+      },
+      {
+        "start_ns": 12488024291,
+        "duration_ns": 2210792,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 182125,
+        "command_buffer_id": "8160006966"
+      },
+      {
+        "start_ns": 12490249250,
+        "duration_ns": 1199750,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 132667,
+        "command_buffer_id": "8160006968"
+      },
+      {
+        "start_ns": 12491459916,
+        "duration_ns": 1013084,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 120959,
+        "command_buffer_id": "8160006970"
+      },
+      {
+        "start_ns": 12492482208,
+        "duration_ns": 794167,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160006972"
+      },
+      {
+        "start_ns": 12493295666,
+        "duration_ns": 2042667,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 646334,
+        "command_buffer_id": "8160006973"
+      },
+      {
+        "start_ns": 12495358708,
+        "duration_ns": 2782417,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 846708,
+        "command_buffer_id": "8160006975"
+      },
+      {
+        "start_ns": 12498158333,
+        "duration_ns": 1414250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 384083,
+        "command_buffer_id": "8160006977"
+      },
+      {
+        "start_ns": 12499589666,
+        "duration_ns": 1501084,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 247333,
+        "command_buffer_id": "8160006979"
+      },
+      {
+        "start_ns": 12501107458,
+        "duration_ns": 18455083,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 300209,
+        "command_buffer_id": "8160006981"
+      },
+      {
+        "start_ns": 12519588916,
+        "duration_ns": 2471375,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 275875,
+        "command_buffer_id": "8160006983"
+      },
+      {
+        "start_ns": 12522071916,
+        "duration_ns": 2572709,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 490375,
+        "command_buffer_id": "8160006985"
+      },
+      {
+        "start_ns": 12524656083,
+        "duration_ns": 909542,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 164542,
+        "command_buffer_id": "8160006987"
+      },
+      {
+        "start_ns": 12525584708,
+        "duration_ns": 21271250,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 423708,
+        "command_buffer_id": "8160006989"
+      },
+      {
+        "start_ns": 12546877125,
+        "duration_ns": 1423333,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 306292,
+        "command_buffer_id": "8160006991"
+      },
+      {
+        "start_ns": 12548323166,
+        "duration_ns": 985209,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 187209,
+        "command_buffer_id": "8160006993"
+      },
+      {
+        "start_ns": 12549329000,
+        "duration_ns": 1153208,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 169625,
+        "command_buffer_id": "8160006995"
+      },
+      {
+        "start_ns": 12550493333,
+        "duration_ns": 5724583,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 188125,
+        "command_buffer_id": "8160006997"
+      },
+      {
+        "start_ns": 12556237708,
+        "duration_ns": 1844583,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 190500,
+        "command_buffer_id": "8160006999"
+      },
+      {
+        "start_ns": 12558097416,
+        "duration_ns": 1138209,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 227875,
+        "command_buffer_id": "8160007001"
+      },
+      {
+        "start_ns": 12559249083,
+        "duration_ns": 703125,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 1,
+        "encoding_time_ns": 130125,
+        "command_buffer_id": "8160007003"
+      },
+      {
+        "start_ns": 12559960375,
+        "duration_ns": 15297958,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160007005"
+      },
+      {
+        "start_ns": 12575276416,
+        "duration_ns": 1239702292,
+        "event_type": "CommandBufferSubmission",
+        "encoder_count": 0,
+        "encoding_time_ns": null,
+        "command_buffer_id": "8160007006"
+      }
+    ],
+    "encoders": [
+      {
+        "start_ns": 8278156166,
+        "duration_ns": 1316759250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006658",
+        "encoder_id": "8160006659",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 9603275291,
+        "duration_ns": 459737667,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006660",
+        "encoder_id": "8160006661",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10063597541,
+        "duration_ns": 166334,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006662",
+        "encoder_id": "8160006663",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10064585625,
+        "duration_ns": 161416,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006664",
+        "encoder_id": "8160006665",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10066079416,
+        "duration_ns": 201084,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006666",
+        "encoder_id": "8160006667",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10067086125,
+        "duration_ns": 239250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006668",
+        "encoder_id": "8160006669",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10068139041,
+        "duration_ns": 144459,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006670",
+        "encoder_id": "8160006671",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10068969708,
+        "duration_ns": 156750,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006672",
+        "encoder_id": "8160006673",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10069950708,
+        "duration_ns": 111083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006674",
+        "encoder_id": "8160006675",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10070821750,
+        "duration_ns": 142416,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006676",
+        "encoder_id": "8160006677",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10071595541,
+        "duration_ns": 185417,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006678",
+        "encoder_id": "8160006679",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10072465958,
+        "duration_ns": 195458,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006680",
+        "encoder_id": "8160006681",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10073627791,
+        "duration_ns": 124459,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006683",
+        "encoder_id": "8160006684",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10074385250,
+        "duration_ns": 154083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006685",
+        "encoder_id": "8160006686",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10075609958,
+        "duration_ns": 188500,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006687",
+        "encoder_id": "8160006688",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10076371750,
+        "duration_ns": 156083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006689",
+        "encoder_id": "8160006690",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10105739416,
+        "duration_ns": 185459,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006691",
+        "encoder_id": "8160006692",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10106888958,
+        "duration_ns": 1139875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006693",
+        "encoder_id": "8160006694",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10108960958,
+        "duration_ns": 163875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006695",
+        "encoder_id": "8160006696",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10109641416,
+        "duration_ns": 157167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006697",
+        "encoder_id": "8160006698",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10112558500,
+        "duration_ns": 152083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006699",
+        "encoder_id": "8160006700",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10114598041,
+        "duration_ns": 172459,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006701",
+        "encoder_id": "8160006702",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10117266750,
+        "duration_ns": 147291,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006703",
+        "encoder_id": "8160006704",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10118509208,
+        "duration_ns": 216958,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006705",
+        "encoder_id": "8160006706",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10122716166,
+        "duration_ns": 137334,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006707",
+        "encoder_id": "8160006708",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10123668208,
+        "duration_ns": 131792,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006709",
+        "encoder_id": "8160006710",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10125093250,
+        "duration_ns": 121208,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006711",
+        "encoder_id": "8160006712",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10125748791,
+        "duration_ns": 107834,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006713",
+        "encoder_id": "8160006714",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10164800083,
+        "duration_ns": 679042,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006716",
+        "encoder_id": "8160006717",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10166742291,
+        "duration_ns": 2477709,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006718",
+        "encoder_id": "8160006719",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10170045791,
+        "duration_ns": 169750,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006720",
+        "encoder_id": "8160006721",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10170752416,
+        "duration_ns": 267834,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006722",
+        "encoder_id": "8160006723",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10171833916,
+        "duration_ns": 165417,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006724",
+        "encoder_id": "8160006725",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10172701208,
+        "duration_ns": 138542,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006726",
+        "encoder_id": "8160006727",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10173380625,
+        "duration_ns": 714458,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006728",
+        "encoder_id": "8160006729",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10175469666,
+        "duration_ns": 179000,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006730",
+        "encoder_id": "8160006731",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10176312791,
+        "duration_ns": 94125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006732",
+        "encoder_id": "8160006733",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10176998208,
+        "duration_ns": 161125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006734",
+        "encoder_id": "8160006735",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10177602375,
+        "duration_ns": 140708,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006736",
+        "encoder_id": "8160006737",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10178217833,
+        "duration_ns": 575500,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006738",
+        "encoder_id": "8160006739",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10180215208,
+        "duration_ns": 129833,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006741",
+        "encoder_id": "8160006742",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10181237875,
+        "duration_ns": 165208,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006743",
+        "encoder_id": "8160006744",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10181838333,
+        "duration_ns": 157042,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006745",
+        "encoder_id": "8160006746",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10182438708,
+        "duration_ns": 177083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006747",
+        "encoder_id": "8160006748",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10187983791,
+        "duration_ns": 163584,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006749",
+        "encoder_id": "8160006750",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10189124791,
+        "duration_ns": 268584,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006751",
+        "encoder_id": "8160006752",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10189881250,
+        "duration_ns": 157750,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006753",
+        "encoder_id": "8160006754",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10190426958,
+        "duration_ns": 132833,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006755",
+        "encoder_id": "8160006756",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10195200500,
+        "duration_ns": 144958,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006757",
+        "encoder_id": "8160006758",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10195871333,
+        "duration_ns": 188958,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006759",
+        "encoder_id": "8160006760",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10196490916,
+        "duration_ns": 156167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006761",
+        "encoder_id": "8160006762",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10197305125,
+        "duration_ns": 139291,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006763",
+        "encoder_id": "8160006764",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10202658416,
+        "duration_ns": 105792,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006765",
+        "encoder_id": "8160006766",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10203713458,
+        "duration_ns": 183750,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006767",
+        "encoder_id": "8160006768",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10204513750,
+        "duration_ns": 166041,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006769",
+        "encoder_id": "8160006770",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10205223708,
+        "duration_ns": 112917,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006771",
+        "encoder_id": "8160006772",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10255415416,
+        "duration_ns": 1998167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006774",
+        "encoder_id": "8160006775",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10259051666,
+        "duration_ns": 305209,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006776",
+        "encoder_id": "8160006777",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10260130833,
+        "duration_ns": 233250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006778",
+        "encoder_id": "8160006779",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10261754166,
+        "duration_ns": 183917,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006780",
+        "encoder_id": "8160006781",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10263051416,
+        "duration_ns": 167709,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006782",
+        "encoder_id": "8160006783",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10263942333,
+        "duration_ns": 162375,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006784",
+        "encoder_id": "8160006785",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10271442208,
+        "duration_ns": 352125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006786",
+        "encoder_id": "8160006787",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10299334875,
+        "duration_ns": 249541,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006788",
+        "encoder_id": "8160006789",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10319829958,
+        "duration_ns": 335625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006790",
+        "encoder_id": "8160006791",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10337435541,
+        "duration_ns": 185459,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006792",
+        "encoder_id": "8160006793",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10354983041,
+        "duration_ns": 215250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006794",
+        "encoder_id": "8160006795",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10358941500,
+        "duration_ns": 240583,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006796",
+        "encoder_id": "8160006797",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10361182416,
+        "duration_ns": 182667,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006799",
+        "encoder_id": "8160006800",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10362371833,
+        "duration_ns": 201042,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006801",
+        "encoder_id": "8160006802",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10363629875,
+        "duration_ns": 160083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006803",
+        "encoder_id": "8160006804",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10364251875,
+        "duration_ns": 170541,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006805",
+        "encoder_id": "8160006806",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10374809333,
+        "duration_ns": 205333,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006807",
+        "encoder_id": "8160006808",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10376266875,
+        "duration_ns": 156625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006809",
+        "encoder_id": "8160006810",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10377073041,
+        "duration_ns": 418042,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006811",
+        "encoder_id": "8160006812",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10378127875,
+        "duration_ns": 170000,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006813",
+        "encoder_id": "8160006814",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10390018250,
+        "duration_ns": 137250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006815",
+        "encoder_id": "8160006816",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10392094291,
+        "duration_ns": 259667,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006817",
+        "encoder_id": "8160006818",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10393602375,
+        "duration_ns": 393500,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006819",
+        "encoder_id": "8160006820",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10394720833,
+        "duration_ns": 175875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006821",
+        "encoder_id": "8160006822",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10408325625,
+        "duration_ns": 192500,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006823",
+        "encoder_id": "8160006824",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10410177083,
+        "duration_ns": 195875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006825",
+        "encoder_id": "8160006826",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10411336041,
+        "duration_ns": 198334,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006827",
+        "encoder_id": "8160006828",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10412502875,
+        "duration_ns": 649875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006829",
+        "encoder_id": "8160006830",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10462615708,
+        "duration_ns": 256571917,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006832",
+        "encoder_id": "8160006833",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10729235750,
+        "duration_ns": 238289458,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006834",
+        "encoder_id": "8160006835",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10968501875,
+        "duration_ns": 209791,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006836",
+        "encoder_id": "8160006837",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10969258041,
+        "duration_ns": 175875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006838",
+        "encoder_id": "8160006839",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10970146333,
+        "duration_ns": 124958,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006840",
+        "encoder_id": "8160006841",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10970957875,
+        "duration_ns": 184125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006842",
+        "encoder_id": "8160006843",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10971831583,
+        "duration_ns": 162208,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006844",
+        "encoder_id": "8160006845",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10972686333,
+        "duration_ns": 183042,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006846",
+        "encoder_id": "8160006847",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10973618041,
+        "duration_ns": 157125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006848",
+        "encoder_id": "8160006849",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10974559083,
+        "duration_ns": 213167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006850",
+        "encoder_id": "8160006851",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10975696500,
+        "duration_ns": 288041,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006852",
+        "encoder_id": "8160006853",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10976874625,
+        "duration_ns": 183750,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006854",
+        "encoder_id": "8160006855",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10978306875,
+        "duration_ns": 154541,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006857",
+        "encoder_id": "8160006858",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10981626958,
+        "duration_ns": 197000,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006859",
+        "encoder_id": "8160006860",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10982845208,
+        "duration_ns": 311833,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006861",
+        "encoder_id": "8160006862",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10983774250,
+        "duration_ns": 310833,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006863",
+        "encoder_id": "8160006864",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10985955708,
+        "duration_ns": 179792,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006865",
+        "encoder_id": "8160006866",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10987004875,
+        "duration_ns": 259250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006867",
+        "encoder_id": "8160006868",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10987847125,
+        "duration_ns": 179166,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006869",
+        "encoder_id": "8160006870",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10988721791,
+        "duration_ns": 207959,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006871",
+        "encoder_id": "8160006872",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10990659583,
+        "duration_ns": 159500,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006873",
+        "encoder_id": "8160006874",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10991436791,
+        "duration_ns": 190167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006875",
+        "encoder_id": "8160006876",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10992060083,
+        "duration_ns": 142667,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006877",
+        "encoder_id": "8160006878",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10992570500,
+        "duration_ns": 145125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006879",
+        "encoder_id": "8160006880",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10994369125,
+        "duration_ns": 130708,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006881",
+        "encoder_id": "8160006882",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10995465958,
+        "duration_ns": 187958,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006883",
+        "encoder_id": "8160006884",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10996269125,
+        "duration_ns": 190625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006885",
+        "encoder_id": "8160006886",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 10998397041,
+        "duration_ns": 312209,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006887",
+        "encoder_id": "8160006888",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11037360250,
+        "duration_ns": 274904375,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006890",
+        "encoder_id": "8160006891",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11313925458,
+        "duration_ns": 297515875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006892",
+        "encoder_id": "8160006893",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11612701541,
+        "duration_ns": 269417,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006894",
+        "encoder_id": "8160006895",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11614082666,
+        "duration_ns": 257542,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006896",
+        "encoder_id": "8160006897",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11615791291,
+        "duration_ns": 164625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006898",
+        "encoder_id": "8160006899",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11617004625,
+        "duration_ns": 249291,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006900",
+        "encoder_id": "8160006901",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11618097541,
+        "duration_ns": 226000,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006902",
+        "encoder_id": "8160006903",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11619172000,
+        "duration_ns": 254083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006904",
+        "encoder_id": "8160006905",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11620363666,
+        "duration_ns": 157542,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006906",
+        "encoder_id": "8160006907",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11621358083,
+        "duration_ns": 234750,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006908",
+        "encoder_id": "8160006909",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11622504166,
+        "duration_ns": 197250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006910",
+        "encoder_id": "8160006911",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11623283208,
+        "duration_ns": 200125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006912",
+        "encoder_id": "8160006913",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11624449791,
+        "duration_ns": 149250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006915",
+        "encoder_id": "8160006916",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11625299208,
+        "duration_ns": 194583,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006917",
+        "encoder_id": "8160006918",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11626020083,
+        "duration_ns": 240250,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006919",
+        "encoder_id": "8160006920",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11626875250,
+        "duration_ns": 177666,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006921",
+        "encoder_id": "8160006922",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11632967416,
+        "duration_ns": 165084,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006923",
+        "encoder_id": "8160006924",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11633931666,
+        "duration_ns": 211875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006925",
+        "encoder_id": "8160006926",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11634788750,
+        "duration_ns": 208958,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006927",
+        "encoder_id": "8160006928",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11635633250,
+        "duration_ns": 461208,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006929",
+        "encoder_id": "8160006930",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11642676875,
+        "duration_ns": 282791,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006931",
+        "encoder_id": "8160006932",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11644228041,
+        "duration_ns": 222334,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006933",
+        "encoder_id": "8160006934",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11644900666,
+        "duration_ns": 173084,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006935",
+        "encoder_id": "8160006936",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11645467666,
+        "duration_ns": 155959,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006937",
+        "encoder_id": "8160006938",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11653257500,
+        "duration_ns": 246625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006939",
+        "encoder_id": "8160006940",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11655118666,
+        "duration_ns": 231334,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006941",
+        "encoder_id": "8160006942",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11656283750,
+        "duration_ns": 183208,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006943",
+        "encoder_id": "8160006944",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11657036333,
+        "duration_ns": 168417,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006945",
+        "encoder_id": "8160006946",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 11702606833,
+        "duration_ns": 416996375,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006948",
+        "encoder_id": "8160006949",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12169833250,
+        "duration_ns": 301553833,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006950",
+        "encoder_id": "8160006951",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12476653166,
+        "duration_ns": 376792,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006952",
+        "encoder_id": "8160006953",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12480018416,
+        "duration_ns": 199709,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006954",
+        "encoder_id": "8160006955",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12482053166,
+        "duration_ns": 134167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006956",
+        "encoder_id": "8160006957",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12483580416,
+        "duration_ns": 198625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006958",
+        "encoder_id": "8160006959",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12484702375,
+        "duration_ns": 191583,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006960",
+        "encoder_id": "8160006961",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12486143458,
+        "duration_ns": 185833,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006962",
+        "encoder_id": "8160006963",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12487885583,
+        "duration_ns": 119167,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006964",
+        "encoder_id": "8160006965",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12490039541,
+        "duration_ns": 182125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006966",
+        "encoder_id": "8160006967",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12491306708,
+        "duration_ns": 132667,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006968",
+        "encoder_id": "8160006969",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12492343291,
+        "duration_ns": 120959,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006970",
+        "encoder_id": "8160006971",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12494673541,
+        "duration_ns": 646334,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006973",
+        "encoder_id": "8160006974",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12497278583,
+        "duration_ns": 846708,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006975",
+        "encoder_id": "8160006976",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12499171250,
+        "duration_ns": 384083,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006977",
+        "encoder_id": "8160006978",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12500829625,
+        "duration_ns": 247333,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006979",
+        "encoder_id": "8160006980",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12519243166,
+        "duration_ns": 300209,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006981",
+        "encoder_id": "8160006982",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12521771625,
+        "duration_ns": 275875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006983",
+        "encoder_id": "8160006984",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12524143041,
+        "duration_ns": 490375,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006985",
+        "encoder_id": "8160006986",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12525387541,
+        "duration_ns": 164542,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006987",
+        "encoder_id": "8160006988",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12546204375,
+        "duration_ns": 423708,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006989",
+        "encoder_id": "8160006990",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12547971833,
+        "duration_ns": 306292,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006991",
+        "encoder_id": "8160006992",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12549107916,
+        "duration_ns": 187209,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006993",
+        "encoder_id": "8160006994",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12550299583,
+        "duration_ns": 169625,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006995",
+        "encoder_id": "8160006996",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12556016666,
+        "duration_ns": 188125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006997",
+        "encoder_id": "8160006998",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12557878291,
+        "duration_ns": 190500,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160006999",
+        "encoder_id": "8160007000",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12558993500,
+        "duration_ns": 227875,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160007001",
+        "encoder_id": "8160007002",
+        "encoder_label": "Compute Command 0"
+      },
+      {
+        "start_ns": 12559811916,
+        "duration_ns": 130125,
+        "event_type": "Encoding",
+        "command_buffer_id": "8160007003",
+        "encoder_id": "8160007004",
+        "encoder_label": "Compute Command 0"
+      }
+    ],
+    "allocations": [
+      {
+        "start_ns": 7811582916,
+        "duration_ns": null,
+        "resource_id": "8160006347",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 16384,
+        "resource_size_bytes": 16384,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8007429666,
+        "duration_ns": null,
+        "resource_id": "8176784100",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 1048576,
+        "resource_size_bytes": 1048576,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8022733500,
+        "duration_ns": null,
+        "resource_id": "8176784101",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 98304,
+        "resource_size_bytes": 98304,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8023377708,
+        "duration_ns": null,
+        "resource_id": "8176784102",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8023479541,
+        "duration_ns": null,
+        "resource_id": "8176784103",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8033509291,
+        "duration_ns": null,
+        "resource_id": "8176784109",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 507904,
+        "resource_size_bytes": 507904,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8109813500,
+        "duration_ns": null,
+        "resource_id": "8176784311",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8174319875,
+        "duration_ns": null,
+        "resource_id": "8176784423",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8211763416,
+        "duration_ns": null,
+        "resource_id": "8176784472",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8212044250,
+        "duration_ns": null,
+        "resource_id": "8176784473",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 98304,
+        "resource_size_bytes": 98304,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8242963750,
+        "duration_ns": null,
+        "resource_id": "8176784507",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243017625,
+        "duration_ns": null,
+        "resource_id": "8176784508",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243033333,
+        "duration_ns": null,
+        "resource_id": "8176784509",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243043833,
+        "duration_ns": null,
+        "resource_id": "8176784510",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243063083,
+        "duration_ns": null,
+        "resource_id": "8176784511",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243073541,
+        "duration_ns": null,
+        "resource_id": "8176784512",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243089041,
+        "duration_ns": null,
+        "resource_id": "8176784513",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243098750,
+        "duration_ns": null,
+        "resource_id": "8176784514",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243113958,
+        "duration_ns": null,
+        "resource_id": "8176784515",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243125416,
+        "duration_ns": null,
+        "resource_id": "8176784516",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243136083,
+        "duration_ns": null,
+        "resource_id": "8176784517",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243146541,
+        "duration_ns": null,
+        "resource_id": "8176784518",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8243163458,
+        "duration_ns": null,
+        "resource_id": "8176784519",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8259271250,
+        "duration_ns": null,
+        "resource_id": "8176784531",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8259977166,
+        "duration_ns": null,
+        "resource_id": "8176784532",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8260002875,
+        "duration_ns": null,
+        "resource_id": "8176784533",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8269154375,
+        "duration_ns": null,
+        "resource_id": "8176784539",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 98304,
+        "resource_size_bytes": 98304,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 8278537041,
+        "duration_ns": null,
+        "resource_id": "8176784548",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9305408333,
+        "duration_ns": null,
+        "resource_id": "8176786486",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 98304,
+        "resource_size_bytes": 98304,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9305498291,
+        "duration_ns": null,
+        "resource_id": "8176786487",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 98304,
+        "resource_size_bytes": 98304,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9306109041,
+        "duration_ns": null,
+        "resource_id": "8176786488",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9594127625,
+        "duration_ns": null,
+        "resource_id": "8176786848",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 98304,
+        "resource_size_bytes": 98304,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9594159375,
+        "duration_ns": null,
+        "resource_id": "8176786855",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9601488708,
+        "duration_ns": null,
+        "resource_id": "8176786891",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9603227083,
+        "duration_ns": null,
+        "resource_id": "8176786892",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9604009000,
+        "duration_ns": null,
+        "resource_id": "8176786894",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9604051916,
+        "duration_ns": null,
+        "resource_id": "8176786895",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9812853458,
+        "duration_ns": null,
+        "resource_id": "8176787186",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9997327000,
+        "duration_ns": null,
+        "resource_id": "8176787537",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 9997378416,
+        "duration_ns": null,
+        "resource_id": "8176787538",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10064486500,
+        "duration_ns": null,
+        "resource_id": "8176787688",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10075539000,
+        "duration_ns": null,
+        "resource_id": "8176787778",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10163623791,
+        "duration_ns": null,
+        "resource_id": "8176787953",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10164490708,
+        "duration_ns": null,
+        "resource_id": "8176787954",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 507904,
+        "resource_size_bytes": 507904,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10164865750,
+        "duration_ns": null,
+        "resource_id": "8176787956",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10164921666,
+        "duration_ns": null,
+        "resource_id": "8176787957",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 507904,
+        "resource_size_bytes": 507904,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10164950791,
+        "duration_ns": null,
+        "resource_id": "8176787958",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 507904,
+        "resource_size_bytes": 507904,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10165384750,
+        "duration_ns": null,
+        "resource_id": "8176787962",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10165422416,
+        "duration_ns": null,
+        "resource_id": "8176787963",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 507904,
+        "resource_size_bytes": 507904,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10165440375,
+        "duration_ns": null,
+        "resource_id": "8176787964",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10166716750,
+        "duration_ns": null,
+        "resource_id": "8176787969",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10166863250,
+        "duration_ns": null,
+        "resource_id": "8176787971",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10166907000,
+        "duration_ns": null,
+        "resource_id": "8176787973",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10167262875,
+        "duration_ns": null,
+        "resource_id": "8176787974",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10168133250,
+        "duration_ns": null,
+        "resource_id": "8176787981",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10168443541,
+        "duration_ns": null,
+        "resource_id": "8176787982",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 49152,
+        "resource_size_bytes": 49152,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10168871958,
+        "duration_ns": null,
+        "resource_id": "8176787983",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10168897791,
+        "duration_ns": null,
+        "resource_id": "8176787984",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10168935750,
+        "duration_ns": null,
+        "resource_id": "8176787985",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10169920250,
+        "duration_ns": null,
+        "resource_id": "8176787990",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10170730125,
+        "duration_ns": null,
+        "resource_id": "8176787996",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10171954583,
+        "duration_ns": null,
+        "resource_id": "8176788008",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 507904,
+        "resource_size_bytes": 507904,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10173781916,
+        "duration_ns": null,
+        "resource_id": "8176788019",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10173838958,
+        "duration_ns": null,
+        "resource_id": "8176788020",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10173891166,
+        "duration_ns": null,
+        "resource_id": "8176788021",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 32768,
+        "resource_size_bytes": 32768,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10173943958,
+        "duration_ns": null,
+        "resource_id": "8176788023",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10173966708,
+        "duration_ns": null,
+        "resource_id": "8176788024",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 49152,
+        "resource_size_bytes": 49152,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10174000291,
+        "duration_ns": null,
+        "resource_id": "8176788025",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10174025666,
+        "duration_ns": null,
+        "resource_id": "8176788026",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10174042500,
+        "duration_ns": null,
+        "resource_id": "8176788027",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10255155625,
+        "duration_ns": null,
+        "resource_id": "8176788281",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10257280500,
+        "duration_ns": null,
+        "resource_id": "8176788283",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10257314791,
+        "duration_ns": null,
+        "resource_id": "8176788284",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10257358583,
+        "duration_ns": null,
+        "resource_id": "8176788285",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10257376500,
+        "duration_ns": null,
+        "resource_id": "8176788286",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 262144,
+        "resource_size_bytes": 262144,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259026291,
+        "duration_ns": null,
+        "resource_id": "8176788291",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259141750,
+        "duration_ns": null,
+        "resource_id": "8176788293",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259170208,
+        "duration_ns": null,
+        "resource_id": "8176788294",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259212375,
+        "duration_ns": null,
+        "resource_id": "8176788295",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259237583,
+        "duration_ns": null,
+        "resource_id": "8176788296",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259256250,
+        "duration_ns": null,
+        "resource_id": "8176788297",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 180224,
+        "resource_size_bytes": 180224,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259285583,
+        "duration_ns": null,
+        "resource_id": "8176788298",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10259309458,
+        "duration_ns": null,
+        "resource_id": "8176788299",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 131072,
+        "resource_size_bytes": 131072,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 10260010458,
+        "duration_ns": null,
+        "resource_id": "8176788309",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 12119498083,
+        "duration_ns": null,
+        "resource_id": "8176791808",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 999424,
+        "resource_size_bytes": 999424,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      },
+      {
+        "start_ns": 12476023750,
+        "duration_ns": null,
+        "resource_id": "8176792180",
+        "parent_resource_id": "18446744073709551615",
+        "vidmem_bytes": null,
+        "sysmem_bytes": 114688,
+        "resource_size_bytes": 114688,
+        "resource_type": "Buffer",
+        "event_type": "Allocation"
+      }
+    ],
+    "memory_levels": [
+      {
+        "start_ns": 7811418708,
+        "duration_ns": 179500,
+        "end_ns": 7811598208,
+        "current_allocated_bytes": 81920
+      },
+      {
+        "start_ns": 7811598208,
+        "duration_ns": 195852208,
+        "end_ns": 8007450416,
+        "current_allocated_bytes": 1130496
+      },
+      {
+        "start_ns": 8007450416,
+        "duration_ns": 15321042,
+        "end_ns": 8022771458,
+        "current_allocated_bytes": 1228800
+      },
+      {
+        "start_ns": 8022771458,
+        "duration_ns": 673750,
+        "end_ns": 8023445208,
+        "current_allocated_bytes": 1359872
+      },
+      {
+        "start_ns": 8023445208,
+        "duration_ns": 44875,
+        "end_ns": 8023490083,
+        "current_allocated_bytes": 1359872
+      },
+      {
+        "start_ns": 8023490083,
+        "duration_ns": 10038750,
+        "end_ns": 8033528833,
+        "current_allocated_bytes": 1867776
+      },
+      {
+        "start_ns": 8033528833,
+        "duration_ns": 76299625,
+        "end_ns": 8109828458,
+        "current_allocated_bytes": 1900544
+      },
+      {
+        "start_ns": 8109828458,
+        "duration_ns": 64602417,
+        "end_ns": 8174430875,
+        "current_allocated_bytes": 2899968
+      },
+      {
+        "start_ns": 8174430875,
+        "duration_ns": 37361000,
+        "end_ns": 8211791875,
+        "current_allocated_bytes": 3014656
+      },
+      {
+        "start_ns": 8211791875,
+        "duration_ns": 261625,
+        "end_ns": 8212053500,
+        "current_allocated_bytes": 3112960
+      },
+      {
+        "start_ns": 8212053500,
+        "duration_ns": 30939041,
+        "end_ns": 8242992541,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8242992541,
+        "duration_ns": 29917,
+        "end_ns": 8243022458,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243022458,
+        "duration_ns": 14750,
+        "end_ns": 8243037208,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243037208,
+        "duration_ns": 15958,
+        "end_ns": 8243053166,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243053166,
+        "duration_ns": 13667,
+        "end_ns": 8243066833,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243066833,
+        "duration_ns": 10625,
+        "end_ns": 8243077458,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243077458,
+        "duration_ns": 15417,
+        "end_ns": 8243092875,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243092875,
+        "duration_ns": 13208,
+        "end_ns": 8243106083,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243106083,
+        "duration_ns": 12500,
+        "end_ns": 8243118583,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243118583,
+        "duration_ns": 10542,
+        "end_ns": 8243129125,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243129125,
+        "duration_ns": 10416,
+        "end_ns": 8243139541,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243139541,
+        "duration_ns": 10750,
+        "end_ns": 8243150291,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243150291,
+        "duration_ns": 18042,
+        "end_ns": 8243168333,
+        "current_allocated_bytes": 3244032
+      },
+      {
+        "start_ns": 8243168333,
+        "duration_ns": 5295375,
+        "end_ns": 8248463708,
+        "current_allocated_bytes": 3309568
+      },
+      {
+        "start_ns": 8248463708,
+        "duration_ns": 3270125,
+        "end_ns": 8251733833,
+        "current_allocated_bytes": 3375104
+      },
+      {
+        "start_ns": 8251733833,
+        "duration_ns": 7554125,
+        "end_ns": 8259287958,
+        "current_allocated_bytes": 3375104
+      },
+      {
+        "start_ns": 8259287958,
+        "duration_ns": 705167,
+        "end_ns": 8259993125,
+        "current_allocated_bytes": 3506176
+      },
+      {
+        "start_ns": 8259993125,
+        "duration_ns": 14333,
+        "end_ns": 8260007458,
+        "current_allocated_bytes": 3506176
+      },
+      {
+        "start_ns": 8260007458,
+        "duration_ns": 9161167,
+        "end_ns": 8269168625,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8269168625,
+        "duration_ns": 9179458,
+        "end_ns": 8278348083,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278348083,
+        "duration_ns": 21792,
+        "end_ns": 8278369875,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278369875,
+        "duration_ns": 14125,
+        "end_ns": 8278384000,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278384000,
+        "duration_ns": 14208,
+        "end_ns": 8278398208,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278398208,
+        "duration_ns": 17000,
+        "end_ns": 8278415208,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278415208,
+        "duration_ns": 16458,
+        "end_ns": 8278431666,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278431666,
+        "duration_ns": 14625,
+        "end_ns": 8278446291,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278446291,
+        "duration_ns": 95959,
+        "end_ns": 8278542250,
+        "current_allocated_bytes": 3604480
+      },
+      {
+        "start_ns": 8278542250,
+        "duration_ns": 1026896375,
+        "end_ns": 9305438625,
+        "current_allocated_bytes": 3702784
+      },
+      {
+        "start_ns": 9305438625,
+        "duration_ns": 67083,
+        "end_ns": 9305505708,
+        "current_allocated_bytes": 3801088
+      },
+      {
+        "start_ns": 9305505708,
+        "duration_ns": 617208,
+        "end_ns": 9306122916,
+        "current_allocated_bytes": 3801088
+      },
+      {
+        "start_ns": 9306122916,
+        "duration_ns": 288019584,
+        "end_ns": 9594142500,
+        "current_allocated_bytes": 3899392
+      },
+      {
+        "start_ns": 9594142500,
+        "duration_ns": 22041,
+        "end_ns": 9594164541,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9594164541,
+        "duration_ns": 24834,
+        "end_ns": 9594189375,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9594189375,
+        "duration_ns": 7321000,
+        "end_ns": 9601510375,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9601510375,
+        "duration_ns": 1732916,
+        "end_ns": 9603243291,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9603243291,
+        "duration_ns": 777125,
+        "end_ns": 9604020416,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9604020416,
+        "duration_ns": 36625,
+        "end_ns": 9604057041,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9604057041,
+        "duration_ns": 208807125,
+        "end_ns": 9812864166,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9812864166,
+        "duration_ns": 184480042,
+        "end_ns": 9997344208,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9997344208,
+        "duration_ns": 40250,
+        "end_ns": 9997384458,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 9997384458,
+        "duration_ns": 67113875,
+        "end_ns": 10064498333,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 10064498333,
+        "duration_ns": 11091417,
+        "end_ns": 10075589750,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 10075589750,
+        "duration_ns": 31347958,
+        "end_ns": 10106937708,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 10106937708,
+        "duration_ns": 132958,
+        "end_ns": 10107070666,
+        "current_allocated_bytes": 3932160
+      },
+      {
+        "start_ns": 10107070666,
+        "duration_ns": 56596875,
+        "end_ns": 10163667541,
+        "current_allocated_bytes": 4931584
+      },
+      {
+        "start_ns": 10163667541,
+        "duration_ns": 832875,
+        "end_ns": 10164500416,
+        "current_allocated_bytes": 5439488
+      },
+      {
+        "start_ns": 10164500416,
+        "duration_ns": 372167,
+        "end_ns": 10164872583,
+        "current_allocated_bytes": 5439488
+      },
+      {
+        "start_ns": 10164872583,
+        "duration_ns": 56125,
+        "end_ns": 10164928708,
+        "current_allocated_bytes": 5947392
+      },
+      {
+        "start_ns": 10164928708,
+        "duration_ns": 26958,
+        "end_ns": 10164955666,
+        "current_allocated_bytes": 6455296
+      },
+      {
+        "start_ns": 10164955666,
+        "duration_ns": 434167,
+        "end_ns": 10165389833,
+        "current_allocated_bytes": 6455296
+      },
+      {
+        "start_ns": 10165389833,
+        "duration_ns": 39042,
+        "end_ns": 10165428875,
+        "current_allocated_bytes": 6963200
+      },
+      {
+        "start_ns": 10165428875,
+        "duration_ns": 16583,
+        "end_ns": 10165445458,
+        "current_allocated_bytes": 7094272
+      },
+      {
+        "start_ns": 10165445458,
+        "duration_ns": 1285125,
+        "end_ns": 10166730583,
+        "current_allocated_bytes": 7127040
+      },
+      {
+        "start_ns": 10166730583,
+        "duration_ns": 143625,
+        "end_ns": 10166874208,
+        "current_allocated_bytes": 7159808
+      },
+      {
+        "start_ns": 10166874208,
+        "duration_ns": 38708,
+        "end_ns": 10166912916,
+        "current_allocated_bytes": 7192576
+      },
+      {
+        "start_ns": 10166912916,
+        "duration_ns": 362959,
+        "end_ns": 10167275875,
+        "current_allocated_bytes": 7225344
+      },
+      {
+        "start_ns": 10167275875,
+        "duration_ns": 868208,
+        "end_ns": 10168144083,
+        "current_allocated_bytes": 7225344
+      },
+      {
+        "start_ns": 10168144083,
+        "duration_ns": 307208,
+        "end_ns": 10168451291,
+        "current_allocated_bytes": 7274496
+      },
+      {
+        "start_ns": 10168451291,
+        "duration_ns": 426084,
+        "end_ns": 10168877375,
+        "current_allocated_bytes": 7274496
+      },
+      {
+        "start_ns": 10168877375,
+        "duration_ns": 23791,
+        "end_ns": 10168901166,
+        "current_allocated_bytes": 7274496
+      },
+      {
+        "start_ns": 10168901166,
+        "duration_ns": 38417,
+        "end_ns": 10168939583,
+        "current_allocated_bytes": 7274496
+      },
+      {
+        "start_ns": 10168939583,
+        "duration_ns": 997708,
+        "end_ns": 10169937291,
+        "current_allocated_bytes": 7307264
+      },
+      {
+        "start_ns": 10169937291,
+        "duration_ns": 804625,
+        "end_ns": 10170741916,
+        "current_allocated_bytes": 7340032
+      },
+      {
+        "start_ns": 10170741916,
+        "duration_ns": 39459,
+        "end_ns": 10170781375,
+        "current_allocated_bytes": 7340032
+      },
+      {
+        "start_ns": 10170781375,
+        "duration_ns": 21791,
+        "end_ns": 10170803166,
+        "current_allocated_bytes": 7340032
+      },
+      {
+        "start_ns": 10170803166,
+        "duration_ns": 19750,
+        "end_ns": 10170822916,
+        "current_allocated_bytes": 7340032
+      },
+      {
+        "start_ns": 10170822916,
+        "duration_ns": 20042,
+        "end_ns": 10170842958,
+        "current_allocated_bytes": 7340032
+      },
+      {
+        "start_ns": 10170842958,
+        "duration_ns": 19458,
+        "end_ns": 10170862416,
+        "current_allocated_bytes": 7340032
+      },
+      {
+        "start_ns": 10170862416,
+        "duration_ns": 1103792,
+        "end_ns": 10171966208,
+        "current_allocated_bytes": 7847936
+      },
+      {
+        "start_ns": 10171966208,
+        "duration_ns": 1833000,
+        "end_ns": 10173799208,
+        "current_allocated_bytes": 7880704
+      },
+      {
+        "start_ns": 10173799208,
+        "duration_ns": 45917,
+        "end_ns": 10173845125,
+        "current_allocated_bytes": 7913472
+      },
+      {
+        "start_ns": 10173845125,
+        "duration_ns": 52166,
+        "end_ns": 10173897291,
+        "current_allocated_bytes": 7946240
+      },
+      {
+        "start_ns": 10173897291,
+        "duration_ns": 21709,
+        "end_ns": 10173919000,
+        "current_allocated_bytes": 7946240
+      },
+      {
+        "start_ns": 10173919000,
+        "duration_ns": 29958,
+        "end_ns": 10173948958,
+        "current_allocated_bytes": 7946240
+      },
+      {
+        "start_ns": 10173948958,
+        "duration_ns": 23500,
+        "end_ns": 10173972458,
+        "current_allocated_bytes": 7995392
+      },
+      {
+        "start_ns": 10173972458,
+        "duration_ns": 32458,
+        "end_ns": 10174004916,
+        "current_allocated_bytes": 7995392
+      },
+      {
+        "start_ns": 10174004916,
+        "duration_ns": 25209,
+        "end_ns": 10174030125,
+        "current_allocated_bytes": 7995392
+      },
+      {
+        "start_ns": 10174030125,
+        "duration_ns": 16708,
+        "end_ns": 10174046833,
+        "current_allocated_bytes": 7995392
+      },
+      {
+        "start_ns": 10174046833,
+        "duration_ns": 81127583,
+        "end_ns": 10255174416,
+        "current_allocated_bytes": 8994816
+      },
+      {
+        "start_ns": 10255174416,
+        "duration_ns": 2118792,
+        "end_ns": 10257293208,
+        "current_allocated_bytes": 9994240
+      },
+      {
+        "start_ns": 10257293208,
+        "duration_ns": 26583,
+        "end_ns": 10257319791,
+        "current_allocated_bytes": 10993664
+      },
+      {
+        "start_ns": 10257319791,
+        "duration_ns": 44334,
+        "end_ns": 10257364125,
+        "current_allocated_bytes": 11993088
+      },
+      {
+        "start_ns": 10257364125,
+        "duration_ns": 17208,
+        "end_ns": 10257381333,
+        "current_allocated_bytes": 12255232
+      },
+      {
+        "start_ns": 10257381333,
+        "duration_ns": 1658875,
+        "end_ns": 10259040208,
+        "current_allocated_bytes": 12369920
+      },
+      {
+        "start_ns": 10259040208,
+        "duration_ns": 108833,
+        "end_ns": 10259149041,
+        "current_allocated_bytes": 12484608
+      },
+      {
+        "start_ns": 10259149041,
+        "duration_ns": 26334,
+        "end_ns": 10259175375,
+        "current_allocated_bytes": 12599296
+      },
+      {
+        "start_ns": 10259175375,
+        "duration_ns": 42333,
+        "end_ns": 10259217708,
+        "current_allocated_bytes": 12713984
+      },
+      {
+        "start_ns": 10259217708,
+        "duration_ns": 24167,
+        "end_ns": 10259241875,
+        "current_allocated_bytes": 12713984
+      },
+      {
+        "start_ns": 10259241875,
+        "duration_ns": 19333,
+        "end_ns": 10259261208,
+        "current_allocated_bytes": 12894208
+      },
+      {
+        "start_ns": 10259261208,
+        "duration_ns": 28417,
+        "end_ns": 10259289625,
+        "current_allocated_bytes": 12894208
+      },
+      {
+        "start_ns": 10259289625,
+        "duration_ns": 23458,
+        "end_ns": 10259313083,
+        "current_allocated_bytes": 12894208
+      },
+      {
+        "start_ns": 10259313083,
+        "duration_ns": 707958,
+        "end_ns": 10260021041,
+        "current_allocated_bytes": 13008896
+      },
+      {
+        "start_ns": 10260021041,
+        "duration_ns": 1052029917,
+        "end_ns": 11312050958,
+        "current_allocated_bytes": 13271040
+      },
+      {
+        "start_ns": 11312050958,
+        "duration_ns": 807476250,
+        "end_ns": 12119527208,
+        "current_allocated_bytes": 14270464
+      },
+      {
+        "start_ns": 12119527208,
+        "duration_ns": 357103125,
+        "end_ns": 12476630333,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 12476630333,
+        "duration_ns": 1339994500,
+        "end_ns": 13816624833,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816624833,
+        "duration_ns": 100542,
+        "end_ns": 13816725375,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816725375,
+        "duration_ns": 24208,
+        "end_ns": 13816749583,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816749583,
+        "duration_ns": 11625,
+        "end_ns": 13816761208,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816761208,
+        "duration_ns": 23000,
+        "end_ns": 13816784208,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816784208,
+        "duration_ns": 12708,
+        "end_ns": 13816796916,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816796916,
+        "duration_ns": 10000,
+        "end_ns": 13816806916,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816806916,
+        "duration_ns": 8542,
+        "end_ns": 13816815458,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816815458,
+        "duration_ns": 8542,
+        "end_ns": 13816824000,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816824000,
+        "duration_ns": 8583,
+        "end_ns": 13816832583,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816832583,
+        "duration_ns": 7583,
+        "end_ns": 13816840166,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816840166,
+        "duration_ns": 8667,
+        "end_ns": 13816848833,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816848833,
+        "duration_ns": 7292,
+        "end_ns": 13816856125,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816856125,
+        "duration_ns": 16416,
+        "end_ns": 13816872541,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816872541,
+        "duration_ns": 7334,
+        "end_ns": 13816879875,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816879875,
+        "duration_ns": 6375,
+        "end_ns": 13816886250,
+        "current_allocated_bytes": 14385152
+      },
+      {
+        "start_ns": 13816886250,
+        "duration_ns": 15609677,
+        "end_ns": 13832495927,
+        "current_allocated_bytes": 14385152
+      }
+    ]
+  }
+}

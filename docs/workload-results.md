@@ -182,3 +182,17 @@ The [rejected baseline](../evidence/workload-2026-11-01/rank-v1/rejected-baselin
 A separate baseline-only Instruments capture on the installed public source produced **1,304 exact-process shader records** with 61 registered shader names. Sort/gather, reductions and matrix multiplication are present. The captured application passed 72 independent float64 score/ID checks. [Sanitized rows, summary and provenance](../evidence/workload-2026-11-01/owned-shader-diagnostic/) retain the source/runtime bindings.
 
 Overlapping and nested intervals are unioned. Per-shader unions are not additive percentages; records are not assumed to equal launch counts. Host markers include input and numerical work, have approximate alignment and omit boundary records through a 2-ms guard. These partial instrumented observations do not establish causal application headroom. Shared accelerator identifiers could not attribute global numeric counters to this process, and the available counter definition described raytracing activity rather than bandwidth or register spills. Raw trace/XML files include unrelated system context and remain private. No application numeric-counter claim is made.
+
+A later extraction from that same recording provides [owned resource and submission accounting](../evidence/workload-2026-11-01/owned-shader-diagnostic/resource-accounting.json). No additional capture or benchmark was run. Independently checked process filtering and cross-table identities establish the following whole-process observations:
+
+| Recorded quantity | Owned-process observation |
+| --- | ---: |
+| Unique command-buffer submissions | 181 |
+| Submissions reporting zero encoders | 13 |
+| Unique encoder records, matching submission counts | 168 |
+| Buffer-allocation events | 86 |
+| Cumulative recorded allocation resource sizes | 19,038,208 bytes |
+| Metal allocation-level records | 122 |
+| Highest observed `MTLDevice.currentAllocatedSize` | 14,385,152 bytes |
+
+These counts include setup, compilation, validation and input work; dividing them by searches would misstate their scope. Encoder records are not kernel launches. Cumulative allocation sizes are not transfer volume or live memory, and the Metal allocation-level metric differs from MLX's allocator peak. Exact dispatches, implicit contiguous copies, tensor materializations, host/GPU transfer bytes and pure GPU elapsed time per application call remain unmeasured. The available accounting is partial and does not establish acceleration.
