@@ -1,5 +1,13 @@
 name: Workbench browser regressions
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      live:
+        description: Verify the deployed public LAB against this commit
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -15,6 +23,17 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - name: Verify the public LAB
+        if: inputs.live == true
+        env:
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: node scripts/check_live_lab.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: workbench-visual-review
+          path: test-results/visual-review/
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
