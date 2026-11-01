@@ -7,8 +7,9 @@
 - Compiled configured scoring and ranking together, keeping request guards outside the graph and matching the compilation scope of the library comparators. An 88-case compatibility probe and the eight-method current GPU suite passed; no timing benefit is implied.
 - Implemented exact input rules, source/application/baseline/study/runtime identities, immutable source snapshots, explicit dtype/shape/layout semantics, finite validation, failed-refresh rollback and library fallback.
 - Completed a frozen first-target study with matched fixed/per-shape/joint search data, three independent sessions and 24 fresh-process starts. It failed application confirmation; no optimized artifact or acceleration claim was accepted.
-- Investigated fused query normalization/scoring as the second bounded target. Numerical and installed changed-input checks passed; an unstable identical-baseline study stopped before tuning. Failed evidence is preserved.
+- Investigated fused query normalization/scoring as the second bounded target. Numerical checks passed; initial noise rejections are preserved. A prospective larger-block protocol later passed its baseline, completed three unchanged confirmation sessions and 18 fresh-process starts, then failed both performance gates. Strict export replay refused the policy and created no artifact.
 - Added a static Workload interface, semantic and installation guides, editable architecture, complete negative results and an unsent launch draft. Final browser/package/release verification remains pending.
+- Increased the localhost LAB request queue and exercised the real CLI server in browser checks after a module fetch reset during setup. All 20 unchanged browser cases passed.
 - Preserved the original CPU records, v0.1/v0.2 releases and media. Actual Metal execution does not validate the prepared CUDA/Triton path.
 
 ## 0.2.1 · Evidence comparison · 2026-10-29

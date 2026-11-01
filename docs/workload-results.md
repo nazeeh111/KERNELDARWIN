@@ -1,13 +1,13 @@
 # Workload results and limits
 
-**The first frozen study failed its application performance gate.** Its numerical and resource checks passed, all three confirmation sessions and 24 fresh-process startup runs completed, and no optimized artifact was accepted. The second target passed seven actual Metal numerical/application tests, then failed its prospective baseline-stability gate before tuning. These results do not establish acceleration.
+**The first frozen study failed its application performance gate.** Its numerical and resource checks passed, all three confirmation sessions and 24 fresh-process startup runs completed, and no optimized artifact was accepted. The compiled fused-score target also completed three frozen sessions and 18 fresh-process starts, but failed both performance gates. These results do not establish acceleration.
 
 ## Executed numerical evidence
 
 | Scope | Executed result | Evidence |
 | --- | --- | --- |
 | Current stable row normalization, application and installation guards | 18 tests, zero failures, errors or skips; nine GPU methods and nine CPU contract methods | [Current row validation](../evidence/workload-2026-10-29/discovery/metal-validation-row-guarded-current.json) |
-| Current fused query normalization and similarity scoring | Eight GPU test methods, zero failures, errors or skips | [Current compiled-path validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-compiled-current.json) |
+| Current fused query normalization and similarity scoring | Eight GPU test methods, zero failures, errors or skips | [Current compiled-path validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-block128.json) |
 
 The original frozen first study retains its earlier 16-test report and exact source snapshot. Later source-guard changes were separately revalidated in the reports above; historical records were not relabeled. These are separate executed suites, not a claim that every future source revision has passed them. Both used Metal API and GPU shader validation. Recorded hardware was a 10-core Apple M4 GPU with 32 GiB memory, MLX and MLX Metal `0.32.0`, Python `3.12.13`, and arm64 macOS `27.2`, build `26B123`. CUDA sanitizers and other-device validation are not implied.
 
@@ -99,7 +99,7 @@ The stable and fast complete-query compiler graphs contain 16 and 17 primitive n
 
 The equivalent optimized RMS-based baseline preserves the same clamped, max-scaled L2 semantics. Plain RMS with additive epsilon or direct squaring is not substituted to create an easier baseline. An intentionally unstable direct-square regression fails the independent numerical comparison.
 
-## Second target: numerical success, unstable baseline
+## Second target: initial rejected baseline
 
 `score_simd` uses one SIMD group per query/document pair. `score_tile4` normalizes a query in shared memory and reuses it across four documents. Both execute on the actual GPU. The current eight-method suite also covers whole-query compilation and changed inputs through both configured paths. Index refresh remains the compiled stable library; unfamiliar tuples use the complete compiled stable query, including ranking and finite checks.
 
@@ -111,15 +111,41 @@ The second study was prospectively bounded to two authored variants, 15 minutes 
 | Manuals | [0.430, 1.251] |
 | Archive | [0.420, 1.318] |
 
-[The raw rejection](../evidence/workload-2026-10-29/target2-fused-scores/rejected-baseline.json) records load averages about 474, 403 and 262. The system was on AC power, charging at 24%; no thermal warning was recorded, which is not a temperature measurement. No candidate timing, tuning, policy selection, application confirmation or cold optimization study followed this rejection. The study stopped rather than retrying for a favorable result.
+[The raw rejection](../evidence/workload-2026-10-29/target2-fused-scores/rejected-baseline.json) records load averages about 474, 403 and 262. The system was on AC power, charging at 24%; no thermal warning was recorded, which is not a temperature measurement. That version stopped before candidate timing, tuning, policy selection or confirmation. The later compiled implementation and prospective measurement-method change are separately described below; this raw rejection was never promoted into an accepted protocol.
 
 A separate [independent installed-wheel consumer](../evidence/workload-2026-10-29/discovery/installed-fused-consumer.json) changed data in three repetitions and passed 15 method checks, covering the installed plan, both optimized libraries and both direct authored candidates. The plan reported `library_only`, zero custom dispatches and four fallback calls, including an unknown tuple. Direct candidate execution proves those authored computations ran; it does not establish an accepted installed custom plan or a performance result.
 
 An accepted artifact still requires repeatable end-to-end improvement against the strongest required libraries under the frozen criterion, installed changed-input execution without private development files, and verified release delivery. There is no learned-selector, cross-device, production-adoption or CUDA validation claim. The broader workload-acceleration objective remains incomplete.
 
-## Current source delivery checks
+## Second target: compiled-query frozen confirmation also failed
 
-After the source-guard fixes and concurrent v0.2.1 LAB integration, the current local Python suite passes 63 CPU-compatible methods with 16 explicit Metal skips. The actual Metal suites separately pass 18 row/application/guard methods and seven fused GPU methods. The frontend suite passes 22 methods. Nineteen merged browser cases passed in the full run; one case stopped during an unfinished local module fetch before its feature ran, then passed in a serialized isolated recheck. No application source was changed or assertion weakened for that recheck. These are 20 checked browser behaviors, with the setup interruption retained in the task logs. Remote CI remains a separate gate.
+After whole-query compilation was numerically validated, host load materially fell from hundreds to single digits. A fresh current-source 32-input noise check still failed narrowly; its exact source and raw rejection remain [preserved](../evidence/workload-2026-10-29/target2-compiled-quiet-rejected/). A bounded [library-only assay](../evidence/workload-2026-10-29/discovery/block128-assay/) then tested 128 distinct staged inputs and passed. No candidate had been timed or selected. Before candidate timing, the measurement protocol was prospectively changed to 128 score inputs per block and 16 complete application sequence repetitions per confirmation sample. Development application samples remain individual complete invocations. All thresholds, workload weights, session counts, numerical tolerances and resource limits remained unchanged.
+
+A separate fresh [canonical baseline](../evidence/workload-2026-10-29/target2-compiled-block128/protocol.json) passed with identical-library intervals [0.9772, 1.0270], [0.9254, 1.0146] and [0.9915, 1.0100]. The noise-derived score criterion froze at a **1.149259** lower speedup bound; the application criterion remained **1.03** against both complete compiled libraries in every independent session. Baseline load was about 21.5. Larger blocks enabled a valid prospective experiment; they did not establish performance.
+
+Development took **28.76 seconds**, within the unchanged 900-second budget. Both authored configurations shared the same observations for fixed, per-shape and joint selection, including separately measured routing and fallback overhead. The best global fixed implementation was the stable library. The joint selector chose one exact custom rule, `score_simd` for `[1, 64, 384]`; larger shapes used the complete compiled stable query. Development cost was 5,946.34 µs for this policy versus 6,117.64 µs for best fixed and 5,862.98 µs for per-shape selection. These are development observations, not a confirmed portfolio advantage.
+
+Each confirmation used fresh contents, an unseen 113 × 641 document index with five queries, a complete untouched sequence order and 40 randomized paired samples. Every application repetition includes refresh, transfers, allocation, three changed-query searches per task and host results. Mean milliseconds below are per complete four-task sequence, after dividing by the 16 actual repetitions:
+
+| Session | Whole compiled stable | Whole compiled fast | Dispatcher | Dispatcher vs stable, ratio [95% interval] | Dispatcher vs fast, ratio [95% interval] |
+| --- | ---: | ---: | ---: | --- | --- |
+| 0 | 7.78 ms | 7.88 ms | 7.48 ms | 1.039 [0.991, 1.092] | 1.052 [1.007, 1.097] |
+| 1 | 14.21 ms | 14.13 ms | 13.83 ms | 1.028 [0.923, 1.131] | 1.022 [0.928, 1.127] |
+| 2 | 17.31 ms | 18.40 ms | 16.25 ms | 1.065 [0.961, 1.165] | 1.132 [0.988, 1.318] |
+
+All three sessions failed both the frozen score and application gates. None was rerun, and the policy was not retuned. The pooled dispatcher versus fixed application ratio was 1.066 [1.000, 1.139], and versus per-shape was 0.958 [0.893, 1.030]. These descriptive intervals do not establish a portfolio advantage or override any session failure. A reliable amortization break-even is not established.
+
+The 18 serialized independent process starts completed in **15.34 seconds**, below the 180-second limit. Median process wall was 846.42 ms for stable library and 1,356.97 ms for dispatcher; median first application sequences were 28.56 ms and 37.60 ms. Shared OS/driver caches remained. Pure compiler time was not isolated. Development peak MLX allocation was 290,637,544 bytes; confirmation peak was 535,749,744 bytes, below 2 GiB. The two authored score shaders total 4,217 bytes. There is no accepted installed artifact size or reliable payback claim.
+
+The current installed verifier independently replayed raw selection, protocol, source/environment bindings, numerical reports, all sessions and startup/resource checks: [verification](../evidence/workload-2026-10-29/target2-compiled-block128/verification-null.json) reports numerical/resource pass and score/application/confirmation failure. A real [export attempt was refused](../evidence/workload-2026-10-29/target2-compiled-block128/export-refusal.json) and created no output. The exact [runtime and measurement source](../evidence/workload-2026-10-29/target2-compiled-block128/runtime-measurement-source.zip) remains unchanged.
+
+Counter clarification for the preserved measurement metadata: global library **score bursts** increment route counters, while their application calls bypass those counters. Its sentence claiming zero global-library counters is inaccurate. Each session records 20,480 score calls/fallbacks for each global library and 28,184 dispatcher calls with 21,138 fallbacks across validation, score bursts and application work. These are instrumentation totals, not user-search counts. This reporting correction does not change samples, policy, source or acceptance.
+
+The larger-block method resolved the prospective baseline gate. It did not resolve the lack of independently established application benefit. No third target or favorable retry was added. Both failed investigations, losses and initial rejections remain available. No optimized artifact or successful Workload release is claimed.
+
+## Source delivery checks before the larger-block study
+
+The public compiled-query source at `b3f1ae5844f44e3662829fa33a858d54c1e8d6af` passed remote Python 3.11/3.12/3.13 CI: 80 methods, 17 explicit Metal skips, and 63 CPU passes. Its 22 frontend and 20 Chromium cases passed. The later prospective block-size change is separately versioned; earlier CI and downloads are not relabeled as proof of a later revision.
 
 The current independent installed wheel passed [28 row checks](../evidence/workload-2026-10-29/discovery/installed-row-consumer-guarded-current.json), [15 fused checks](../evidence/workload-2026-10-29/discovery/installed-fused-consumer-guarded-current.json), and [two changed NPZ quickstarts plus three explicit CLI failures](../evidence/workload-2026-10-29/discovery/installed-cli-smoke-guarded-current.json). The source tree, corpus and tuning files were absent. Plans remained library-only, while direct authored candidates executed and were independently checked. No accepted custom dispatch or successful optimized release is implied.
 
@@ -127,6 +153,6 @@ The current independent installed wheel passed [28 row checks](../evidence/workl
 
 After the first public source preview, a bounded [compatibility probe](../evidence/workload-2026-10-29/discovery/compiled-score-compatibility/) executed both existing score kernels inside one MLX graph with finite validation, sorting and gathering. All 88 checks passed with native Metal validation. No timing or selection occurred. The exported ordinary-case graph has seven primitive nodes; that is graph-structure evidence, not a device-time, copy-count or causal-performance result.
 
-The current implementation and fixed/per-shape comparators now use that same compiled query scope. Python guards and counters run outside the graph once per request. Cached callables capture only variant and ranking width, with current arrays supplied on every call. The new eight-method GPU report validates both variants across five sizes, changing document/query contents, irregular tails and negative query strides. The local Python suite now runs 80 methods with 17 explicit Metal skips and 63 CPU passes. Earlier CI/download evidence at commit0c312bd remains its own recorded source version; the new revision needs separate delivery checks. No frozen performance study or accepted artifact was added.
+The current implementation and fixed/per-shape comparators now use that same compiled query scope. Python guards and counters run outside the graph once per request. Cached callables capture only variant and ranking width, with current arrays supplied on every call. The new eight-method GPU report validates both variants across five sizes, changing document/query contents, irregular tails and negative query strides. The local Python suite now runs 80 methods with 17 explicit Metal skips and 63 CPU passes. Earlier CI/download evidence at commit0c312bd remains its own recorded source version; the new revision needs separate delivery checks. That compatibility revision preceded the frozen second-target study above; compatibility alone made no performance claim.
 
 The [independent installed compiled-path suite](../evidence/workload-2026-10-29/discovery/installed-fused-compiled-suite.json) repeated all eight current GPU methods from a fresh wheel environment with no source tree or tuning files. Its synthetic plans exercise dispatch and source guards only; they do not constitute accepted performance artifacts.

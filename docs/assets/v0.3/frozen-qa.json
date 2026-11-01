@@ -1,0 +1,52 @@
+{
+  "kind": "frozen_second_target_source_validation",
+  "version": "0.3.0-unreleased",
+  "accepted_optimized_artifact": false,
+  "performance_confirmation": false,
+  "python": {
+    "tests_run": 80,
+    "cpu_passed": 63,
+    "explicit_metal_skips": 17
+  },
+  "frontend_passed": 22,
+  "browser": {
+    "passed": 20,
+    "seconds": 11.5,
+    "server": "actual localhost-only kd lab, request queue128",
+    "prior_failures": "Optional Playwright binary absent; installed Chrome invocation then observed localhost module ERR_CONNECTION_RESET before feature setup. Traces retained task-locally; source test assertions unchanged."
+  },
+  "numerical_report": "../../../evidence/workload-2026-10-29/discovery/metal-validation-fused-block128.json",
+  "frozen_study_identity": "3614f68dc81d252834cc69ec95f8bce3dc89f7f7f27fab378ad412d6b1709e99",
+  "frozen_source_identity": "f4ab261ea95f525b0ab9053a4f6df6728a82059ad98b53538fdbb218f4aec7a1",
+  "verification": {
+    "numerical_passed": true,
+    "resource_passed": true,
+    "score_passed": false,
+    "application_passed": false,
+    "confirmation_passed": false
+  },
+  "export_refusal": {
+    "refused": true,
+    "error": "Frozen confirmation failed; preserve the null result",
+    "output_created": false
+  },
+  "preview": {
+    "kind": "current_source_browser_previews",
+    "performance_claim": false,
+    "note": "Actual browser interaction with read-only recorded installed GPU CLI outputs and retained null performance study. No live GPU browser execution.",
+    "source_sha256": {
+      "workload.html": "5c4ec89f5d41ac13c25328a82eb278df25455b869c752cdb284753b52a5161cc",
+      "workload.css": "8002c680986b4022317321afb8fe3c45e6b228954d2232836937311e15676138",
+      "workload.js": "f1843825a3e441698e0fa1bff22b2ca91e658e22bc1811dc6fe1141e8e014708",
+      "data/workload.json": "cc26777b3333b4fc6d3a285e8365787f48d89b349564c73ead6a3fd09ced4cbb",
+      "data/workload-demo.json": "94221b2ca5c165e16dab6edcb3dca98dc75bc6b10a936e93139558aa1834b078"
+    },
+    "browser": "156.0.8078.49",
+    "captured_at": "2026-10-30T01:08:05.300Z"
+  },
+  "limits": [
+    "No accepted optimized artifact or acceleration claim.",
+    "Remote CI and downloaded final-wheel verification are separate checks.",
+    "Frozen source archive preserves study-time CLI; later localhost serving fix does not alter benchmark computation."
+  ]
+}

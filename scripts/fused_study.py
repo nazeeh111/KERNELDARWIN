@@ -358,7 +358,7 @@ def freeze():
     baseline = lambda q, docs: library_scores(q, docs, "stable")
     for task in tasks:
         docs, query = arrays(task, data["chunks"], 100)
-        staged = score_inputs(task, docs, query, 32)
+        staged = score_inputs(task, docs, query, 128)
         for _ in range(5):
             measure_burst(baseline, staged)
         pairs = []
@@ -375,7 +375,7 @@ def freeze():
     if worst > 0.10:
         save(EVIDENCE / "rejected-baseline.json", {
             "reason": "Prospective identical-baseline 95% interval outside [0.9,1.1]; no tuning",
-            "batch": 32, "noise": noise, "telemetry": observed,
+            "batch": 128, "noise": noise, "telemetry": observed,
             "source_sha256": score_source_identity(), "study_identity": implementation})
         raise RuntimeError("Baseline stability gate failed; no candidate timing is authorized by this protocol")
     save(EVIDENCE / "corpus.json", data)
@@ -387,7 +387,7 @@ def freeze():
         "development": {"seed": 104, "repeats": 40, "order_seed": 1207,
                         "authored_configurations": 2, "score_observations_per_round": 5,
                         "application_adapter_observations_per_round": 10},
-        "measurement_batch": 32, "application_measurement_batch": 4,
+        "measurement_batch": 128, "application_measurement_batch": 16,
         "confirmation": {"sessions": 3, "repeats_per_session": 40, "seeds": [17101, 18203, 19307],
                          "sequence_orders": [[2, 0, 1, 3], [1, 3, 2, 0], [3, 0, 2, 1]],
                          "unseen_task": {"id": "unseen", "rows": 113, "width": 641, "queries": 5, "layout": "column_stride2"}},

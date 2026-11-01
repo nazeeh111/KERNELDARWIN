@@ -98,7 +98,7 @@ Zero rows remain zero. A NaN/Inf input row produces all-NaN lower-level normaliz
 
 ## Offline study and export
 
-[The first preserved study](../evidence/workload-2026-10-29/target1-normalization/) is complete and failed. Do not retune or rerun its confirmation sessions. The second target passed numerical checks but failed its prospective identical-baseline stability gate before any candidate timing or tuning. Its rejected raw pairs are preserved; no retuning or favorable retry is implied.
+[The first preserved study](../evidence/workload-2026-10-29/target1-normalization/) is complete and failed. Do not retune or rerun its confirmation sessions. The second target retained its initial noise rejections, then completed a prospectively frozen larger-block study after a material host-load change. All three unchanged confirmation sessions failed both gates. Eighteen fresh-process starts and strict verifier replay completed; export refused the failed policy without creating output. No accepted artifact or acceleration is established.
 
 The following is the implemented source workflow, not a claim that a new study has passed:
 

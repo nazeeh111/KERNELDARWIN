@@ -177,7 +177,7 @@ def verify_study(directory: Path) -> dict[str, Any]:
                     "unseen_task": {"id": "unseen", "rows": 113, "width": 641, "queries": 5, "layout": "column_stride2"}}
     development_protocol = {"seed": 104, "repeats": 40, "order_seed": 1207, "authored_configurations": 2,
                             "score_observations_per_round": 5, "application_adapter_observations_per_round": 10}
-    if protocol.get("tasks") != tasks or protocol.get("confirmation") != confirmation or protocol.get("development") != development_protocol or protocol.get("measurement_batch") != 32 or protocol.get("application_measurement_batch") != 4:
+    if protocol.get("tasks") != tasks or protocol.get("confirmation") != confirmation or protocol.get("development") != development_protocol or protocol.get("measurement_batch") != 128 or protocol.get("application_measurement_batch") != 16:
         raise ValueError("Changed frozen workload or independent session protocol")
     noise = protocol["baseline_noise"]
     if len(noise) != len(tasks) or [row["task"] for row in noise] != tasks:
@@ -225,7 +225,7 @@ def verify_study(directory: Path) -> dict[str, Any]:
         for values in routed_samples.values():
             _samples(values)
         _samples(row.get("plan_library_application_samples_us"))
-        recorded_development_us += sum(sum(values) for values in row["score_samples_us"].values()) * 32
+        recorded_development_us += sum(sum(values) for values in row["score_samples_us"].values()) * 128
         recorded_development_us += sum(sum(values) for values in row["application_samples_us"].values())
         recorded_development_us += sum(sum(values) for values in routed_samples.values()) + sum(row["plan_library_application_samples_us"])
         adapter_checks = row.get("application_numerical_checks")

@@ -50,7 +50,7 @@ def fixture(root):
                                  "sequence_orders": exporter.SEQUENCES, "unseen_task": unseen},
                 "development": {"seed": 104, "repeats": 40, "order_seed": 1207, "authored_configurations": 2,
                                 "score_observations_per_round": 5, "application_adapter_observations_per_round": 10},
-                "measurement_batch": 32, "application_measurement_batch": 4,
+                "measurement_batch": 128, "application_measurement_batch": 16,
                 "criterion": {"score_ci95_lower_speedup": 1.1, "application_ci95_lower_speedup": 1.03,
                               "portfolio_over_fixed_minimum_total_cost_gain": .02, "numerical_rtol": 2e-5, "numerical_atol": 2e-6},
                 "baseline_noise": [{"task": task, "baseline_a_us": [10.] * 40, "baseline_b_us": [10.] * 40} for task in tasks]}
@@ -198,6 +198,8 @@ class FusedExportTests(unittest.TestCase):
                  ("numerical-validation.json", lambda p: p.update(success=False)),
                  ("development.json", lambda p: p.update(search_wall_seconds=901)),
                  ("protocol.json", lambda p: p["criterion"].update(application_ci95_lower_speedup=1.)),
+                 ("protocol.json", lambda p: p.update(measurement_batch=32)),
+                 ("protocol.json", lambda p: p.update(application_measurement_batch=4)),
                  ("cold-study.json", lambda p: p["rows"][0].update(corpus_sha256="changed"))]
         for name, operation in cases:
             with self.subTest(name=name), tempfile.TemporaryDirectory() as directory:

@@ -14,6 +14,12 @@ from . import __version__
 from .records import WorkloadSpec,ExperimentStore,validate_record
 
 
+class LabHTTPServer(http.server.ThreadingHTTPServer):
+    # Browser module graphs arrive in bursts. Keep them queued while the
+    # local read-only server starts handlers, rather than resetting requests.
+    request_queue_size = 128
+
+
 def dump(value):
     print(json.dumps(value,indent=2,allow_nan=False))
 
@@ -183,7 +189,7 @@ def main(argv=None):
             if not (root/'index.html').is_file():raise ValueError('LAB files missing; use --directory path/to/repo/lab')
             handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(root))
             print(f'KERNELDARWIN LAB: http://127.0.0.1:{args.port} (read-only; Ctrl-C to stop)',flush=True)
-            with http.server.ThreadingHTTPServer(('127.0.0.1',args.port),handler) as server:server.serve_forever()
+            with LabHTTPServer(('127.0.0.1',args.port),handler) as server:server.serve_forever()
         return 0
     except (ValueError,RuntimeError,OSError,KeyError,TypeError,subprocess.TimeoutExpired) as exc:
         print(f'kerneldarwin: {exc}',file=sys.stderr);return 1

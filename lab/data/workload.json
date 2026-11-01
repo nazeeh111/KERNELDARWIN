@@ -1,7 +1,7 @@
 {
   "status": "measured_null",
   "headline": "GPU checks passed. Application gain unconfirmed.",
-  "summary": "The first target completed three frozen sessions and failed its application performance criterion. Both fused-score variants passed actual GPU numerical checks, but their identical-baseline timing gate failed before tuning. No optimized dispatch artifact has been accepted.",
+  "summary": "Both targets completed three frozen confirmation sessions and failed their performance gates. Current numerical suites passed on the actual GPU. No optimized dispatch artifact has been accepted.",
   "device": "Apple M4 \u00b7 MLX 0.32.0 \u00b7 float32 accumulation",
   "operation": "stable_l2_scores_v1",
   "methods": [
@@ -50,7 +50,7 @@
     "Numerical validity and performance coverage are separate. No acceleration or portfolio advantage is claimed.",
     "The table describes target one: one refresh and three queries for each of four tasks per sequence. All 120 samples, including losses and background contention, are retained.",
     "In the least noisy first session, the dispatcher versus the whole compiled stable application was 0.970\u00d7 with a 95% interval of 0.908\u20131.038\u00d7. Later intervals were wider.",
-    "The second target stopped before candidate timing: identical library 95% intervals ranged from about 0.42 to 1.45 under host load around 474.",
+    "The compiled fused-score target completed three unchanged sessions and 18 fresh-process starts. All performance gates failed; initial noise rejections and the larger-block baseline are preserved.",
     "Current numerical and source-guard suites passed with native Metal API and GPU Validation. Independent installed consumers changed inputs and checked scores and document identifiers.",
     "Actual application GPU intervals were captured with Instruments. Hardware counters were not present in that capture; no bandwidth, spill or causal bottleneck claim is made.",
     "Float32 subnormal inputs follow native Metal flush-to-zero. Normal tiny values pass strict relative checks with zero absolute tolerance.",

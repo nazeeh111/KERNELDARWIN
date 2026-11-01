@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 const root=path.resolve('.');const out=path.join(root,process.env.KD_CAPTURE_OUTPUT || 'docs/assets/v0.3/final-source');await fs.mkdir(out);
-const server=spawn('python3',['-m','http.server','9470','--bind','127.0.0.1','--directory',path.join(root,'lab')],{stdio:'ignore'});
+const server=spawn('python3',['-m','kerneldarwin','lab','--port','9470','--directory',path.join(root,'lab')],{stdio:'ignore',env:{...process.env,PYTHONPATH:path.join(root,'src')}});
 let browser;
 try {
   for(let i=0;i<100;i++){try{if((await fetch('http://127.0.0.1:9470/workload.html')).ok)break;}catch{}await new Promise(r=>setTimeout(r,200));}

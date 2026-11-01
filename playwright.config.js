@@ -15,7 +15,7 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "python3 -m http.server 8768 --bind 127.0.0.1 --directory lab",
+    command: "PYTHONPATH=src python3 -m kerneldarwin lab --port 8768 --directory lab",
     url: "http://127.0.0.1:8768",
     reuseExistingServer: !process.env.CI,
   },
