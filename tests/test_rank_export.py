@@ -310,9 +310,11 @@ class RankExportTests(unittest.TestCase):
     def test_v2_block_bootstrap_golden_case_and_input_counts(self):
         # Fixed known CPU calculation makes the widening visible: IID passes
         # 1.03 while a contiguous run of slow observations fails block8.
-        interval = export._interval([1.8] * 20 + [.8] * 20, [1.] * 40, 23101)
+        # Exactly representable input sums keep this oracle independent of
+        # Python-version differences in floating-point summation.
+        interval = export._interval([18.] * 20 + [8.] * 20, [10.] * 40, 23101)
         self.assertEqual(interval, {"speedup_total_cost": 1.3, "ci95": [.925, 1.65],
-            "baseline_total_us": 52., "candidate_total_us": 40., "iid_ci95": [1.15, 1.45],
+            "baseline_total_us": 520., "candidate_total_us": 400., "iid_ci95": [1.15, 1.45],
             "block4_ci95": [1.025, 1.6], "block8_ci95": [.925, 1.65]})
         for length in (39, 41, 44, 1001):
             with self.subTest(length=length), self.assertRaises(ValueError):
