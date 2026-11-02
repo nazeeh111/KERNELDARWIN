@@ -1,0 +1,53 @@
+test_execution_mode_and_batch_bound_precede_backend_work (test_transaction_search.TransactionContractTests.test_execution_mode_and_batch_bound_precede_backend_work) ... ok
+test_static_bounds_reject_unsupported_custom_domains (test_transaction_search.TransactionContractTests.test_static_bounds_reject_unsupported_custom_domains) ... ok
+2026-11-02 01:24:32.339 python[32405:11164665] Metal API Validation Enabled
+2026-11-02 01:24:32.339 python[32405:11164665] Metal GPU Validation Enabled
+test_all_library_and_authored_paths_match_batch_reference (test_transaction_search.TransactionSearchTests.test_all_library_and_authored_paths_match_batch_reference) ... ok
+test_changed_contents_and_changed_documents (test_transaction_search.TransactionSearchTests.test_changed_contents_and_changed_documents) ... ok
+test_empty_batches_still_validate_document_refresh (test_transaction_search.TransactionSearchTests.test_empty_batches_still_validate_document_refresh) ... ok
+test_invalid_shapes_types_and_k (test_transaction_search.TransactionSearchTests.test_invalid_shapes_types_and_k) ... ok
+test_lower_precision_and_mixed_query_dtypes (test_transaction_search.TransactionSearchTests.test_lower_precision_and_mixed_query_dtypes) ... ok
+test_nonfinite_rejection_does_not_mutate_inputs (test_transaction_search.TransactionSearchTests.test_nonfinite_rejection_does_not_mutate_inputs) ... ok
+test_public_variable_batch_boundaries (test_transaction_search.TransactionSearchTests.test_public_variable_batch_boundaries) ... ok
+test_strides_offsets_broadcasts_and_input_preservation (test_transaction_search.TransactionSearchTests.test_strides_offsets_broadcasts_and_input_preservation) ... ok
+test_unsupported_custom_shapes_and_k_use_library_results (test_transaction_search.TransactionSearchTests.test_unsupported_custom_shapes_and_k_use_library_results) ... ok
+test_zero_ties_and_adversarial_magnitudes (test_transaction_search.TransactionSearchTests.test_zero_ties_and_adversarial_magnitudes) ... ok
+test_bounded_regular_reads_reject_oversize_and_fifo (test_transaction_plan.TransactionPlanContractTests.test_bounded_regular_reads_reject_oversize_and_fifo) ... ok
+test_cached_environment_cannot_be_mutated_by_callers (test_transaction_plan.TransactionPlanContractTests.test_cached_environment_cannot_be_mutated_by_callers) ... ok
+test_changed_dispatcher_source_is_rejected (test_transaction_plan.TransactionPlanContractTests.test_changed_dispatcher_source_is_rejected) ... ok
+test_default_missing_and_valid_manufactured_artifact (test_transaction_plan.TransactionPlanContractTests.test_default_missing_and_valid_manufactured_artifact) ... ok
+test_duplicate_and_nonfinite_json_is_rejected (test_transaction_plan.TransactionPlanContractTests.test_duplicate_and_nonfinite_json_is_rejected) ... ok
+test_empty_duplicate_and_excessive_rules_are_rejected (test_transaction_plan.TransactionPlanContractTests.test_empty_duplicate_and_excessive_rules_are_rejected) ... ok
+test_malformed_data_and_unavailable_backend_fail_closed (test_transaction_plan.TransactionPlanContractTests.test_malformed_data_and_unavailable_backend_fail_closed) ... ok
+test_numerical_and_confirmation_flags_are_exact_booleans (test_transaction_plan.TransactionPlanContractTests.test_numerical_and_confirmation_flags_are_exact_booleans) ... ok
+test_profiled_host_strides_and_unknown_requests (test_transaction_plan.TransactionPlanContractTests.test_profiled_host_strides_and_unknown_requests) ... ok
+test_readable_source_must_match_and_symlinks_fail_closed (test_transaction_plan.TransactionPlanContractTests.test_readable_source_must_match_and_symlinks_fail_closed) ... ok
+test_source_study_device_and_operation_fail_closed (test_transaction_plan.TransactionPlanContractTests.test_source_study_device_and_operation_fail_closed) ... ok
+test_unsupported_rule_semantics_and_resource_domains (test_transaction_plan.TransactionPlanContractTests.test_unsupported_rule_semantics_and_resource_domains) ... ok
+test_changed_aliasing_inputs_and_nonfinite_recovery (test_transaction_plan.TransactionPlanMetalTests.test_changed_aliasing_inputs_and_nonfinite_recovery) ... 2026-11-02 01:24:34.706 system_profiler[32418:11164732] Metal API Validation Enabled
+2026-11-02 01:24:34.706 system_profiler[32418:11164732] Metal GPU Validation Enabled
+ok
+test_known_host_layouts_execute_both_authored_trials (test_transaction_plan.TransactionPlanMetalTests.test_known_host_layouts_execute_both_authored_trials) ... ok
+test_rank_adapter_uses_evaluated_scores_and_bounded_dispatch (test_transaction_plan.TransactionPlanMetalTests.test_rank_adapter_uses_evaluated_scores_and_bounded_dispatch) ... ok
+test_unknown_layout_dtype_boundary_and_mlx_inputs_fall_back (test_transaction_plan.TransactionPlanMetalTests.test_unknown_layout_dtype_boundary_and_mlx_inputs_fall_back) ... ERROR
+
+======================================================================
+ERROR: test_unknown_layout_dtype_boundary_and_mlx_inputs_fall_back (test_transaction_plan.TransactionPlanMetalTests.test_unknown_layout_dtype_boundary_and_mlx_inputs_fall_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/kd-batch-core-installed-20261102/tests/test_transaction_plan.py", line 217, in test_unknown_layout_dtype_boundary_and_mlx_inputs_fall_back
+    self.check(policy.search(a,b),a,b,tolerance=.03 if isinstance(a,self.np.ndarray) and a.dtype==self.np.float16 else 2e-5)
+               ^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/kd-batch-core-installed-20261102/env/lib/python3.12/site-packages/kerneldarwin/transaction_plan.py", line 239, in search
+    docs,queries=prepare(documents,query_batches,k,mode)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/kd-batch-core-installed-20261102/env/lib/python3.12/site-packages/kerneldarwin/transaction_plan.py", line 150, in prepare
+    return (mx.array(documents) if isinstance(documents,np.ndarray) else documents,
+            ^^^^^^^^^^^^^^^^^^^
+ValueError: Cannot convert DLPack arrays with negative strides to mlx array.
+
+----------------------------------------------------------------------
+Ran 28 tests in 3.238s
+
+FAILED (errors=1)
+{"passed": false, "tests_run": 28, "native_methods": 14, "source_sha256": "c6bff090bc4c400d967d1c4546a39d7d1075fd2c900b955060c5046dbd4ebf83"}

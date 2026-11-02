@@ -10,6 +10,8 @@ A [prospective V2 ranking protocol](docs/workload-ranking-v2.md) checked complet
 
 The subsequent [batch transaction API](docs/workload-transactions.md) compiles raw index refresh and multiple query groups together. It passed ten native Metal methods, two CPU contracts and eight changed-input consumer checks from a fresh installation. Its default uses optimized libraries. Longer balanced timing windows reduced rank uncertainty in a separate diagnostic; complete-application uncertainty still needs its own frozen evidence. No custom transaction artifact is accepted.
 
+The new host-input batch API and CLI passed [28 installed numerical checks, including 14 native Metal methods](evidence/workload-2026-11-02/transaction-v1/), plus changed-input and missing-artifact fallback checks. Its static dispatcher and independent raw-evidence reader are prepared for a [bounded prospective study](docs/workload-transaction-study.md). Numerical correctness is separate from performance acceptance.
+
 [Run the workload](docs/workload.md) · [Semantic contract](docs/workload-semantics.md) · [Readable kernels](src/kerneldarwin/metal/) · [Interface and editable architecture](docs/workload-interface.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
 ## Run from the current source

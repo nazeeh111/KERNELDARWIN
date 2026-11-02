@@ -1,0 +1,90 @@
+{
+  "application": "one index refresh and batched searches",
+  "artifact_status": "fallback: [Errno 2] No such file or directory: 'absent-plan'",
+  "dispatch_scope": "batch_refresh_top5_v1",
+  "input_prepare_ms": 17.840292013715953,
+  "compute_ms": 23.0131660355255,
+  "calls": 1,
+  "fallback_calls": 1,
+  "last_decision": {
+    "implementation": "library",
+    "reason": "Unfamiliar request or no compatible batch plan"
+  },
+  "batches": [
+    {
+      "ids": [
+        [
+          36,
+          1,
+          16,
+          9,
+          15
+        ]
+      ],
+      "scores": [
+        [
+          0.9999999403953552,
+          0.19264069199562073,
+          0.17128004133701324,
+          0.13943684101104736,
+          0.12928761541843414
+        ]
+      ]
+    },
+    {
+      "ids": [
+        [
+          35,
+          1,
+          13,
+          15,
+          25
+        ],
+        [
+          34,
+          30,
+          9,
+          6,
+          17
+        ]
+      ],
+      "scores": [
+        [
+          1.0000003576278687,
+          0.23811061680316925,
+          0.17896513640880585,
+          0.1634225994348526,
+          0.13372603058815002
+        ],
+        [
+          0.9999997615814209,
+          0.1950247436761856,
+          0.1863579899072647,
+          0.15888647735118866,
+          0.1147853434085846
+        ]
+      ]
+    },
+    {
+      "ids": [
+        [
+          1,
+          15,
+          35,
+          26,
+          32
+        ]
+      ],
+      "scores": [
+        [
+          1.0000001192092896,
+          0.2921035885810852,
+          0.23811061680316925,
+          0.23082149028778076,
+          0.2156188040971756
+        ]
+      ]
+    }
+  ],
+  "timing_note": "Single invocation including cold work and all host staging; not an acceleration claim"
+}

@@ -24,3 +24,21 @@ The guarded suite passed two CPU contract methods and ten actual Metal methods w
 An earlier instrumented library-only prototype reduced sorting-path command-buffer submissions from thirteen to four per three-task sequence; reduction paths used seven. Its observed timing intervals favored batching. Those measurements include observer overhead and are a development diagnostic, not accepted custom-kernel performance or a versioned optimized release. Any future authored comparison must use equally composed optimized-library baselines, new untouched confirmation data and a separately frozen protocol. The completed V2 study remains an immutable null result.
 
 Run the [changed-input example](../examples/transaction_search.py) after installing the package. It reverses document contents and verifies eight top matches across two calls, without a corpus file, tuning cache or research UI. Its dispatch is explicitly library-only.
+
+## Host inputs and static batch plans
+
+`TransactionPlan.search` accepts NumPy float16/float32 matrices as well as the MLX inputs above. It includes input validation and host staging in the call. A negative-stride, read-only or unaligned NumPy input is explicitly copied before staging and uses the library fallback. Other unknown valid shapes, layouts, dtypes and direct MLX requests also use the library. Invalid dimensions, unsupported precision or nonfinite data raise an error. Inputs must not be modified concurrently with a call.
+
+```python
+import numpy as np
+from kerneldarwin.transaction_plan import TransactionPlan
+
+docs = np.random.default_rng(7).normal(size=(37, 97)).astype(np.float32)
+groups = [docs[[0]].copy(), docs[[1, 2]].copy()]
+plan = TransactionPlan()  # Library default; no accepted batch artifact exists.
+results = plan.search(docs, groups, k=5)
+```
+
+For the command line, save `documents` and either a 2D/3D `queries` array or consecutive `queries_0`, `queries_1`, … arrays in an NPZ file, then run `kd workload batch vectors.npz --k 5`. Numeric entries are bounded to 256 MiB before allocation; pickle objects are rejected. `--artifact path` loads a data-only plan or reports why it fell back. The result contains actual IDs/scores, the dispatch decision and counts. A single invocation is not a performance claim.
+
+The [host-input example](../examples/transaction_plan.py) and CLI passed sixteen combined changed-input top-match checks from a fresh source-free installation. The expanded suite passed all 28 methods, including 14 actual Metal methods with API/GPU validation, against exact installed source and runtime hashes. The first native run exposed a negative-stride conversion bug; the [regression evidence](../evidence/workload-2026-11-02/transaction-v1/regression/) preserves that failure and the correction. These [new numerical prerequisites](../evidence/workload-2026-11-02/transaction-v1/) do not establish performance. The [prospective batch study](workload-transaction-study.md) compares custom rules against four equally batched optimized libraries, independently of any batching benefit over separate queries.

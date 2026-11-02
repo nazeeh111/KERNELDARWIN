@@ -20,35 +20,43 @@ def main():
     args=parser.parse_args()
     if args.output.exists():raise FileExistsError('Preserve the previous numerical report')
     os.environ['KD_RUN_METAL']='1'
-    path=ROOT/'tests/test_transaction_search.py'
-    spec=importlib.util.spec_from_file_location('test_transaction_search',path)
-    tests=importlib.util.module_from_spec(spec);spec.loader.exec_module(tests)
+    paths=[ROOT/'tests/test_transaction_search.py',ROOT/'tests/test_transaction_plan.py']
+    tests=[]
+    for path in paths:
+        spec=importlib.util.spec_from_file_location(path.stem,path)
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);tests.append(module)
     start=time.perf_counter()
-    result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
+    suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromModule(m) for m in tests)
+    result=unittest.TextTestRunner(verbosity=2).run(suite)
     import kerneldarwin.transaction_search as transaction
-    from kerneldarwin import rank_search,search,library_baselines,workload,study_identity
-    modules=(transaction,rank_search,search,library_baselines,workload,study_identity)
-    methods=tests.TransactionSearchTests.completed_methods
-    passed=(result.wasSuccessful() and result.testsRun>=12 and len(methods)>=10
-            and tests.TransactionSearchTests.gpu_executed is True and not result.skipped)
-    identity,environment,unavailable=None,None,None
+    from kerneldarwin import transaction_plan,rank_search,search,library_baselines,workload,study_identity
+    modules=(transaction,transaction_plan,rank_search,search,library_baselines,workload,study_identity)
+    classes=[tests[0].TransactionSearchTests,tests[1].TransactionPlanMetalTests]
+    methods=[c.__name__+'.'+name for c in classes for name in c.completed_methods]
+    gpu_executed=all(c.gpu_executed is True for c in classes)
+    passed=(result.wasSuccessful() and result.testsRun>=28 and len(methods)>=14 and gpu_executed and not result.skipped)
+    identity,environment,unavailable,executor_identity=None,None,None,None
     try:
-        identity=transaction.transaction_source_identity()
-        environment=workload.environment_identity()
+        identity=transaction_plan.source_identity()
+        executor_identity=transaction.transaction_source_identity()
+        environment=transaction_plan.environment_identity()
+        measurement_identity=transaction_plan.study_identity()
     except (ImportError,ValueError,RuntimeError,OSError) as error:
         passed=False
+        measurement_identity=None
         unavailable=type(error).__name__+': '+str(error)
-    backend=getattr(tests.TransactionSearchTests,'mx',None)
-    report={'kind':'transaction_production_numerical_validation','schema':1,
+    backend=getattr(classes[0],'mx',None)
+    report={'kind':'transaction_plan_production_numerical_validation','schema':2,
         'passed':passed,'tests_run':result.testsRun,'native_metal_methods_completed':methods,
-        'cpu_contract_methods':result.testsRun-len(methods),'gpu_executed':tests.TransactionSearchTests.gpu_executed,
+        'cpu_contract_methods':result.testsRun-len(methods),'gpu_executed':gpu_executed,
         'failures':len(result.failures),'errors':len(result.errors),'skips':len(result.skipped),
         'source_sha256':identity,'environment':environment,'unavailable_or_changed_source':unavailable,
+        'study_identity':measurement_identity,'executor_source_sha256':executor_identity,
         'elapsed_seconds':time.perf_counter()-start,'peak_memory_bytes':backend.get_peak_memory() if backend is not None else None,
         'validation_root':str(ROOT),'validation_root_src_exists':(ROOT/'src').exists(),
         'actual_imports':{m.__name__:{'path':m.__file__,'sha256':hashlib.sha256(Path(m.__file__).read_bytes()).hexdigest()} for m in modules},
         'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        'test_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+        'test_sha256':{path.name:hashlib.sha256(path.read_bytes()).hexdigest() for path in paths},
         'validation_flags':{k:os.getenv(k) for k in ('MTL_DEBUG_LAYER','MTL_SHADER_VALIDATION')},
         'candidate_timing':False,'accepted_artifact':False,
         'scope':'Public compiled-library batch API and private numerical authored trials. Lower-precision cases are smoke checks, not full float32 adversarial coverage. Numerical correctness does not confirm performance or an artifact.'}

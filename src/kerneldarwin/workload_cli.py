@@ -21,6 +21,10 @@ def add_parser(commands: Any) -> None:
     p.add_argument("vectors",type=Path,help="NPZ with documents and queries matrices")
     p.add_argument("--artifact",type=Path)
     p.add_argument("--k",type=int,default=5)
+    p=sub.add_parser("batch",help="Refresh once and search NPZ query groups with a guarded batch plan")
+    p.add_argument("vectors",type=Path,help="NPZ documents plus queries or consecutive queries_0..queries_N")
+    p.add_argument("--artifact",type=Path)
+    p.add_argument("--k",type=int,default=5)
     p=sub.add_parser("export",help="Export a frozen independently confirmed Metal plan")
     p.add_argument("study",type=Path)
     p.add_argument("--output",type=Path,required=True)
@@ -72,9 +76,14 @@ def run(args: Any) -> dict[str,Any]:
             from .fused_export import export_artifact
         elif protocol.get('target')=='stable_top5_pairs_v1':
             from .rank_export import export_artifact
+        elif protocol.get('target')=='batch_refresh_top5_v1':
+            from .transaction_export import export_artifact
         else:
             from .workload_export import export_artifact
         return export_artifact(args.study,args.output)
+    if args.workload_command=='batch':
+        from .transaction_cli import run as batch_run
+        return batch_run(args)
     import mlx.core as mx
     import numpy as np
     from .search import CosineIndex,text_vectors

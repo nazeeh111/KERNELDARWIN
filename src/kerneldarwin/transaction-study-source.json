@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "measurement_script_sha256": "12ca2bad707b1acc2aaba8ac447d21178542973d7bd54bc803de888d180a9e95",
+  "measurement_helper_sha256": "4470b506443feea5cf6a4f22b5fea01338e8a199621b02dd0f45f20f114f5b3a",
+  "verifier_sha256": "42e78bf029da49537119336bd3fdf6a9f0a0e80db1c36a0c25e292cb58684362",
+  "numerical_producer_sha256": "242993dce30df486a009ce1f911bfbc136253ec96cbc010dcbc3186718842b05",
+  "numerical_tests_sha256": {
+    "test_transaction_search.py": "5bd87e18c4f9878fac269a4a89f6509ea73c5580b02c3ede9d0af59ccfebff5a",
+    "test_transaction_plan.py": "657b609b3f657d3c1cc1a70b71ce4b4c46022de45fbb00101d92eb63394e8ceb"
+  }
+}
