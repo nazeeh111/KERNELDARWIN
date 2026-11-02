@@ -6,6 +6,8 @@ The third target changes stable top-five ranking rather than normalization or sc
 
 A later host-input batch API combines document refresh and three query groups in one compiled transaction. Its installed numerical suite passed 28 methods, including 14 native Metal methods. Its single [prospective calibration](workload-transaction-study.md) reached the fixed 180-second cap after 120 completed rank groups and 14 of 40 application groups. It stopped before candidate tuning; the application equality gate was not reached. Independent installed replay matched all completed rank comparisons and verified the stop. Export was refused with no artifact created. This is an incomplete resource-bounded calibration, not a confirmed speedup or a measured custom-kernel loss.
 
+The separate [eight-call resource diagnostic](../evidence/workload-2026-11-02/batch-call-accounting/) directly observed 27–29 library compute dispatches, three generic copy launches and warmed buffer-cache reuse. It also accounts for host constructor storage spans and output payloads from the pinned source and actual inputs. Its command-buffer scope includes final diagnostic synchronization, and physical bus traffic remains unmeasured. It supplies more precise accounting, not performance confirmation.
+
 ## Executed numerical evidence
 
 | Scope | Executed result | Evidence |

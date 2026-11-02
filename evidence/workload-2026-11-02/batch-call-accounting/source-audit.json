@@ -1,0 +1,10 @@
+{
+  "runtime_files_equal_previously_executed_installed_package_and_current_source": 76,
+  "environment_matches_28_method_native_report": true,
+  "source_sha256": "481e4949b30d038e14c7470249744d3f388e9771b076463fec684f927a8ca987",
+  "study_identity": "ea63b92a332e1824050c6f8f378800753d82b74d3928667b59db3179aeee22e6",
+  "helper_binary_sha256_postrun_matches": true,
+  "runtime_or_closed_study_changed": false,
+  "raw_system_trace_or_foreign_records": false,
+  "scope": "Post-run file identity checks, not loaded-memory attestation."
+}

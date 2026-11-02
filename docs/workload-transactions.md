@@ -42,3 +42,27 @@ results = plan.search(docs, groups, k=5)
 For the command line, save `documents` and either a 2D/3D `queries` array or consecutive `queries_0`, `queries_1`, … arrays in an NPZ file, then run `kd workload batch vectors.npz --k 5`. Numeric entries are bounded to 256 MiB before allocation; pickle objects are rejected. `--artifact path` loads a data-only plan or reports why it fell back. The result contains actual IDs/scores, the dispatch decision and counts. A single invocation is not a performance claim.
 
 The [host-input example](../examples/transaction_plan.py) and CLI passed sixteen combined changed-input top-match checks from a fresh source-free installation. The expanded suite passed all 28 methods, including 14 actual Metal methods with API/GPU validation, against exact installed source and runtime hashes. The first native run exposed a negative-stride conversion bug; the [regression evidence](../evidence/workload-2026-11-02/transaction-v1/regression/) preserves that failure and the correction. These [new numerical prerequisites](../evidence/workload-2026-11-02/transaction-v1/) do not establish performance. The [prospective batch study](workload-transaction-study.md) compares custom rules against four equally batched optimized libraries, independently of any batching benefit over separate queries.
+
+## Copies and executed graph
+
+A separate [installed call-accounting diagnostic](../evidence/workload-2026-11-02/batch-call-accounting/) observed 27–29 compute dispatches per library request across the three declared profiles. Three generic copy dispatches matched the query-group dimensions. The stride-2 profile's four host constructors copy 1,062,908 bytes of storage span for 568,320 bytes of logical input. Negative-stride fallback adds an explicit dense host copy. Cached Metal buffers were reused, so zero new-buffer API calls does not mean zero copying or logical allocation. Command-buffer counts include the diagnostic's final synchronization; physical bus traffic and exact API-only submission counts remain unmeasured.
+
+The current library path is stateless:
+
+```mermaid
+flowchart LR
+    H[Host documents and query groups] --> G[Validate metadata and guard layout]
+    G --> C[Copy unsupported host storage when needed]
+    C --> M[Stage host arrays in MLX]
+    M --> D[Normalize document rows]
+    M --> Q[Join query groups and normalize rows]
+    D --> S[Vendor matrix multiplication]
+    Q --> S
+    S --> R[Stable ranking and score gather]
+    D --> F[Check finite results]
+    Q --> F
+    R --> O[Host IDs and scores]
+    F --> O
+```
+
+The static dispatcher can select an installed confirmed rule before this graph's rank operation, but no batch rule has passed performance confirmation. The diagram describes the executed library default. The new accounting records do not change that acceptance state.

@@ -1,0 +1,36 @@
+{
+  "kind": "fixed_installed_library_call_accounting",
+  "script_sha256": "c3bf48625a705254df43024d0a8f7fc36bc3f3498562168c05934f9f7d12be3b",
+  "helper_sha256": "e407697e4812149d77fbd8c2346b9870b61a298d674ccbb212d88fd2976f615a",
+  "binary_sha256": "fad250c1549e982e7e34b58cf9a88d1a28d35fa3245d502c24bc9dc7389d5326",
+  "operation_source_sha256": "481e4949b30d038e14c7470249744d3f388e9771b076463fec684f927a8ca987",
+  "study_identity": "ea63b92a332e1824050c6f8f378800753d82b74d3928667b59db3179aeee22e6",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "wall_cap_seconds": 60,
+  "external_watchdog_seconds": 75,
+  "memory_cap_bytes": 2147483648,
+  "cache_bytes": 268435456,
+  "event_cap_per_call": 4096,
+  "cases": [
+    "notes",
+    "manuals",
+    "archive",
+    "notes_negative"
+  ],
+  "changed_input_seeds": [
+    50311,
+    50312
+  ],
+  "calls": 8,
+  "positive_control": "16byte blit; device, heap, copied and no-copy allocations; named group and thread dispatch; actual results/completions",
+  "candidate_performance_timed": false,
+  "performance_acceptance": false,
+  "heldout_executed": false,
+  "limits": [
+    "Own-process API events only; no system trace or foreign records.",
+    "No pure GPU timing, cache-coherence bus-byte measurement or complete CPU heap allocation tracing.",
+    "Host constructor span/copy payload is source-derived accounting checked with runtime values; it is not measured bus traffic.",
+    "Cache reuse means native new-buffer events differ from logical MLX array allocation requests.",
+    "One bounded diagnostic attempt. No closed study is resumed or reinterpreted."
+  ]
+}
