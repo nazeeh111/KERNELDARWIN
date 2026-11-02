@@ -4,6 +4,8 @@
 
 The third target changes stable top-five ranking rather than normalization or scoring. Twelve production Metal methods passed from an independent installed wheel. V1 controls failed before candidate timing. A separately preregistered V2 study then completed development, three untouched confirmations and 24 cold processes, with an empty selected policy and failed performance gates. Its independent installed exporter refused the result. No optimized artifact is accepted.
 
+A later host-input batch API combines document refresh and three query groups in one compiled transaction. Its installed numerical suite passed 28 methods, including 14 native Metal methods. Its single [prospective calibration](workload-transaction-study.md) reached the fixed 180-second cap after 120 completed rank groups and 14 of 40 application groups. It stopped before candidate tuning; the application equality gate was not reached. Independent installed replay matched all completed rank comparisons and verified the stop. Export was refused with no artifact created. This is an incomplete resource-bounded calibration, not a confirmed speedup or a measured custom-kernel loss.
+
 ## Executed numerical evidence
 
 | Scope | Executed result | Evidence |
@@ -12,6 +14,7 @@ The third target changes stable top-five ranking rather than normalization or sc
 | Current fused query normalization and similarity scoring | Eight GPU test methods, zero failures, errors or skips | [Current compiled-path validation](../evidence/workload-2026-10-29/discovery/metal-validation-fused-block128.json) |
 | Stable top-five ranking, original V1 measurement identity | 12 production GPU methods, zero failures, errors or skips; separate installed wheel; native API/GPU validation enabled | [V1 ranking validation](../evidence/workload-2026-11-01/rank-v1/numerical-validation.json), [native log](../evidence/workload-2026-11-01/rank-v1/native-validation.log) |
 | Stable top-five ranking, current V2 measurement identity | 12 fresh production GPU methods, zero failures, errors or skips; installed module paths recorded directly; native API/GPU validation enabled | [V2 ranking validation](../evidence/workload-2026-11-01/rank-v2/numerical-validation.json), [native log](../evidence/workload-2026-11-01/rank-v2/native-validation.log) |
+| Host-input batch transaction and static planner | 28 methods including 14 native Metal methods; zero failures, errors or skips; source-free installation and API/GPU validation; 16 changed-input API/CLI top-match checks | [Batch validation and consumers](../evidence/workload-2026-11-02/transaction-v1/), [retained negative-stride regression](../evidence/workload-2026-11-02/transaction-v1/regression/) |
 
 The original frozen first study retains its earlier 16-test report and exact source snapshot. Later source-guard and measurement-identity changes were separately revalidated in the reports above; historical records were not relabeled. These are separate executed suites, not a claim that every future source revision has passed them. All recorded native suites used Metal API and GPU shader validation. Recorded hardware was a 10-core Apple M4 GPU with 32 GiB memory, MLX and MLX Metal `0.32.0`, Python `3.12.13`, and arm64 macOS `27.2`, build `26B123`. CUDA sanitizers and other-device validation are not implied.
 

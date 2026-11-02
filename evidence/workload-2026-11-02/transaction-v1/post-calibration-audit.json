@@ -1,0 +1,16 @@
+{
+  "all_preregistered_files_unchanged_before_outcome_documentation": 72,
+  "source_archive_sha256": "90d210600ebefd35e3d9ca427a41f8c86b702149ef6b2d1e94a2b35b8dc51d11",
+  "dependency_files_unchanged": [
+    "mlx/core.cpython-312-darwin.so",
+    "mlx/lib/libmlx.dylib",
+    "mlx/lib/mlx.metallib",
+    "numpy/_core/_multiarray_umath.cpython-312-darwin.so"
+  ],
+  "independently_installed_cpu_replay_matches": true,
+  "actual_installed_export_refused": true,
+  "refused_output_absent": true,
+  "candidate_tuning_or_confirmation_run": false,
+  "new_performance_claim": false,
+  "limit": "File comparisons after execution are provenance checks, not loaded-memory or GPU attestation."
+}

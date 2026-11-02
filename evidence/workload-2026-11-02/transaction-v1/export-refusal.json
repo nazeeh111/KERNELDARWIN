@@ -1,0 +1,10 @@
+{
+  "refused": true,
+  "error": "Preserve failed stage; no artifact",
+  "output_absent": true,
+  "exporter_path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/transaction_export.py",
+  "exporter_sha256": "42e78bf029da49537119336bd3fdf6a9f0a0e80db1c36a0c25e292cb58684362",
+  "study_sha256": "07e7c87e1318b614d745c21921e7af710793558314fd2b47e39856c14d1c50e1",
+  "accepted_artifact": false,
+  "source_free_root": true
+}
