@@ -1,6 +1,6 @@
-<p align="left"><img src="lab/mark.svg" width="64" alt="KERNELDARWIN branching K mark"></p>
+<p align="left"><img src="lab/mark.svg" width="64" alt="KernelDarwin branching K mark"></p>
 
-# KERNELDARWIN
+# KernelDarwin
 
 ### Why is this GPU program slow? Keep the experiment that answers it.
 
