@@ -2,7 +2,7 @@
 
 **The first frozen study failed its application performance gate.** Its numerical and resource checks passed, all three confirmation sessions and 24 fresh-process startup runs completed, and no optimized artifact was accepted. The compiled fused-score target also completed three frozen sessions and 18 fresh-process starts, but failed both performance gates. These results do not establish acceleration.
 
-The third target changes stable top-five ranking rather than normalization or scoring. Twelve production Metal methods passed from an independent installed wheel. Its prospective identical-library baseline and one longer-block diagnostic both failed the unchanged noise gate, so no ranking candidate was timed, tuned or selected. A performance result and accepted artifact remain unavailable.
+The third target changes stable top-five ranking rather than normalization or scoring. Twelve production Metal methods passed from an independent installed wheel. V1 controls failed before candidate timing. A separately preregistered V2 study then completed development, three untouched confirmations and 24 cold processes, with an empty selected policy and failed performance gates. Its independent installed exporter refused the result. No optimized artifact is accepted.
 
 ## Executed numerical evidence
 
@@ -161,11 +161,11 @@ The current implementation and fixed/per-shape comparators now use that same com
 
 The [independent installed compiled-path suite](../evidence/workload-2026-10-29/discovery/installed-fused-compiled-suite.json) repeated all eight current GPU methods from a fresh wheel environment with no source tree or tuning files. Its synthetic plans exercise dispatch and source guards only; they do not constitute accepted performance artifacts.
 
-## Third target: ranking validated, performance study did not start
+## Third target V1: ranking validated, controls rejected
 
 The new operation selects five stable `(score, document index)` pairs without sorting the entire score row. It retains stable normalization, vendor matrix multiplication and query validation. Two authored configurations use one SIMD group or four cooperating groups per row. Their 5,572 source bytes passed the production suite from an independently installed wheel: **12 methods, zero failures/errors/skips**, native Metal API and GPU validation enabled, **15,166,683 bytes** peak MLX memory. The earlier private prototype passed 318 composite checks; those prototype cases are distinct from the production report.
 
-The prospective study includes compiled stable/fast normalization with both full sorting and a library-only repeated-reduction ranker, as well as eager, fixed, per-shape and actual static-dispatch adapters. Development would compare separately measured global, routed and actual-plan costs. Acceptance would require both canonical ranking baselines and all four complete-application libraries in every independent session. No development observations, frozen policy, confirmation sessions or cold study were produced.
+The prospective study includes compiled stable/fast normalization with both full sorting and a library-only repeated-reduction ranker, as well as eager, fixed, per-shape and actual static-dispatch adapters. Development would compare separately measured global, routed and actual-plan costs. Acceptance would require both canonical ranking baselines and all four complete-application libraries in every independent session. V1 produced no development observations, frozen policy, confirmation sessions or cold study.
 
 The first prerequisite measured identical compiled library ranking in randomized pairs, each block forcing both IDs and values for 128 separately evaluated inputs. Every 95% total-cost ratio interval had to fit inside `[0.9,1.1]`. All three tasks failed that gate. Load averages were approximately 273/206/192; power was AC and `pmset` reported no recorded thermal warning. That observation does not identify the cause of the variation.
 
@@ -181,7 +181,48 @@ The [rejected baseline](../evidence/workload-2026-11-01/rank-v1/rejected-baselin
 
 A later audit observed a substantial external change: load had fallen to 12.79/27.87/53.71, compared with 272.56/206.28/191.54 at the original rejection and 121.31/196.96/194.02 before the longer-block diagnostic. Independent review supported exactly one fresh original 128-input check, preserving all source, gates, seeds and prior failures. That [separate prospective attempt](../evidence/workload-2026-11-01/rank-v1-lower-load-20261101/) failed for notes and manuals even as recorded load fell to 8.25/24.04/50.66. No candidate was timed. CPU load is not a measurement of GPU contention or temperature; its reduction did not establish usable timing stability. No further V1 timing attempt followed this rejection.
 
-After explicit goal resumption, a separate [prospective V2 amendment](workload-ranking-v2.md) was independently reviewed before any candidate observations. It measures complete-application controls and changes the rank-only entry rule, with conservative symmetric noise margins and IID/block sensitivity envelopes. This does not reinterpret any V1 rejection. The 147-method CPU suite passed with 29 explicit Metal skips, and a fresh installed wheel passed twelve native numerical methods in 31.07 seconds, peaking at 12,357,492 MLX bytes. The numerical report records actual installed module paths. One V2 calibration and any candidate results are pending.
+After explicit goal resumption, a separate [prospective V2 amendment](workload-ranking-v2.md) was independently reviewed before any candidate observations. It measures complete-application controls and changes the rank-only entry rule, with conservative symmetric noise margins and IID/block sensitivity envelopes. This does not reinterpret any V1 rejection. The 147-method CPU suite passed with 29 explicit Metal skips, and a fresh installed wheel passed twelve native numerical methods in 31.07 seconds, peaking at 12,357,492 MLX bytes. The numerical report records actual installed module paths. The single V2 calibration and complete frozen study subsequently ran; the null result follows.
+
+## Third target V2: completed with an empty policy
+
+The separately preregistered [V2 methods](workload-ranking-v2.md) materially relaxed rank-only entry in favor of an application control. The original V1 failures remain unchanged. The exact preregistered 44-file [source packet](../evidence/workload-2026-11-01/rank-v2/source-frozen.zip) was frozen from public commit `dfc5b01` before calibration or candidate observations; its manifest records every hash. Runtime/math, two configurations, tasks, seeds and budgets stayed fixed throughout.
+
+The single calibration passed in **9.45 seconds**, with application negative-control primary interval **[0.9929, 1.0277]**. Rank controls remained wide. The fixed symmetric-noise formula therefore required ranking lower bounds above **2.0886013** against both canonical algorithms and complete-application lower bounds above **1.0561013** against all four optimized libraries. Every primary interval is the envelope of paired IID and circular-block-4/8 sensitivities. The bounds are conservative decision rules, not guaranteed coverage or a proven bound on future noise.
+
+Development took **22.32 seconds**, peaked at **292,998,232 MLX bytes** and selected **zero custom rules**. The best fixed arm was `group128`; per-shape point-cost selection chose `group128`, `group128`, `simd32`. Neither authored kernel's actual-plan rank lower bound cleared the frozen requirement against both canonical baselines on any development task. The resulting empty dispatcher used the complete compiled library fallback. A candidate's point cost or operation improvement does not qualify it for export.
+
+All three untouched confirmations and all 24 fresh-process starts completed. Every confirmation failed both ranking and complete-application gates. Comparisons below are baseline total cost divided by dispatcher total cost, not averages of selected speedup ratios. The dispatcher contains no accepted custom computation.
+
+| Session | Rank primary interval vs stable sorting | Application primary interval vs stable sorting | Rank gate | All-library application gate |
+| --- | --- | --- | --- | --- |
+| 0 | [0.7980, 0.9477] | [0.9360, 1.1519] | Failed | Failed |
+| 1 | [0.9161, 1.2670] | [0.9774, 1.2380] | Failed | Failed |
+| 2 | [0.8439, 1.0600] | [0.8589, 1.1297] | Failed | Failed |
+
+All optimized application comparators remain visible:
+
+| Session | Stable sorting | Fast sorting | Stable repeated reduction | Fast repeated reduction |
+| --- | --- | --- | --- | --- |
+| 0 | [0.9360, 1.1519] | [0.9542, 1.1965] | [0.9992, 1.2465] | [1.0710, 1.3830] |
+| 1 | [0.9774, 1.2380] | [0.9621, 1.2056] | [1.1014, 1.4051] | [1.1203, 1.3505] |
+| 2 | [0.8589, 1.1297] | [0.9106, 1.1648] | [1.0886, 1.3472] | [1.1072, 1.4742] |
+
+The three processes had distinct IDs. Measured gaps after the prior process's end were 120.061/120.063 seconds and 120.076/120.075 seconds on Unix/monotonic clocks. These are operational separation checks, not proof of independent environmental draws. Execution used fixed gaps without favorable-load scheduling or foreign-job intervention. Calibration recorded battery power and load near 5.05/8.74/21.98; power/load observations are retained for all sessions. No recorded thermal warning is not a GPU temperature measurement or proof against throttling.
+
+Every session recorded **28,192 dispatcher calls and 28,192 fallbacks**, including numerical checks, rank bursts and application searches. These are not user-request totals. The maximum observed MLX peak was **584,782,748 bytes**, below 2 GiB. The two kernels plus shared header remain **5,572 bytes**. The study installed no artifact, so there is no installed optimized artifact size or supported amortization break-even. Every separate portfolio claim flag also failed, including advantages over best fixed/per-shape and a two-authored-kernel portfolio.
+
+The 24-process cold study took **12.69 seconds**, within its 180-second cap. Each method ran three times; OS/driver caches remained. Process time includes setup, identity checks, input preparation and first execution. Pure compilation time was not isolated. These startup medians are descriptive, not a confirmed advantage:
+
+| Method | Median process wall | Median first full application sequence |
+| --- | ---: | ---: |
+| `stable_library` | 457.18 ms | 37.95 ms |
+| `best_fixed` | 452.00 ms | 36.04 ms |
+| `per_shape` | 450.06 ms | 38.57 ms |
+| `dispatcher` | 676.30 ms | 37.84 ms |
+
+The separately installed numerical wheel replayed the original bounded raw records and returned `numerical_passed: true`, `resource_passed: true`, and `rank_passed`, `application_passed`, `confirmation_passed: false`. Its actual export call raised `Frozen confirmation failed; preserve the null result`; the requested output path remained absent. [Independent replay](../evidence/workload-2026-11-01/rank-v2/verification.json), [actual installed refusal](../evidence/workload-2026-11-01/rank-v2/export-refusal.json), [raw evidence](../evidence/workload-2026-11-01/rank-v2/).
+
+No source, criteria or policy were retuned after candidate observations, and no confirmation was retried. This ranking investigation is closed. A repeatable complete-application benefit, a nonempty accepted exported artifact, independent installed accepted-custom integration and a successful optimized Workload release remain unfulfilled. Exact per-call kernel dispatch, copy/materialization/transfer accounting and pure device elapsed time also remain partial; the earlier whole-process profile does not supply those missing counts.
 
 ## Later owned-process shader diagnostic
 

@@ -75,7 +75,7 @@ index.refresh(text_vectors(["Metal source", "local vector index", "test record"]
 
 For a future accepted score export, use `FusedPlan("artifact")` or `--artifact PATH`. `Normalizer("artifact")` with `CosineIndex(vectors, normalize=...)` remains the separate row-normalization API. The CLI selects the authored operation from manifest data; invalid plans keep a recorded library fallback. These APIs do not imply that an accepted artifact exists today.
 
-The separately investigated ranking API is `from kerneldarwin.rank_search import RankPlan`, followed by `RankPlan().index(vectors).search(queries, k=5)`. Its default also uses the full compiled stable query. `RankPlan("artifact")` and the same CLI `--artifact` option recognize confirmed `stable_top5_pairs_v1` manifests; none is currently accepted. It preserves stable tie order and original selected float32 score bits. See the [ranking contract](workload-semantics.md#stable-top-five-ranking) and [rejected baseline evidence](../evidence/workload-2026-11-01/rank-v1/).
+The separately investigated ranking API is `from kerneldarwin.rank_search import RankPlan`, followed by `RankPlan().index(vectors).search(queries, k=5)`. Its default also uses the full compiled stable query. `RankPlan("artifact")` and the same CLI `--artifact` option recognize confirmed `stable_top5_pairs_v1` manifests; none is currently accepted. It preserves stable tie order and original selected float32 score bits. See the [ranking contract](workload-semantics.md#stable-top-five-ranking), [rejected V1 controls](../evidence/workload-2026-11-01/rank-v1/) and [completed V2 null result](../evidence/workload-2026-11-01/rank-v2/).
 
 ## Guards and numerical scope
 

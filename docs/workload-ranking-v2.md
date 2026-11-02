@@ -1,5 +1,7 @@
 # Prospective ranking protocol V2
 
+**Registration record:** the protocol below was fixed before calibration and candidate observations. The completed study produced an empty policy and failed every confirmation performance gate. See the [executed results](workload-results.md#third-target-v2-completed-with-an-empty-policy) and [independent installed export refusal](../evidence/workload-2026-11-01/rank-v2/export-refusal.json). The exact original registration text is preserved in the frozen source packet; only this outcome pointer was added afterward.
+
 This protocol was defined before any ranking candidate timing or selection. It changes the entry rule because the intended result is a faster complete application. It does not turn earlier failed controls into passing results. The original rank-only prerequisite, longer-block diagnostic and lower-load attempt remain preserved with their original source, criteria and outcomes.
 
 The V2 implementation has received independent source/replay review. The CPU suite passed 147 methods with 29 explicit Metal skips. A fresh independent installed wheel passed all twelve actual numerical methods with native validation. One calibration attempt and any candidate study are still pending. No optimized artifact or acceleration is accepted.

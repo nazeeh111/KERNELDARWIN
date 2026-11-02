@@ -1,0 +1,1860 @@
+{
+  "schema": 2,
+  "target": "stable_top5_pairs_v1",
+  "measurement_design": "application_primary_symmetric_noise_v2",
+  "frozen_at": "2026-11-01T16:07:34Z",
+  "uncertainty": {
+    "resamples": 4000,
+    "circular_block_lengths": [
+      4,
+      8
+    ],
+    "block_seed_stride": 100003,
+    "primary_interval": "envelope_iid_block4_block8"
+  },
+  "calibration": {
+    "rank_order_seed": 21441,
+    "application_order_seed": 21443,
+    "application_input_seeds": [
+      21101,
+      21102,
+      21103,
+      21104,
+      21105,
+      21106,
+      21107,
+      21108,
+      21109,
+      21110,
+      21111,
+      21112,
+      21113,
+      21114,
+      21115,
+      21116,
+      21117,
+      21118,
+      21119,
+      21120,
+      21121,
+      21122,
+      21123,
+      21124,
+      21125,
+      21126,
+      21127,
+      21128,
+      21129,
+      21130,
+      21131,
+      21132,
+      21133,
+      21134,
+      21135,
+      21136,
+      21137,
+      21138,
+      21139,
+      21140
+    ],
+    "application_sequence_orders": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "negative_control_method": "stable_library",
+    "application_first_warmup_order": [
+      0,
+      1,
+      2
+    ],
+    "shared_method_instance": true
+  },
+  "application": "One index refresh plus three executed changed-query top5 searches per task",
+  "tasks": [
+    {
+      "id": "notes",
+      "rows": 64,
+      "width": 384,
+      "queries": 1,
+      "layout": "contiguous"
+    },
+    {
+      "id": "manuals",
+      "rows": 161,
+      "width": 768,
+      "queries": 8,
+      "layout": "column_stride2"
+    },
+    {
+      "id": "archive",
+      "rows": 161,
+      "width": 1536,
+      "queries": 17,
+      "layout": "transpose"
+    }
+  ],
+  "corpus_chunks": 161,
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "weights": "Equal task frequency; sum three rank costs per task and complete application costs",
+  "methods": [
+    "stable_library",
+    "fast_library",
+    "stable_reduction",
+    "fast_reduction",
+    "eager_library",
+    "best_fixed",
+    "per_shape",
+    "dispatcher"
+  ],
+  "libraries": [
+    "stable_library",
+    "fast_library",
+    "stable_reduction",
+    "fast_reduction"
+  ],
+  "canonical_rank_libraries": [
+    "stable_library",
+    "stable_reduction"
+  ],
+  "global_names": [
+    "stable_library",
+    "fast_library",
+    "stable_reduction",
+    "fast_reduction",
+    "eager_library",
+    "simd32",
+    "group128"
+  ],
+  "routed_choices": [
+    "stable_library",
+    "fast_library",
+    "stable_reduction",
+    "fast_reduction",
+    "simd32",
+    "group128"
+  ],
+  "rank_arms": [
+    "stable_library",
+    "fast_library",
+    "stable_reduction",
+    "fast_reduction",
+    "eager_library",
+    "simd32",
+    "group128",
+    "plan:simd32",
+    "plan:group128"
+  ],
+  "application_arms": [
+    "global:stable_library",
+    "global:fast_library",
+    "global:stable_reduction",
+    "global:fast_reduction",
+    "global:eager_library",
+    "global:simd32",
+    "global:group128",
+    "routed:stable_library",
+    "routed:fast_library",
+    "routed:stable_reduction",
+    "routed:fast_reduction",
+    "routed:simd32",
+    "routed:group128",
+    "plan:simd32",
+    "plan:group128",
+    "plan_library"
+  ],
+  "development": {
+    "seed": 21104,
+    "repeats": 40,
+    "order_seed": 21207,
+    "authored_configurations": 2,
+    "rank_observations_per_round": 9,
+    "application_adapter_observations_per_round": 16
+  },
+  "measurement_batch": 128,
+  "application_measurement_batch": 16,
+  "confirmation": {
+    "sessions": 3,
+    "repeats_per_session": 40,
+    "seeds": [
+      23101,
+      24203,
+      25307
+    ],
+    "sequence_orders": [
+      [
+        1,
+        0,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        0,
+        1
+      ],
+      [
+        0,
+        2,
+        1,
+        3
+      ]
+    ],
+    "minimum_separation_seconds": 120,
+    "unseen_task": {
+      "id": "unseen",
+      "rows": 97,
+      "width": 1025,
+      "queries": 7,
+      "layout": "column_stride2"
+    }
+  },
+  "criterion": {
+    "rank_ci95_lower_speedup": 2.0886012559265543,
+    "application_ci95_lower_speedup": 1.05610129837941,
+    "portfolio_over_fixed_minimum_total_cost_gain": 0.02,
+    "numerical_rtol": 2e-05,
+    "numerical_atol": 2e-06
+  },
+  "limits": {
+    "candidates_per_shape": 2,
+    "portfolio_kernels": 2,
+    "max_rules": 128,
+    "source_bytes": 12288,
+    "development_wall_seconds": 900,
+    "freeze_wall_seconds": 120,
+    "cold_study_wall_seconds": 180,
+    "memory_bytes": 2147483648,
+    "cache_bytes": 268435456
+  },
+  "selection": "Same two configs/observations: fixed global costs, per-shape routed costs, joint actual RankPlan costs including empty fallback; rank eligibility uses actual one-rule plan versus both canonical rank libraries",
+  "comparator_domain": "Global libraries own stable/fast refresh; fixed custom stable refresh; routed stable storage with stable/fast sort/reduction or custom query. Eager descriptive only. Dispatcher actual RankPlan/RankIndex.",
+  "stability_gate": "Complete three-development-task application16 negative control primary CI in [0.9,1.1]; rank-only entry cap relaxed prospectively; squared symmetric noise floors retain minimum 1.10/1.03",
+  "timing": "Synchronized host wall us; rank128 evaluated inputs excludes normalization/GEMM and forces IDs+values; application16 retains nested host outputs and includes transfers, allocations, refresh and three changed searches per task",
+  "qos": "user_initiated_current_thread_only",
+  "confirmation_rule": "No retries/retuning or pooled rescue; primary library gates every session; separate processes at least120 seconds apart by both clocks; no favorable-load scheduling",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "telemetry_before": {
+    "time_utc": "2026-11-01T16:07:25Z",
+    "load_average": [
+      5.0546875,
+      8.74267578125,
+      21.9765625
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t69%; discharging; 3:02 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "telemetry": {
+    "time_utc": "2026-11-01T16:07:34Z",
+    "load_average": [
+      5.2861328125,
+      8.66845703125,
+      21.79541015625
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t69%; discharging; 3:02 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "baseline_noise": [
+    {
+      "task": {
+        "id": "notes",
+        "rows": 64,
+        "width": 384,
+        "queries": 1,
+        "layout": "contiguous"
+      },
+      "baseline_a_us": [
+        7.731125,
+        7.7600859375,
+        27.88834375,
+        7.5992890625,
+        8.700515625,
+        7.855140625,
+        7.897140625,
+        7.787765625,
+        7.515625,
+        8.773109375,
+        9.025390625,
+        7.595375,
+        7.7861328125,
+        9.096359375,
+        7.654625,
+        7.623046875,
+        7.7155,
+        27.62890625,
+        7.585609375,
+        7.458984375,
+        7.6845703125,
+        7.5709609375,
+        7.6751328125,
+        7.7473984375,
+        7.759765625,
+        7.6764296875,
+        12.79459375,
+        7.6533203125,
+        7.6139375,
+        8.7919921875,
+        27.378578125,
+        7.654625,
+        7.8505859375,
+        8.109046875,
+        7.5244140625,
+        8.1861953125,
+        7.4811171875,
+        25.134765625,
+        8.3352890625,
+        11.15625
+      ],
+      "baseline_b_us": [
+        8.525390625,
+        8.6780546875,
+        8.1279296875,
+        7.855140625,
+        7.7041015625,
+        8.2581328125,
+        7.6123046875,
+        7.6484375,
+        8.2672578125,
+        7.8548125,
+        7.6998671875,
+        7.6002578125,
+        8.3359375,
+        7.64453125,
+        10.0234375,
+        7.63346875,
+        7.58528125,
+        7.73990625,
+        7.648765625,
+        11.3177109375,
+        7.9130859375,
+        7.4830703125,
+        8.6806640625,
+        27.827796875,
+        7.6500625,
+        7.6634140625,
+        7.9886015625,
+        7.69075,
+        7.5068359375,
+        7.4827421875,
+        7.7809296875,
+        8.186203125,
+        10.435875,
+        7.947265625,
+        7.4951171875,
+        7.711265625,
+        7.7392578125,
+        7.968421875,
+        7.5185546875,
+        7.6770859375
+      ],
+      "orders": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "first_rank_ms": 26.560292,
+      "comparison": {
+        "speedup_total_cost": 1.17055830070339,
+        "ci95": [
+          0.9411857069404989,
+          1.4451993827588476
+        ],
+        "iid_ci95": [
+          0.9411857069404989,
+          1.4451993827588476
+        ],
+        "block4_ci95": [
+          0.9512541825355701,
+          1.406803210146802
+        ],
+        "block8_ci95": [
+          0.962087454703888,
+          1.3765438409455397
+        ],
+        "baseline_total_us": 400.4570390625,
+        "candidate_total_us": 342.1077265625
+      }
+    },
+    {
+      "task": {
+        "id": "manuals",
+        "rows": 161,
+        "width": 768,
+        "queries": 8,
+        "layout": "column_stride2"
+      },
+      "baseline_a_us": [
+        10.7395859375,
+        10.6331328125,
+        10.6077421875,
+        10.5494765625,
+        10.389,
+        10.4052734375,
+        10.413734375,
+        10.4593125,
+        10.4130859375,
+        10.586265625,
+        10.8512421875,
+        10.348953125,
+        10.57421875,
+        10.66015625,
+        10.620765625,
+        10.463546875,
+        10.4290390625,
+        10.363609375,
+        10.3326796875,
+        10.5266875,
+        10.41178125,
+        10.6236953125,
+        10.453125,
+        10.4381484375,
+        10.84928125,
+        10.394859375,
+        10.45703125,
+        10.36165625,
+        10.3310546875,
+        10.3173828125,
+        10.4264296875,
+        10.481125,
+        10.76790625,
+        10.5921171875,
+        11.3046875,
+        27.5589140625,
+        11.4046171875,
+        12.2952421875,
+        10.6748046875,
+        10.402015625
+      ],
+      "baseline_b_us": [
+        10.46875,
+        10.438796875,
+        29.1285859375,
+        10.4596328125,
+        10.4420546875,
+        10.4306640625,
+        10.480796875,
+        10.480140625,
+        10.2835234375,
+        10.38834375,
+        10.4436875,
+        10.5751953125,
+        10.3772734375,
+        30.1302109375,
+        10.41471875,
+        10.4749296875,
+        10.426109375,
+        10.32421875,
+        10.3518828125,
+        10.4599609375,
+        10.420578125,
+        10.7604140625,
+        10.4700546875,
+        10.4856796875,
+        30.748703125,
+        10.445640625,
+        10.4108125,
+        10.4326171875,
+        10.3463515625,
+        10.529296875,
+        10.5621796875,
+        10.4739609375,
+        10.6630859375,
+        10.4163359375,
+        10.4261015625,
+        11.4290390625,
+        10.964515625,
+        11.18978125,
+        11.015296875,
+        10.5859375
+      ],
+      "orders": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "first_rank_ms": 1.69725,
+      "comparison": {
+        "speedup_total_cost": 0.9190369939137338,
+        "ci95": [
+          0.7884074621623434,
+          1.075971523796523
+        ],
+        "iid_ci95": [
+          0.7884074621623434,
+          1.068835425140932
+        ],
+        "block4_ci95": [
+          0.7900958888592506,
+          1.075971523796523
+        ],
+        "block8_ci95": [
+          0.8142643546870438,
+          1.074125182739629
+        ],
+        "baseline_total_us": 440.9133828125,
+        "candidate_total_us": 479.755859375
+      }
+    },
+    {
+      "task": {
+        "id": "archive",
+        "rows": 161,
+        "width": 1536,
+        "queries": 17,
+        "layout": "transpose"
+      },
+      "baseline_a_us": [
+        32.0439453125,
+        13.461265625,
+        13.42578125,
+        13.527671875,
+        13.378578125,
+        13.5810546875,
+        13.7552109375,
+        13.4658203125,
+        33.59146875,
+        13.51953125,
+        13.3655625,
+        13.423828125,
+        13.408203125,
+        13.625,
+        13.408203125,
+        13.663734375,
+        13.431640625,
+        13.85709375,
+        13.5778046875,
+        13.51496875,
+        13.484703125,
+        13.337890625,
+        13.47590625,
+        13.5413359375,
+        13.6477890625,
+        13.42740625,
+        31.26334375,
+        13.37890625,
+        13.570640625,
+        14.472328125,
+        13.5198515625,
+        13.4290390625,
+        14.36328125,
+        14.076828125,
+        33.3795546875,
+        13.4850234375,
+        13.5296171875,
+        13.2685546875,
+        13.361984375,
+        13.56803125
+      ],
+      "baseline_b_us": [
+        13.865234375,
+        13.509765625,
+        13.3955078125,
+        13.8079375,
+        13.3531875,
+        13.4173203125,
+        15.0595703125,
+        13.466796875,
+        13.390625,
+        14.1057890625,
+        13.5579453125,
+        13.4925078125,
+        13.54525,
+        13.412109375,
+        13.9899140625,
+        13.515296875,
+        13.5432890625,
+        33.6233671875,
+        13.484375,
+        13.7594375,
+        13.33659375,
+        13.359703125,
+        13.3828125,
+        13.5768203125,
+        13.43196875,
+        13.4967421875,
+        13.7333984375,
+        13.636390625,
+        13.705734375,
+        13.509109375,
+        13.582359375,
+        13.3798828125,
+        14.8431015625,
+        13.56184375,
+        13.596359375,
+        13.670578125,
+        14.3017578125,
+        13.3014296875,
+        13.35546875,
+        13.644859375
+      ],
+      "orders": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "first_rank_ms": 0.359,
+      "comparison": {
+        "speedup_total_cost": 1.0935231429901398,
+        "ci95": [
+          0.9571860309624918,
+          1.2529619832011913
+        ],
+        "iid_ci95": [
+          0.9571860309624918,
+          1.2529619832011913
+        ],
+        "block4_ci95": [
+          0.9596784136685568,
+          1.2337815896416577
+        ],
+        "block8_ci95": [
+          0.959413204591127,
+          1.2040960113105692
+        ],
+        "baseline_total_us": 618.6083828124999,
+        "candidate_total_us": 565.702140625
+      }
+    }
+  ],
+  "application_baseline_noise": {
+    "baseline_a_us": [
+      4590.3671875,
+      5829.2369375,
+      4607.3203125,
+      4810.3671875,
+      4914.0650625,
+      4937.872375,
+      4792.971375,
+      4901.2864375,
+      5107.9166875,
+      4704.408875,
+      4601.166625,
+      4575.328125,
+      4600.4583125,
+      4754.04425,
+      4571.9479375,
+      4601.1614375,
+      4899.359375,
+      5235.04425,
+      4851.14325,
+      4580.5390625,
+      4830.221375,
+      5094.390625,
+      5056.4349375,
+      5134.359375,
+      4968.1301875,
+      4731.1875,
+      4566.0885,
+      5035.3984375,
+      4576.234375,
+      4532.033875,
+      4764.78125,
+      4746.8854375,
+      4578.966125,
+      4727.13025,
+      4550.0911875,
+      4554.9400625,
+      4550.29425,
+      4721.04425,
+      4821.46875,
+      4724.96875
+    ],
+    "baseline_b_us": [
+      4600.283875,
+      4542.0,
+      4586.099,
+      4730.3775625,
+      5109.3176875,
+      4957.0181875,
+      5128.1510625,
+      5045.5520625,
+      5127.612,
+      4783.1849375,
+      4689.7864375,
+      4630.658875,
+      4582.4765625,
+      4530.4349375,
+      4678.2395625,
+      4590.388,
+      5014.1458125,
+      4697.1484375,
+      4774.0,
+      4606.3984375,
+      5137.8515625,
+      4994.2213125,
+      4858.9270625,
+      4965.9818125,
+      5164.447875,
+      4798.78125,
+      4794.9635625,
+      4772.7474375,
+      4554.38025,
+      4715.1640625,
+      4600.888,
+      4551.770875,
+      4513.9583125,
+      4524.734375,
+      4810.1328125,
+      4545.39325,
+      4559.3176875,
+      4566.0911875,
+      4681.1275625,
+      4677.7005
+    ],
+    "orders": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "input_seeds": [
+      21101,
+      21102,
+      21103,
+      21104,
+      21105,
+      21106,
+      21107,
+      21108,
+      21109,
+      21110,
+      21111,
+      21112,
+      21113,
+      21114,
+      21115,
+      21116,
+      21117,
+      21118,
+      21119,
+      21120,
+      21121,
+      21122,
+      21123,
+      21124,
+      21125,
+      21126,
+      21127,
+      21128,
+      21129,
+      21130,
+      21131,
+      21132,
+      21133,
+      21134,
+      21135,
+      21136,
+      21137,
+      21138,
+      21139,
+      21140
+    ],
+    "sequence_orders": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "method": "stable_library",
+    "sequences_per_block": 16,
+    "first_application_sequence_ms": 134.2295,
+    "comparison": {
+      "speedup_total_cost": 1.008092882745034,
+      "ci95": [
+        0.9928552329179205,
+        1.0276678930371475
+      ],
+      "iid_ci95": [
+        0.9928552329179205,
+        1.0276678930371475
+      ],
+      "block4_ci95": [
+        0.9937729161911903,
+        1.0264016244603131
+      ],
+      "block8_ci95": [
+        0.993969918438989,
+        1.0231143281210509
+      ],
+      "baseline_total_us": 191731.0545625,
+      "candidate_total_us": 190191.8541875
+    }
+  },
+  "timing_validation_flags": {
+    "METAL_DEBUG_ERROR_MODE": null,
+    "METAL_DEVICE_WRAPPER_TYPE": null,
+    "MTL_DEBUG_LAYER": null,
+    "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+    "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+    "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+    "MTL_SHADER_VALIDATION": null,
+    "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+  },
+  "peak_memory_bytes": 220756220,
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+  "sources": {
+    "rank_key.metal": "1e318b92c6f3f3e796894a9487109c55199f4b5c1eb23847817a899df107335d",
+    "rank_simd32.metal": "630bde1ee3a7a599159173404193ddd6bf10673e3621d62bdbdd52cd16c15d72",
+    "rank_group128.metal": "49eb7686c3ae378ded944b029d8bc2f8f55aaec9a0a33c45218add6a829d0863"
+  },
+  "source_bytes": 5572,
+  "script_sha256": "4470b506443feea5cf6a4f22b5fea01338e8a199621b02dd0f45f20f114f5b3a",
+  "numerical_report_sha256": "93a835d46f6aebf0510bece5e2a4ec6b262185e3a5a6a5c1c700c11803474f5d",
+  "source_budget_scope": "All three authored MSL files including shared header",
+  "calibration_wall_seconds": 9.446056791988667
+}

@@ -4,9 +4,9 @@
 
 Investigate a real GPU workload, then install only what survives independent checks.
 
-**v0.3.0 is in development.** The local cosine-search application and eight authored Metal configurations have executed on an Apple M4. The first two frozen optimization studies failed their performance gates. Two new stable top-five ranking kernels passed independent numerical checks, but their prospective baseline was too noisy to begin candidate timing. A longer-block library-only diagnostic and one fresh unchanged check after substantial external load reduction also failed the noise gate. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
+**v0.3.0 is in development.** The local cosine-search application and eight authored Metal configurations have executed on an Apple M4. All three completed frozen optimization studies failed their performance gates. The latest ranking study completed three untouched confirmations and 24 fresh-process starts; its selected policy had no custom rules. Independent installed replay passed numerical/resource checks and refused export. **No optimized artifact has been accepted and no acceleration is claimed.** [Executed results and limits](docs/workload-results.md).
 
-A [prospective V2 ranking protocol](docs/workload-ranking-v2.md) now checks complete-application stability directly and freezes conservative noise margins before candidate timing. Its rank-only entry rule is explicitly different; earlier failures remain unchanged. A fresh independent installed wheel passed all twelve numerical methods. The single V2 calibration is pending.
+A [prospective V2 ranking protocol](docs/workload-ranking-v2.md) checked complete-application stability directly and froze conservative noise margins before candidate timing. Its rank-only entry rule explicitly differs from V1; earlier rejected controls remain unchanged. The single application calibration passed, then the unchanged development and confirmation study produced a [preserved null result](evidence/workload-2026-11-01/rank-v2/). A fresh independent installed wheel passed all twelve numerical methods.
 
 [Run the workload](docs/workload.md) · [Semantic contract](docs/workload-semantics.md) · [Readable kernels](src/kerneldarwin/metal/) · [Interface and editable architecture](docs/workload-interface.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
@@ -50,7 +50,7 @@ The measured application performs one index refresh and three top-k searches acr
 | --- | --- | --- |
 | Stable row L2 normalization | SIMD reduction, four-row SIMD grouping, packed vector access, shared reduction | 18 current numerical/guard tests passed; historical three-session study failed application gate |
 | Query normalization fused with similarity scoring | One SIMD group per query/document pair; shared normalized query reused across four documents | Eight current Metal numerical/application methods passed; three frozen sessions failed both performance gates |
-| Stable top-five ranking | One SIMD group per score row; four cooperating SIMD groups per row | 12 production GPU methods passed from an independent wheel installation; baseline and one longer-block diagnostic failed noise gate before candidate timing |
+| Stable top-five ranking | One SIMD group per score row; four cooperating SIMD groups per row | 12 installed production GPU methods passed; V1 controls rejected; V2 completed all three confirmations and failed both performance gates, with no accepted rules |
 
 The first target's development portfolio reduced weighted normalization cost by about 6% versus its best fixed candidate. That did **not** establish a complete-application benefit. In confirmation session 0, the portfolio was slower at the point estimate than the complete compiled stable library query: **0.970×**, 95% interval **[0.908, 1.038]**. Later sessions also failed the frozen improvement gate. Every session and all losses remain in [the preserved study](evidence/workload-2026-10-29/target1-normalization/).
 
