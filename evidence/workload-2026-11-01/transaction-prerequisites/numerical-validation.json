@@ -1,0 +1,84 @@
+{
+  "kind": "transaction_production_numerical_validation",
+  "schema": 1,
+  "passed": true,
+  "tests_run": 12,
+  "native_metal_methods_completed": [
+    "test_all_library_and_authored_paths_match_batch_reference",
+    "test_changed_contents_and_changed_documents",
+    "test_empty_batches_still_validate_document_refresh",
+    "test_invalid_shapes_types_and_k",
+    "test_lower_precision_and_mixed_query_dtypes",
+    "test_nonfinite_rejection_does_not_mutate_inputs",
+    "test_public_variable_batch_boundaries",
+    "test_strides_offsets_broadcasts_and_input_preservation",
+    "test_unsupported_custom_shapes_and_k_use_library_results",
+    "test_zero_ties_and_adversarial_magnitudes"
+  ],
+  "cpu_contract_methods": 2,
+  "gpu_executed": true,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "source_sha256": "14eb0dbd65076f1830785a1b220e908231da3343b4d21cde1d2538a3d67664ca",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "unavailable_or_changed_source": null,
+  "elapsed_seconds": 3.2404987499467097,
+  "peak_memory_bytes": 7955564,
+  "validation_root": "/private/tmp/kd-transaction-installed-20261101",
+  "validation_root_src_exists": false,
+  "actual_imports": {
+    "kerneldarwin.transaction_search": {
+      "path": "/private/tmp/kd-transaction-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/transaction_search.py",
+      "sha256": "bf864462bb38144ededdc433dd8fda7265ba20d8ac003e369c21bdae0c5d8e07"
+    },
+    "kerneldarwin.rank_search": {
+      "path": "/private/tmp/kd-transaction-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/rank_search.py",
+      "sha256": "4930466357116f6c11904976d0b293f33d276bd269531bb464f89182f2baf31f"
+    },
+    "kerneldarwin.search": {
+      "path": "/private/tmp/kd-transaction-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/search.py",
+      "sha256": "cf5ddc0ecb1e0fca1caf29cc982ddb6f4ef0df6f0b4044a677bd80fe150ab6ba"
+    },
+    "kerneldarwin.library_baselines": {
+      "path": "/private/tmp/kd-transaction-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/library_baselines.py",
+      "sha256": "32a8ab268fd7e58dbec0a29a1fae1e22037e6ed8c71d870036ff2e2fa7847f14"
+    },
+    "kerneldarwin.workload": {
+      "path": "/private/tmp/kd-transaction-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/workload.py",
+      "sha256": "f4936a2b553cdd08965f81d23e09cc1cfafbad04004b25df8fbd8890ab85e8a7"
+    },
+    "kerneldarwin.study_identity": {
+      "path": "/private/tmp/kd-transaction-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/study_identity.py",
+      "sha256": "c1aa11b3ea77ad9713a60d37b8312c8f543569fd8bcdabc46a5494429b034282"
+    }
+  },
+  "producer_sha256": "75ca1c41f5415c1403c90ddd5ed2063effe1c829823061edd5f0ecc12bf07a33",
+  "test_sha256": "5bd87e18c4f9878fac269a4a89f6509ea73c5580b02c3ede9d0af59ccfebff5a",
+  "validation_flags": {
+    "MTL_DEBUG_LAYER": "1",
+    "MTL_SHADER_VALIDATION": "1"
+  },
+  "candidate_timing": false,
+  "accepted_artifact": false,
+  "scope": "Public compiled-library batch API and private numerical authored trials. Lower-precision cases are smoke checks, not full float32 adversarial coverage. Numerical correctness does not confirm performance or an artifact."
+}

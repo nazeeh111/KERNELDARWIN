@@ -1,0 +1,16 @@
+{
+  "kind": "library_only_long_window_counterbalance_diagnostic",
+  "schema": 1,
+  "candidate_timing": false,
+  "acceptance_study": false,
+  "source_sha256": "3beb636e6668c6f46a1864b57032932b81fd9dbfb791701487c6d04a777c3bdd",
+  "measurement_sha256": "4470b506443feea5cf6a4f22b5fea01338e8a199621b02dd0f45f20f114f5b3a",
+  "rank_bursts_per_long_window": 32,
+  "application_blocks16_per_long_window": 2,
+  "rounds": 40,
+  "stage": "complete",
+  "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+  "completed": true,
+  "wall_seconds": 71.6984279580065,
+  "peak_memory_bytes": 220641532
+}

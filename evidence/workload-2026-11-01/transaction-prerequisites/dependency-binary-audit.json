@@ -1,0 +1,18 @@
+{
+  "kind": "post_execution_dependency_file_audit",
+  "scope": "Actual dependency files in the producer environment and independent installation are byte-identical. This is a later file audit, not memory attestation or a new GPU run.",
+  "binaries": {
+    "core.cpython-312-darwin.so": {
+      "sha256": "f96aede5d6eee539d4826a52690914e79794e2ad2c691935d02dca6b0c421c56",
+      "bytes": 1480808
+    },
+    "lib/libmlx.dylib": {
+      "sha256": "1876795e05b3434925e745fbf6e9f0c8c0446b666224c9d881609ab353e94e51",
+      "bytes": 21697440
+    },
+    "lib/mlx.metallib": {
+      "sha256": "1518c08860738b08dc4563ddcf380a08dec4e6ad146c0d54888790e80656e9e3",
+      "bytes": 162449848
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "prospective_library_only_timing_mechanism_diagnostic",
+  "frozen_at": "2026-11-02T03:40:37.608370+00:00",
+  "source_files": {
+    ".work/rank-device-timing-20261101/probe.py": "a69ea28a10cdb7875c22b420d682affd26cf7279492e685f93fe0a629d589ec4",
+    ".work/rank-device-timing-20261101/buffer_timer.mm": "88893ac4c77edcd7a23790ef7f011d550b19874b5a96e976bae26d7baa864e19",
+    "/private/tmp/kd-buffer-timer-20261101.dylib": "21c325f426d091db31e4fce2a114684eab18aa26b637698b077d39f0d8498d8f"
+  },
+  "public_base": "6bad5386900216f1623e67b68ac2e049624d77e0",
+  "one_attempt": true,
+  "candidate_timing": false,
+  "acceptance_study": false,
+  "limits": {
+    "wall_seconds": 120,
+    "mlx_memory_bytes": 2147483648,
+    "records_per_sample": 8192
+  },
+  "fixed_seed": 39217,
+  "rank_controls": "Original three development shapes;128distinct evaluated score inputs,40randomized identical-library pairs per shape. No heldout/confirmation inputs.",
+  "validation_controls": "10paired0/5ms injected host delays on notes;20randomized armed/unarmed observer pairs;20complete application16-sequence identical-library pairs using changed inputs each round.",
+  "raw_records": "All observed owned-process commits retained with tag/sequence/hostcommit/GPUstart/end/status. Callback-count equality, no dropped/duplicate records, pending drained, successful uninstall.",
+  "metrics": "Instrumented host wall; current-thread CPU; union/sum/extent of positive completed command-buffer GPU intervals. Zero timestamps explicit: do not infer complete GPU coverage if present. Includes observer overhead; command-buffer time is not pure kernel execution or device exclusivity.",
+  "decision": "Library-only mechanism validity/noise evidence only. Never reinterpret V2, count device-only timing as application benefit, discard unfavorable pairs, or execute/rank/select custom candidates. A future study needs a justified prospective design; no automatic V3."
+}

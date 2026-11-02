@@ -8,6 +8,8 @@ Investigate a real GPU workload, then install only what survives independent che
 
 A [prospective V2 ranking protocol](docs/workload-ranking-v2.md) checked complete-application stability directly and froze conservative noise margins before candidate timing. Its rank-only entry rule explicitly differs from V1; earlier rejected controls remain unchanged. The single application calibration passed, then the unchanged development and confirmation study produced a [preserved null result](evidence/workload-2026-11-01/rank-v2/). A fresh independent installed wheel passed all twelve numerical methods.
 
+The subsequent [batch transaction API](docs/workload-transactions.md) compiles raw index refresh and multiple query groups together. It passed ten native Metal methods, two CPU contracts and eight changed-input consumer checks from a fresh installation. Its default uses optimized libraries. Longer balanced timing windows reduced rank uncertainty in a separate diagnostic; complete-application uncertainty still needs its own frozen evidence. No custom transaction artifact is accepted.
+
 [Run the workload](docs/workload.md) · [Semantic contract](docs/workload-semantics.md) · [Readable kernels](src/kerneldarwin/metal/) · [Interface and editable architecture](docs/workload-interface.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
 ## Run from the current source

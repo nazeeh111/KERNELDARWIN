@@ -79,6 +79,8 @@ The separately investigated ranking API is `from kerneldarwin.rank_search import
 
 ## Guards and numerical scope
 
+For a stateless refresh and multiple query groups, use [`search_batches`](workload-transactions.md). It shares one compiled library transaction, preserves batch boundaries and validates changed contents. This is a separate API from the persistent index and does not imply an accepted custom artifact.
+
 Normalization is row-wise `x / max(norm(x), 1e-12)`. Maximum scaling avoids overflow from directly squaring large finite float32 values. Normalization accumulates in float32 and restores the input dtype. Fused custom scoring accumulates float32 dot products and returns float32 `[query_count, document_count]` scores.
 
 | Condition | Runtime behavior |

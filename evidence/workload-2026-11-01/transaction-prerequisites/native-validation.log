@@ -1,0 +1,22 @@
+test_execution_mode_and_batch_bound_precede_backend_work (test_transaction_search.TransactionContractTests.test_execution_mode_and_batch_bound_precede_backend_work) ... ok
+test_static_bounds_reject_unsupported_custom_domains (test_transaction_search.TransactionContractTests.test_static_bounds_reject_unsupported_custom_domains) ... ok
+2026-11-01 23:25:12.620 python[51682:10641216] Metal API Validation Enabled
+2026-11-01 23:25:12.620 python[51682:10641216] Metal GPU Validation Enabled
+test_all_library_and_authored_paths_match_batch_reference (test_transaction_search.TransactionSearchTests.test_all_library_and_authored_paths_match_batch_reference) ... ok
+test_changed_contents_and_changed_documents (test_transaction_search.TransactionSearchTests.test_changed_contents_and_changed_documents) ... ok
+test_empty_batches_still_validate_document_refresh (test_transaction_search.TransactionSearchTests.test_empty_batches_still_validate_document_refresh) ... ok
+test_invalid_shapes_types_and_k (test_transaction_search.TransactionSearchTests.test_invalid_shapes_types_and_k) ... ok
+test_lower_precision_and_mixed_query_dtypes (test_transaction_search.TransactionSearchTests.test_lower_precision_and_mixed_query_dtypes) ... ok
+test_nonfinite_rejection_does_not_mutate_inputs (test_transaction_search.TransactionSearchTests.test_nonfinite_rejection_does_not_mutate_inputs) ... ok
+test_public_variable_batch_boundaries (test_transaction_search.TransactionSearchTests.test_public_variable_batch_boundaries) ... ok
+test_strides_offsets_broadcasts_and_input_preservation (test_transaction_search.TransactionSearchTests.test_strides_offsets_broadcasts_and_input_preservation) ... ok
+test_unsupported_custom_shapes_and_k_use_library_results (test_transaction_search.TransactionSearchTests.test_unsupported_custom_shapes_and_k_use_library_results) ... ok
+test_zero_ties_and_adversarial_magnitudes (test_transaction_search.TransactionSearchTests.test_zero_ties_and_adversarial_magnitudes) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.065s
+
+OK
+2026-11-01 23:25:15.082 system_profiler[51700:10641335] Metal API Validation Enabled
+2026-11-01 23:25:15.082 system_profiler[51700:10641335] Metal GPU Validation Enabled
+{"passed": true, "tests_run": 12, "native_methods": 10, "source_sha256": "14eb0dbd65076f1830785a1b220e908231da3343b4d21cde1d2538a3d67664ca"}

@@ -224,6 +224,16 @@ The separately installed numerical wheel replayed the original bounded raw recor
 
 No source, criteria or policy were retuned after candidate observations, and no confirmation was retried. This ranking investigation is closed. A repeatable complete-application benefit, a nonempty accepted exported artifact, independent installed accepted-custom integration and a successful optimized Workload release remain unfulfilled. Exact per-call kernel dispatch, copy/materialization/transfer accounting and pure device elapsed time also remain partial; the earlier whole-process profile does not supply those missing counts.
 
+## Subsequent timing mechanisms and batch-transaction premise
+
+After V2 closed, the user's request for a different timing mechanism led to two bounded library-only diagnostics. Native completion timestamps separated injected host delay from GPU-buffer duration but did not stabilize the controls. A separate 71.70-second comparison found that long balanced ABBA/BAAB windows substantially tightened rank controls while the application interval remained [0.9157,1.0526]. No outliers were removed, candidate results were reinterpreted or V2 sessions retried. [Exact controls, source and limits](../evidence/workload-2026-11-01/rank-noise-mechanisms/).
+
+That remaining application variability motivated a real composition change: raw refresh and three query batches execute in one compiled transaction. A 132-check numerical prototype preserved float64/ID association, old-pipeline score agreement, zero ties and explicit nonfinite rejection across all four library paths and both authored rankers. An instrumented library-only pilot reduced sorting-path command-buffer submissions from thirteen to four per three-task sequence; reduction paths used seven. Its observed wall intervals favored batching. These are development observations with instrumentation overhead, not accepted custom-kernel acceleration or pure device time.
+
+The guarded `search_batches` API then passed two CPU contract methods and ten native Metal methods from a fresh source-free installed wheel, with API/GPU validation enabled and zero failures/errors/skips. A separate installed consumer passed eight changed-input top-match checks. All 72 runtime files matched the executed wheel and actual installed/source bytes. [Source-bound prerequisite evidence and replay](../evidence/workload-2026-11-01/transaction-prerequisites/), [API and limits](workload-transactions.md).
+
+No custom transaction policy or frozen confirmation has run. A future authored comparison must use the equally batched optimized libraries, fresh held-out shapes/sequences and a separate fixed protocol. Batching alone cannot establish a custom-kernel or portfolio advantage. V2 remains an immutable null result, and the accepted-artifact/optimized-release gates remain unfulfilled.
+
 ## Later owned-process shader diagnostic
 
 A separate baseline-only Instruments capture on the installed public source produced **1,304 exact-process shader records** with 61 registered shader names. Sort/gather, reductions and matrix multiplication are present. The captured application passed 72 independent float64 score/ID checks. [Sanitized rows, summary and provenance](../evidence/workload-2026-11-01/owned-shader-diagnostic/) retain the source/runtime bindings.
