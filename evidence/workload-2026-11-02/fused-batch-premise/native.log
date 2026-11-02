@@ -1,0 +1,20 @@
+2026-11-02 02:38:50.871 python[22631:11740222] Metal API Validation Enabled
+2026-11-02 02:38:50.871 python[22631:11740222] Metal GPU Validation Enabled
+2026-11-02 02:38:53.082 system_profiler[22638:11740302] Metal API Validation Enabled
+2026-11-02 02:38:53.083 system_profiler[22638:11740302] Metal GPU Validation Enabled
+{
+  "kind": "fused_batch_normalization_numerical_resource_premise",
+  "candidate_performance_timed": false,
+  "acceptance_study": false,
+  "heldout_executed": false,
+  "prototype_identity": "4bf8f3ede137b224df2db9cf33e398f44006724c54ef921dfe23b8457aedbca2",
+  "installed_source_sha256": "481e4949b30d038e14c7470249744d3f388e9771b076463fec684f927a8ca987",
+  "actual_installed_import": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/transaction_plan.py",
+  "authored_source_bytes": 7294,
+  "completed": true,
+  "dropped_records": 0,
+  "pending_callbacks": 0,
+  "observer_uninstall_result": 0,
+  "peak_memory_bytes": 139353840,
+  "wall_seconds": 15.01824329199735
+}

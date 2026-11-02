@@ -1,0 +1,13 @@
+{
+  "installed_runtime_files_unchanged": 76,
+  "environment_matches_previous_28_method_report": true,
+  "new_prototype_identity": "4bf8f3ede137b224df2db9cf33e398f44006724c54ef921dfe23b8457aedbca2",
+  "new_readable_msl_bytes": 7294,
+  "new_normalization_configurations": 1,
+  "reused_rank_configurations": 2,
+  "authored_entry_points": 3,
+  "original_runtime_or_study_pins_changed": false,
+  "helper_binary_hash_matches_after_execution": true,
+  "accepted_artifact": false,
+  "limits": "Post-run source/runtime file equality is provenance, not loaded-memory attestation."
+}

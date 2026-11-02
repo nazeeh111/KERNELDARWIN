@@ -1,0 +1,19 @@
+{
+  "files": {
+    "README.md": "5e3ca1521baabce50d7929efa38f1ee840e4fe23483404e67a6e225e5a605330",
+    "call_counters.mm": "51165c31c21f7d2a04362bb17757d7d4cc0437fd9bb55bf9a15967212d05a0e1",
+    "native.log": "f89bbdfcf4213b67aa5c3f19a9bb6bbe1fce77aa1f88261e084ce47392575810",
+    "normalize_pack.metal": "fd36c3546f4136cccde5a43219a23bf38c416c7b7eff28c56c3f3c88e6740dc2",
+    "preregistered.json": "3ad385ad894bea860337c19cef42c77e1ae31b9de743b7c44e855f93b4a1eb4a",
+    "probe.py": "da3edb2c39b2ed1a263d354150cacceae56783993b5039f1db2068f4e0fa27ed",
+    "process.json": "8355fee88179f4ea376b6384f3941ae82344506f4c3aff1d170c236a4e8fd625",
+    "prototype.py": "4a1a4e71d3582be41f00381dee9dfb336ab9e5198f266bf95fefb6b9604ce4bd",
+    "replay.py": "fcf2526121af9ec42bb108e7f5920f458908411dc58a0725f58067afbac58d86",
+    "replayed.json": "191b835bc470b7bc5dd463fc7404f275d07a1da24c4b7513c24c986d175d42a7",
+    "result.json": "d1a4b123056bd48968e202a4dfc202a92184b4762ea5a20d24d0d39f24f5da8a",
+    "source-audit.json": "d963ce91591467b5c6615a24518321390b276434b74fb7724dc8a31bc52feabc",
+    "started.json": "9fb0f91c03a0fef5bb8c170daeeaea42fa17ce4842c32a69ca462df9e8d33e5e"
+  },
+  "native_binary_included": false,
+  "performance_accepted": false
+}

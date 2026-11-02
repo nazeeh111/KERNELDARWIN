@@ -1,0 +1,38 @@
+{
+  "files": {
+    "probe.py": "da3edb2c39b2ed1a263d354150cacceae56783993b5039f1db2068f4e0fa27ed",
+    "prototype.py": "4a1a4e71d3582be41f00381dee9dfb336ab9e5198f266bf95fefb6b9604ce4bd",
+    "normalize_pack.metal": "fd36c3546f4136cccde5a43219a23bf38c416c7b7eff28c56c3f3c88e6740dc2",
+    "call_counters.mm": "51165c31c21f7d2a04362bb17757d7d4cc0437fd9bb55bf9a15967212d05a0e1"
+  },
+  "binary_sha256": "83a5cb63c338113dc1b29a6cf5784d470a15cfd8078ab5da55a24fafb4e1f384",
+  "installed_source_sha256": "481e4949b30d038e14c7470249744d3f388e9771b076463fec684f927a8ca987",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "wall_cap_seconds": 120,
+  "hard_watchdog_seconds": 135,
+  "memory_bytes": 2147483648,
+  "cache_bytes": 268435456,
+  "new_normalization_configs": 1,
+  "reused_rank_configs": [
+    "simd32",
+    "group128"
+  ],
+  "max_combined_msl_bytes": 12288,
+  "numerical_only": true,
+  "candidate_performance_timing": false,
+  "performance_acceptance": false,
+  "heldout_executed": false,
+  "resource_profiles": [
+    "notes",
+    "manuals",
+    "archive"
+  ],
+  "library_baselines": [
+    "stable_library",
+    "fast_library",
+    "stable_reduction",
+    "fast_reduction"
+  ],
+  "resource_calls": 18,
+  "scope": "New fused document/query normalization with direct joined-query output. One numerical/resource attempt. No original study or timing criterion changes."
+}

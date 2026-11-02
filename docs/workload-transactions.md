@@ -66,3 +66,5 @@ flowchart LR
 ```
 
 The static dispatcher can select an installed confirmed rule before this graph's rank operation, but no batch rule has passed performance confirmation. The diagram describes the executed library default. The new accounting records do not change that acceptance state.
+
+A subsequent [fused-normalization premise](../evidence/workload-2026-11-02/fused-batch-premise/) removes the intermediate query join and writes normalized document/query outputs directly from one new kernel. Both reused rank configurations completed 42 numerical check groups with native validation. Eighteen resource comparisons observed six compute dispatches for each new chain versus 27–55 for the four libraries. This is a new numerical prototype, with no candidate latency timing or accepted artifact. It motivates a complete guarded full-chain implementation and prospective application study; it does not reopen the closed ranking or batch-calibration results.

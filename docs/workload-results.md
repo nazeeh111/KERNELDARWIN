@@ -8,6 +8,8 @@ A later host-input batch API combines document refresh and three query groups in
 
 The separate [eight-call resource diagnostic](../evidence/workload-2026-11-02/batch-call-accounting/) directly observed 27–29 library compute dispatches, three generic copy launches and warmed buffer-cache reuse. It also accounts for host constructor storage spans and output payloads from the pinned source and actual inputs. Its command-buffer scope includes final diagnostic synchronization, and physical bus traffic remains unmeasured. It supplies more precise accounting, not performance confirmation.
 
+The new [fused document/query normalization prototype](../evidence/workload-2026-11-02/fused-batch-premise/) passed 42 numerical check groups and 18 resource comparisons. Its two chain configurations each used six compute dispatches, while the four library paths used 27–55. The new API-return marker separates callable submissions from diagnostic synchronization. No candidate latency was timed, so these counts establish a different executed computation, not acceleration or acceptance. The production guarded API, independent installed validation and frozen performance confirmation for this new chain remain to be completed.
+
 ## Executed numerical evidence
 
 | Scope | Executed result | Evidence |

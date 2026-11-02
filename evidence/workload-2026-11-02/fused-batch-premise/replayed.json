@@ -1,0 +1,143 @@
+{
+  "kind": "independent_cpu_fused_premise_replay",
+  "passed": true,
+  "numerical_check_groups": 42,
+  "resource_samples_replayed": 18,
+  "result_sha256": "d1a4b123056bd48968e202a4dfc202a92184b4762ea5a20d24d0d39f24f5da8a",
+  "rows": [
+    {
+      "profile": "notes",
+      "method": "stable_library",
+      "compute_dispatches": 27,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "notes",
+      "method": "fast_library",
+      "compute_dispatches": 29,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "notes",
+      "method": "stable_reduction",
+      "compute_dispatches": 51,
+      "api_command_buffers": 2,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "notes",
+      "method": "fast_reduction",
+      "compute_dispatches": 53,
+      "api_command_buffers": 2,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "notes",
+      "method": "simd32",
+      "compute_dispatches": 6,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "notes",
+      "method": "group128",
+      "compute_dispatches": 6,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "manuals",
+      "method": "stable_library",
+      "compute_dispatches": 28,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "manuals",
+      "method": "fast_library",
+      "compute_dispatches": 30,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "manuals",
+      "method": "stable_reduction",
+      "compute_dispatches": 52,
+      "api_command_buffers": 2,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "manuals",
+      "method": "fast_reduction",
+      "compute_dispatches": 54,
+      "api_command_buffers": 2,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "manuals",
+      "method": "simd32",
+      "compute_dispatches": 6,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "manuals",
+      "method": "group128",
+      "compute_dispatches": 6,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "archive",
+      "method": "stable_library",
+      "compute_dispatches": 29,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "archive",
+      "method": "fast_library",
+      "compute_dispatches": 31,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "archive",
+      "method": "stable_reduction",
+      "compute_dispatches": 53,
+      "api_command_buffers": 2,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "archive",
+      "method": "fast_reduction",
+      "compute_dispatches": 55,
+      "api_command_buffers": 2,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "archive",
+      "method": "simd32",
+      "compute_dispatches": 6,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    },
+    {
+      "profile": "archive",
+      "method": "group128",
+      "compute_dispatches": 6,
+      "api_command_buffers": 1,
+      "diagnostic_sync_command_buffers": 1
+    }
+  ],
+  "performance_confirmed": false,
+  "accepted_artifact": false,
+  "limits": [
+    "CPU replay checks recorded evidence, not GPU attestation.",
+    "Numerical check flags are execution reports; raw Metal events validate resource counts.",
+    "Dispatch-count reduction is not latency acceleration.",
+    "One changed resource input seed and synthetic numerical cases are not frozen performance confirmation."
+  ]
+}
