@@ -1,0 +1,776 @@
+{
+  "schema": 1,
+  "numerical_passed": true,
+  "score_passed": false,
+  "application_passed": false,
+  "resource_passed": true,
+  "confirmation_passed": false,
+  "source_sha256": "f4ab261ea95f525b0ab9053a4f6df6728a82059ad98b53538fdbb218f4aec7a1",
+  "study_identity": "3614f68dc81d252834cc69ec95f8bce3dc89f7f7f27fab378ad412d6b1709e99",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "per_session": [
+    {
+      "score": {
+        "eager_library": {
+          "stable_library": {
+            "speedup_total_cost": 0.906023707826719,
+            "ci95": [
+              0.8530217585011003,
+              0.9617849945928154
+            ],
+            "baseline_total_us": 36330.329859375,
+            "candidate_total_us": 40098.652546875004
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.9516480278876951,
+            "ci95": [
+              0.8878453719757999,
+              1.015287782119791
+            ],
+            "baseline_total_us": 38159.8036171875,
+            "candidate_total_us": 40098.652546875004
+          }
+        },
+        "best_fixed": {
+          "stable_library": {
+            "speedup_total_cost": 0.9954526290092739,
+            "ci95": [
+              0.9426934765692142,
+              1.051250639903098
+            ],
+            "baseline_total_us": 36330.329859375,
+            "candidate_total_us": 36496.2920390625
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0455802900838398,
+            "ci95": [
+              0.9765604230495789,
+              1.12183773584407
+            ],
+            "baseline_total_us": 38159.8036171875,
+            "candidate_total_us": 36496.2920390625
+          }
+        },
+        "per_shape": {
+          "stable_library": {
+            "speedup_total_cost": 0.6431145517637447,
+            "ci95": [
+              0.6056095215601599,
+              0.681736624803002
+            ],
+            "baseline_total_us": 36330.329859375,
+            "candidate_total_us": 56491.226578125
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.6754996470896961,
+            "ci95": [
+              0.6308384979697382,
+              0.7221058297106095
+            ],
+            "baseline_total_us": 38159.8036171875,
+            "candidate_total_us": 56491.226578125
+          }
+        },
+        "dispatcher": {
+          "stable_library": {
+            "speedup_total_cost": 1.1050396949084735,
+            "ci95": [
+              1.0376945309853995,
+              1.1799401482207061
+            ],
+            "baseline_total_us": 36330.329859375,
+            "candidate_total_us": 32876.94553125
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.1606857936640151,
+            "ci95": [
+              1.0750195943314464,
+              1.2557178947061904
+            ],
+            "baseline_total_us": 38159.8036171875,
+            "candidate_total_us": 32876.94553125
+          }
+        }
+      },
+      "application": {
+        "eager_library": {
+          "stable_library": {
+            "speedup_total_cost": 0.9686009446258845,
+            "ci95": [
+              0.9162460014029734,
+              1.024100536839572
+            ],
+            "baseline_total_us": 311102.4376875,
+            "candidate_total_us": 321187.41925
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.9807706951071684,
+            "ci95": [
+              0.9286589035498786,
+              1.035699193928879
+            ],
+            "baseline_total_us": 315011.2084375,
+            "candidate_total_us": 321187.41925
+          }
+        },
+        "best_fixed": {
+          "stable_library": {
+            "speedup_total_cost": 0.9823804552177996,
+            "ci95": [
+              0.9251711197620794,
+              1.0406482218829365
+            ],
+            "baseline_total_us": 311102.4376875,
+            "candidate_total_us": 316682.2345
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.9947233350012881,
+            "ci95": [
+              0.941416874781972,
+              1.0485823616320957
+            ],
+            "baseline_total_us": 315011.2084375,
+            "candidate_total_us": 316682.2345
+          }
+        },
+        "per_shape": {
+          "stable_library": {
+            "speedup_total_cost": 1.1908773576373695,
+            "ci95": [
+              1.1367596925759023,
+              1.2508043068252088
+            ],
+            "baseline_total_us": 311102.4376875,
+            "candidate_total_us": 261238.0155625
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.2058398459321287,
+            "ci95": [
+              1.159153161679915,
+              1.256838841448452
+            ],
+            "baseline_total_us": 315011.2084375,
+            "candidate_total_us": 261238.0155625
+          }
+        },
+        "dispatcher": {
+          "stable_library": {
+            "speedup_total_cost": 1.039429925240359,
+            "ci95": [
+              0.9908552806046061,
+              1.0923608342766464
+            ],
+            "baseline_total_us": 311102.4376875,
+            "candidate_total_us": 299301.0208125
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0524895891846684,
+            "ci95": [
+              1.0073961964523082,
+              1.0973310344427811
+            ],
+            "baseline_total_us": 315011.2084375,
+            "candidate_total_us": 299301.0208125
+          }
+        }
+      }
+    },
+    {
+      "score": {
+        "eager_library": {
+          "stable_library": {
+            "speedup_total_cost": 0.7181511727232642,
+            "ci95": [
+              0.5744818813541747,
+              0.8447812630563063
+            ],
+            "baseline_total_us": 53607.8123671875,
+            "candidate_total_us": 74646.974625
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.7982933658645914,
+            "ci95": [
+              0.6247372906968576,
+              0.9630069515428392
+            ],
+            "baseline_total_us": 59590.184625,
+            "candidate_total_us": 74646.974625
+          }
+        },
+        "best_fixed": {
+          "stable_library": {
+            "speedup_total_cost": 0.9401318277053433,
+            "ci95": [
+              0.8684599731971608,
+              1.0204747064963817
+            ],
+            "baseline_total_us": 53607.8123671875,
+            "candidate_total_us": 57021.5907890625
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0450459869742916,
+            "ci95": [
+              0.9421369166065664,
+              1.1507753676530303
+            ],
+            "baseline_total_us": 59590.184625,
+            "candidate_total_us": 57021.5907890625
+          }
+        },
+        "per_shape": {
+          "stable_library": {
+            "speedup_total_cost": 0.9719736489934216,
+            "ci95": [
+              0.8551725768510704,
+              1.0971684727400264
+            ],
+            "baseline_total_us": 53607.8123671875,
+            "candidate_total_us": 55153.5655546875
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.080441201320219,
+            "ci95": [
+              0.9319782391859666,
+              1.2360138667896998
+            ],
+            "baseline_total_us": 59590.184625,
+            "candidate_total_us": 55153.5655546875
+          }
+        },
+        "dispatcher": {
+          "stable_library": {
+            "speedup_total_cost": 1.127878418139597,
+            "ci95": [
+              1.0414354223371063,
+              1.216048177926803
+            ],
+            "baseline_total_us": 53607.8123671875,
+            "candidate_total_us": 47529.7793671875
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.2537441877152598,
+            "ci95": [
+              1.1207003356661163,
+              1.4066974688008258
+            ],
+            "baseline_total_us": 59590.184625,
+            "candidate_total_us": 47529.7793671875
+          }
+        }
+      },
+      "application": {
+        "eager_library": {
+          "stable_library": {
+            "speedup_total_cost": 0.9548543452676036,
+            "ci95": [
+              0.8782663181781883,
+              1.0365069993410285
+            ],
+            "baseline_total_us": 568533.78675,
+            "candidate_total_us": 595414.1483125
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.9495034082197863,
+            "ci95": [
+              0.8814110952847214,
+              1.0276961428858
+            ],
+            "baseline_total_us": 565347.763125,
+            "candidate_total_us": 595414.1483125
+          }
+        },
+        "best_fixed": {
+          "stable_library": {
+            "speedup_total_cost": 0.9634189926196771,
+            "ci95": [
+              0.8742787451896461,
+              1.064164264619312
+            ],
+            "baseline_total_us": 568533.78675,
+            "candidate_total_us": 590121.0076875
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.9580200598863976,
+            "ci95": [
+              0.890309137083196,
+              1.0364645413076903
+            ],
+            "baseline_total_us": 565347.763125,
+            "candidate_total_us": 590121.0076875
+          }
+        },
+        "per_shape": {
+          "stable_library": {
+            "speedup_total_cost": 1.0933356664422205,
+            "ci95": [
+              1.0175705119940983,
+              1.1818229635461668
+            ],
+            "baseline_total_us": 568533.78675,
+            "candidate_total_us": 519999.3050625
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0872086897444018,
+            "ci95": [
+              1.0268368682769005,
+              1.1470132328207614
+            ],
+            "baseline_total_us": 565347.763125,
+            "candidate_total_us": 519999.3050625
+          }
+        },
+        "dispatcher": {
+          "stable_library": {
+            "speedup_total_cost": 1.0279683840333687,
+            "ci95": [
+              0.9228240612603322,
+              1.1308406694514455
+            ],
+            "baseline_total_us": 568533.78675,
+            "candidate_total_us": 553065.440125
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0222077210198202,
+            "ci95": [
+              0.9275323291922991,
+              1.1269860402814926
+            ],
+            "baseline_total_us": 565347.763125,
+            "candidate_total_us": 553065.440125
+          }
+        }
+      }
+    },
+    {
+      "score": {
+        "eager_library": {
+          "stable_library": {
+            "speedup_total_cost": 0.8013263983715196,
+            "ci95": [
+              0.7497212003354135,
+              0.8590628340228021
+            ],
+            "baseline_total_us": 64949.209078125,
+            "candidate_total_us": 81052.1270859375
+          },
+          "fast_library": {
+            "speedup_total_cost": 0.8493372026823562,
+            "ci95": [
+              0.7832679672614662,
+              0.9325562562668361
+            ],
+            "baseline_total_us": 68840.586890625,
+            "candidate_total_us": 81052.1270859375
+          }
+        },
+        "best_fixed": {
+          "stable_library": {
+            "speedup_total_cost": 0.9548416730580224,
+            "ci95": [
+              0.8291297977851215,
+              1.0851669754462254
+            ],
+            "baseline_total_us": 64949.209078125,
+            "candidate_total_us": 68020.9200234375
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0120502172993995,
+            "ci95": [
+              0.8741484646532668,
+              1.1489390933174455
+            ],
+            "baseline_total_us": 68840.586890625,
+            "candidate_total_us": 68020.9200234375
+          }
+        },
+        "per_shape": {
+          "stable_library": {
+            "speedup_total_cost": 1.296680214628756,
+            "ci95": [
+              1.1929164141548896,
+              1.4128391878252724
+            ],
+            "baseline_total_us": 64949.209078125,
+            "candidate_total_us": 50088.840984375
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.374369730617235,
+            "ci95": [
+              1.2951157820351566,
+              1.4616379118605654
+            ],
+            "baseline_total_us": 68840.586890625,
+            "candidate_total_us": 50088.840984375
+          }
+        },
+        "dispatcher": {
+          "stable_library": {
+            "speedup_total_cost": 1.149044592202152,
+            "ci95": [
+              1.0502423738652897,
+              1.249858038517907
+            ],
+            "baseline_total_us": 64949.209078125,
+            "candidate_total_us": 56524.53309375
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.2178886427323148,
+            "ci95": [
+              1.1037538310061072,
+              1.3455535486869945
+            ],
+            "baseline_total_us": 68840.586890625,
+            "candidate_total_us": 56524.53309375
+          }
+        }
+      },
+      "application": {
+        "eager_library": {
+          "stable_library": {
+            "speedup_total_cost": 0.953196570839626,
+            "ci95": [
+              0.8480140864654478,
+              1.0853136405912982
+            ],
+            "baseline_total_us": 692200.651125,
+            "candidate_total_us": 726188.7760625
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.0134726790539903,
+            "ci95": [
+              0.8755810838086395,
+              1.187109522890711
+            ],
+            "baseline_total_us": 735972.484375,
+            "candidate_total_us": 726188.7760625
+          }
+        },
+        "best_fixed": {
+          "stable_library": {
+            "speedup_total_cost": 0.9957115914810063,
+            "ci95": [
+              0.8999396641276789,
+              1.1044157204481055
+            ],
+            "baseline_total_us": 692200.651125,
+            "candidate_total_us": 695181.875
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.058676169275846,
+            "ci95": [
+              0.9496551219477605,
+              1.1819369992044462
+            ],
+            "baseline_total_us": 735972.484375,
+            "candidate_total_us": 695181.875
+          }
+        },
+        "per_shape": {
+          "stable_library": {
+            "speedup_total_cost": 1.0522421448003314,
+            "ci95": [
+              0.9186498473417986,
+              1.20062560192624
+            ],
+            "baseline_total_us": 692200.651125,
+            "candidate_total_us": 657833.9924375
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.1187814750161664,
+            "ci95": [
+              0.9617398754024531,
+              1.305769385143518
+            ],
+            "baseline_total_us": 735972.484375,
+            "candidate_total_us": 657833.9924375
+          }
+        },
+        "dispatcher": {
+          "stable_library": {
+            "speedup_total_cost": 1.0651267470794712,
+            "ci95": [
+              0.9608296730310519,
+              1.1649187636566933
+            ],
+            "baseline_total_us": 692200.651125,
+            "candidate_total_us": 649876.320375
+          },
+          "fast_library": {
+            "speedup_total_cost": 1.1324808448941788,
+            "ci95": [
+              0.9882591569231215,
+              1.317588178923115
+            ],
+            "baseline_total_us": 735972.484375,
+            "candidate_total_us": 649876.320375
+          }
+        }
+      }
+    }
+  ],
+  "comparisons": {
+    "score": {
+      "eager_library": {
+        "stable_library": {
+          "speedup_total_cost": 0.7910578540177886,
+          "ci95": [
+            0.7163712450070362,
+            0.8507501687065363
+          ],
+          "baseline_total_us": 154887.3513046875,
+          "candidate_total_us": 195797.7542578125
+        },
+        "fast_library": {
+          "speedup_total_cost": 0.850829856370354,
+          "ci95": [
+            0.766671433268284,
+            0.9244691385885085
+          ],
+          "baseline_total_us": 166590.5751328125,
+          "candidate_total_us": 195797.7542578125
+        }
+      },
+      "best_fixed": {
+        "stable_library": {
+          "speedup_total_cost": 0.9588244345664304,
+          "ci95": [
+            0.8948610297599772,
+            1.019132582782464
+          ],
+          "baseline_total_us": 154887.3513046875,
+          "candidate_total_us": 161538.8028515625
+        },
+        "fast_library": {
+          "speedup_total_cost": 1.0312728099507587,
+          "ci95": [
+            0.9584928059154931,
+            1.101650367162039
+          ],
+          "baseline_total_us": 166590.5751328125,
+          "candidate_total_us": 161538.8028515625
+        }
+      },
+      "per_shape": {
+        "stable_library": {
+          "speedup_total_cost": 0.9576693994900901,
+          "ci95": [
+            0.8844283350591445,
+            1.0312846382954626
+          ],
+          "baseline_total_us": 154887.3513046875,
+          "candidate_total_us": 161733.6331171875
+        },
+        "fast_library": {
+          "speedup_total_cost": 1.0300305009045694,
+          "ci95": [
+            0.9511580276927212,
+            1.1105153712112124
+          ],
+          "baseline_total_us": 166590.5751328125,
+          "candidate_total_us": 161733.6331171875
+        }
+      },
+      "dispatcher": {
+        "stable_library": {
+          "speedup_total_cost": 1.1311321722723418,
+          "ci95": [
+            1.07858161008636,
+            1.1856704162373202
+          ],
+          "baseline_total_us": 154887.3513046875,
+          "candidate_total_us": 136931.2579921875
+        },
+        "fast_library": {
+          "speedup_total_cost": 1.2166000486340174,
+          "ci95": [
+            1.1451925546364947,
+            1.29152244840826
+          ],
+          "baseline_total_us": 166590.5751328125,
+          "candidate_total_us": 136931.2579921875
+        }
+      },
+      "dispatcher_vs_fixed": {
+        "speedup_total_cost": 1.1797072868546858,
+        "ci95": [
+          1.1025763986889228,
+          1.2731680287819094
+        ],
+        "baseline_total_us": 161538.8028515625,
+        "candidate_total_us": 136931.2579921875
+      },
+      "dispatcher_vs_per_shape": {
+        "speedup_total_cost": 1.18113011951161,
+        "ci95": [
+          1.0927010378904924,
+          1.2766224942434001
+        ],
+        "baseline_total_us": 161733.6331171875,
+        "candidate_total_us": 136931.2579921875
+      }
+    },
+    "application": {
+      "eager_library": {
+        "stable_library": {
+          "speedup_total_cost": 0.9568091763274349,
+          "ci95": [
+            0.9017607339094,
+            1.0211028219503429
+          ],
+          "baseline_total_us": 1571836.8755625,
+          "candidate_total_us": 1642790.343625
+        },
+        "fast_library": {
+          "speedup_total_cost": 0.9838939352241898,
+          "ci95": [
+            0.9162364504899073,
+            1.0642651529074565
+          ],
+          "baseline_total_us": 1616331.4559375,
+          "candidate_total_us": 1642790.343625
+        }
+      },
+      "best_fixed": {
+        "stable_library": {
+          "speedup_total_cost": 0.9811806980592122,
+          "ci95": [
+            0.9247146114332215,
+            1.0409417777596435
+          ],
+          "baseline_total_us": 1571836.8755625,
+          "candidate_total_us": 1601985.1171875
+        },
+        "fast_library": {
+          "speedup_total_cost": 1.0089553508307163,
+          "ci95": [
+            0.9522063739716631,
+            1.070608577816954
+          ],
+          "baseline_total_us": 1616331.4559375,
+          "candidate_total_us": 1601985.1171875
+        }
+      },
+      "per_shape": {
+        "stable_library": {
+          "speedup_total_cost": 1.0922578063330721,
+          "ci95": [
+            1.0196381765245104,
+            1.1663843523064268
+          ],
+          "baseline_total_us": 1571836.8755625,
+          "candidate_total_us": 1439071.3130625
+        },
+        "fast_library": {
+          "speedup_total_cost": 1.1231767607803753,
+          "ci95": [
+            1.0469846908282356,
+            1.20765911944428
+          ],
+          "baseline_total_us": 1616331.4559375,
+          "candidate_total_us": 1439071.3130625
+        }
+      },
+      "dispatcher": {
+        "stable_library": {
+          "speedup_total_cost": 1.0463267955857283,
+          "ci95": [
+            0.9862990226238856,
+            1.1048720220501
+          ],
+          "baseline_total_us": 1571836.8755625,
+          "candidate_total_us": 1502242.7813125
+        },
+        "fast_library": {
+          "speedup_total_cost": 1.0759455635561928,
+          "ci95": [
+            1.002687724231243,
+            1.1671107889556929
+          ],
+          "baseline_total_us": 1616331.4559375,
+          "candidate_total_us": 1502242.7813125
+        }
+      },
+      "dispatcher_vs_fixed": {
+        "speedup_total_cost": 1.0663956166844455,
+        "ci95": [
+          0.9998998072794928,
+          1.1390362146864104
+        ],
+        "baseline_total_us": 1601985.1171875,
+        "candidate_total_us": 1502242.7813125
+      },
+      "dispatcher_vs_per_shape": {
+        "speedup_total_cost": 0.9579485626186152,
+        "ci95": [
+          0.8927381392363449,
+          1.0295113839572363
+        ],
+        "baseline_total_us": 1439071.3130625,
+        "candidate_total_us": 1502242.7813125
+      }
+    }
+  },
+  "cold_start": {
+    "stable_library": {
+      "median_process_wall_ms": 846.4213339902926,
+      "median_first_sequence_ms": 28.5585
+    },
+    "fast_library": {
+      "median_process_wall_ms": 845.272082980955,
+      "median_first_sequence_ms": 53.803
+    },
+    "eager_library": {
+      "median_process_wall_ms": 702.5301669782493,
+      "median_first_sequence_ms": 30.370667
+    },
+    "best_fixed": {
+      "median_process_wall_ms": 972.9472500039265,
+      "median_first_sequence_ms": 40.310125
+    },
+    "per_shape": {
+      "median_process_wall_ms": 804.0074589953292,
+      "median_first_sequence_ms": 34.481042
+    },
+    "dispatcher": {
+      "median_process_wall_ms": 1356.9732919859234,
+      "median_first_sequence_ms": 37.602166
+    }
+  },
+  "evidence_sha256": {
+    "protocol.json": "f853207d7cf289eaa00b165e5da30bcdab51c744cf0071835c16124a33576d72",
+    "policy-frozen.json": "193a4413af7f0f21e42d0f6aabb6f84cf6f67664d201e26ad400eb51a04454fc",
+    "development.json": "931ef90e7bf52f0bc314cbcaf0cc4fe9d0743dc7e4859c6e3eb852a67a0571a6",
+    "numerical-validation.json": "ed06f886d878953de83f2f001e1e8f06789480642bd925aa1ed799c19b0eb6c3",
+    "corpus.json": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+    "cold-study.json": "0416baee223fbe91d3fd6f6c28bb7be1747f7e47c00891ddedbe6ed8dad22dbb",
+    "confirmation-0.json": "e058d40e2e84ad2fe20b542c92c5b05e1adbe13c7eae34a4a4e3d1eb8605f0fb",
+    "confirmation-1.json": "d7a68359e95252f835ccb4601d3b4ad38abe7c78d6897b1dba60898637816aaf",
+    "confirmation-2.json": "fd6efd8a8926c356b745cf59712985b1ccb5bd659f43c849508ef869ac696fed"
+  },
+  "authored_source_bytes": 4217,
+  "limitations": [
+    "Local JSON provenance is not cryptographic hardware attestation.",
+    "Pooled intervals are descriptive; every independent session must beat both optimized libraries.",
+    "Synchronized host-wall costs include allocation, dispatch and materialization.",
+    "Fresh processes retain shared OS/driver caches; pure compiler time is not isolated."
+  ]
+}

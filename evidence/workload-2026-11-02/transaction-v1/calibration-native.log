@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/transaction_study.py", line 622, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/transaction_study.py", line 615, in main
+    if args.stage=='freeze':freeze()
+                            ^^^^^^^^
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/transaction_study.py", line 320, in freeze
+    budget('application_controls')
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/transaction_study.py", line 286, in budget
+    if time.perf_counter()-start>180:raise TimeoutError('180-second calibration cap; no retry')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: 180-second calibration cap; no retry

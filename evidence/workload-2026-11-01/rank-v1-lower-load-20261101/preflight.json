@@ -1,0 +1,46 @@
+{
+  "kind": "prospective_lower_load_rank_baseline_preflight",
+  "utc": "2026-11-01T10:53:19Z",
+  "source_commit": "ca3b58685b2e2f116f7f17811d7c31c20078a984",
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "3fe8387f897a851a3848714370fe1e36fba602eb269e1c11179552a36899835d",
+  "script_sha256": "841223eda2da3dfa7376221033723e780fcc87bd70950b32d4051049fe618031",
+  "numerical_report_sha256": "64690cf2b3ac8f3192221e25b14555e26fab554dfb876473580e8696e035e8ab",
+  "current_observed_load_average": [
+    12.78564453125,
+    27.873046875,
+    53.70556640625
+  ],
+  "cpu_count": 10,
+  "thermal_probe": {
+    "returncode": 0,
+    "observation": "Error:Failed to get thermal warning level with error code 0xe00002bc\nError: Failed to get performance warning level with error code 0xe00002bc\nError: No CPU power status with error code 0xe00002bc"
+  },
+  "rationale": "Material external load reduction observed before candidate timing; one fresh original128 baseline, unchanged source/gate. Load is a proxy and does not prove stable timings or explain earlier noise.",
+  "stability_gate": "All three identical-library total-cost CIs must fit inside [0.9,1.1].",
+  "allowed_attempts_for_this_preflight": 1,
+  "on_failure": "Preserve rejection; no repeat, weaker gate or candidate timing.",
+  "candidate_timing_observed": false,
+  "prior_evidence_preserved": true,
+  "timing_flags": {
+    "METAL_DEBUG_ERROR_MODE": null,
+    "METAL_DEVICE_WRAPPER_TYPE": null,
+    "MTL_DEBUG_LAYER": null,
+    "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+    "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+    "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+    "MTL_SHADER_VALIDATION": null,
+    "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+  },
+  "previous_128_baseline_load_average": [
+    272.56298828125,
+    206.27734375,
+    191.54443359375
+  ],
+  "previous_1024_diagnostic_load_average": [
+    121.30712890625,
+    196.9619140625,
+    194.02001953125
+  ],
+  "independent_preflight_review": "One fresh unchanged baseline justified by substantial observed external load reduction; unavailable thermal telemetry does not prove thermal stability. No repeated attempt if this fails."
+}

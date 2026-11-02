@@ -1,0 +1,67 @@
+digraph {
+{ rank=source; "x"; }
+{ 524748835240 [label ="Abs", shape=rectangle]; }
+"x" -> 524748835240
+{ "B"; }
+524748835240 -> "B"
+{ 524743364776 [label ="Max", shape=rectangle]; }
+"B" -> 524743364776
+{ "C"; }
+524743364776 -> "C"
+{ rank=source; "D"; }
+{ 524743336216 [label ="Broadcast", shape=rectangle]; }
+"D" -> 524743336216
+{ "E"; }
+524743336216 -> "E"
+{ 524743296488 [label ="Maximum", shape=rectangle]; }
+"C" -> 524743296488
+"E" -> 524743296488
+{ "F"; }
+524743296488 -> "F"
+{ 524743335576 [label ="Broadcast", shape=rectangle]; }
+"F" -> 524743335576
+{ "G"; }
+524743335576 -> "G"
+{ 524748418568 [label ="Divide", shape=rectangle]; }
+"x" -> 524748418568
+"G" -> 524748418568
+{ "H"; }
+524748418568 -> "H"
+{ 524748418376 [label ="Multiply", shape=rectangle]; }
+"H" -> 524748418376
+"H" -> 524748418376
+{ "I"; }
+524748418376 -> "I"
+{ 524743365256 [label ="Sum", shape=rectangle]; }
+"I" -> 524743365256
+{ "J"; }
+524743365256 -> "J"
+{ 524743297448 [label ="Sqrt", shape=rectangle]; }
+"J" -> 524743297448
+{ "K"; }
+524743297448 -> "K"
+{ rank=source; "L"; }
+{ 524743336088 [label ="Broadcast", shape=rectangle]; }
+"L" -> 524743336088
+{ "M"; }
+524743336088 -> "M"
+{ 524748418808 [label ="Divide", shape=rectangle]; }
+"M" -> 524748418808
+"F" -> 524748418808
+{ "N"; }
+524748418808 -> "N"
+{ 524743298936 [label ="Maximum", shape=rectangle]; }
+"K" -> 524743298936
+"N" -> 524743298936
+{ "O"; }
+524743298936 -> "O"
+{ 524743336344 [label ="Broadcast", shape=rectangle]; }
+"O" -> 524743336344
+{ "P"; }
+524743336344 -> "P"
+{ 524748418616 [label ="Divide", shape=rectangle]; }
+"H" -> 524748418616
+"P" -> 524748418616
+{ rank=sink; "Q"; }
+524748418616 -> "Q"
+}

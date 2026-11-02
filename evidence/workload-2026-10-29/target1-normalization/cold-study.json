@@ -1,0 +1,837 @@
+{
+  "schema": 1,
+  "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+  "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "policy_sha256": "0b349acefbabceeebd0ec957aebf4b2a260f7301c90c9db97abab353c652a53a",
+  "rows": [
+    {
+      "method": "library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 299.20979199232534,
+      "environment_probe_ms": 1866.479749995051,
+      "policy_setup_ms": 0.07591600297018886,
+      "input_prepare_ms": 163.1211249914486,
+      "first_application_sequence_ms": 163.89125,
+      "peak_memory_bytes": 5817784,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 3735.6577499886043
+    },
+    {
+      "method": "per_shape",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 614.2388330190443,
+      "environment_probe_ms": 1001.6884169890545,
+      "policy_setup_ms": 0.04179199459031224,
+      "input_prepare_ms": 401.6459999838844,
+      "first_application_sequence_ms": 2390.982917,
+      "peak_memory_bytes": 2999436,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 5058.140458975686
+    },
+    {
+      "method": "dispatcher",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 324.8316670069471,
+      "environment_probe_ms": 1132.4777079862542,
+      "policy_setup_ms": 2288.246624986641,
+      "input_prepare_ms": 720.7739170116838,
+      "first_application_sequence_ms": 533.967375,
+      "peak_memory_bytes": 2999096,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 6029.166708001867
+    },
+    {
+      "method": "fast_library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 352.8280000027735,
+      "environment_probe_ms": 1352.278959006071,
+      "policy_setup_ms": 0.07449998520314693,
+      "input_prepare_ms": 614.5474999793805,
+      "first_application_sequence_ms": 1246.92625,
+      "peak_memory_bytes": 5932532,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 4607.3127500130795
+    },
+    {
+      "method": "best_fixed",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 393.58712499961257,
+      "environment_probe_ms": 617.5557500100695,
+      "policy_setup_ms": 0.04941600491292775,
+      "input_prepare_ms": 335.377207986312,
+      "first_application_sequence_ms": 263.511166,
+      "peak_memory_bytes": 2785436,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 2226.5475830063224
+    },
+    {
+      "method": "compiled_application",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 265.0566670054104,
+      "environment_probe_ms": 957.2503749805037,
+      "policy_setup_ms": 0.05629201768897474,
+      "input_prepare_ms": 595.7824170181993,
+      "first_application_sequence_ms": 377.66220799999996,
+      "peak_memory_bytes": 5293512,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 2636.7617920041084
+    },
+    {
+      "method": "fast_compiled_application",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 240.34091702196747,
+      "environment_probe_ms": 858.547040988924,
+      "policy_setup_ms": 0.02820900408551097,
+      "input_prepare_ms": 161.52708299341612,
+      "first_application_sequence_ms": 1062.51475,
+      "peak_memory_bytes": 6292996,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 2707.0816670020577
+    },
+    {
+      "method": "eager_library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 573.7602080043871,
+      "environment_probe_ms": 1135.1863339950796,
+      "policy_setup_ms": 0.05179201252758503,
+      "input_prepare_ms": 361.9909999833908,
+      "first_application_sequence_ms": 330.61291700000004,
+      "peak_memory_bytes": 5933108,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 0,
+      "process_wall_ms": 3115.17241600086
+    },
+    {
+      "method": "eager_library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 387.884750001831,
+      "environment_probe_ms": 1097.490124986507,
+      "policy_setup_ms": 0.03320799442008138,
+      "input_prepare_ms": 199.85891599208117,
+      "first_application_sequence_ms": 742.157542,
+      "peak_memory_bytes": 5818416,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 3020.705667004222
+    },
+    {
+      "method": "fast_compiled_application",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 185.8357079909183,
+      "environment_probe_ms": 513.0241660226602,
+      "policy_setup_ms": 0.02779200440272689,
+      "input_prepare_ms": 175.67029199562967,
+      "first_application_sequence_ms": 1993.504834,
+      "peak_memory_bytes": 6407712,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 3225.102542026434
+    },
+    {
+      "method": "per_shape",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 253.83550001424737,
+      "environment_probe_ms": 659.2189999937546,
+      "policy_setup_ms": 0.03374999505467713,
+      "input_prepare_ms": 556.2601249839645,
+      "first_application_sequence_ms": 1249.045792,
+      "peak_memory_bytes": 2785436,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 3384.8779169784393
+    },
+    {
+      "method": "dispatcher",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 516.384000016842,
+      "environment_probe_ms": 2249.5020419883076,
+      "policy_setup_ms": 1552.988000010373,
+      "input_prepare_ms": 1264.8132920148782,
+      "first_application_sequence_ms": 279.346625,
+      "peak_memory_bytes": 2785436,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 6674.442374991486
+    },
+    {
+      "method": "best_fixed",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 1147.329625004204,
+      "environment_probe_ms": 2734.030874999007,
+      "policy_setup_ms": 0.06587497773580253,
+      "input_prepare_ms": 1106.5847910067532,
+      "first_application_sequence_ms": 1666.182375,
+      "peak_memory_bytes": 4884336,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 7823.476167017361
+    },
+    {
+      "method": "compiled_application",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 360.20141700282693,
+      "environment_probe_ms": 2236.8667499977164,
+      "policy_setup_ms": 1.3855830184184015,
+      "input_prepare_ms": 627.4550409871154,
+      "first_application_sequence_ms": 1098.890792,
+      "peak_memory_bytes": 5408200,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 5058.367999998154
+    },
+    {
+      "method": "library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 700.4357090045232,
+      "environment_probe_ms": 3074.4101669988595,
+      "policy_setup_ms": 0.0932919792830944,
+      "input_prepare_ms": 1401.957082998706,
+      "first_application_sequence_ms": 945.135958,
+      "peak_memory_bytes": 6686936,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 7661.268249998102
+    },
+    {
+      "method": "fast_library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 1008.2679159822874,
+      "environment_probe_ms": 2687.8779170219786,
+      "policy_setup_ms": 0.029834016459062696,
+      "input_prepare_ms": 986.900334013626,
+      "first_application_sequence_ms": 534.375125,
+      "peak_memory_bytes": 5932532,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 1,
+      "process_wall_ms": 6465.777832985623
+    },
+    {
+      "method": "best_fixed",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 368.9262090192642,
+      "environment_probe_ms": 1656.117207981879,
+      "policy_setup_ms": 0.060999998822808266,
+      "input_prepare_ms": 329.72974999574944,
+      "first_application_sequence_ms": 107.611333,
+      "peak_memory_bytes": 2900124,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 3355.3864999848884
+    },
+    {
+      "method": "fast_library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 138.98275000974536,
+      "environment_probe_ms": 651.8555409857072,
+      "policy_setup_ms": 0.0558749889023602,
+      "input_prepare_ms": 192.08216699189506,
+      "first_application_sequence_ms": 116.161708,
+      "peak_memory_bytes": 5817844,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 1277.8192090045195
+    },
+    {
+      "method": "per_shape",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 86.53562498511747,
+      "environment_probe_ms": 1234.5035419857595,
+      "policy_setup_ms": 0.06062502507120371,
+      "input_prepare_ms": 430.0437080091797,
+      "first_application_sequence_ms": 173.692209,
+      "peak_memory_bytes": 2900124,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 2272.9879170074128
+    },
+    {
+      "method": "eager_library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 397.29620798607357,
+      "environment_probe_ms": 843.1137910229154,
+      "policy_setup_ms": 0.18158298917114735,
+      "input_prepare_ms": 222.96225000172853,
+      "first_application_sequence_ms": 37.85575,
+      "peak_memory_bytes": 5818416,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 2385.5655000079423
+    },
+    {
+      "method": "library",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 351.1391249776352,
+      "environment_probe_ms": 730.1401250006165,
+      "policy_setup_ms": 0.047959008952602744,
+      "input_prepare_ms": 149.44595799897797,
+      "first_application_sequence_ms": 185.75470800000002,
+      "peak_memory_bytes": 5817784,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 1633.4406250098255
+    },
+    {
+      "method": "compiled_application",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 180.6256249838043,
+      "environment_probe_ms": 1385.6234169797972,
+      "policy_setup_ms": 0.03154101432301104,
+      "input_prepare_ms": 660.1923329872079,
+      "first_application_sequence_ms": 234.125,
+      "peak_memory_bytes": 5293512,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 3158.876458997838
+    },
+    {
+      "method": "fast_compiled_application",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 369.8677079810295,
+      "environment_probe_ms": 1499.1310419864021,
+      "policy_setup_ms": 0.058542005717754364,
+      "input_prepare_ms": 360.0314579962287,
+      "first_application_sequence_ms": 263.02554200000003,
+      "peak_memory_bytes": 6407700,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 3144.8813329916447
+    },
+    {
+      "method": "dispatcher",
+      "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+      "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+      "runtime_setup_ms": 188.64937499165535,
+      "environment_probe_ms": 1349.2469580087345,
+      "policy_setup_ms": 1358.4474999806844,
+      "input_prepare_ms": 628.2174999942072,
+      "first_application_sequence_ms": 111.654667,
+      "peak_memory_bytes": 2785436,
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "cache_note": "Fresh Python and MLX process; shared OS/driver caches are not deleted. First-call work includes compilation/dispatch; pure compiler time is not isolated.",
+      "repeat": 2,
+      "process_wall_ms": 4355.94450001372
+    }
+  ],
+  "wall_seconds": 95.33383474999573,
+  "method": "24 serialized independent process starts, randomized method order; compilation/first dispatch and process/input setup reported separately; process wall includes harness identity probes",
+  "telemetry": {
+    "time_utc": "2026-10-29T23:03:43Z",
+    "load_average": [
+      344.35888671875,
+      228.49560546875,
+      118.82568359375
+    ],
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35586147)\t24%; charging; (no estimate) present: true"
+  }
+}

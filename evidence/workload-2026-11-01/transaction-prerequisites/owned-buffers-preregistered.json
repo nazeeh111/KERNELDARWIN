@@ -1,0 +1,15 @@
+{
+  "kind": "prospective_owned_buffer_library_composition_diagnostic",
+  "frozen_at": "2026-11-02T04:03:41.316713+00:00",
+  "source_sha256": "342658d4eba656e632904cfa568f2756069b13d744c1bdc3fca9ec23353928de",
+  "composition_sha256": "c9b77ce312bd45a45238d08f92968ab5ba2acde3755d6e57ff3d0bd9d2dfe4f6",
+  "native_observer_sha256": "21c325f426d091db31e4fce2a114684eab18aa26b637698b077d39f0d8498d8f",
+  "one_attempt": true,
+  "cap_seconds": 60,
+  "memory_cap_bytes": 2147483648,
+  "candidate_kernel_timing": false,
+  "acceptance_study": false,
+  "design": "40quadgroups each of4library methods;randommethodorder and sequential/transaction ABBA/BAAB order;eachwindow isonecomplete3developmenttasksequence with same raw refresh/3changedqueries/resultmaterialization;inputschangepergroup. Compilation/warmupbeforeobservation.",
+  "checks": "Original/F64 checks first/lastgroup,allgroupssequential/transaction scoreagreement;allownedcommitrecords matched/drained/positive;sourceobserverrestored;no systemtrace/foreignrecords.",
+  "limits": "Instrumentation overhead included;notpurekernel/deviceexclusivity,notacceptedperformance,notcustomkerneladvantage. Fullobjective requires equally composed optimizedlibrary comparators in any futurecustomstudy and newuntouchedconfirmation."
+}

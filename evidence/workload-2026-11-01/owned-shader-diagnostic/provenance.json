@@ -1,0 +1,20 @@
+{
+  "capture": "xcrun xctrace record --template Metal System Trace --instrument Metal GPU Counters --time-limit 20s --launch -- [installed final CI Python] profile_baselines.py",
+  "record_completed": true,
+  "target_pid": 47528,
+  "target_checks": 72,
+  "raw_trace_private": "/private/tmp/kd-counter-diag-20261101.trace",
+  "exports_completed": [
+    "toc.xml",
+    "shader-intervals.xml",
+    "counter-profile3.xml",
+    "shader-list.xml",
+    "counter-values.xml",
+    "submission-map.xml",
+    "counter-info.xml"
+  ],
+  "raw_xml_private": true,
+  "numeric_counter_attribution": "rejected: accelerator is shared, shader profile has0rows, onlyRTUnitActive definition",
+  "candidate_timing": false,
+  "candidate_selection": false
+}

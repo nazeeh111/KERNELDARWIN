@@ -1,0 +1,91 @@
+{
+  "kind": "installed_application_profiler_execution",
+  "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+  "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "script_sha256": "ab5f27c5e83e309196ea3afb3108af686c95bf329631a6cb8031577d1e2d7ff5",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "graphs": {
+    "stable": {
+      "file": "profile-installed-stable.dot",
+      "sha256": "58212a029df30cd82b1001372699df38ada3c2d649fac2f78b8805cef0f1bc2f",
+      "primitive_rectangles": 16
+    },
+    "fast": {
+      "file": "profile-installed-fast.dot",
+      "sha256": "153bbb7a042c10e6908d0ba0aebf427af01f90ee42c3ddba8ff0b4919496deb0",
+      "primitive_rectangles": 17
+    }
+  },
+  "phases": [
+    {
+      "method": "compiled_norm_application",
+      "start_unix_ns": 1793257846825006000,
+      "end_unix_ns": 1793257846851747000,
+      "iterations": 8,
+      "numerical_passed": true
+    },
+    {
+      "method": "whole_stable_application",
+      "start_unix_ns": 1793257846895190000,
+      "end_unix_ns": 1793257846904014000,
+      "iterations": 8,
+      "numerical_passed": true
+    },
+    {
+      "method": "whole_fast_application",
+      "start_unix_ns": 1793257847032966000,
+      "end_unix_ns": 1793257847041892000,
+      "iterations": 8,
+      "numerical_passed": true
+    },
+    {
+      "method": "simd",
+      "start_unix_ns": 1793257847100464000,
+      "end_unix_ns": 1793257847108382000,
+      "iterations": 8,
+      "numerical_passed": true
+    },
+    {
+      "method": "simd4",
+      "start_unix_ns": 1793257847167290000,
+      "end_unix_ns": 1793257847174729000,
+      "iterations": 8,
+      "numerical_passed": true
+    },
+    {
+      "method": "vector4",
+      "start_unix_ns": 1793257847242714000,
+      "end_unix_ns": 1793257847250366000,
+      "iterations": 8,
+      "numerical_passed": true
+    },
+    {
+      "method": "group128",
+      "start_unix_ns": 1793257847319769000,
+      "end_unix_ns": 1793257847327754000,
+      "iterations": 8,
+      "numerical_passed": true
+    }
+  ],
+  "limitation": "Wall phase markers locate own-process GPU trace events. They include validation/host work and are not benchmark samples or causal proof."
+}

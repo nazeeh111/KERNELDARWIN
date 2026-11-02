@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "kind": "backend_validation_failure",
+  "stage": "Numerical validation of compiled ranking with empty query batch",
+  "input_shape": [0, 33],
+  "operation_source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+  "exit_code": 134,
+  "native_error": "MTLDebugComputeCommandEncoder dispatchThreads: threadsPerGrid product must not be 0",
+  "repair": "After validating dtype, width and k, both index APIs return empty ID/score lists for zero query rows before normalization or compiled sort. Nonempty queries still execute actual GPU work.",
+  "scope": "Detected by Metal API/GPU Validation before release. The direct offline candidate separately rejects empty/f16 inputs; its test adapter was corrected to use the library fallback for those documented unsupported cases. No performance result is inferred."
+}

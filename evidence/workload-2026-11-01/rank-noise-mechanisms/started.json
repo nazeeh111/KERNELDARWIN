@@ -1,0 +1,19 @@
+{
+  "kind": "library_only_owned_command_buffer_timing_diagnostic",
+  "schema": 1,
+  "candidate_timing": false,
+  "acceptance_study": false,
+  "samples": [],
+  "source_sha256": {
+    "probe.py": "a69ea28a10cdb7875c22b420d682affd26cf7279492e685f93fe0a629d589ec4",
+    "buffer_timer.mm": "88893ac4c77edcd7a23790ef7f011d550b19874b5a96e976bae26d7baa864e19",
+    "kd-buffer-timer-20261101.dylib": "21c325f426d091db31e4fce2a114684eab18aa26b637698b077d39f0d8498d8f"
+  },
+  "measurement_sha256": "4470b506443feea5cf6a4f22b5fea01338e8a199621b02dd0f45f20f114f5b3a",
+  "limits": {
+    "wall_seconds": 120,
+    "memory_bytes": 2147483648,
+    "records_per_sample": 8192
+  },
+  "utc": "2026-11-02T03:40:41Z"
+}

@@ -1,0 +1,1184 @@
+{
+  "schema": 1,
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "rows": [
+    {
+      "method": "stable_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.718792003113776,
+      "frozen_checks_ms": 317.9415419581346,
+      "policy_setup_ms": 0.0077909789979457855,
+      "input_prepare_ms": 54.255374998319894,
+      "first_application_sequence_ms": 37.945,
+      "peak_memory_bytes": 5408216,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 476.91029199631885
+    },
+    {
+      "method": "dispatcher",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.859707977157086,
+      "frozen_checks_ms": 392.95349997701123,
+      "policy_setup_ms": 144.8524589650333,
+      "input_prepare_ms": 33.57370896264911,
+      "first_application_sequence_ms": 37.839,
+      "peak_memory_bytes": 5408212,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 676.3006669934839
+    },
+    {
+      "method": "stable_reduction",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.6978749637492,
+      "frozen_checks_ms": 328.55691597796977,
+      "policy_setup_ms": 0.008875038474798203,
+      "input_prepare_ms": 34.586082969326526,
+      "first_application_sequence_ms": 38.063375,
+      "peak_memory_bytes": 5408244,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 468.9605829771608
+    },
+    {
+      "method": "fast_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 25.058250001166016,
+      "frozen_checks_ms": 466.82025003246963,
+      "policy_setup_ms": 0.00825000461190939,
+      "input_prepare_ms": 33.2396249868907,
+      "first_application_sequence_ms": 42.984167,
+      "peak_memory_bytes": 6407712,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 609.976582985837
+    },
+    {
+      "method": "best_fixed",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.967000004835427,
+      "frozen_checks_ms": 316.270874987822,
+      "policy_setup_ms": 0.010207993909716606,
+      "input_prepare_ms": 33.55533303692937,
+      "first_application_sequence_ms": 32.661,
+      "peak_memory_bytes": 5408216,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 451.6461250022985
+    },
+    {
+      "method": "fast_reduction",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.817625002469867,
+      "frozen_checks_ms": 310.83937495714054,
+      "policy_setup_ms": 0.009709037840366364,
+      "input_prepare_ms": 36.87549999449402,
+      "first_application_sequence_ms": 48.60975,
+      "peak_memory_bytes": 6407716,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 466.05683403322473
+    },
+    {
+      "method": "eager_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 26.022042031399906,
+      "frozen_checks_ms": 399.5811669738032,
+      "policy_setup_ms": 0.011790951248258352,
+      "input_prepare_ms": 36.674541945103556,
+      "first_application_sequence_ms": 39.202208,
+      "peak_memory_bytes": 5933120,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 547.7398330112919
+    },
+    {
+      "method": "per_shape",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 25.194832996930927,
+      "frozen_checks_ms": 386.16770796943456,
+      "policy_setup_ms": 0.011124997399747372,
+      "input_prepare_ms": 33.77645800355822,
+      "first_application_sequence_ms": 40.132792,
+      "peak_memory_bytes": 5408204,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 0,
+      "process_wall_ms": 527.6967499521561
+    },
+    {
+      "method": "stable_reduction",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.953416956122965,
+      "frozen_checks_ms": 385.938957973849,
+      "policy_setup_ms": 0.008790986612439156,
+      "input_prepare_ms": 34.74008396733552,
+      "first_application_sequence_ms": 40.47,
+      "peak_memory_bytes": 5408228,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 527.561999973841
+    },
+    {
+      "method": "dispatcher",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 25.51974996458739,
+      "frozen_checks_ms": 390.25579096050933,
+      "policy_setup_ms": 216.65224997559562,
+      "input_prepare_ms": 33.903874980751425,
+      "first_application_sequence_ms": 39.163083,
+      "peak_memory_bytes": 5408216,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 747.7755839936435
+    },
+    {
+      "method": "fast_reduction",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.59145797183737,
+      "frozen_checks_ms": 391.4717080187984,
+      "policy_setup_ms": 0.008708040695637465,
+      "input_prepare_ms": 33.10258302371949,
+      "first_application_sequence_ms": 51.315,
+      "peak_memory_bytes": 6407740,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 544.389208953362
+    },
+    {
+      "method": "best_fixed",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.377375026233494,
+      "frozen_checks_ms": 330.28554200427607,
+      "policy_setup_ms": 0.009874987881630659,
+      "input_prepare_ms": 34.86962500028312,
+      "first_application_sequence_ms": 36.0365,
+      "peak_memory_bytes": 5408216,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 467.7847910206765
+    },
+    {
+      "method": "fast_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 26.565166015643626,
+      "frozen_checks_ms": 327.5111250113696,
+      "policy_setup_ms": 0.010040996130555868,
+      "input_prepare_ms": 33.81545899901539,
+      "first_application_sequence_ms": 42.692875,
+      "peak_memory_bytes": 6407700,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 472.89441601606086
+    },
+    {
+      "method": "stable_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.607166997157037,
+      "frozen_checks_ms": 324.06520802760497,
+      "policy_setup_ms": 0.009040988516062498,
+      "input_prepare_ms": 32.44508395437151,
+      "first_application_sequence_ms": 35.258542,
+      "peak_memory_bytes": 5408200,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 457.17591600259766
+    },
+    {
+      "method": "per_shape",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.27941601490602,
+      "frozen_checks_ms": 299.8362500220537,
+      "policy_setup_ms": 0.01166702713817358,
+      "input_prepare_ms": 33.09362503932789,
+      "first_application_sequence_ms": 35.948208,
+      "peak_memory_bytes": 5293512,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 434.2925829696469
+    },
+    {
+      "method": "eager_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.945791985373944,
+      "frozen_checks_ms": 331.2885419582017,
+      "policy_setup_ms": 0.009417010005563498,
+      "input_prepare_ms": 33.37333298986778,
+      "first_application_sequence_ms": 35.872417,
+      "peak_memory_bytes": 5933108,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 1,
+      "process_wall_ms": 467.85758301848546
+    },
+    {
+      "method": "stable_reduction",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.954291991889477,
+      "frozen_checks_ms": 313.6261669569649,
+      "policy_setup_ms": 0.008624978363513947,
+      "input_prepare_ms": 32.63145801611245,
+      "first_application_sequence_ms": 39.486417,
+      "peak_memory_bytes": 5408248,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 451.89333299640566
+    },
+    {
+      "method": "eager_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.70312500372529,
+      "frozen_checks_ms": 312.4260829645209,
+      "policy_setup_ms": 0.009417010005563498,
+      "input_prepare_ms": 32.772290986031294,
+      "first_application_sequence_ms": 37.626709000000005,
+      "peak_memory_bytes": 5933120,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 449.40725003834814
+    },
+    {
+      "method": "per_shape",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.836208031047136,
+      "frozen_checks_ms": 312.2114160214551,
+      "policy_setup_ms": 0.010750023648142815,
+      "input_prepare_ms": 32.44920901488513,
+      "first_application_sequence_ms": 38.5665,
+      "peak_memory_bytes": 5293512,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 450.0611249823123
+    },
+    {
+      "method": "stable_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 23.859249951783568,
+      "frozen_checks_ms": 312.5364580191672,
+      "policy_setup_ms": 0.00929197994992137,
+      "input_prepare_ms": 32.83516701776534,
+      "first_application_sequence_ms": 41.760166,
+      "peak_memory_bytes": 5408212,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 454.99304204713553
+    },
+    {
+      "method": "fast_library",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.943792028352618,
+      "frozen_checks_ms": 329.80079198023304,
+      "policy_setup_ms": 0.009000010322779417,
+      "input_prepare_ms": 31.8671659915708,
+      "first_application_sequence_ms": 44.1115,
+      "peak_memory_bytes": 6292996,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 475.360999989789
+    },
+    {
+      "method": "best_fixed",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 25.243750016670674,
+      "frozen_checks_ms": 313.6690420215018,
+      "policy_setup_ms": 0.010459043551236391,
+      "input_prepare_ms": 33.45287498086691,
+      "first_application_sequence_ms": 36.853708,
+      "peak_memory_bytes": 5768796,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 451.99675002368167
+    },
+    {
+      "method": "fast_reduction",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.840124999172986,
+      "frozen_checks_ms": 311.7140419781208,
+      "policy_setup_ms": 0.006959016900509596,
+      "input_prepare_ms": 34.66641705017537,
+      "first_application_sequence_ms": 45.969415999999995,
+      "peak_memory_bytes": 6407736,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 459.91383300861344
+    },
+    {
+      "method": "dispatcher",
+      "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+      "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+      "environment": {
+        "mlx": "0.32.0",
+        "mlx_metal": "0.32.0",
+        "system": "Darwin",
+        "os_version": "27.2",
+        "os_build": "26B123",
+        "kernel_release": "27.2.0",
+        "machine": "arm64",
+        "python": "3.12.13",
+        "device": {
+          "device_name": "Apple M4",
+          "architecture": "applegpu_g16g",
+          "memory_size": 34359738368
+        },
+        "gpu_cores": 10,
+        "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+        "compile_options": {
+          "math_mode": "safe"
+        }
+      },
+      "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+      "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+      "runtime_setup_ms": 24.37045896658674,
+      "frozen_checks_ms": 378.91816697083414,
+      "policy_setup_ms": 154.6664169873111,
+      "input_prepare_ms": 32.65241702320054,
+      "first_application_sequence_ms": 36.249334000000005,
+      "peak_memory_bytes": 5408216,
+      "timing_validation_flags": {
+        "METAL_DEBUG_ERROR_MODE": null,
+        "METAL_DEVICE_WRAPPER_TYPE": null,
+        "MTL_DEBUG_LAYER": null,
+        "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+        "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+        "MTL_SHADER_VALIDATION": null,
+        "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+      },
+      "cache_note": "Fresh Python/MLX process; OS/driver caches retained; compilation included, pure compiler time not isolated",
+      "repeat": 2,
+      "process_wall_ms": 667.7957500214688
+    }
+  ],
+  "orders": [
+    [
+      "stable_library",
+      "dispatcher",
+      "stable_reduction",
+      "fast_library",
+      "best_fixed",
+      "fast_reduction",
+      "eager_library",
+      "per_shape"
+    ],
+    [
+      "stable_reduction",
+      "dispatcher",
+      "fast_reduction",
+      "best_fixed",
+      "fast_library",
+      "stable_library",
+      "per_shape",
+      "eager_library"
+    ],
+    [
+      "stable_reduction",
+      "eager_library",
+      "per_shape",
+      "stable_library",
+      "fast_library",
+      "best_fixed",
+      "fast_reduction",
+      "dispatcher"
+    ]
+  ],
+  "telemetry": {
+    "time_utc": "2026-11-01T16:16:02Z",
+    "load_average": [
+      7.3662109375,
+      5.75,
+      14.16259765625
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t66%; discharging; 3:02 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "method": "24 serialized fresh processes, eight methods x three; randomized orders; OS/driver caches retained",
+  "wall_seconds": 12.691148750018328
+}

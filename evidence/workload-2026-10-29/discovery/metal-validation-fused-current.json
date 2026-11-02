@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "kind": "executed_fused_metal_numerical_validation",
+  "source_sha256": "e10fbfb5fb613d8d271c87bcc832bd0aca30d4ac12b1f954253f8237f8bd4e10",
+  "study_identity": "d4f3049f03a5b0a8c271e97fe038cac4680eb29cbd06d5e09d3b8ef430e8679d",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "gpu_executed": true,
+  "success": true,
+  "tests_run": 7,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "wall_seconds": 5.15455216600094,
+  "output": "test_application_ids_empty_mixed_dtype_and_rollback (test_fused_search.FusedSearchTests.test_application_ids_empty_mixed_dtype_and_rollback) ... ok\ntest_candidate_limits_and_regression_detection (test_fused_search.FusedSearchTests.test_candidate_limits_and_regression_detection) ... ok\ntest_extremes_cancellation_and_tiny_values (test_fused_search.FusedSearchTests.test_extremes_cancellation_and_tiny_values) ... ok\ntest_nonfinite_rows_are_nan (test_fused_search.FusedSearchTests.test_nonfinite_rows_are_nan) ... ok\ntest_static_plan_changed_input_fallback_and_invalid_artifacts (test_fused_search.FusedSearchTests.test_static_plan_changed_input_fallback_and_invalid_artifacts) ... ok\ntest_strides_offsets_negative_and_broadcast (test_fused_search.FusedSearchTests.test_strides_offsets_negative_and_broadcast) ... ok\ntest_widths_tails_and_changed_contents (test_fused_search.FusedSearchTests.test_widths_tails_and_changed_contents) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 4.782s\n\nOK\n",
+  "requested_validation_environment": {
+    "MTL_DEBUG_LAYER": "1",
+    "MTL_SHADER_VALIDATION": "1"
+  },
+  "test_sources": {
+    "test_fused_search.py": "48eeb5346430fbd5dc10419c20135659ad310d170fb621e0f5397efd54be0468"
+  },
+  "time_utc": "2026-10-29T23:21:46Z",
+  "limitations": [
+    "F32 query normalization/scoring only; native subnormal flushing.",
+    "Normalized-document precondition is enforced by index refresh, not lower-level score calls.",
+    "Numerical validity does not prove workload acceleration."
+  ]
+}

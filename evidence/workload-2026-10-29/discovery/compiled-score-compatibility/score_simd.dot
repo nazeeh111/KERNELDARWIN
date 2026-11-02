@@ -1,0 +1,38 @@
+digraph {
+{ rank=source; "queries"; }
+{ rank=source; "index"; }
+{ 4364815576 [label ="CustomKernel", shape=rectangle]; }
+"queries" -> 4364815576
+"index" -> 4364815576
+{ "C"; }
+4364815576 -> "C"
+{ 502276617032 [label ="Negative", shape=rectangle]; }
+"C" -> 502276617032
+{ "D"; }
+502276617032 -> "D"
+{ 502266250680 [label ="ArgSort", shape=rectangle]; }
+"D" -> 502266250680
+{ "E"; }
+502266250680 -> "E"
+{ 502266073720 [label ="GatherAxis", shape=rectangle]; }
+"C" -> 502266073720
+"E" -> 502266073720
+{ rank=sink; "F"; }
+502266073720 -> "F"
+{ rank=source; "G"; }
+{ rank=source; "H"; }
+{ 502267452696 [label ="CompiledBroadcastEqualBroadcastEqualLogicalOrNotEqualLogicalOrLogicalNot", shape=rectangle]; }
+"C" -> 502267452696
+"G" -> 502267452696
+"H" -> 502267452696
+{ "I"; }
+502267452696 -> "I"
+{ 502266515384 [label ="And", shape=rectangle]; }
+"I" -> 502266515384
+{ "J"; }
+502266515384 -> "J"
+{ 502265863304 [label ="Squeeze", shape=rectangle]; }
+"J" -> 502265863304
+{ rank=sink; "K"; }
+502265863304 -> "K"
+}

@@ -1,0 +1,4 @@
+notes {'speedup_total_cost': 1.0327240856879853, 'ci95': [0.9519262851212684, 1.1287066941046888], 'baseline_total_us': 1225.605060546875, 'candidate_total_us': 1186.7691259765625}
+manuals {'speedup_total_cost': 0.9892948042430364, 'ci95': [0.9486601256362086, 1.0337907061392995], 'baseline_total_us': 1051.9867744140624, 'candidate_total_us': 1063.3703623046874}
+archive {'speedup_total_cost': 1.0039008820499336, 'ci95': [0.9488651880713092, 1.0721566016168051], 'baseline_total_us': 1207.071654296875, 'candidate_total_us': 1202.381306640625}
+{"success": false, "peak_memory_bytes": 142830552, "wall_seconds": 11.805433582980186, "candidate_timing": false}

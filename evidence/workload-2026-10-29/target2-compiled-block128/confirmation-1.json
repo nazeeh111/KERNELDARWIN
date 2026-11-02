@@ -1,0 +1,1245 @@
+{
+  "session": 1,
+  "seed": 18203,
+  "sequence_order": [
+    1,
+    3,
+    2,
+    0
+  ],
+  "source_sha256": "f4ab261ea95f525b0ab9053a4f6df6728a82059ad98b53538fdbb218f4aec7a1",
+  "study_identity": "3614f68dc81d252834cc69ec95f8bce3dc89f7f7f27fab378ad412d6b1709e99",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "protocol_sha256": "f853207d7cf289eaa00b165e5da30bcdab51c744cf0071835c16124a33576d72",
+  "policy_sha256": "193a4413af7f0f21e42d0f6aabb6f84cf6f67664d201e26ad400eb51a04454fc",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "telemetry_before": {
+    "time_utc": "2026-10-30T01:01:09Z",
+    "load_average": [
+      14.150390625,
+      26.24658203125,
+      40.9228515625
+    ],
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35586147)\t34%; charging; 18:13 remaining present: true",
+    "thermal_limit": "pmset observations are not direct GPU temperature measurements"
+  },
+  "telemetry_after": {
+    "time_utc": "2026-10-30T01:02:45Z",
+    "load_average": [
+      15.27880859375,
+      23.07421875,
+      38.1220703125
+    ],
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35586147)\t34%; charging; 18:03 remaining present: true",
+    "thermal_limit": "pmset observations are not direct GPU temperature measurements"
+  },
+  "first_sequence_in_session_ms": {
+    "stable_library": 37.011584,
+    "fast_library": 24.88775,
+    "eager_library": 13.759833,
+    "best_fixed": 6.479375,
+    "per_shape": 9.128791999999999,
+    "dispatcher": 7.878708
+  },
+  "artifact_load_ms": 214.647791988682,
+  "cold_note": "Preceding methods may share compilation; use independent cold-study process starts",
+  "score_samples_us": {
+    "stable_library": [
+      656.9336015624999,
+      776.439421875,
+      763.74609375,
+      780.3496171875,
+      1114.9091953124998,
+      928.10446875,
+      626.96971875,
+      935.4443437499999,
+      500.146453125,
+      867.999984375,
+      741.4843593749999,
+      1000.5234375,
+      1525.318359375,
+      1412.0546953125,
+      1862.891578125,
+      1860.1103671875,
+      1274.91309375,
+      916.7353125,
+      805.818375,
+      1533.8584218750002,
+      1542.6123046875,
+      1729.6465078125,
+      1947.3193125,
+      1288.5898359375,
+      1805.317359375,
+      1895.66503125,
+      2115.2021484375,
+      2012.2255781249999,
+      1196.3691562499998,
+      1755.258796875,
+      1391.1435234375,
+      1977.273421875,
+      1468.9824374999998,
+      1156.4472890625,
+      1700.237296875,
+      1519.9257890625,
+      1439.984390625,
+      1490.07421875,
+      1721.1581953125,
+      1569.628875
+    ],
+    "fast_library": [
+      852.0898359375001,
+      588.7304765624999,
+      545.6240156250001,
+      763.6171875,
+      940.7148281249999,
+      1236.2998359375001,
+      714.6113203125,
+      763.7871328125,
+      931.554703125,
+      932.6474531250001,
+      1508.8545,
+      1147.0644375,
+      1279.3964765625,
+      2452.079109375,
+      1582.0829765625,
+      1802.2314609374998,
+      2451.4316484375,
+      1068.6230390625,
+      1071.2666015625,
+      1799.607421875,
+      1790.961890625,
+      1939.534171875,
+      3364.7871328125,
+      1839.9843515625,
+      2164.882828125,
+      1568.4687421875,
+      1864.8535078125,
+      1795.102546875,
+      1061.0771484375,
+      1417.8086015625,
+      1641.411140625,
+      1792.2861328125,
+      1555.3251796875002,
+      1029.85940625,
+      1433.190421875,
+      2109.9814453125,
+      2477.2383046875,
+      1680.3173671875002,
+      1310.2216875,
+      1320.57815625
+    ],
+    "eager_library": [
+      640.1806640625,
+      879.121078125,
+      586.3330078125,
+      897.078140625,
+      703.3388671875,
+      864.6738046875,
+      1003.397484375,
+      937.1709140625001,
+      1051.7178046875001,
+      1369.77534375,
+      742.3671796875,
+      931.52146875,
+      2086.0126640625,
+      2151.7285078125,
+      1996.4560546875,
+      10399.72265625,
+      1907.6191640625,
+      1527.14746875,
+      1548.2490234375,
+      2233.9902421875,
+      1999.738265625,
+      2945.09278125,
+      2517.0419765625,
+      1627.7255859375,
+      2244.08203125,
+      2001.9629062499998,
+      2269.4043046875,
+      1857.9140859375,
+      1132.206046875,
+      2528.1494296875,
+      2103.9296953125,
+      2469.8945390625,
+      1922.8379062499998,
+      1400.884734375,
+      1579.3037109375,
+      1866.0205078125,
+      1885.2333984375,
+      1909.2245859374998,
+      1731.1171875,
+      2197.6094062499997
+    ],
+    "best_fixed": [
+      760.9365234375,
+      583.1757656249999,
+      640.7148515624999,
+      797.20996875,
+      861.8417812499999,
+      1028.4609140625,
+      798.712921875,
+      959.6650312500001,
+      736.2880546875,
+      896.9199375000001,
+      832.9081875,
+      1054.7870859375,
+      1372.3749609375,
+      1755.1494140625,
+      1839.8642812499997,
+      1283.15428125,
+      1550.5947421875,
+      1039.281234375,
+      890.7372890624999,
+      1415.4853828125,
+      1714.8994453125,
+      2600.4160078125,
+      2166.0263671875,
+      2205.5117109375,
+      2102.0888671875,
+      3084.491203125,
+      1532.5966875,
+      1710.0595546875002,
+      1120.238296875,
+      2524.9609453125,
+      1350.2607421875,
+      1447.9961015625,
+      1692.7831875000002,
+      771.0712734375,
+      1861.78809375,
+      1732.8017578125,
+      1818.9658125,
+      1459.1055,
+      1319.7129140625,
+      1707.5537109375
+    ],
+    "per_shape": [
+      1390.2363515625,
+      1574.1562734375,
+      1491.7743984375,
+      1597.328109375,
+      1296.1211015625,
+      1598.333015625,
+      1576.5273515625,
+      1668.7803046875001,
+      1244.36521875,
+      1365.3369375,
+      937.447265625,
+      1423.2382734374999,
+      1401.92090625,
+      1377.99703125,
+      1130.1132890625,
+      2169.994125,
+      1599.9501796875,
+      1514.7822421875,
+      1003.0693359375,
+      1488.406265625,
+      1202.841796875,
+      1439.87990625,
+      1483.0195078125,
+      1944.75684375,
+      1370.0908359375,
+      1331.2939453125,
+      1256.3896171874999,
+      1171.7831953125,
+      1545.1582265625,
+      1453.6875234375,
+      1207.0127109374998,
+      1245.3798984375,
+      1167.3027421875,
+      1595.66015625,
+      1038.32325,
+      1236.0732421875,
+      1131.476578125,
+      1150.2089765625,
+      1218.156234375,
+      1115.1923906250001
+    ],
+    "dispatcher": [
+      714.4941796875,
+      631.3008046875,
+      486.2343515625,
+      767.3232421875,
+      792.3525468749999,
+      736.827140625,
+      537.03225,
+      810.655265625,
+      631.2695625,
+      561.93065625,
+      971.583984375,
+      1011.2519296875,
+      1267.8417890625,
+      1229.9453437500001,
+      1414.1728593750001,
+      2389.1806640625,
+      1005.8632500000001,
+      698.6386640625,
+      1000.6591875,
+      1385.4824296875,
+      1529.8603828125,
+      1158.6230390625,
+      1309.2041015625,
+      1264.9365,
+      1423.44140625,
+      1302.603515625,
+      1504.8027421875,
+      1382.9863359375001,
+      882.655265625,
+      2253.483375,
+      1202.5859296875,
+      1460.801765625,
+      1756.9013671875,
+      1043.56640625,
+      1429.8916171875,
+      2253.369140625,
+      1286.4921796875,
+      1305.247078125,
+      1261.2646640624998,
+      1473.0224531249999
+    ]
+  },
+  "application_samples_us": {
+    "stable_library": [
+      6594.377625,
+      6401.737,
+      6266.7864375,
+      6346.2318125,
+      7425.237,
+      7358.846375,
+      5908.0806875,
+      7552.8020625,
+      5392.270875,
+      7514.921875,
+      6334.328125,
+      8419.8073125,
+      13851.484375,
+      25348.5625,
+      17081.028625,
+      30440.552125,
+      15313.9375,
+      10340.28125,
+      8398.4114375,
+      16131.51825,
+      21116.4479375,
+      20180.591125,
+      19507.8568125,
+      14471.39325,
+      20795.270875,
+      16366.703125,
+      30914.7551875,
+      17269.401,
+      13437.9921875,
+      20707.3854375,
+      16214.53125,
+      17917.39325,
+      15239.3306875,
+      10328.7604375,
+      23188.1640625,
+      16203.224,
+      14401.6328125,
+      16233.737,
+      11861.171875,
+      13756.8411875
+    ],
+    "fast_library": [
+      6774.9556875,
+      5605.7109375,
+      5405.2239375,
+      7901.2318125,
+      7282.359375,
+      9786.0520625,
+      7205.513,
+      7179.390625,
+      8161.6354375,
+      7666.9296875,
+      8595.2265625,
+      11278.7265625,
+      12871.2005,
+      30503.20575,
+      15594.5443125,
+      27982.510375,
+      17176.0,
+      8213.346375,
+      8193.7916875,
+      18204.9296875,
+      22254.31775,
+      16821.0234375,
+      25100.0885,
+      12408.2421875,
+      17672.0599375,
+      18140.3020625,
+      17065.3073125,
+      15186.6536875,
+      8093.0676875,
+      21268.9869375,
+      21196.83075,
+      17321.5625,
+      15672.153625,
+      9625.3385625,
+      13973.21875,
+      17433.33075,
+      16772.58075,
+      18421.6328125,
+      15890.5703125,
+      13448.0104375
+    ],
+    "eager_library": [
+      6036.7109375,
+      6827.3775625,
+      6134.04425,
+      7737.4244375,
+      8091.4479375,
+      10405.6484375,
+      7195.828125,
+      8228.3385625,
+      8442.596375,
+      10830.421875,
+      7923.35675,
+      10074.2760625,
+      19491.309875,
+      17124.9609375,
+      17066.854125,
+      34892.5365,
+      21596.54425,
+      10498.466125,
+      14405.31775,
+      18335.51825,
+      17831.6693125,
+      21598.283875,
+      20551.3880625,
+      18318.885375,
+      18260.546875,
+      17882.372375,
+      19688.403625,
+      15153.9765625,
+      8645.25,
+      20900.0520625,
+      16703.68225,
+      15921.3203125,
+      20376.716125,
+      9401.890625,
+      14512.2448125,
+      16284.16925,
+      17017.854125,
+      17513.5495,
+      17576.1666875,
+      19936.747375
+    ],
+    "best_fixed": [
+      6692.7734375,
+      5821.3931875,
+      6171.0078125,
+      6674.671875,
+      7221.8801875,
+      7576.4921875,
+      7119.4921875,
+      8448.591125,
+      7135.5260625,
+      7420.1484375,
+      8274.93225,
+      9702.4948125,
+      14900.3515625,
+      41449.8645625,
+      15605.934875,
+      19066.3333125,
+      22741.0260625,
+      12511.0885,
+      10350.315125,
+      16043.940125,
+      18962.349,
+      26313.166625,
+      23536.4453125,
+      15628.2578125,
+      22254.1328125,
+      16877.7864375,
+      16517.796875,
+      17317.278625,
+      8649.9479375,
+      24020.5963125,
+      16457.7448125,
+      18891.7213125,
+      18477.458375,
+      9220.5208125,
+      16865.2943125,
+      15842.828125,
+      19290.502625,
+      17321.5859375,
+      10304.734375,
+      16442.6015625
+    ],
+    "per_shape": [
+      5689.203125,
+      5837.221375,
+      5601.6510625,
+      7373.046875,
+      6774.2760625,
+      6435.45575,
+      6317.927125,
+      6920.9479375,
+      5895.6745,
+      7339.0989375,
+      9190.8698125,
+      7936.502625,
+      15550.39325,
+      26036.4635625,
+      15614.0365,
+      25212.4765625,
+      12782.627625,
+      7805.885375,
+      13387.783875,
+      17906.109375,
+      15892.6875,
+      15541.89325,
+      19195.64325,
+      14982.3541875,
+      22324.6536875,
+      17983.7318125,
+      15412.984375,
+      15927.5546875,
+      7537.29425,
+      19846.0494375,
+      15402.5859375,
+      15371.7239375,
+      14058.9791875,
+      7134.0676875,
+      14157.5260625,
+      16206.51825,
+      14582.033875,
+      14660.3568125,
+      12002.434875,
+      16170.5806875
+    ],
+    "dispatcher": [
+      6554.7005,
+      6181.5104375,
+      5143.333375,
+      7032.747375,
+      7208.76825,
+      7064.33075,
+      6146.8541875,
+      8359.1328125,
+      6100.765625,
+      6751.8515625,
+      9910.140625,
+      9434.966125,
+      16432.5181875,
+      16555.078125,
+      16106.734375,
+      26516.09375,
+      14567.28125,
+      8824.9193125,
+      8782.8150625,
+      15947.6745,
+      17031.9505,
+      16796.372375,
+      14532.908875,
+      25986.4010625,
+      17815.765625,
+      18074.75,
+      17348.8176875,
+      16575.33075,
+      7960.34375,
+      18379.0,
+      15630.315125,
+      17679.3775625,
+      26496.1171875,
+      7694.8385625,
+      16549.864625,
+      19253.0885,
+      15412.666625,
+      15640.877625,
+      21969.3099375,
+      16615.1275625
+    ]
+  },
+  "orders": [
+    [
+      "per_shape",
+      "eager_library",
+      "stable_library",
+      "fast_library",
+      "dispatcher",
+      "best_fixed"
+    ],
+    [
+      "eager_library",
+      "stable_library",
+      "per_shape",
+      "fast_library",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "stable_library",
+      "per_shape",
+      "dispatcher",
+      "fast_library",
+      "eager_library",
+      "best_fixed"
+    ],
+    [
+      "eager_library",
+      "best_fixed",
+      "stable_library",
+      "per_shape",
+      "fast_library",
+      "dispatcher"
+    ],
+    [
+      "stable_library",
+      "best_fixed",
+      "per_shape",
+      "eager_library",
+      "dispatcher",
+      "fast_library"
+    ],
+    [
+      "stable_library",
+      "per_shape",
+      "dispatcher",
+      "eager_library",
+      "fast_library",
+      "best_fixed"
+    ],
+    [
+      "eager_library",
+      "per_shape",
+      "stable_library",
+      "dispatcher",
+      "fast_library",
+      "best_fixed"
+    ],
+    [
+      "dispatcher",
+      "eager_library",
+      "stable_library",
+      "per_shape",
+      "fast_library",
+      "best_fixed"
+    ],
+    [
+      "eager_library",
+      "per_shape",
+      "dispatcher",
+      "best_fixed",
+      "fast_library",
+      "stable_library"
+    ],
+    [
+      "dispatcher",
+      "best_fixed",
+      "fast_library",
+      "stable_library",
+      "eager_library",
+      "per_shape"
+    ],
+    [
+      "eager_library",
+      "best_fixed",
+      "per_shape",
+      "dispatcher",
+      "fast_library",
+      "stable_library"
+    ],
+    [
+      "stable_library",
+      "dispatcher",
+      "per_shape",
+      "eager_library",
+      "best_fixed",
+      "fast_library"
+    ],
+    [
+      "fast_library",
+      "stable_library",
+      "best_fixed",
+      "per_shape",
+      "dispatcher",
+      "eager_library"
+    ],
+    [
+      "dispatcher",
+      "best_fixed",
+      "fast_library",
+      "per_shape",
+      "stable_library",
+      "eager_library"
+    ],
+    [
+      "dispatcher",
+      "per_shape",
+      "stable_library",
+      "best_fixed",
+      "fast_library",
+      "eager_library"
+    ],
+    [
+      "fast_library",
+      "eager_library",
+      "stable_library",
+      "per_shape",
+      "dispatcher",
+      "best_fixed"
+    ],
+    [
+      "fast_library",
+      "eager_library",
+      "per_shape",
+      "dispatcher",
+      "best_fixed",
+      "stable_library"
+    ],
+    [
+      "per_shape",
+      "stable_library",
+      "dispatcher",
+      "best_fixed",
+      "eager_library",
+      "fast_library"
+    ],
+    [
+      "fast_library",
+      "dispatcher",
+      "stable_library",
+      "best_fixed",
+      "eager_library",
+      "per_shape"
+    ],
+    [
+      "best_fixed",
+      "stable_library",
+      "fast_library",
+      "eager_library",
+      "dispatcher",
+      "per_shape"
+    ],
+    [
+      "eager_library",
+      "stable_library",
+      "dispatcher",
+      "fast_library",
+      "per_shape",
+      "best_fixed"
+    ],
+    [
+      "dispatcher",
+      "per_shape",
+      "eager_library",
+      "best_fixed",
+      "fast_library",
+      "stable_library"
+    ],
+    [
+      "fast_library",
+      "per_shape",
+      "best_fixed",
+      "stable_library",
+      "dispatcher",
+      "eager_library"
+    ],
+    [
+      "eager_library",
+      "per_shape",
+      "fast_library",
+      "stable_library",
+      "dispatcher",
+      "best_fixed"
+    ],
+    [
+      "best_fixed",
+      "dispatcher",
+      "fast_library",
+      "per_shape",
+      "stable_library",
+      "eager_library"
+    ],
+    [
+      "per_shape",
+      "dispatcher",
+      "best_fixed",
+      "stable_library",
+      "eager_library",
+      "fast_library"
+    ],
+    [
+      "eager_library",
+      "stable_library",
+      "fast_library",
+      "per_shape",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "dispatcher",
+      "per_shape",
+      "best_fixed",
+      "stable_library",
+      "fast_library",
+      "eager_library"
+    ],
+    [
+      "dispatcher",
+      "eager_library",
+      "fast_library",
+      "per_shape",
+      "best_fixed",
+      "stable_library"
+    ],
+    [
+      "fast_library",
+      "best_fixed",
+      "stable_library",
+      "eager_library",
+      "per_shape",
+      "dispatcher"
+    ],
+    [
+      "per_shape",
+      "stable_library",
+      "fast_library",
+      "eager_library",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "eager_library",
+      "best_fixed",
+      "stable_library",
+      "dispatcher",
+      "fast_library",
+      "per_shape"
+    ],
+    [
+      "best_fixed",
+      "dispatcher",
+      "eager_library",
+      "fast_library",
+      "per_shape",
+      "stable_library"
+    ],
+    [
+      "stable_library",
+      "fast_library",
+      "eager_library",
+      "per_shape",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "eager_library",
+      "fast_library",
+      "per_shape",
+      "stable_library",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "stable_library",
+      "best_fixed",
+      "per_shape",
+      "fast_library",
+      "dispatcher",
+      "eager_library"
+    ],
+    [
+      "fast_library",
+      "best_fixed",
+      "dispatcher",
+      "stable_library",
+      "eager_library",
+      "per_shape"
+    ],
+    [
+      "stable_library",
+      "eager_library",
+      "dispatcher",
+      "per_shape",
+      "best_fixed",
+      "fast_library"
+    ],
+    [
+      "eager_library",
+      "dispatcher",
+      "stable_library",
+      "best_fixed",
+      "per_shape",
+      "fast_library"
+    ],
+    [
+      "stable_library",
+      "fast_library",
+      "per_shape",
+      "best_fixed",
+      "eager_library",
+      "dispatcher"
+    ]
+  ],
+  "checks": [
+    {
+      "task": "notes",
+      "method": "stable_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "stable_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "stable_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "stable_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "fast_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "fast_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "fast_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "fast_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "eager_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "eager_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "eager_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "eager_library",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "best_fixed",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "best_fixed",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "best_fixed",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "best_fixed",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "per_shape",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "per_shape",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "per_shape",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "per_shape",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "dispatcher",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "dispatcher",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "dispatcher",
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "dispatcher",
+      "scores_passed": true,
+      "ids_association_passed": true
+    }
+  ],
+  "peak_memory_bytes": 535391736,
+  "comparisons": {
+    "eager_library": {
+      "stable_library": {
+        "score": {
+          "speedup_total_cost": 0.7181511727232642,
+          "ci95": [
+            0.5744818813541747,
+            0.8447812630563063
+          ],
+          "baseline_total_us": 53607.8123671875,
+          "candidate_total_us": 74646.974625
+        },
+        "application": {
+          "speedup_total_cost": 0.9548543452676036,
+          "ci95": [
+            0.8782663181781883,
+            1.0365069993410285
+          ],
+          "baseline_total_us": 568533.78675,
+          "candidate_total_us": 595414.1483125
+        }
+      },
+      "fast_library": {
+        "score": {
+          "speedup_total_cost": 0.7982933658645914,
+          "ci95": [
+            0.6247372906968576,
+            0.9630069515428392
+          ],
+          "baseline_total_us": 59590.184625,
+          "candidate_total_us": 74646.974625
+        },
+        "application": {
+          "speedup_total_cost": 0.9495034082197863,
+          "ci95": [
+            0.8814110952847214,
+            1.0276961428858
+          ],
+          "baseline_total_us": 565347.763125,
+          "candidate_total_us": 595414.1483125
+        }
+      }
+    },
+    "best_fixed": {
+      "stable_library": {
+        "score": {
+          "speedup_total_cost": 0.9401318277053433,
+          "ci95": [
+            0.8684599731971608,
+            1.0204747064963817
+          ],
+          "baseline_total_us": 53607.8123671875,
+          "candidate_total_us": 57021.5907890625
+        },
+        "application": {
+          "speedup_total_cost": 0.9634189926196771,
+          "ci95": [
+            0.8742787451896461,
+            1.064164264619312
+          ],
+          "baseline_total_us": 568533.78675,
+          "candidate_total_us": 590121.0076875
+        }
+      },
+      "fast_library": {
+        "score": {
+          "speedup_total_cost": 1.0450459869742916,
+          "ci95": [
+            0.9421369166065664,
+            1.1507753676530303
+          ],
+          "baseline_total_us": 59590.184625,
+          "candidate_total_us": 57021.5907890625
+        },
+        "application": {
+          "speedup_total_cost": 0.9580200598863976,
+          "ci95": [
+            0.890309137083196,
+            1.0364645413076903
+          ],
+          "baseline_total_us": 565347.763125,
+          "candidate_total_us": 590121.0076875
+        }
+      }
+    },
+    "per_shape": {
+      "stable_library": {
+        "score": {
+          "speedup_total_cost": 0.9719736489934216,
+          "ci95": [
+            0.8551725768510704,
+            1.0971684727400264
+          ],
+          "baseline_total_us": 53607.8123671875,
+          "candidate_total_us": 55153.5655546875
+        },
+        "application": {
+          "speedup_total_cost": 1.0933356664422205,
+          "ci95": [
+            1.0175705119940983,
+            1.1818229635461668
+          ],
+          "baseline_total_us": 568533.78675,
+          "candidate_total_us": 519999.3050625
+        }
+      },
+      "fast_library": {
+        "score": {
+          "speedup_total_cost": 1.080441201320219,
+          "ci95": [
+            0.9319782391859666,
+            1.2360138667896998
+          ],
+          "baseline_total_us": 59590.184625,
+          "candidate_total_us": 55153.5655546875
+        },
+        "application": {
+          "speedup_total_cost": 1.0872086897444018,
+          "ci95": [
+            1.0268368682769005,
+            1.1470132328207614
+          ],
+          "baseline_total_us": 565347.763125,
+          "candidate_total_us": 519999.3050625
+        }
+      }
+    },
+    "dispatcher": {
+      "stable_library": {
+        "score": {
+          "speedup_total_cost": 1.127878418139597,
+          "ci95": [
+            1.0414354223371063,
+            1.216048177926803
+          ],
+          "baseline_total_us": 53607.8123671875,
+          "candidate_total_us": 47529.7793671875
+        },
+        "application": {
+          "speedup_total_cost": 1.0279683840333687,
+          "ci95": [
+            0.9228240612603322,
+            1.1308406694514455
+          ],
+          "baseline_total_us": 568533.78675,
+          "candidate_total_us": 553065.440125
+        }
+      },
+      "fast_library": {
+        "score": {
+          "speedup_total_cost": 1.2537441877152598,
+          "ci95": [
+            1.1207003356661163,
+            1.4066974688008258
+          ],
+          "baseline_total_us": 59590.184625,
+          "candidate_total_us": 47529.7793671875
+        },
+        "application": {
+          "speedup_total_cost": 1.0222077210198202,
+          "ci95": [
+            0.9275323291922991,
+            1.1269860402814926
+          ],
+          "baseline_total_us": 565347.763125,
+          "candidate_total_us": 553065.440125
+        }
+      }
+    }
+  },
+  "session_gate": {
+    "score": false,
+    "application": false
+  },
+  "fallback_count_scope": "Static/fixed/per-shape/dispatcher route decisions across validation, score bursts and application calls; global library methods execute directly and have zero adapter counters",
+  "fallback_counts": {
+    "stable_library": {
+      "calls": 20480,
+      "fallback_calls": 20480
+    },
+    "fast_library": {
+      "calls": 20480,
+      "fallback_calls": 20480
+    },
+    "eager_library": {
+      "calls": 20480,
+      "fallback_calls": 20480
+    },
+    "best_fixed": {
+      "calls": 20480,
+      "fallback_calls": 20480
+    },
+    "per_shape": {
+      "calls": 28184,
+      "fallback_calls": 7046
+    },
+    "dispatcher": {
+      "calls": 28184,
+      "fallback_calls": 21138
+    }
+  }
+}

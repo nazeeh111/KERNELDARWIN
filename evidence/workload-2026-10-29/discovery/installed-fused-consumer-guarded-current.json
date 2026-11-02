@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "success": true,
+  "gpu_executed": true,
+  "time_utc": "2026-10-29T23:44:47Z",
+  "package_location": "/private/tmp/kd-workload-final-consumer-20261029/env/lib/python3.12/site-packages/kerneldarwin/__init__.py",
+  "version": "0.3.0",
+  "source_sha256": "e10fbfb5fb613d8d271c87bcc832bd0aca30d4ac12b1f954253f8237f8bd4e10",
+  "study_identity": "a8e0344ec36f79b4c264cce8c3a8d9c3b4088fdae8008f777768a70c6e061c9a",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "artifact_status": "library_only",
+  "shape": [
+    5,
+    37,
+    97
+  ],
+  "custom_dispatch_calls": 0,
+  "fallback_calls": 4,
+  "checks": [
+    {
+      "seed": 290101,
+      "method": "installed_plan",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290101,
+      "method": "stable_library",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290101,
+      "method": "fast_library",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290101,
+      "method": "score_simd",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290101,
+      "method": "score_tile4",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290203,
+      "method": "installed_plan",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290203,
+      "method": "stable_library",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290203,
+      "method": "fast_library",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290203,
+      "method": "score_simd",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290203,
+      "method": "score_tile4",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290307,
+      "method": "installed_plan",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290307,
+      "method": "stable_library",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290307,
+      "method": "fast_library",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290307,
+      "method": "score_simd",
+      "score_and_id_checks_passed": true
+    },
+    {
+      "seed": 290307,
+      "method": "score_tile4",
+      "score_and_id_checks_passed": true
+    }
+  ],
+  "unknown_tuple_fallback_passed": true,
+  "limitations": [
+    "Independent numerical execution is not a performance confirmation.",
+    "Two authored candidates exercised directly; only an accepted explicit artifact counts as installed custom dispatch."
+  ]
+}

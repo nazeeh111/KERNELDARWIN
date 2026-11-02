@@ -1,0 +1,15 @@
+{
+  "kind": "fresh_source_free_batch_api_prerequisite",
+  "source_sha256": "14eb0dbd65076f1830785a1b220e908231da3343b4d21cde1d2538a3d67664ca",
+  "wheel_sha256": "b9f5b7a03a64a3c90c6128e34a0754dcf088fdc64d23125e8f452cbecc55d14f",
+  "runtime_files_equal_wheel_source_and_installed": 72,
+  "native_methods": 10,
+  "cpu_contract_methods": 2,
+  "native_validation_log_enabled": true,
+  "source_root_absent": true,
+  "actual_imports_inside_fresh_environment": true,
+  "development_corpus_absent": true,
+  "changed_input_consumer_checks": 8,
+  "accepted_custom_artifact": false,
+  "candidate_performance_confirmation": false
+}

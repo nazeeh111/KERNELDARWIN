@@ -1,0 +1,2038 @@
+{
+  "kind": "instrumented_library_rank_mechanism_diagnostic",
+  "source_commit": "a57fe7e6f33bbc088e64a7f4a271d4cc73d7aa45",
+  "script_sha256": "8fbf549afce24d803b4eb4c524a777605cb5b1e7d8bf5e81c8015b3ba8f3dde8",
+  "study_script_sha256": "841223eda2da3dfa7376221033723e780fcc87bd70950b32d4051049fe618031",
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "3fe8387f897a851a3848714370fe1e36fba602eb269e1c11179552a36899835d",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "telemetry_before": {
+    "time_utc": "2026-11-01T14:54:15Z",
+    "load_average": [
+      15.14306640625,
+      63.501953125,
+      60.95751953125
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t99%; discharging; 3:55 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "gc_enabled": true,
+  "gc_threshold": [
+    700,
+    10,
+    10
+  ],
+  "candidate_timing": false,
+  "stability_gate_run": false,
+  "acceptance_or_selection": false,
+  "rows": [
+    {
+      "task": {
+        "id": "notes",
+        "rows": 64,
+        "width": 384,
+        "queries": 1,
+        "layout": "contiguous"
+      },
+      "tracking": {
+        "input_array": true,
+        "output_array": true,
+        "output_pair": true
+      },
+      "observations": [
+        {
+          "repeat": 0,
+          "construct": {
+            "wall_ns": 486708,
+            "thread_cpu_ns": 481167
+          },
+          "flatten": {
+            "wall_ns": 10375,
+            "thread_cpu_ns": 9833
+          },
+          "evaluate_wait": {
+            "wall_ns": 1360334,
+            "thread_cpu_ns": 1134792
+          },
+          "release": {
+            "wall_ns": 49250,
+            "thread_cpu_ns": 48791
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 1,
+          "construct": {
+            "wall_ns": 496125,
+            "thread_cpu_ns": 473500
+          },
+          "flatten": {
+            "wall_ns": 9500,
+            "thread_cpu_ns": 9042
+          },
+          "evaluate_wait": {
+            "wall_ns": 1474125,
+            "thread_cpu_ns": 1147333
+          },
+          "release": {
+            "wall_ns": 83708,
+            "thread_cpu_ns": 53167
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 2,
+          "construct": {
+            "wall_ns": 490084,
+            "thread_cpu_ns": 483584
+          },
+          "flatten": {
+            "wall_ns": 10541,
+            "thread_cpu_ns": 10166
+          },
+          "evaluate_wait": {
+            "wall_ns": 1586834,
+            "thread_cpu_ns": 1155500
+          },
+          "release": {
+            "wall_ns": 54583,
+            "thread_cpu_ns": 54334
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 3,
+          "construct": {
+            "wall_ns": 823500,
+            "thread_cpu_ns": 711791
+          },
+          "flatten": {
+            "wall_ns": 23625,
+            "thread_cpu_ns": 21959
+          },
+          "evaluate_wait": {
+            "wall_ns": 2811750,
+            "thread_cpu_ns": 1987291
+          },
+          "release": {
+            "wall_ns": 87834,
+            "thread_cpu_ns": 81167
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 4,
+          "construct": {
+            "wall_ns": 656500,
+            "thread_cpu_ns": 638041
+          },
+          "flatten": {
+            "wall_ns": 13166,
+            "thread_cpu_ns": 12917
+          },
+          "evaluate_wait": {
+            "wall_ns": 1903042,
+            "thread_cpu_ns": 1385458
+          },
+          "release": {
+            "wall_ns": 60000,
+            "thread_cpu_ns": 59500
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 5,
+          "construct": {
+            "wall_ns": 583083,
+            "thread_cpu_ns": 582709
+          },
+          "flatten": {
+            "wall_ns": 11375,
+            "thread_cpu_ns": 11083
+          },
+          "evaluate_wait": {
+            "wall_ns": 1817917,
+            "thread_cpu_ns": 1346250
+          },
+          "release": {
+            "wall_ns": 57917,
+            "thread_cpu_ns": 57333
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 6,
+          "construct": {
+            "wall_ns": 636000,
+            "thread_cpu_ns": 618708
+          },
+          "flatten": {
+            "wall_ns": 11750,
+            "thread_cpu_ns": 11375
+          },
+          "evaluate_wait": {
+            "wall_ns": 2055333,
+            "thread_cpu_ns": 1689875
+          },
+          "release": {
+            "wall_ns": 71250,
+            "thread_cpu_ns": 70625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 7,
+          "construct": {
+            "wall_ns": 638333,
+            "thread_cpu_ns": 595958
+          },
+          "flatten": {
+            "wall_ns": 11709,
+            "thread_cpu_ns": 11459
+          },
+          "evaluate_wait": {
+            "wall_ns": 1922958,
+            "thread_cpu_ns": 1555333
+          },
+          "release": {
+            "wall_ns": 60667,
+            "thread_cpu_ns": 60333
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 8,
+          "construct": {
+            "wall_ns": 591916,
+            "thread_cpu_ns": 587667
+          },
+          "flatten": {
+            "wall_ns": 12084,
+            "thread_cpu_ns": 11625
+          },
+          "evaluate_wait": {
+            "wall_ns": 1602791,
+            "thread_cpu_ns": 1356167
+          },
+          "release": {
+            "wall_ns": 50417,
+            "thread_cpu_ns": 49875
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 9,
+          "construct": {
+            "wall_ns": 848667,
+            "thread_cpu_ns": 768833
+          },
+          "flatten": {
+            "wall_ns": 12167,
+            "thread_cpu_ns": 11834
+          },
+          "evaluate_wait": {
+            "wall_ns": 2299458,
+            "thread_cpu_ns": 1489083
+          },
+          "release": {
+            "wall_ns": 61833,
+            "thread_cpu_ns": 61292
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 10,
+          "construct": {
+            "wall_ns": 507125,
+            "thread_cpu_ns": 507042
+          },
+          "flatten": {
+            "wall_ns": 10958,
+            "thread_cpu_ns": 10916
+          },
+          "evaluate_wait": {
+            "wall_ns": 2575917,
+            "thread_cpu_ns": 1509084
+          },
+          "release": {
+            "wall_ns": 61167,
+            "thread_cpu_ns": 60166
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 11,
+          "construct": {
+            "wall_ns": 507333,
+            "thread_cpu_ns": 507166
+          },
+          "flatten": {
+            "wall_ns": 11084,
+            "thread_cpu_ns": 11042
+          },
+          "evaluate_wait": {
+            "wall_ns": 1699083,
+            "thread_cpu_ns": 1250667
+          },
+          "release": {
+            "wall_ns": 53833,
+            "thread_cpu_ns": 53416
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 12,
+          "construct": {
+            "wall_ns": 537709,
+            "thread_cpu_ns": 515958
+          },
+          "flatten": {
+            "wall_ns": 11375,
+            "thread_cpu_ns": 11000
+          },
+          "evaluate_wait": {
+            "wall_ns": 1538166,
+            "thread_cpu_ns": 1285167
+          },
+          "release": {
+            "wall_ns": 59125,
+            "thread_cpu_ns": 58625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 13,
+          "construct": {
+            "wall_ns": 450167,
+            "thread_cpu_ns": 450250
+          },
+          "flatten": {
+            "wall_ns": 9125,
+            "thread_cpu_ns": 9000
+          },
+          "evaluate_wait": {
+            "wall_ns": 1356042,
+            "thread_cpu_ns": 1125042
+          },
+          "release": {
+            "wall_ns": 47083,
+            "thread_cpu_ns": 46625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 14,
+          "construct": {
+            "wall_ns": 457292,
+            "thread_cpu_ns": 457084
+          },
+          "flatten": {
+            "wall_ns": 8958,
+            "thread_cpu_ns": 8833
+          },
+          "evaluate_wait": {
+            "wall_ns": 1295209,
+            "thread_cpu_ns": 1086750
+          },
+          "release": {
+            "wall_ns": 44583,
+            "thread_cpu_ns": 44458
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 15,
+          "construct": {
+            "wall_ns": 441000,
+            "thread_cpu_ns": 440750
+          },
+          "flatten": {
+            "wall_ns": 8792,
+            "thread_cpu_ns": 8708
+          },
+          "evaluate_wait": {
+            "wall_ns": 1280750,
+            "thread_cpu_ns": 1047209
+          },
+          "release": {
+            "wall_ns": 147083,
+            "thread_cpu_ns": 137625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 16,
+          "construct": {
+            "wall_ns": 1257375,
+            "thread_cpu_ns": 992084
+          },
+          "flatten": {
+            "wall_ns": 15333,
+            "thread_cpu_ns": 14750
+          },
+          "evaluate_wait": {
+            "wall_ns": 3386375,
+            "thread_cpu_ns": 1361791
+          },
+          "release": {
+            "wall_ns": 65750,
+            "thread_cpu_ns": 65000
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 17,
+          "construct": {
+            "wall_ns": 487417,
+            "thread_cpu_ns": 487167
+          },
+          "flatten": {
+            "wall_ns": 10708,
+            "thread_cpu_ns": 10541
+          },
+          "evaluate_wait": {
+            "wall_ns": 2226709,
+            "thread_cpu_ns": 1138375
+          },
+          "release": {
+            "wall_ns": 51791,
+            "thread_cpu_ns": 51209
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 18,
+          "construct": {
+            "wall_ns": 465292,
+            "thread_cpu_ns": 465042
+          },
+          "flatten": {
+            "wall_ns": 9375,
+            "thread_cpu_ns": 9291
+          },
+          "evaluate_wait": {
+            "wall_ns": 1497083,
+            "thread_cpu_ns": 1049042
+          },
+          "release": {
+            "wall_ns": 47333,
+            "thread_cpu_ns": 47167
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 19,
+          "construct": {
+            "wall_ns": 441834,
+            "thread_cpu_ns": 441708
+          },
+          "flatten": {
+            "wall_ns": 8333,
+            "thread_cpu_ns": 8292
+          },
+          "evaluate_wait": {
+            "wall_ns": 1218708,
+            "thread_cpu_ns": 1011833
+          },
+          "release": {
+            "wall_ns": 41125,
+            "thread_cpu_ns": 40959
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 20,
+          "construct": {
+            "wall_ns": 457708,
+            "thread_cpu_ns": 454250
+          },
+          "flatten": {
+            "wall_ns": 8917,
+            "thread_cpu_ns": 8625
+          },
+          "evaluate_wait": {
+            "wall_ns": 1318542,
+            "thread_cpu_ns": 1080584
+          },
+          "release": {
+            "wall_ns": 42750,
+            "thread_cpu_ns": 42750
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 21,
+          "construct": {
+            "wall_ns": 439667,
+            "thread_cpu_ns": 439792
+          },
+          "flatten": {
+            "wall_ns": 8291,
+            "thread_cpu_ns": 8208
+          },
+          "evaluate_wait": {
+            "wall_ns": 1336792,
+            "thread_cpu_ns": 1077125
+          },
+          "release": {
+            "wall_ns": 45000,
+            "thread_cpu_ns": 44792
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 22,
+          "construct": {
+            "wall_ns": 452958,
+            "thread_cpu_ns": 452667
+          },
+          "flatten": {
+            "wall_ns": 9917,
+            "thread_cpu_ns": 9833
+          },
+          "evaluate_wait": {
+            "wall_ns": 2883917,
+            "thread_cpu_ns": 1935334
+          },
+          "release": {
+            "wall_ns": 72375,
+            "thread_cpu_ns": 71291
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 23,
+          "construct": {
+            "wall_ns": 492500,
+            "thread_cpu_ns": 492459
+          },
+          "flatten": {
+            "wall_ns": 11083,
+            "thread_cpu_ns": 11000
+          },
+          "evaluate_wait": {
+            "wall_ns": 2975375,
+            "thread_cpu_ns": 1121500
+          },
+          "release": {
+            "wall_ns": 52958,
+            "thread_cpu_ns": 52541
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 24,
+          "construct": {
+            "wall_ns": 473625,
+            "thread_cpu_ns": 473375
+          },
+          "flatten": {
+            "wall_ns": 11083,
+            "thread_cpu_ns": 10958
+          },
+          "evaluate_wait": {
+            "wall_ns": 1541583,
+            "thread_cpu_ns": 1221375
+          },
+          "release": {
+            "wall_ns": 47709,
+            "thread_cpu_ns": 47625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 25,
+          "construct": {
+            "wall_ns": 456916,
+            "thread_cpu_ns": 456708
+          },
+          "flatten": {
+            "wall_ns": 9084,
+            "thread_cpu_ns": 8959
+          },
+          "evaluate_wait": {
+            "wall_ns": 1536666,
+            "thread_cpu_ns": 1087291
+          },
+          "release": {
+            "wall_ns": 42917,
+            "thread_cpu_ns": 42834
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 26,
+          "construct": {
+            "wall_ns": 455375,
+            "thread_cpu_ns": 455417
+          },
+          "flatten": {
+            "wall_ns": 8625,
+            "thread_cpu_ns": 8500
+          },
+          "evaluate_wait": {
+            "wall_ns": 1459000,
+            "thread_cpu_ns": 1079125
+          },
+          "release": {
+            "wall_ns": 55333,
+            "thread_cpu_ns": 54917
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 27,
+          "construct": {
+            "wall_ns": 471584,
+            "thread_cpu_ns": 471416
+          },
+          "flatten": {
+            "wall_ns": 9166,
+            "thread_cpu_ns": 8917
+          },
+          "evaluate_wait": {
+            "wall_ns": 2037000,
+            "thread_cpu_ns": 1091542
+          },
+          "release": {
+            "wall_ns": 49209,
+            "thread_cpu_ns": 48625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 28,
+          "construct": {
+            "wall_ns": 460584,
+            "thread_cpu_ns": 460458
+          },
+          "flatten": {
+            "wall_ns": 8916,
+            "thread_cpu_ns": 8834
+          },
+          "evaluate_wait": {
+            "wall_ns": 1962125,
+            "thread_cpu_ns": 1074125
+          },
+          "release": {
+            "wall_ns": 74167,
+            "thread_cpu_ns": 73416
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 29,
+          "construct": {
+            "wall_ns": 979625,
+            "thread_cpu_ns": 845667
+          },
+          "flatten": {
+            "wall_ns": 15125,
+            "thread_cpu_ns": 14708
+          },
+          "evaluate_wait": {
+            "wall_ns": 2384583,
+            "thread_cpu_ns": 1311167
+          },
+          "release": {
+            "wall_ns": 57792,
+            "thread_cpu_ns": 57375
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 30,
+          "construct": {
+            "wall_ns": 482041,
+            "thread_cpu_ns": 481875
+          },
+          "flatten": {
+            "wall_ns": 10250,
+            "thread_cpu_ns": 10125
+          },
+          "evaluate_wait": {
+            "wall_ns": 1358667,
+            "thread_cpu_ns": 1096667
+          },
+          "release": {
+            "wall_ns": 47333,
+            "thread_cpu_ns": 47042
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 31,
+          "construct": {
+            "wall_ns": 444125,
+            "thread_cpu_ns": 443958
+          },
+          "flatten": {
+            "wall_ns": 8834,
+            "thread_cpu_ns": 8792
+          },
+          "evaluate_wait": {
+            "wall_ns": 18378708,
+            "thread_cpu_ns": 1076666
+          },
+          "release": {
+            "wall_ns": 87958,
+            "thread_cpu_ns": 86167
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "phase_medians": {
+        "construct": {
+          "wall_ns": 487062.5,
+          "thread_cpu_ns": 481521.0
+        },
+        "flatten": {
+          "wall_ns": 10458.0,
+          "thread_cpu_ns": 10145.5
+        },
+        "evaluate_wait": {
+          "wall_ns": 1650937.0,
+          "thread_cpu_ns": 1142854.0
+        },
+        "release": {
+          "wall_ns": 54958.0,
+          "thread_cpu_ns": 53875.0
+        }
+      },
+      "timed_gc_events": 0,
+      "timed_gc_duration_ns": 0
+    },
+    {
+      "task": {
+        "id": "archive",
+        "rows": 161,
+        "width": 1536,
+        "queries": 17,
+        "layout": "transpose"
+      },
+      "tracking": {
+        "input_array": true,
+        "output_array": true,
+        "output_pair": true
+      },
+      "observations": [
+        {
+          "repeat": 0,
+          "construct": {
+            "wall_ns": 1445500,
+            "thread_cpu_ns": 942416
+          },
+          "flatten": {
+            "wall_ns": 20708,
+            "thread_cpu_ns": 19375
+          },
+          "evaluate_wait": {
+            "wall_ns": 4765917,
+            "thread_cpu_ns": 2543250
+          },
+          "release": {
+            "wall_ns": 127958,
+            "thread_cpu_ns": 121459
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 1,
+          "construct": {
+            "wall_ns": 869458,
+            "thread_cpu_ns": 833084
+          },
+          "flatten": {
+            "wall_ns": 14584,
+            "thread_cpu_ns": 13958
+          },
+          "evaluate_wait": {
+            "wall_ns": 10244083,
+            "thread_cpu_ns": 2899250
+          },
+          "release": {
+            "wall_ns": 220042,
+            "thread_cpu_ns": 185000
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 2,
+          "construct": {
+            "wall_ns": 698208,
+            "thread_cpu_ns": 681083
+          },
+          "flatten": {
+            "wall_ns": 13333,
+            "thread_cpu_ns": 12583
+          },
+          "evaluate_wait": {
+            "wall_ns": 2598375,
+            "thread_cpu_ns": 2069500
+          },
+          "release": {
+            "wall_ns": 66834,
+            "thread_cpu_ns": 66459
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 3,
+          "construct": {
+            "wall_ns": 568833,
+            "thread_cpu_ns": 563458
+          },
+          "flatten": {
+            "wall_ns": 11500,
+            "thread_cpu_ns": 11125
+          },
+          "evaluate_wait": {
+            "wall_ns": 1652292,
+            "thread_cpu_ns": 1354583
+          },
+          "release": {
+            "wall_ns": 57083,
+            "thread_cpu_ns": 56917
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 4,
+          "construct": {
+            "wall_ns": 539834,
+            "thread_cpu_ns": 539458
+          },
+          "flatten": {
+            "wall_ns": 10958,
+            "thread_cpu_ns": 10667
+          },
+          "evaluate_wait": {
+            "wall_ns": 1583208,
+            "thread_cpu_ns": 1368458
+          },
+          "release": {
+            "wall_ns": 55709,
+            "thread_cpu_ns": 55375
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 5,
+          "construct": {
+            "wall_ns": 563583,
+            "thread_cpu_ns": 552750
+          },
+          "flatten": {
+            "wall_ns": 10625,
+            "thread_cpu_ns": 10333
+          },
+          "evaluate_wait": {
+            "wall_ns": 1712125,
+            "thread_cpu_ns": 1409709
+          },
+          "release": {
+            "wall_ns": 55500,
+            "thread_cpu_ns": 55250
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 6,
+          "construct": {
+            "wall_ns": 581750,
+            "thread_cpu_ns": 552417
+          },
+          "flatten": {
+            "wall_ns": 10708,
+            "thread_cpu_ns": 10333
+          },
+          "evaluate_wait": {
+            "wall_ns": 1930208,
+            "thread_cpu_ns": 1328708
+          },
+          "release": {
+            "wall_ns": 60084,
+            "thread_cpu_ns": 59875
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 7,
+          "construct": {
+            "wall_ns": 814166,
+            "thread_cpu_ns": 715834
+          },
+          "flatten": {
+            "wall_ns": 12084,
+            "thread_cpu_ns": 11541
+          },
+          "evaluate_wait": {
+            "wall_ns": 2003750,
+            "thread_cpu_ns": 1621542
+          },
+          "release": {
+            "wall_ns": 68291,
+            "thread_cpu_ns": 63667
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 8,
+          "construct": {
+            "wall_ns": 644917,
+            "thread_cpu_ns": 583291
+          },
+          "flatten": {
+            "wall_ns": 11042,
+            "thread_cpu_ns": 10667
+          },
+          "evaluate_wait": {
+            "wall_ns": 1790750,
+            "thread_cpu_ns": 1436167
+          },
+          "release": {
+            "wall_ns": 55166,
+            "thread_cpu_ns": 54875
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 9,
+          "construct": {
+            "wall_ns": 525750,
+            "thread_cpu_ns": 525667
+          },
+          "flatten": {
+            "wall_ns": 10166,
+            "thread_cpu_ns": 10042
+          },
+          "evaluate_wait": {
+            "wall_ns": 1450459,
+            "thread_cpu_ns": 1254666
+          },
+          "release": {
+            "wall_ns": 56333,
+            "thread_cpu_ns": 56000
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 10,
+          "construct": {
+            "wall_ns": 605750,
+            "thread_cpu_ns": 549250
+          },
+          "flatten": {
+            "wall_ns": 9417,
+            "thread_cpu_ns": 9250
+          },
+          "evaluate_wait": {
+            "wall_ns": 1509208,
+            "thread_cpu_ns": 1283625
+          },
+          "release": {
+            "wall_ns": 53042,
+            "thread_cpu_ns": 52666
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 11,
+          "construct": {
+            "wall_ns": 525042,
+            "thread_cpu_ns": 516333
+          },
+          "flatten": {
+            "wall_ns": 9708,
+            "thread_cpu_ns": 9500
+          },
+          "evaluate_wait": {
+            "wall_ns": 2368792,
+            "thread_cpu_ns": 1656584
+          },
+          "release": {
+            "wall_ns": 78083,
+            "thread_cpu_ns": 76583
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 12,
+          "construct": {
+            "wall_ns": 568917,
+            "thread_cpu_ns": 564666
+          },
+          "flatten": {
+            "wall_ns": 11208,
+            "thread_cpu_ns": 11000
+          },
+          "evaluate_wait": {
+            "wall_ns": 1575084,
+            "thread_cpu_ns": 1334667
+          },
+          "release": {
+            "wall_ns": 77375,
+            "thread_cpu_ns": 71333
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 13,
+          "construct": {
+            "wall_ns": 595000,
+            "thread_cpu_ns": 568000
+          },
+          "flatten": {
+            "wall_ns": 10792,
+            "thread_cpu_ns": 10666
+          },
+          "evaluate_wait": {
+            "wall_ns": 2399292,
+            "thread_cpu_ns": 1637084
+          },
+          "release": {
+            "wall_ns": 143750,
+            "thread_cpu_ns": 136500
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 14,
+          "construct": {
+            "wall_ns": 541709,
+            "thread_cpu_ns": 541625
+          },
+          "flatten": {
+            "wall_ns": 11708,
+            "thread_cpu_ns": 11500
+          },
+          "evaluate_wait": {
+            "wall_ns": 1650833,
+            "thread_cpu_ns": 1388416
+          },
+          "release": {
+            "wall_ns": 55334,
+            "thread_cpu_ns": 54959
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 15,
+          "construct": {
+            "wall_ns": 552458,
+            "thread_cpu_ns": 533875
+          },
+          "flatten": {
+            "wall_ns": 12833,
+            "thread_cpu_ns": 12500
+          },
+          "evaluate_wait": {
+            "wall_ns": 2094042,
+            "thread_cpu_ns": 1553625
+          },
+          "release": {
+            "wall_ns": 55917,
+            "thread_cpu_ns": 55625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 16,
+          "construct": {
+            "wall_ns": 524708,
+            "thread_cpu_ns": 524458
+          },
+          "flatten": {
+            "wall_ns": 10209,
+            "thread_cpu_ns": 10084
+          },
+          "evaluate_wait": {
+            "wall_ns": 1538833,
+            "thread_cpu_ns": 1323333
+          },
+          "release": {
+            "wall_ns": 53208,
+            "thread_cpu_ns": 53167
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 17,
+          "construct": {
+            "wall_ns": 537542,
+            "thread_cpu_ns": 537333
+          },
+          "flatten": {
+            "wall_ns": 12208,
+            "thread_cpu_ns": 12000
+          },
+          "evaluate_wait": {
+            "wall_ns": 1595209,
+            "thread_cpu_ns": 1314500
+          },
+          "release": {
+            "wall_ns": 89666,
+            "thread_cpu_ns": 67334
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 18,
+          "construct": {
+            "wall_ns": 584667,
+            "thread_cpu_ns": 537375
+          },
+          "flatten": {
+            "wall_ns": 9875,
+            "thread_cpu_ns": 9625
+          },
+          "evaluate_wait": {
+            "wall_ns": 1640083,
+            "thread_cpu_ns": 1341209
+          },
+          "release": {
+            "wall_ns": 62834,
+            "thread_cpu_ns": 58916
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 19,
+          "construct": {
+            "wall_ns": 577000,
+            "thread_cpu_ns": 558542
+          },
+          "flatten": {
+            "wall_ns": 9541,
+            "thread_cpu_ns": 9291
+          },
+          "evaluate_wait": {
+            "wall_ns": 1709125,
+            "thread_cpu_ns": 1342500
+          },
+          "release": {
+            "wall_ns": 53000,
+            "thread_cpu_ns": 52875
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 20,
+          "construct": {
+            "wall_ns": 525375,
+            "thread_cpu_ns": 521791
+          },
+          "flatten": {
+            "wall_ns": 9458,
+            "thread_cpu_ns": 9292
+          },
+          "evaluate_wait": {
+            "wall_ns": 3361708,
+            "thread_cpu_ns": 2175875
+          },
+          "release": {
+            "wall_ns": 101834,
+            "thread_cpu_ns": 88625
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 21,
+          "construct": {
+            "wall_ns": 623875,
+            "thread_cpu_ns": 586291
+          },
+          "flatten": {
+            "wall_ns": 11334,
+            "thread_cpu_ns": 11167
+          },
+          "evaluate_wait": {
+            "wall_ns": 1624000,
+            "thread_cpu_ns": 1322792
+          },
+          "release": {
+            "wall_ns": 56166,
+            "thread_cpu_ns": 56125
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 22,
+          "construct": {
+            "wall_ns": 505000,
+            "thread_cpu_ns": 504834
+          },
+          "flatten": {
+            "wall_ns": 9333,
+            "thread_cpu_ns": 9291
+          },
+          "evaluate_wait": {
+            "wall_ns": 1519834,
+            "thread_cpu_ns": 1275792
+          },
+          "release": {
+            "wall_ns": 83000,
+            "thread_cpu_ns": 59667
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 23,
+          "construct": {
+            "wall_ns": 517875,
+            "thread_cpu_ns": 509834
+          },
+          "flatten": {
+            "wall_ns": 9541,
+            "thread_cpu_ns": 9291
+          },
+          "evaluate_wait": {
+            "wall_ns": 1488625,
+            "thread_cpu_ns": 1225834
+          },
+          "release": {
+            "wall_ns": 67875,
+            "thread_cpu_ns": 59166
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 24,
+          "construct": {
+            "wall_ns": 506583,
+            "thread_cpu_ns": 506458
+          },
+          "flatten": {
+            "wall_ns": 9792,
+            "thread_cpu_ns": 9625
+          },
+          "evaluate_wait": {
+            "wall_ns": 1537875,
+            "thread_cpu_ns": 1264167
+          },
+          "release": {
+            "wall_ns": 68417,
+            "thread_cpu_ns": 60125
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 25,
+          "construct": {
+            "wall_ns": 957625,
+            "thread_cpu_ns": 800333
+          },
+          "flatten": {
+            "wall_ns": 85000,
+            "thread_cpu_ns": 26125
+          },
+          "evaluate_wait": {
+            "wall_ns": 4451625,
+            "thread_cpu_ns": 2766209
+          },
+          "release": {
+            "wall_ns": 156959,
+            "thread_cpu_ns": 133583
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 26,
+          "construct": {
+            "wall_ns": 1263208,
+            "thread_cpu_ns": 962625
+          },
+          "flatten": {
+            "wall_ns": 14042,
+            "thread_cpu_ns": 13375
+          },
+          "evaluate_wait": {
+            "wall_ns": 2512875,
+            "thread_cpu_ns": 1958792
+          },
+          "release": {
+            "wall_ns": 212292,
+            "thread_cpu_ns": 103458
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 27,
+          "construct": {
+            "wall_ns": 867875,
+            "thread_cpu_ns": 700542
+          },
+          "flatten": {
+            "wall_ns": 50542,
+            "thread_cpu_ns": 37708
+          },
+          "evaluate_wait": {
+            "wall_ns": 3290958,
+            "thread_cpu_ns": 2533084
+          },
+          "release": {
+            "wall_ns": 209583,
+            "thread_cpu_ns": 129333
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 28,
+          "construct": {
+            "wall_ns": 1278875,
+            "thread_cpu_ns": 964250
+          },
+          "flatten": {
+            "wall_ns": 15958,
+            "thread_cpu_ns": 15334
+          },
+          "evaluate_wait": {
+            "wall_ns": 3495167,
+            "thread_cpu_ns": 2626541
+          },
+          "release": {
+            "wall_ns": 144000,
+            "thread_cpu_ns": 142000
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 29,
+          "construct": {
+            "wall_ns": 1291125,
+            "thread_cpu_ns": 875250
+          },
+          "flatten": {
+            "wall_ns": 57666,
+            "thread_cpu_ns": 20667
+          },
+          "evaluate_wait": {
+            "wall_ns": 6399375,
+            "thread_cpu_ns": 2570833
+          },
+          "release": {
+            "wall_ns": 275042,
+            "thread_cpu_ns": 154417
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 30,
+          "construct": {
+            "wall_ns": 862458,
+            "thread_cpu_ns": 751584
+          },
+          "flatten": {
+            "wall_ns": 13542,
+            "thread_cpu_ns": 13083
+          },
+          "evaluate_wait": {
+            "wall_ns": 3222833,
+            "thread_cpu_ns": 2119250
+          },
+          "release": {
+            "wall_ns": 68459,
+            "thread_cpu_ns": 67875
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "repeat": 31,
+          "construct": {
+            "wall_ns": 548875,
+            "thread_cpu_ns": 548584
+          },
+          "flatten": {
+            "wall_ns": 11459,
+            "thread_cpu_ns": 11250
+          },
+          "evaluate_wait": {
+            "wall_ns": 2018000,
+            "thread_cpu_ns": 1611333
+          },
+          "release": {
+            "wall_ns": 59250,
+            "thread_cpu_ns": 59125
+          },
+          "forced_outputs": 256,
+          "gc_events": [],
+          "gc_collection_delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "phase_medians": {
+        "construct": {
+          "wall_ns": 579375.0,
+          "thread_cpu_ns": 555646.0
+        },
+        "flatten": {
+          "wall_ns": 11271.0,
+          "thread_cpu_ns": 11062.5
+        },
+        "evaluate_wait": {
+          "wall_ns": 1860479.0,
+          "thread_cpu_ns": 1422938.0
+        },
+        "release": {
+          "wall_ns": 68083.0,
+          "thread_cpu_ns": 60000.0
+        }
+      },
+      "timed_gc_events": 0,
+      "timed_gc_duration_ns": 0
+    }
+  ],
+  "success": true,
+  "limitations": [
+    "Instrumented library-only phases; no candidate speed or acceptance result.",
+    "Graph construction/evaluation may include backend coordination; eval-wait is not pure device time.",
+    "Wall minus current-thread CPU time includes scheduling and other threads, not just GPU execution.",
+    "GC correlation alone would not establish causality.",
+    "All input score matrices are evaluated and changed; outputs are forced and numerically checked."
+  ],
+  "wall_seconds": 1.3567153330077417,
+  "peak_memory_bytes": 148940920,
+  "telemetry_after": {
+    "time_utc": "2026-11-01T14:54:16Z",
+    "load_average": [
+      15.14306640625,
+      63.501953125,
+      60.95751953125
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t99%; discharging; 3:55 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "all_gc_events": [
+    {
+      "generation": 0,
+      "start_ns": 366529988832291,
+      "end_ns": 366529989004083,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366529991826416,
+      "end_ns": 366529991859916,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366529992990083,
+      "end_ns": 366529993048125,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366529993471958,
+      "end_ns": 366529993505291,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366529994409541,
+      "end_ns": 366529994468416,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530001386625,
+      "end_ns": 366530001497250,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530003005375,
+      "end_ns": 366530003069416,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530004904958,
+      "end_ns": 366530004981958,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530007141583,
+      "end_ns": 366530007206333,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 1,
+      "start_ns": 366530011581208,
+      "end_ns": 366530012476208,
+      "phase": "staging",
+      "collected": 20,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530020042750,
+      "end_ns": 366530020207541,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530023498333,
+      "end_ns": 366530023582166,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530026264375,
+      "end_ns": 366530026348333,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530032543333,
+      "end_ns": 366530032616250,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530049807041,
+      "end_ns": 366530049963541,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530052340000,
+      "end_ns": 366530052432958,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530056268583,
+      "end_ns": 366530056419583,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530060942791,
+      "end_ns": 366530061097458,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530141741000,
+      "end_ns": 366530141921083,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530183876083,
+      "end_ns": 366530183955333,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530186190166,
+      "end_ns": 366530186273000,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 1,
+      "start_ns": 366530191149041,
+      "end_ns": 366530193475458,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530198734083,
+      "end_ns": 366530198888625,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530203312583,
+      "end_ns": 366530203403875,
+      "phase": "staging",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 2,
+      "start_ns": 366530329679208,
+      "end_ns": 366530334413208,
+      "phase": "between_tasks",
+      "collected": 10,
+      "uncollectable": 0
+    },
+    {
+      "generation": 0,
+      "start_ns": 366530538685041,
+      "end_ns": 366530538726291,
+      "phase": "warmup",
+      "collected": 0,
+      "uncollectable": 0
+    },
+    {
+      "generation": 2,
+      "start_ns": 366530673309541,
+      "end_ns": 366530683851000,
+      "phase": "between_tasks",
+      "collected": 0,
+      "uncollectable": 0
+    }
+  ],
+  "resource_passed": true
+}

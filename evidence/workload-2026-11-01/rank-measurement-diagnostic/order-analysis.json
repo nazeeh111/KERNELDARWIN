@@ -1,0 +1,143 @@
+{
+  "kind": "posthoc_negative_control_order_description",
+  "script_sha256": "59b1e412059e5d35c12702e494ecf905bff8c2ba39da15536d6cfecb34fdec4c",
+  "input_sha256": {
+    "rank-v1/rejected-baseline.json": "c2668743ea20a18e55684b5bbfcb6fad669020cc2ae815d4cd7618b3487a8451",
+    "rank-longblock-assay/result.json": "82aba8e99a9c1f443f5d6ddb49e5f89c627878962d9ac892b2c21b63e13fa4e1",
+    "rank-v1-lower-load-20261101/rejected-baseline.json": "c546923ba44a04e21ef2f33b0ad970541d1716312da2efa33138ace42cb15173"
+  },
+  "rows": [
+    {
+      "input": "rank-v1/rejected-baseline.json",
+      "task": "notes",
+      "a_first_count": 22,
+      "paired_rounds": 40,
+      "total_a_over_b": 0.9253820457400501,
+      "total_first_over_second": 1.0134299145249752,
+      "median_first_over_second": 0.9748583728438955,
+      "mean_log_first_over_second": 0.006080842039620738,
+      "conditional_a_over_b": {
+        "0": 0.9424367167519813,
+        "1": 0.9056344609181806
+      }
+    },
+    {
+      "input": "rank-v1/rejected-baseline.json",
+      "task": "manuals",
+      "a_first_count": 22,
+      "paired_rounds": 40,
+      "total_a_over_b": 1.0413656032516831,
+      "total_first_over_second": 1.0463539972120257,
+      "median_first_over_second": 1.1101002220264629,
+      "mean_log_first_over_second": 0.04504979682203028,
+      "conditional_a_over_b": {
+        "0": 1.0791872998507186,
+        "1": 0.9945445747252488
+      }
+    },
+    {
+      "input": "rank-v1/rejected-baseline.json",
+      "task": "archive",
+      "a_first_count": 19,
+      "paired_rounds": 40,
+      "total_a_over_b": 1.0546188861840893,
+      "total_first_over_second": 0.9289798704665669,
+      "median_first_over_second": 0.9709562195422755,
+      "mean_log_first_over_second": -0.05802968145099091,
+      "conditional_a_over_b": {
+        "0": 0.9778502270521491,
+        "1": 1.1239799097297039
+      }
+    },
+    {
+      "input": "rank-longblock-assay/result.json",
+      "task": "notes",
+      "a_first_count": 25,
+      "paired_rounds": 40,
+      "total_a_over_b": 1.0327240856879853,
+      "total_first_over_second": 1.0150008001326076,
+      "median_first_over_second": 1.0024005718424136,
+      "mean_log_first_over_second": 0.003972833426104756,
+      "conditional_a_over_b": {
+        "0": 1.037706723052746,
+        "1": 1.0240708751401446
+      }
+    },
+    {
+      "input": "rank-longblock-assay/result.json",
+      "task": "manuals",
+      "a_first_count": 17,
+      "paired_rounds": 40,
+      "total_a_over_b": 0.9892948042430364,
+      "total_first_over_second": 1.0082455650306044,
+      "median_first_over_second": 0.9986284176570324,
+      "mean_log_first_over_second": 0.00299045934994879,
+      "conditional_a_over_b": {
+        "0": 0.9969797743998176,
+        "1": 0.9837281226278979
+      }
+    },
+    {
+      "input": "rank-longblock-assay/result.json",
+      "task": "archive",
+      "a_first_count": 20,
+      "paired_rounds": 40,
+      "total_a_over_b": 1.0039008820499336,
+      "total_first_over_second": 1.0257402797199002,
+      "median_first_over_second": 0.9951536415032562,
+      "mean_log_first_over_second": 0.015833333072827877,
+      "conditional_a_over_b": {
+        "0": 1.02956648912106,
+        "1": 0.978585017899176
+      }
+    },
+    {
+      "input": "rank-v1-lower-load-20261101/rejected-baseline.json",
+      "task": "notes",
+      "a_first_count": 22,
+      "paired_rounds": 40,
+      "total_a_over_b": 0.9279804266630195,
+      "total_first_over_second": 0.9656521344774472,
+      "median_first_over_second": 1.0048081504863653,
+      "mean_log_first_over_second": -0.02967446388236463,
+      "conditional_a_over_b": {
+        "0": 0.908554652803628,
+        "1": 0.9545863027752305
+      }
+    },
+    {
+      "input": "rank-v1-lower-load-20261101/rejected-baseline.json",
+      "task": "manuals",
+      "a_first_count": 22,
+      "paired_rounds": 40,
+      "total_a_over_b": 1.0517321892145117,
+      "total_first_over_second": 1.0727143322744932,
+      "median_first_over_second": 1.0773575116744556,
+      "mean_log_first_over_second": 0.07162194208188277,
+      "conditional_a_over_b": {
+        "0": 1.1159807092225775,
+        "1": 0.9783082651116337
+      }
+    },
+    {
+      "input": "rank-v1-lower-load-20261101/rejected-baseline.json",
+      "task": "archive",
+      "a_first_count": 19,
+      "paired_rounds": 40,
+      "total_a_over_b": 0.9722584926221799,
+      "total_first_over_second": 1.0052749279672037,
+      "median_first_over_second": 1.0526770976633986,
+      "mean_log_first_over_second": 0.0036156568197627734,
+      "conditional_a_over_b": {
+        "0": 0.9764496794310363,
+        "1": 0.9684077236767926
+      }
+    }
+  ],
+  "candidate_timing": false,
+  "old_gate_results_reinterpreted": false,
+  "limits": [
+    "These descriptive grouped ratios do not identify a cause or prove absence of order effects.",
+    "No candidate result or revised acceptance decision is produced."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "operation": "batch_refresh_top5_v1",
+  "status": "closed_incomplete_calibration",
+  "numerical_passed": true,
+  "calibration_completed": false,
+  "application_equality_gate_reached": false,
+  "performance_criterion_frozen": false,
+  "candidate_performance_timed": false,
+  "heldout_executed": false,
+  "candidate_policy_created": false,
+  "confirmation_passed": false,
+  "accepted_artifact": false,
+  "completed_rank_groups": 120,
+  "completed_application_groups": 14,
+  "required_application_groups": 40,
+  "wall_seconds": 181.3770929580205,
+  "peak_memory_bytes": 19008024,
+  "reason": "Fixed 180-second cap checked after a completed group; no retry.",
+  "evidence_sha256": {
+    "freeze-started.json": "771aacc9281456b32a21440433ca7c9a4ecc1f593bdd045b59cfd7d2e4518ec1",
+    "rejected-baseline.json": "07e7c87e1318b614d745c21921e7af710793558314fd2b47e39856c14d1c50e1",
+    "calibration-audit.json": "690cec6720fdb612fbb8ff37302b80e462dfab81e63a03cdcd42dfb0aac89d05",
+    "calibration-native.log": "4afe8bcb64073f33a257b79261a95c2035b33639d86982ac5716c0d737c2a6a9",
+    "calibration-process.json": "361aab697a8fac3b1c3b20053a6b59fe7596f863e639dbb8ef8a839e524d4c52",
+    "post-calibration-audit.json": "6be24be469cb53174d87bea5c38f1dd51e031fad502b5019675c5f4b84bc2bf2",
+    "export-refusal.json": "6c6537b1dce0687c358f5b0ca7bd744ab987b039582968961f7838a49b57eadf"
+  },
+  "no_protocol_policy_or_confirmations": true,
+  "next": "Use the verified compiled-library batch API. This closed study cannot support a custom acceleration or release claim."
+}

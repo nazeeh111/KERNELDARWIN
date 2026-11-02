@@ -1,0 +1,13 @@
+# Ranking V2: frozen null result
+
+The single application calibration passed, then the unchanged bounded study completed development, three untouched confirmation processes and 24 cold starts. The selected policy has **zero custom rules**. Both performance gates failed in every session. No optimized artifact, acceleration, portfolio benefit or supported break-even is established.
+
+The separately installed numerical wheel independently replayed the original raw records. Numerical/resource gates passed; rank/application/confirmation gates failed. Its actual export call refused the result and created no output directory. See `verification.json`, `export-refusal.json` and the [complete results](../../../docs/workload-results.md#third-target-v2-completed-with-an-empty-policy).
+
+The [prospective methods](../../../docs/workload-ranking-v2.md) explicitly amend rank-only entry in favor of complete-application controls. This does not reinterpret any V1 failure. `source-frozen.zip` preserves the exact 44 preregistered files at public commit dfc5b01, before calibration/candidate timing. SHA-256: `19d6a54ae8a3e8f0f5548aa8f2f8ce7f771031cb3662987dcadfd0742f2e6500`. `source-frozen.json` binds every member. The registration's pending-status prose is historical; current executed results are here. Measured source, pins, criteria and policy did not change or retry after observations.
+
+Calibration:9.446s,appCI[0.9928552,1.0276679]; frozen rank/app lower minima 2.0886013/1.0561013. Development:22.322s. All three confirmations failed rank/app and portfolio gates. Dual-clock gaps exceeded120s. Cold study:24 processes,12.691s. Maximum MLX peak584782748B. Three sessions each recorded28192/28192 dispatcher fallbacks; counts include validation and burst measurements. No per-request dispatch/transfer or pure-device-time claim follows.
+
+Fresh source-free installed production validation passed all12 native methods with zero skips/failures/errors and Metal API/GPU validation enabled. Its report records actual installed module paths, absence of validation-root source, full study identity99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f and measurement pin4470b506443feea5cf6a4f22b5fea01338e8a199621b02dd0f45f20f114f5b3a. Original report bytes remain unchanged. The CPU suite contained147 methods,118 CPU passes and29 explicit Metal skips; CPU tests are not GPU evidence.
+
+Every stage marker/raw result/native log is retained. Timing validation/debug flags were disabled. No purchases, foreign-job stopping, favorable-load scheduling, policy changes, confirmation retries or further tuning are part of this result. Ranking investigation is closed. Raw system traces/XML remain private.

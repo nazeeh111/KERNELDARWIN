@@ -6,6 +6,8 @@ Optional dependencies are installed by users and retain their own licenses:
 
 | Project | License/source | Use |
 |---|---|---|
+| MLX and MLX Metal | [MIT](https://github.com/ml-explore/mlx/blob/main/LICENSE), copyright Apple Inc. | Optional Apple Silicon runtime, compiled library baselines and authored Metal-kernel integration; dependencies installed separately |
+| NumPy | [BSD 3-Clause and bundled component notices](https://github.com/numpy/numpy/blob/main/LICENSE.txt) | Independent float64 numerical references, NPZ input and CPU controls; installed separately |
 | PyTorch | [PyTorch license](https://github.com/pytorch/pytorch/blob/main/LICENSE), including BSD-style terms and historical component notices | Optional tensor reference and compiled baseline |
 | Triton | [MIT](https://github.com/triton-lang/triton/blob/main/LICENSE), copyright Philippe Tillet and OpenAI | Optional GPU language/compiler |
 | BoTorch | [MIT](https://github.com/meta-pytorch/botorch/blob/main/LICENSE) | Investigated optional comparison baseline; not required by core |

@@ -1,0 +1,14 @@
+{
+  "kind": "owned_buffer_library_transaction_composition_diagnostic",
+  "source_sha256": "342658d4eba656e632904cfa568f2756069b13d744c1bdc3fca9ec23353928de",
+  "composition_sha256": "c9b77ce312bd45a45238d08f92968ab5ba2acde3755d6e57ff3d0bd9d2dfe4f6",
+  "candidate_kernel_timing": false,
+  "acceptance_study": false,
+  "observed_command_buffer_class": "AGXG16GFamilyCommandBuffer",
+  "completed": true,
+  "peak_memory_bytes": 8349016,
+  "observer_uninstall_result": 0,
+  "pending_callbacks": 0,
+  "dropped_records": 0,
+  "wall_seconds": 3.372153707954567
+}

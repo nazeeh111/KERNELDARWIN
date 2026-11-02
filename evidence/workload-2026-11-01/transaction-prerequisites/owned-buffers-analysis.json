@@ -1,0 +1,150 @@
+{
+  "kind": "library_only_owned_buffer_composition_analysis",
+  "acceptance_study": false,
+  "candidate_kernel_timing": false,
+  "raw_sha256": "3a006ad8812df566ca151d0b99c2c18ec446355ffbaef1d083e7fc75552111e3",
+  "all_orders_and_counts_replayed": true,
+  "comparisons": {
+    "stable_library": {
+      "wall": {
+        "speedup_total_cost": 2.2764840804233186,
+        "ci95": [
+          2.2254429787014534,
+          2.342420270278511
+        ],
+        "iid_ci95": [
+          2.2254429787014534,
+          2.342420270278511
+        ],
+        "block4_ci95": [
+          2.2304382240665137,
+          2.331704213317919
+        ],
+        "block8_ci95": [
+          2.2387952794918426,
+          2.324588017501914
+        ],
+        "baseline_total_us": 181112.566,
+        "candidate_total_us": 79558.02
+      },
+      "command_buffers": {
+        "sequential": [
+          13
+        ],
+        "transaction": [
+          4
+        ]
+      },
+      "median_wall_us": {
+        "sequential": 4443.146,
+        "transaction": 1950.6035
+      }
+    },
+    "fast_library": {
+      "wall": {
+        "speedup_total_cost": 2.1654708732725116,
+        "ci95": [
+          2.0033585607656046,
+          2.298223261222259
+        ],
+        "iid_ci95": [
+          2.040869267983577,
+          2.2777552392111353
+        ],
+        "block4_ci95": [
+          2.0085249234423044,
+          2.294541950584611
+        ],
+        "block8_ci95": [
+          2.0033585607656046,
+          2.298223261222259
+        ],
+        "baseline_total_us": 186860.8745,
+        "candidate_total_us": 86291.105
+      },
+      "command_buffers": {
+        "sequential": [
+          13
+        ],
+        "transaction": [
+          4
+        ]
+      },
+      "median_wall_us": {
+        "sequential": 4554.3125,
+        "transaction": 2028.1039999999998
+      }
+    },
+    "stable_reduction": {
+      "wall": {
+        "speedup_total_cost": 2.2083074218627106,
+        "ci95": [
+          2.028481871817531,
+          2.405200100008109
+        ],
+        "iid_ci95": [
+          2.0571680781367365,
+          2.3642242582499144
+        ],
+        "block4_ci95": [
+          2.038673747783118,
+          2.380356158528871
+        ],
+        "block8_ci95": [
+          2.028481871817531,
+          2.405200100008109
+        ],
+        "baseline_total_us": 220013.897,
+        "candidate_total_us": 99630.1035
+      },
+      "command_buffers": {
+        "sequential": [
+          13
+        ],
+        "transaction": [
+          7
+        ]
+      },
+      "median_wall_us": {
+        "sequential": 5215.0205000000005,
+        "transaction": 2243.1665000000003
+      }
+    },
+    "fast_reduction": {
+      "wall": {
+        "speedup_total_cost": 2.327285686341083,
+        "ci95": [
+          2.2159962523284995,
+          2.4346107019992003
+        ],
+        "iid_ci95": [
+          2.2159962523284995,
+          2.4346107019992003
+        ],
+        "block4_ci95": [
+          2.248655233918673,
+          2.428061122839114
+        ],
+        "block8_ci95": [
+          2.267671314468056,
+          2.399710296506139
+        ],
+        "baseline_total_us": 225563.4355,
+        "candidate_total_us": 96921.249
+      },
+      "command_buffers": {
+        "sequential": [
+          13
+        ],
+        "transaction": [
+          7
+        ]
+      },
+      "median_wall_us": {
+        "sequential": 5343.4995,
+        "transaction": 2314.2915000000003
+      }
+    }
+  },
+  "limits": "Instrumented architecture pilot, not accepted study/custom kernel advantage; old and new each perform same raw refresh/threequeries per task. Device buffer duration is not pure kernel time; source/device binding and untouched confirmation remain required."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "actual_installed_export_refusal",
+  "exception_type": "ValueError",
+  "reason": "Frozen confirmation failed; preserve the null result",
+  "output": "/private/tmp/kd-rank-v2-refused-artifact-20261101",
+  "output_exists": false,
+  "exporter_module": "/private/tmp/kd-rank-v2-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/rank_export.py",
+  "rank_module": "/private/tmp/kd-rank-v2-installed-20261101/env/lib/python3.12/site-packages/kerneldarwin/rank_search.py",
+  "exporter_sha256": "1d4ad81ec880226e4d60a735bf0f38acbf3a768c48bf074f5442ca3b13c2d1fd",
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+  "elapsed_replay_and_export_seconds": 50.63428270898294
+}

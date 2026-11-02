@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "operation": "stable_l2_rows_v1",
+  "epsilon": 1e-12,
+  "study_identity": "509c13382f8db01237b9d6a741d7cd4648a1ccd1b9174107eef9e60894c84b74",
+  "source_sha256": "0c78e2083abbc52c77f6afcba43a6d172c242c133c213719f00b850ab2e0dc97",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "sources": {
+    "normalize_simd.metal": "548e6ba4541d8f422e6946d493503331e30bcc780e7f9356873851c0d76b10a1",
+    "normalize_vector.metal": "c31c40be5e8bf9b9db30c35543771b219d9e8ab5b7431b073ee029e239cf2e20",
+    "normalize_group.metal": "0f3723fe1ead181f00f2db7eb49572e5688ee20a33e33a7c0388457d9b005269",
+    "vector_load.metal": "9302e9ae6eeed1d83be436b61b443b66dd579990ca587a5bc9c5ae845ed3b747"
+  },
+  "rules": [
+    {
+      "shape": [
+        1,
+        384
+      ],
+      "candidate": "group128",
+      "dtype": "float32",
+      "layout": "any_mlx_strides"
+    },
+    {
+      "shape": [
+        8,
+        768
+      ],
+      "candidate": "vector4",
+      "dtype": "float32",
+      "layout": "any_mlx_strides"
+    },
+    {
+      "shape": [
+        17,
+        1536
+      ],
+      "candidate": "vector4",
+      "dtype": "float32",
+      "layout": "any_mlx_strides"
+    },
+    {
+      "shape": [
+        64,
+        384
+      ],
+      "candidate": "vector4",
+      "dtype": "float32",
+      "layout": "any_mlx_strides"
+    },
+    {
+      "shape": [
+        161,
+        768
+      ],
+      "candidate": "vector4",
+      "dtype": "float32",
+      "layout": "any_mlx_strides"
+    },
+    {
+      "shape": [
+        161,
+        1536
+      ],
+      "candidate": "group128",
+      "dtype": "float32",
+      "layout": "any_mlx_strides"
+    }
+  ],
+  "evidence": {
+    "numerical_passed": true,
+    "confirmation_passed": false,
+    "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+    "protocol_sha256": "c88594b9b70c0413629f056f6b7d19a3c37bb89a6e2516457b07d65ca068b3ec",
+    "numerical_report_sha256": "59d450bffde22a85ff3e90f7e2e28726c62550b6d1dfcac2fe252d86ff916e62",
+    "development_sha256": "a46427647ab0c6fb72754324dd3b806a518679114cec854238c2de3079c0bbbf"
+  },
+  "policy_selection": {
+    "best_fixed": "vector4",
+    "joint_subset": [
+      "vector4",
+      "group128"
+    ],
+    "development_weighted_cost_us": 363.62178906250006,
+    "best_fixed_weighted_cost_us": 385.937959375,
+    "per_shape": [
+      {
+        "shape": [
+          1,
+          384
+        ],
+        "candidate": "group128"
+      },
+      {
+        "shape": [
+          8,
+          768
+        ],
+        "candidate": "vector4"
+      },
+      {
+        "shape": [
+          17,
+          1536
+        ],
+        "candidate": "vector4"
+      },
+      {
+        "shape": [
+          64,
+          384
+        ],
+        "candidate": "vector4"
+      },
+      {
+        "shape": [
+          161,
+          768
+        ],
+        "candidate": "simd4"
+      },
+      {
+        "shape": [
+          161,
+          1536
+        ],
+        "candidate": "group128"
+      }
+    ]
+  }
+}

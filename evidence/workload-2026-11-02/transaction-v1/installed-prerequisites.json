@@ -1,0 +1,48 @@
+{
+  "wheel_sha256": "a888544271795e12639bda1770b7d48ab696aa770421283e0e7aaaaee9f2a140",
+  "runtime_files_equal_source_wheel_installed": 76,
+  "source_sha256": "481e4949b30d038e14c7470249744d3f388e9771b076463fec684f927a8ca987",
+  "study_identity": "ea63b92a332e1824050c6f8f378800753d82b74d3928667b59db3179aeee22e6",
+  "dependency_binary_files_equal": [
+    "mlx/core.cpython-312-darwin.so",
+    "mlx/lib/libmlx.dylib",
+    "mlx/lib/mlx.metallib",
+    "numpy/_core/_multiarray_umath.cpython-312-darwin.so"
+  ],
+  "actual_installed_imports": {
+    "kerneldarwin.transaction_search": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/transaction_search.py",
+      "sha256": "bf864462bb38144ededdc433dd8fda7265ba20d8ac003e369c21bdae0c5d8e07"
+    },
+    "kerneldarwin.transaction_plan": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/transaction_plan.py",
+      "sha256": "a62ae6b487d8932a24666559ae4d33e05c601ce44f1d4154c8d1577b9f7fc38a"
+    },
+    "kerneldarwin.rank_search": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/rank_search.py",
+      "sha256": "4930466357116f6c11904976d0b293f33d276bd269531bb464f89182f2baf31f"
+    },
+    "kerneldarwin.search": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/search.py",
+      "sha256": "cf5ddc0ecb1e0fca1caf29cc982ddb6f4ef0df6f0b4044a677bd80fe150ab6ba"
+    },
+    "kerneldarwin.library_baselines": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/library_baselines.py",
+      "sha256": "32a8ab268fd7e58dbec0a29a1fae1e22037e6ed8c71d870036ff2e2fa7847f14"
+    },
+    "kerneldarwin.workload": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/workload.py",
+      "sha256": "f4936a2b553cdd08965f81d23e09cc1cfafbad04004b25df8fbd8890ab85e8a7"
+    },
+    "kerneldarwin.study_identity": {
+      "path": "/private/tmp/kd-batch-core-installed2-20261102/env/lib/python3.12/site-packages/kerneldarwin/study_identity.py",
+      "sha256": "c1aa11b3ea77ad9713a60d37b8312c8f543569fd8bcdabc46a5494429b034282"
+    }
+  },
+  "source_free_root": true,
+  "changed_input_api_top_match_checks": 8,
+  "changed_input_cli_top_match_checks": 8,
+  "missing_artifact_cli_fallback_verified": true,
+  "accepted_custom_artifact": false,
+  "candidate_performance_timed": false
+}

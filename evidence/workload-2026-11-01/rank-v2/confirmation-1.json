@@ -1,0 +1,3442 @@
+{
+  "schema": 1,
+  "session": 1,
+  "seed": 24203,
+  "sequence_order": [
+    2,
+    3,
+    0,
+    1
+  ],
+  "session_start_unix_ns": 1793549495158704000,
+  "session_start_monotonic_ns": 371169754147166,
+  "process_id": 57146,
+  "source_sha256": "6451ba50492843053b758801938e4cac40afee21efce287f12086c1f477f0be9",
+  "study_identity": "99810abba1515ae17004937f84c99edd523cfb6ecc125b8ba179b232b0136a4f",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "protocol_sha256": "ae131842ea65accb958051171a49e272011bc82a8daae4fffc4134b5021a24c3",
+  "policy_sha256": "9246ce937a6adf2f3f6b6de460625f934ef876e3a2b528d2e59c5b2581409c89",
+  "development_sha256": "4b55ada724badba8e35cacf52f20ab5ae67622c0bebcec558747aa595c87d75c",
+  "numerical_report_sha256": "93a835d46f6aebf0510bece5e2a4ec6b262185e3a5a6a5c1c700c11803474f5d",
+  "telemetry_before": {
+    "time_utc": "2026-11-01T16:11:35Z",
+    "load_average": [
+      4.31787109375,
+      6.43798828125,
+      17.525390625
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t68%; discharging; 2:52 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "telemetry_after": {
+    "time_utc": "2026-11-01T16:12:42Z",
+    "load_average": [
+      4.69580078125,
+      6.0791015625,
+      16.56787109375
+    ],
+    "thermal": {
+      "returncode": 0,
+      "observation": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "power": {
+      "returncode": 0,
+      "observation": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=35586147)\t67%; discharging; 3:02 remaining present: true"
+    },
+    "thermal_limit": "Observed power/thermal/load state; no direct GPU temperature measurement"
+  },
+  "timing_validation_flags": {
+    "METAL_DEBUG_ERROR_MODE": null,
+    "METAL_DEVICE_WRAPPER_TYPE": null,
+    "MTL_DEBUG_LAYER": null,
+    "MTL_DEBUG_LAYER_VALIDATE_LOAD_ACTIONS": null,
+    "MTL_DEBUG_LAYER_VALIDATE_STORE_ACTIONS": null,
+    "MTL_DEBUG_LAYER_VALIDATE_UNRETAINED_RESOURCES": null,
+    "MTL_SHADER_VALIDATION": null,
+    "MTL_SHADER_VALIDATION_ENABLE_PIPELINES": null
+  },
+  "first_rank_in_session_ms": {
+    "stable_library": [
+      2.823166,
+      1.3630419999999999,
+      0.34545800000000004,
+      0.345375
+    ],
+    "fast_library": [
+      0.31541699999999995,
+      0.33141699999999996,
+      0.538458,
+      0.543667
+    ],
+    "stable_reduction": [
+      6.070416,
+      1.869208,
+      0.616541,
+      0.699375
+    ],
+    "fast_reduction": [
+      0.40625,
+      0.570333,
+      0.506292,
+      0.453583
+    ],
+    "eager_library": [
+      0.888541,
+      0.537667,
+      0.544083,
+      0.310458
+    ],
+    "best_fixed": [
+      1.3740409999999998,
+      2.528875,
+      0.428,
+      2.459167
+    ],
+    "per_shape": [
+      0.441667,
+      0.462709,
+      1.890875,
+      0.570583
+    ],
+    "dispatcher": [
+      0.412875,
+      0.32975,
+      0.372541,
+      0.312583
+    ]
+  },
+  "first_application_in_session_ms": {
+    "stable_library": [
+      3.87775,
+      2.1323339999999997,
+      4.928083,
+      1.7295
+    ],
+    "fast_library": [
+      6.436709,
+      6.230582999999999,
+      9.244833,
+      7.852084
+    ],
+    "stable_reduction": [
+      1.855875,
+      2.136167,
+      2.594959,
+      2.07325
+    ],
+    "fast_reduction": [
+      1.953875,
+      2.7557080000000003,
+      3.210958,
+      2.438417
+    ],
+    "eager_library": [
+      4.881333,
+      5.475207999999999,
+      4.235333,
+      1.691916
+    ],
+    "best_fixed": [
+      1.2535,
+      1.666291,
+      2.70275,
+      2.526375
+    ],
+    "per_shape": [
+      1.93825,
+      2.8556660000000003,
+      3.4204589999999997,
+      5.233291
+    ],
+    "dispatcher": [
+      1.261792,
+      1.732,
+      1.808584,
+      1.5930419999999998
+    ]
+  },
+  "artifact_load_ms": 135.6121669523418,
+  "cold_note": "Individual first calls; preceding methods share possible caches; cold-study uses fresh processes",
+  "rank_samples_us": {
+    "stable_library": [
+      125.49609375,
+      128.8368984375,
+      116.461921875,
+      103.557609375,
+      126.4394765625,
+      183.6337734375,
+      112.47946875,
+      188.7099375,
+      222.2363203125,
+      113.4951328125,
+      194.630859375,
+      127.7626875,
+      108.4257890625,
+      102.4589765625,
+      136.6982578125,
+      131.232421875,
+      146.719734375,
+      124.17871875,
+      467.725640625,
+      209.8407890625,
+      131.9345859375,
+      183.65034375,
+      136.372078125,
+      176.122078125,
+      139.8837890625,
+      133.494140625,
+      121.66696875,
+      482.84278125000003,
+      936.1181484374999,
+      143.0068125,
+      189.8300859375,
+      186.9921796875,
+      132.9326015625,
+      138.7529296875,
+      123.774421875,
+      139.306640625,
+      191.5449140625,
+      132.0195703125,
+      123.80367187499999,
+      181.5664453125
+    ],
+    "fast_library": [
+      196.6074375,
+      135.1943671875,
+      109.5703125,
+      147.46584375,
+      128.19046875,
+      171.9560625,
+      102.087890625,
+      139.550765625,
+      125.50490625,
+      102.4326328125,
+      110.8857421875,
+      127.2021328125,
+      112.4248125,
+      126.4677421875,
+      124.201171875,
+      147.0078046875,
+      199.4257734375,
+      164.0410078125,
+      133.7949140625,
+      128.6786953125,
+      140.677734375,
+      137.04103125,
+      143.3291015625,
+      203.6250234375,
+      127.87202343749999,
+      133.4248125,
+      141.51075,
+      348.62500781250003,
+      345.7949296875,
+      129.076171875,
+      218.8779375,
+      126.0478359375,
+      197.438484375,
+      185.9062734375,
+      131.314453125,
+      196.41703125,
+      130.4658046875,
+      124.958015625,
+      125.729484375,
+      128.434546875
+    ],
+    "stable_reduction": [
+      1044.45703125,
+      1181.15334375,
+      981.5244375,
+      1292.192390625,
+      1119.4902656250001,
+      923.5566562500001,
+      1048.9365234375,
+      1092.61621875,
+      1033.9501406250001,
+      1090.5390703125,
+      1068.9150234375002,
+      1119.7421953125,
+      996.2744062500001,
+      1112.511703125,
+      793.5673828125,
+      850.75490625,
+      993.0634921875001,
+      1031.555625,
+      1327.3798828125,
+      1041.968765625,
+      1050.4170234375,
+      1200.6894375,
+      1057.650375,
+      1072.8710625,
+      1096.6669921875,
+      1062.6425859375,
+      1105.3408359375,
+      1467.814453125,
+      5724.373031249999,
+      1073.09859375,
+      1038.7480546875,
+      1056.500015625,
+      1189.4570390625,
+      1120.8916171875,
+      1054.292953125,
+      1026.9765468750002,
+      1058.3398359375,
+      1041.234375,
+      1043.5888359375,
+      1036.4111484375
+    ],
+    "fast_reduction": [
+      890.2285312500001,
+      897.290015625,
+      554.8330078125,
+      1102.8544921875,
+      1102.6415859375,
+      1129.9501875,
+      1160.6288671875,
+      1045.125984375,
+      854.321296875,
+      1031.7490078125002,
+      765.502921875,
+      673.9638515624999,
+      1089.521484375,
+      876.1230703125,
+      1150.0214999999998,
+      1065.5937421875,
+      1090.44628125,
+      1012.520484375,
+      2717.5000078125,
+      1041.31640625,
+      1092.1835625,
+      1140.1923984375,
+      1053.7998046875,
+      1015.1621015625001,
+      1036.6230703125,
+      1113.7206796875,
+      1105.2509765625,
+      4310.499984375,
+      2207.352515625,
+      1085.8573828125,
+      1051.3916015625,
+      1072.7392734374998,
+      1033.7109375,
+      1031.71875,
+      1040.1562734375,
+      1032.838875,
+      1046.28909375,
+      1035.9980390625,
+      1047.609375,
+      1054.35253125
+    ],
+    "eager_library": [
+      184.5927890625,
+      130.1376796875,
+      104.051765625,
+      105.416015625,
+      134.1230390625,
+      297.7871015625,
+      102.7548515625,
+      142.428703125,
+      161.0673515625,
+      107.746078125,
+      208.56740625,
+      129.0078046875,
+      115.49709375,
+      136.036125,
+      108.2031328125,
+      195.146484375,
+      152.7089765625,
+      118.3652578125,
+      569.34571875,
+      139.1240390625,
+      130.1171953125,
+      206.90821875,
+      136.1112890625,
+      130.3534921875,
+      127.94728125,
+      130.0586015625,
+      127.8095390625,
+      472.2480703125,
+      395.8154296875,
+      160.8789375,
+      135.3144375,
+      132.1494140625,
+      142.608375,
+      125.778328125,
+      188.2099921875,
+      125.745140625,
+      185.2236328125,
+      129.542015625,
+      133.3505625,
+      142.2402421875
+    ],
+    "best_fixed": [
+      113.1816328125,
+      80.4814453125,
+      70.452140625,
+      94.142578125,
+      87.4346015625,
+      88.693359375,
+      81.1064296875,
+      78.6201328125,
+      136.1826328125,
+      208.4238046875,
+      185.8720546875,
+      77.53415625,
+      104.284171875,
+      193.5752109375,
+      75.2421796875,
+      173.25290625,
+      80.499984375,
+      79.229484375,
+      487.4619140625,
+      79.8153984375,
+      78.3329765625,
+      95.292984375,
+      79.38084375,
+      90.849609375,
+      81.1933359375,
+      75.1347421875,
+      82.1796796875,
+      363.03121875,
+      469.10254687500003,
+      88.380890625,
+      84.6377109375,
+      89.6865703125,
+      101.5634765625,
+      80.36915625,
+      76.32328125000001,
+      75.2441484375,
+      92.985328125,
+      75.467765625,
+      142.6904296875,
+      86.6591953125
+    ],
+    "per_shape": [
+      81.5498203125,
+      157.7304375,
+      87.537140625,
+      80.29003125,
+      93.4550859375,
+      80.949234375,
+      74.4775546875,
+      100.3437421875,
+      104.5410234375,
+      144.7646484375,
+      136.879875,
+      127.4970703125,
+      81.505828125,
+      82.4756015625,
+      147.5341875,
+      87.1357265625,
+      111.1621171875,
+      97.321265625,
+      165.80859375,
+      92.876953125,
+      94.177734375,
+      91.5097734375,
+      94.3788984375,
+      106.119140625,
+      90.4404375,
+      126.6074296875,
+      86.3105390625,
+      188.752875,
+      280.268578125,
+      113.56734374999999,
+      87.0107578125,
+      129.4902421875,
+      97.709953125,
+      87.3447421875,
+      145.0458984375,
+      95.5722421875,
+      91.053703125,
+      153.792,
+      138.4082109375,
+      91.8515625
+    ],
+    "dispatcher": [
+      132.379875,
+      156.5097421875,
+      107.9746171875,
+      111.295875,
+      143.4238125,
+      142.0830234375,
+      109.963875,
+      138.04003125,
+      252.3310546875,
+      108.557625,
+      150.926765625,
+      151.8437578125,
+      120.150375,
+      217.4384765625,
+      119.689453125,
+      233.582015625,
+      120.37303125,
+      187.5341953125,
+      445.0127109375,
+      188.4345703125,
+      132.5908359375,
+      199.0634765625,
+      144.708,
+      152.4228515625,
+      208.6318359375,
+      129.7988203125,
+      138.924796875,
+      305.406234375,
+      444.2216953125,
+      130.172859375,
+      131.16796875,
+      188.553703125,
+      145.2636796875,
+      144.670875,
+      144.873046875,
+      144.411140625,
+      136.0029375,
+      191.570296875,
+      148.7011640625,
+      145.3886484375
+    ]
+  },
+  "application_samples_us": {
+    "stable_library": [
+      4443.247375,
+      8141.2995,
+      4848.390625,
+      6220.98175,
+      12846.6484375,
+      11669.4895625,
+      8577.4791875,
+      6203.4296875,
+      6317.177125,
+      7936.2760625,
+      6894.5078125,
+      9304.29425,
+      12337.25525,
+      6758.1145625,
+      11687.5885625,
+      6628.0625,
+      7345.0885,
+      6027.684875,
+      6457.1614375,
+      8303.921875,
+      6522.3359375,
+      6237.4609375,
+      6326.8125,
+      6155.3984375,
+      6212.5494375,
+      6211.4818125,
+      7322.2056875,
+      19662.013,
+      9104.54425,
+      6745.4661875,
+      6312.34375,
+      6371.9245,
+      6434.3411875,
+      6676.99475,
+      6221.2239375,
+      6237.06775,
+      6211.9765625,
+      5978.697875,
+      6297.2005,
+      6404.2995
+    ],
+    "fast_library": [
+      6901.9505,
+      12037.8880625,
+      5316.76825,
+      7492.966125,
+      7104.51825,
+      13772.80725,
+      5820.85675,
+      6501.8854375,
+      9313.70575,
+      11941.2994375,
+      7264.49475,
+      7373.041625,
+      4445.3203125,
+      4380.513,
+      10005.83075,
+      9969.7005,
+      7497.5989375,
+      6640.9245,
+      7823.375,
+      8874.5,
+      6593.2265625,
+      6425.9739375,
+      6289.8333125,
+      6439.1614375,
+      6638.64325,
+      6375.112,
+      6553.9895625,
+      9787.627625,
+      9826.1953125,
+      6743.3333125,
+      6308.6640625,
+      6813.8984375,
+      6424.5104375,
+      6538.6431875,
+      6358.4426875,
+      6325.69275,
+      6343.6328125,
+      6798.158875,
+      6399.984375,
+      7135.479125
+    ],
+    "stable_reduction": [
+      7919.091125,
+      12160.502625,
+      5070.18225,
+      7165.221375,
+      13542.875,
+      10060.7369375,
+      12923.888,
+      7395.4583125,
+      7069.20575,
+      5709.4010625,
+      8118.7551875,
+      7960.903625,
+      15994.971375,
+      10910.10675,
+      8663.3255,
+      10449.2291875,
+      8486.4765625,
+      7163.737,
+      8079.1745,
+      7886.2005,
+      8340.50525,
+      7302.760375,
+      7228.822875,
+      8095.11975,
+      7893.0729375,
+      7223.9453125,
+      7380.0963125,
+      9650.4245,
+      11967.3203125,
+      7859.1198125,
+      7703.1015625,
+      7418.1301875,
+      7909.5885,
+      7548.60675,
+      7613.7005,
+      7180.5338125,
+      8182.1119375,
+      7802.502625,
+      7891.349,
+      7445.0703125
+    ],
+    "fast_reduction": [
+      10757.3046875,
+      5697.6796875,
+      5813.5885625,
+      5925.1875,
+      11727.3359375,
+      12773.8125,
+      12105.828125,
+      7456.5676875,
+      15513.8046875,
+      6703.6145625,
+      5683.7448125,
+      8619.6900625,
+      9172.4245,
+      9934.1796875,
+      5412.6693125,
+      9078.8958125,
+      8112.6484375,
+      7985.5859375,
+      7966.4375,
+      9242.65625,
+      7881.3333125,
+      7821.1354375,
+      7988.4948125,
+      8112.854125,
+      7667.987,
+      7892.4349375,
+      8081.6119375,
+      9832.4193125,
+      12480.6145625,
+      8775.3150625,
+      7764.8984375,
+      7701.1614375,
+      7662.208375,
+      7641.5,
+      7756.44275,
+      7692.237,
+      7740.40625,
+      7663.8568125,
+      7969.3255,
+      7494.5104375
+    ],
+    "eager_library": [
+      4530.3671875,
+      8720.6041875,
+      7882.9453125,
+      4544.349,
+      13707.5885625,
+      6661.61975,
+      8357.4713125,
+      5690.20575,
+      4958.703125,
+      7409.68225,
+      9864.8698125,
+      6160.9244375,
+      5038.8828125,
+      6822.4426875,
+      11801.08075,
+      13502.028625,
+      8145.841125,
+      6541.69275,
+      7018.440125,
+      6874.5989375,
+      6974.1926875,
+      7921.7864375,
+      7197.50525,
+      6579.5520625,
+      6537.234375,
+      6536.6171875,
+      6631.815125,
+      12235.7916875,
+      6770.64325,
+      6656.265625,
+      6618.4739375,
+      6606.1875,
+      7977.3619375,
+      7077.2005,
+      6857.69275,
+      6785.6510625,
+      6566.5703125,
+      6732.2734375,
+      6643.3931875,
+      6717.2864375
+    ],
+    "best_fixed": [
+      6693.375,
+      6221.3073125,
+      9400.333375,
+      5267.8984375,
+      7544.7864375,
+      13174.497375,
+      4695.760375,
+      6038.796875,
+      5106.408875,
+      8755.4635,
+      4094.604125,
+      6908.8880625,
+      8788.5390625,
+      4645.3359375,
+      4638.33075,
+      4737.45575,
+      4715.609375,
+      5686.6275625,
+      6180.6301875,
+      6268.987,
+      6306.58075,
+      6368.763,
+      5839.0078125,
+      6206.44275,
+      5894.612,
+      6134.796875,
+      6414.8671875,
+      7633.989625,
+      11911.9765625,
+      6285.908875,
+      6034.8203125,
+      5689.528625,
+      6335.041625,
+      5921.7864375,
+      6108.559875,
+      5875.6875,
+      6109.815125,
+      8761.0911875,
+      5934.791625,
+      5956.3333125
+    ],
+    "per_shape": [
+      6200.208375,
+      4794.84375,
+      4215.84375,
+      5889.559875,
+      12411.8150625,
+      6022.4245,
+      6542.39325,
+      5897.3880625,
+      9751.7916875,
+      6978.3333125,
+      10337.39325,
+      8696.940125,
+      4545.190125,
+      4793.8984375,
+      9692.2760625,
+      4526.8931875,
+      6751.8489375,
+      6053.778625,
+      6476.645875,
+      5945.7135,
+      7387.377625,
+      5942.51825,
+      5969.9270625,
+      5978.1849375,
+      6034.237,
+      6440.9479375,
+      9520.3958125,
+      7712.953125,
+      13338.9739375,
+      6227.4479375,
+      6730.971375,
+      6035.671875,
+      6335.84375,
+      5802.5546875,
+      6339.5390625,
+      5871.479125,
+      6030.770875,
+      6014.8619375,
+      6030.6693125,
+      6190.747375
+    ],
+    "dispatcher": [
+      5156.7369375,
+      4333.716125,
+      10615.1354375,
+      7198.4426875,
+      6686.471375,
+      13777.421875,
+      4341.890625,
+      7181.434875,
+      13054.385375,
+      6919.8515625,
+      4607.9426875,
+      5979.4270625,
+      10660.3515625,
+      6507.427125,
+      4501.421875,
+      4270.98175,
+      4569.3645625,
+      6057.0443125,
+      9184.8568125,
+      6533.0703125,
+      6528.64325,
+      6216.783875,
+      6475.40625,
+      6218.9088125,
+      6154.171875,
+      6656.3203125,
+      8335.8854375,
+      10421.8568125,
+      6300.3541875,
+      6843.41925,
+      6290.0051875,
+      6447.5625,
+      6296.5181875,
+      6254.9270625,
+      6119.0625,
+      6946.0859375,
+      6126.6849375,
+      6691.216125,
+      6297.7239375,
+      6289.3828125
+    ]
+  },
+  "rank_orders": [
+    [
+      "best_fixed",
+      "fast_library",
+      "stable_reduction",
+      "dispatcher",
+      "stable_library",
+      "per_shape",
+      "eager_library",
+      "fast_reduction"
+    ],
+    [
+      "stable_reduction",
+      "per_shape",
+      "fast_library",
+      "stable_library",
+      "best_fixed",
+      "eager_library",
+      "fast_reduction",
+      "dispatcher"
+    ],
+    [
+      "stable_reduction",
+      "stable_library",
+      "fast_library",
+      "per_shape",
+      "dispatcher",
+      "fast_reduction",
+      "best_fixed",
+      "eager_library"
+    ],
+    [
+      "stable_reduction",
+      "fast_library",
+      "best_fixed",
+      "fast_reduction",
+      "per_shape",
+      "stable_library",
+      "dispatcher",
+      "eager_library"
+    ],
+    [
+      "stable_reduction",
+      "dispatcher",
+      "per_shape",
+      "eager_library",
+      "fast_library",
+      "fast_reduction",
+      "best_fixed",
+      "stable_library"
+    ],
+    [
+      "eager_library",
+      "stable_library",
+      "fast_library",
+      "fast_reduction",
+      "dispatcher",
+      "best_fixed",
+      "per_shape",
+      "stable_reduction"
+    ],
+    [
+      "fast_reduction",
+      "stable_reduction",
+      "stable_library",
+      "dispatcher",
+      "fast_library",
+      "best_fixed",
+      "per_shape",
+      "eager_library"
+    ],
+    [
+      "stable_reduction",
+      "fast_library",
+      "per_shape",
+      "eager_library",
+      "stable_library",
+      "best_fixed",
+      "dispatcher",
+      "fast_reduction"
+    ],
+    [
+      "stable_library",
+      "dispatcher",
+      "eager_library",
+      "per_shape",
+      "stable_reduction",
+      "best_fixed",
+      "fast_library",
+      "fast_reduction"
+    ],
+    [
+      "best_fixed",
+      "per_shape",
+      "stable_reduction",
+      "fast_reduction",
+      "stable_library",
+      "dispatcher",
+      "eager_library",
+      "fast_library"
+    ],
+    [
+      "best_fixed",
+      "eager_library",
+      "per_shape",
+      "stable_library",
+      "dispatcher",
+      "stable_reduction",
+      "fast_reduction",
+      "fast_library"
+    ],
+    [
+      "per_shape",
+      "dispatcher",
+      "stable_reduction",
+      "fast_library",
+      "eager_library",
+      "best_fixed",
+      "fast_reduction",
+      "stable_library"
+    ],
+    [
+      "best_fixed",
+      "fast_reduction",
+      "stable_reduction",
+      "eager_library",
+      "fast_library",
+      "stable_library",
+      "dispatcher",
+      "per_shape"
+    ],
+    [
+      "best_fixed",
+      "stable_reduction",
+      "dispatcher",
+      "eager_library",
+      "fast_library",
+      "fast_reduction",
+      "per_shape",
+      "stable_library"
+    ],
+    [
+      "fast_reduction",
+      "stable_library",
+      "stable_reduction",
+      "dispatcher",
+      "eager_library",
+      "per_shape",
+      "fast_library",
+      "best_fixed"
+    ],
+    [
+      "best_fixed",
+      "eager_library",
+      "dispatcher",
+      "fast_library",
+      "fast_reduction",
+      "stable_library",
+      "stable_reduction",
+      "per_shape"
+    ],
+    [
+      "fast_library",
+      "eager_library",
+      "per_shape",
+      "fast_reduction",
+      "stable_reduction",
+      "dispatcher",
+      "best_fixed",
+      "stable_library"
+    ],
+    [
+      "per_shape",
+      "dispatcher",
+      "stable_reduction",
+      "fast_reduction",
+      "best_fixed",
+      "fast_library",
+      "stable_library",
+      "eager_library"
+    ],
+    [
+      "eager_library",
+      "dispatcher",
+      "best_fixed",
+      "fast_reduction",
+      "fast_library",
+      "per_shape",
+      "stable_library",
+      "stable_reduction"
+    ],
+    [
+      "stable_library",
+      "eager_library",
+      "fast_reduction",
+      "fast_library",
+      "dispatcher",
+      "per_shape",
+      "best_fixed",
+      "stable_reduction"
+    ],
+    [
+      "fast_library",
+      "dispatcher",
+      "eager_library",
+      "fast_reduction",
+      "stable_reduction",
+      "stable_library",
+      "per_shape",
+      "best_fixed"
+    ],
+    [
+      "eager_library",
+      "stable_reduction",
+      "fast_reduction",
+      "best_fixed",
+      "per_shape",
+      "dispatcher",
+      "fast_library",
+      "stable_library"
+    ],
+    [
+      "fast_library",
+      "per_shape",
+      "best_fixed",
+      "dispatcher",
+      "eager_library",
+      "fast_reduction",
+      "stable_library",
+      "stable_reduction"
+    ],
+    [
+      "fast_library",
+      "best_fixed",
+      "stable_reduction",
+      "eager_library",
+      "stable_library",
+      "per_shape",
+      "fast_reduction",
+      "dispatcher"
+    ],
+    [
+      "dispatcher",
+      "stable_library",
+      "best_fixed",
+      "eager_library",
+      "stable_reduction",
+      "fast_reduction",
+      "per_shape",
+      "fast_library"
+    ],
+    [
+      "fast_reduction",
+      "fast_library",
+      "stable_reduction",
+      "stable_library",
+      "dispatcher",
+      "per_shape",
+      "best_fixed",
+      "eager_library"
+    ],
+    [
+      "fast_library",
+      "stable_reduction",
+      "dispatcher",
+      "eager_library",
+      "stable_library",
+      "per_shape",
+      "fast_reduction",
+      "best_fixed"
+    ],
+    [
+      "best_fixed",
+      "fast_reduction",
+      "stable_library",
+      "fast_library",
+      "eager_library",
+      "dispatcher",
+      "per_shape",
+      "stable_reduction"
+    ],
+    [
+      "stable_library",
+      "dispatcher",
+      "fast_reduction",
+      "stable_reduction",
+      "best_fixed",
+      "eager_library",
+      "per_shape",
+      "fast_library"
+    ],
+    [
+      "eager_library",
+      "stable_library",
+      "fast_reduction",
+      "best_fixed",
+      "dispatcher",
+      "per_shape",
+      "fast_library",
+      "stable_reduction"
+    ],
+    [
+      "fast_library",
+      "eager_library",
+      "dispatcher",
+      "fast_reduction",
+      "stable_library",
+      "best_fixed",
+      "stable_reduction",
+      "per_shape"
+    ],
+    [
+      "per_shape",
+      "fast_reduction",
+      "dispatcher",
+      "fast_library",
+      "eager_library",
+      "best_fixed",
+      "stable_reduction",
+      "stable_library"
+    ],
+    [
+      "fast_reduction",
+      "stable_library",
+      "stable_reduction",
+      "best_fixed",
+      "dispatcher",
+      "eager_library",
+      "fast_library",
+      "per_shape"
+    ],
+    [
+      "dispatcher",
+      "fast_reduction",
+      "fast_library",
+      "eager_library",
+      "best_fixed",
+      "per_shape",
+      "stable_library",
+      "stable_reduction"
+    ],
+    [
+      "stable_reduction",
+      "fast_library",
+      "per_shape",
+      "dispatcher",
+      "best_fixed",
+      "stable_library",
+      "fast_reduction",
+      "eager_library"
+    ],
+    [
+      "dispatcher",
+      "fast_reduction",
+      "fast_library",
+      "stable_library",
+      "per_shape",
+      "eager_library",
+      "best_fixed",
+      "stable_reduction"
+    ],
+    [
+      "best_fixed",
+      "stable_library",
+      "fast_reduction",
+      "fast_library",
+      "per_shape",
+      "eager_library",
+      "stable_reduction",
+      "dispatcher"
+    ],
+    [
+      "dispatcher",
+      "eager_library",
+      "stable_reduction",
+      "stable_library",
+      "per_shape",
+      "fast_reduction",
+      "fast_library",
+      "best_fixed"
+    ],
+    [
+      "fast_reduction",
+      "dispatcher",
+      "best_fixed",
+      "stable_reduction",
+      "eager_library",
+      "stable_library",
+      "fast_library",
+      "per_shape"
+    ],
+    [
+      "dispatcher",
+      "eager_library",
+      "per_shape",
+      "fast_library",
+      "stable_library",
+      "stable_reduction",
+      "best_fixed",
+      "fast_reduction"
+    ]
+  ],
+  "application_orders": [
+    [
+      "stable_library",
+      "eager_library",
+      "dispatcher",
+      "best_fixed",
+      "fast_reduction",
+      "per_shape",
+      "stable_reduction",
+      "fast_library"
+    ],
+    [
+      "fast_reduction",
+      "dispatcher",
+      "per_shape",
+      "best_fixed",
+      "stable_library",
+      "eager_library",
+      "stable_reduction",
+      "fast_library"
+    ],
+    [
+      "stable_library",
+      "per_shape",
+      "stable_reduction",
+      "fast_reduction",
+      "fast_library",
+      "eager_library",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "fast_reduction",
+      "eager_library",
+      "best_fixed",
+      "fast_library",
+      "dispatcher",
+      "stable_library",
+      "per_shape",
+      "stable_reduction"
+    ],
+    [
+      "dispatcher",
+      "fast_library",
+      "best_fixed",
+      "fast_reduction",
+      "per_shape",
+      "stable_library",
+      "stable_reduction",
+      "eager_library"
+    ],
+    [
+      "eager_library",
+      "per_shape",
+      "stable_reduction",
+      "fast_reduction",
+      "stable_library",
+      "fast_library",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "best_fixed",
+      "dispatcher",
+      "fast_library",
+      "per_shape",
+      "eager_library",
+      "stable_library",
+      "fast_reduction",
+      "stable_reduction"
+    ],
+    [
+      "eager_library",
+      "fast_library",
+      "best_fixed",
+      "stable_reduction",
+      "stable_library",
+      "fast_reduction",
+      "dispatcher",
+      "per_shape"
+    ],
+    [
+      "eager_library",
+      "best_fixed",
+      "stable_reduction",
+      "stable_library",
+      "fast_library",
+      "per_shape",
+      "fast_reduction",
+      "dispatcher"
+    ],
+    [
+      "stable_reduction",
+      "fast_reduction",
+      "per_shape",
+      "dispatcher",
+      "eager_library",
+      "stable_library",
+      "best_fixed",
+      "fast_library"
+    ],
+    [
+      "fast_reduction",
+      "best_fixed",
+      "dispatcher",
+      "stable_library",
+      "fast_library",
+      "eager_library",
+      "per_shape",
+      "stable_reduction"
+    ],
+    [
+      "eager_library",
+      "dispatcher",
+      "stable_reduction",
+      "best_fixed",
+      "stable_library",
+      "per_shape",
+      "fast_reduction",
+      "fast_library"
+    ],
+    [
+      "per_shape",
+      "fast_library",
+      "eager_library",
+      "fast_reduction",
+      "best_fixed",
+      "dispatcher",
+      "stable_library",
+      "stable_reduction"
+    ],
+    [
+      "best_fixed",
+      "fast_library",
+      "per_shape",
+      "dispatcher",
+      "eager_library",
+      "fast_reduction",
+      "stable_reduction",
+      "stable_library"
+    ],
+    [
+      "fast_reduction",
+      "dispatcher",
+      "best_fixed",
+      "stable_reduction",
+      "fast_library",
+      "eager_library",
+      "stable_library",
+      "per_shape"
+    ],
+    [
+      "best_fixed",
+      "dispatcher",
+      "per_shape",
+      "stable_library",
+      "fast_reduction",
+      "fast_library",
+      "eager_library",
+      "stable_reduction"
+    ],
+    [
+      "best_fixed",
+      "dispatcher",
+      "fast_reduction",
+      "eager_library",
+      "stable_library",
+      "stable_reduction",
+      "per_shape",
+      "fast_library"
+    ],
+    [
+      "per_shape",
+      "fast_reduction",
+      "best_fixed",
+      "fast_library",
+      "stable_reduction",
+      "stable_library",
+      "dispatcher",
+      "eager_library"
+    ],
+    [
+      "per_shape",
+      "eager_library",
+      "stable_library",
+      "fast_reduction",
+      "stable_reduction",
+      "best_fixed",
+      "fast_library",
+      "dispatcher"
+    ],
+    [
+      "fast_reduction",
+      "stable_reduction",
+      "dispatcher",
+      "per_shape",
+      "fast_library",
+      "stable_library",
+      "best_fixed",
+      "eager_library"
+    ],
+    [
+      "per_shape",
+      "stable_reduction",
+      "fast_library",
+      "dispatcher",
+      "best_fixed",
+      "stable_library",
+      "fast_reduction",
+      "eager_library"
+    ],
+    [
+      "eager_library",
+      "best_fixed",
+      "fast_library",
+      "stable_library",
+      "fast_reduction",
+      "stable_reduction",
+      "dispatcher",
+      "per_shape"
+    ],
+    [
+      "eager_library",
+      "dispatcher",
+      "best_fixed",
+      "stable_reduction",
+      "stable_library",
+      "fast_reduction",
+      "per_shape",
+      "fast_library"
+    ],
+    [
+      "stable_reduction",
+      "fast_reduction",
+      "dispatcher",
+      "eager_library",
+      "per_shape",
+      "fast_library",
+      "best_fixed",
+      "stable_library"
+    ],
+    [
+      "stable_reduction",
+      "fast_library",
+      "per_shape",
+      "stable_library",
+      "fast_reduction",
+      "eager_library",
+      "best_fixed",
+      "dispatcher"
+    ],
+    [
+      "per_shape",
+      "best_fixed",
+      "fast_reduction",
+      "stable_library",
+      "eager_library",
+      "stable_reduction",
+      "fast_library",
+      "dispatcher"
+    ],
+    [
+      "fast_reduction",
+      "eager_library",
+      "stable_reduction",
+      "best_fixed",
+      "per_shape",
+      "dispatcher",
+      "fast_library",
+      "stable_library"
+    ],
+    [
+      "dispatcher",
+      "stable_library",
+      "eager_library",
+      "fast_reduction",
+      "stable_reduction",
+      "fast_library",
+      "per_shape",
+      "best_fixed"
+    ],
+    [
+      "per_shape",
+      "best_fixed",
+      "stable_reduction",
+      "stable_library",
+      "fast_library",
+      "fast_reduction",
+      "eager_library",
+      "dispatcher"
+    ],
+    [
+      "stable_library",
+      "fast_reduction",
+      "dispatcher",
+      "fast_library",
+      "stable_reduction",
+      "per_shape",
+      "best_fixed",
+      "eager_library"
+    ],
+    [
+      "per_shape",
+      "fast_reduction",
+      "eager_library",
+      "stable_reduction",
+      "best_fixed",
+      "stable_library",
+      "fast_library",
+      "dispatcher"
+    ],
+    [
+      "fast_library",
+      "stable_library",
+      "per_shape",
+      "stable_reduction",
+      "dispatcher",
+      "best_fixed",
+      "fast_reduction",
+      "eager_library"
+    ],
+    [
+      "eager_library",
+      "per_shape",
+      "fast_library",
+      "fast_reduction",
+      "dispatcher",
+      "stable_reduction",
+      "stable_library",
+      "best_fixed"
+    ],
+    [
+      "stable_library",
+      "eager_library",
+      "stable_reduction",
+      "fast_library",
+      "fast_reduction",
+      "dispatcher",
+      "best_fixed",
+      "per_shape"
+    ],
+    [
+      "per_shape",
+      "eager_library",
+      "fast_reduction",
+      "stable_library",
+      "dispatcher",
+      "fast_library",
+      "best_fixed",
+      "stable_reduction"
+    ],
+    [
+      "dispatcher",
+      "eager_library",
+      "stable_library",
+      "per_shape",
+      "stable_reduction",
+      "best_fixed",
+      "fast_reduction",
+      "fast_library"
+    ],
+    [
+      "stable_reduction",
+      "best_fixed",
+      "per_shape",
+      "fast_reduction",
+      "fast_library",
+      "stable_library",
+      "dispatcher",
+      "eager_library"
+    ],
+    [
+      "dispatcher",
+      "best_fixed",
+      "stable_reduction",
+      "fast_library",
+      "eager_library",
+      "fast_reduction",
+      "stable_library",
+      "per_shape"
+    ],
+    [
+      "stable_reduction",
+      "fast_reduction",
+      "stable_library",
+      "best_fixed",
+      "eager_library",
+      "fast_library",
+      "dispatcher",
+      "per_shape"
+    ],
+    [
+      "fast_library",
+      "stable_library",
+      "eager_library",
+      "dispatcher",
+      "per_shape",
+      "stable_reduction",
+      "fast_reduction",
+      "best_fixed"
+    ]
+  ],
+  "checks": [
+    {
+      "task": "notes",
+      "method": "stable_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "stable_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "stable_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "stable_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "fast_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "fast_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "fast_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "fast_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "stable_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "stable_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "stable_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "stable_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "fast_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "fast_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "fast_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "fast_reduction",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "eager_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "eager_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "eager_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "eager_library",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "best_fixed",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "best_fixed",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "best_fixed",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "best_fixed",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "per_shape",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "per_shape",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "per_shape",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "per_shape",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "notes",
+      "method": "dispatcher",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "manuals",
+      "method": "dispatcher",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "archive",
+      "method": "dispatcher",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    },
+    {
+      "task": "unseen",
+      "method": "dispatcher",
+      "rank_ids_passed": true,
+      "rank_original_bits_passed": true,
+      "scores_passed": true,
+      "ids_association_passed": true
+    }
+  ],
+  "peak_memory_bytes": 584768880,
+  "comparisons": {
+    "stable_library": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 7296.6356953125
+        },
+        "application": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 302594.4374375
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 0.8427523579737443,
+          "ci95": [
+            0.7064411133147818,
+            1.012565973037939
+          ],
+          "iid_ci95": [
+            0.7064411133147818,
+            1.008038399377998
+          ],
+          "block4_ci95": [
+            0.712089006444722,
+            1.012565973037939
+          ],
+          "block8_ci95": [
+            0.7469700516794407,
+            0.9872238382789406
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 7296.6356953125
+        },
+        "application": {
+          "speedup_total_cost": 0.9834951057600602,
+          "ci95": [
+            0.8739459856610615,
+            1.099015593088625
+          ],
+          "iid_ci95": [
+            0.8768448676007251,
+            1.0874551535159962
+          ],
+          "block4_ci95": [
+            0.8739459856610615,
+            1.099015593088625
+          ],
+          "block8_ci95": [
+            0.9040965852227593,
+            1.0701064686608432
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 302594.4374375
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 6.540295591856824,
+          "ci95": [
+            5.8023178051173865,
+            7.431659968580483
+          ],
+          "iid_ci95": [
+            5.8023178051173865,
+            7.399742675022408
+          ],
+          "block4_ci95": [
+            5.843737565190595,
+            7.431659968580483
+          ],
+          "block8_ci95": [
+            5.947296471365692,
+            7.381536611351434
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 7296.6356953125
+        },
+        "application": {
+          "speedup_total_cost": 1.1314329772526455,
+          "ci95": [
+            1.021114878564835,
+            1.238165690817408
+          ],
+          "iid_ci95": [
+            1.021114878564835,
+            1.238165690817408
+          ],
+          "block4_ci95": [
+            1.0368356527384803,
+            1.2204614867537908
+          ],
+          "block8_ci95": [
+            1.0490053860067428,
+            1.2192604642463425
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 302594.4374375
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 6.422080244903621,
+          "ci95": [
+            5.377219516283268,
+            7.4902054662182564
+          ],
+          "iid_ci95": [
+            5.377219516283268,
+            7.4902054662182564
+          ],
+          "block4_ci95": [
+            5.636832988669784,
+            7.321500898831875
+          ],
+          "block8_ci95": [
+            5.814001533918238,
+            7.133880018917715
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 7296.6356953125
+        },
+        "application": {
+          "speedup_total_cost": 1.1213173864773451,
+          "ci95": [
+            0.9924624420064485,
+            1.2527340797424564
+          ],
+          "iid_ci95": [
+            0.9924624420064485,
+            1.2527340797424564
+          ],
+          "block4_ci95": [
+            1.0093112230018224,
+            1.2416257519007325
+          ],
+          "block8_ci95": [
+            1.0388483079962927,
+            1.2137552773167621
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 302594.4374375
+        }
+      }
+    },
+    "fast_library": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 1.1865881958542734,
+          "ci95": [
+            0.9875899710512311,
+            1.4155461526124569
+          ],
+          "iid_ci95": [
+            0.9920257012203524,
+            1.4155461526124569
+          ],
+          "block4_ci95": [
+            0.9875899710512311,
+            1.4043188294574915
+          ],
+          "block8_ci95": [
+            1.0129415044751477,
+            1.3387417577875613
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 6149.2569375
+        },
+        "application": {
+          "speedup_total_cost": 1.0167818773507618,
+          "ci95": [
+            0.9099051972407817,
+            1.1442354749688448
+          ],
+          "iid_ci95": [
+            0.9195781515833243,
+            1.1404525896767341
+          ],
+          "block4_ci95": [
+            0.9099051972407817,
+            1.1442354749688448
+          ],
+          "block8_ci95": [
+            0.9344864546528943,
+            1.1060765147714955
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 297600.14824999997
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 6149.2569375
+        },
+        "application": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 297600.14824999997
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 7.760637546695047,
+          "ci95": [
+            6.769887485001003,
+            9.003133071700756
+          ],
+          "iid_ci95": [
+            6.769887485001003,
+            9.003133071700756
+          ],
+          "block4_ci95": [
+            7.017461546561171,
+            8.599812191637724
+          ],
+          "block8_ci95": [
+            7.1213985121295,
+            8.353571582575789
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 6149.2569375
+        },
+        "application": {
+          "speedup_total_cost": 1.1504205467075066,
+          "ci95": [
+            1.0396024033209381,
+            1.2933351545003822
+          ],
+          "iid_ci95": [
+            1.0396024033209381,
+            1.2933351545003822
+          ],
+          "block4_ci95": [
+            1.0486479091557839,
+            1.276339173592655
+          ],
+          "block8_ci95": [
+            1.093712071436113,
+            1.2244460974099665
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 297600.14824999997
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 7.620364611431558,
+          "ci95": [
+            6.778592096918768,
+            8.594949117342814
+          ],
+          "iid_ci95": [
+            6.778592096918768,
+            8.594949117342814
+          ],
+          "block4_ci95": [
+            6.826907263715148,
+            8.453833019351508
+          ],
+          "block8_ci95": [
+            6.930933033350839,
+            8.255557897642735
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 6149.2569375
+        },
+        "application": {
+          "speedup_total_cost": 1.1401351973284846,
+          "ci95": [
+            1.0269777311586157,
+            1.260949885159784
+          ],
+          "iid_ci95": [
+            1.0269777311586157,
+            1.260949885159784
+          ],
+          "block4_ci95": [
+            1.062047381268945,
+            1.2168296386995143
+          ],
+          "block8_ci95": [
+            1.077565803168838,
+            1.1992718840174617
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 297600.14824999997
+        }
+      }
+    },
+    "stable_reduction": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 0.15289828815154435,
+          "ci95": [
+            0.13455943950985277,
+            0.17234492035545596
+          ],
+          "iid_ci95": [
+            0.13513983443984717,
+            0.17234492035545596
+          ],
+          "block4_ci95": [
+            0.13455943950985277,
+            0.17112335878269114
+          ],
+          "block8_ci95": [
+            0.13547314775384106,
+            0.1681436270773916
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 47722.154273437496
+        },
+        "application": {
+          "speedup_total_cost": 0.8838349421529218,
+          "ci95": [
+            0.807646349286115,
+            0.9793217403760568
+          ],
+          "iid_ci95": [
+            0.807646349286115,
+            0.9793217403760568
+          ],
+          "block4_ci95": [
+            0.8193621927880912,
+            0.9644730072300365
+          ],
+          "block8_ci95": [
+            0.8201692987872996,
+            0.9532839519601591
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 342365.32525
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 0.128855392869863,
+          "ci95": [
+            0.11107244467409531,
+            0.14771294238132407
+          ],
+          "iid_ci95": [
+            0.11107244467409531,
+            0.14771294238132407
+          ],
+          "block4_ci95": [
+            0.11628160914634611,
+            0.14250167148974813
+          ],
+          "block8_ci95": [
+            0.11970927526207349,
+            0.14042185650708258
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 47722.154273437496
+        },
+        "application": {
+          "speedup_total_cost": 0.8692473399071244,
+          "ci95": [
+            0.773194787538503,
+            0.9619062026074287
+          ],
+          "iid_ci95": [
+            0.773194787538503,
+            0.9619062026074287
+          ],
+          "block4_ci95": [
+            0.7834907998515691,
+            0.953608919894812
+          ],
+          "block8_ci95": [
+            0.8166958121841946,
+            0.9143174205684105
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 342365.32525
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 47722.154273437496
+        },
+        "application": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 342365.32525
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 0.9819250758176143,
+          "ci95": [
+            0.8134229662801457,
+            1.188892000203714
+          ],
+          "iid_ci95": [
+            0.8134229662801457,
+            1.188892000203714
+          ],
+          "block4_ci95": [
+            0.8670931114729316,
+            1.1213323018357533
+          ],
+          "block8_ci95": [
+            0.881143594601747,
+            1.1049344142519368
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 47722.154273437496
+        },
+        "application": {
+          "speedup_total_cost": 0.9910594874122697,
+          "ci95": [
+            0.9095887528271652,
+            1.0790804313198057
+          ],
+          "iid_ci95": [
+            0.9115757674072203,
+            1.0750929371798275
+          ],
+          "block4_ci95": [
+            0.9095887528271652,
+            1.0790804313198057
+          ],
+          "block8_ci95": [
+            0.9212539607612769,
+            1.053128074354109
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 342365.32525
+        }
+      }
+    },
+    "fast_reduction": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 0.15571278493344448,
+          "ci95": [
+            0.13350768607218086,
+            0.18596971854539418
+          ],
+          "iid_ci95": [
+            0.13350768607218086,
+            0.18596971854539418
+          ],
+          "block4_ci95": [
+            0.13658401655861943,
+            0.1774045819718328
+          ],
+          "block8_ci95": [
+            0.14017617304302668,
+            0.1719985786323088
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 46859.579953125
+        },
+        "application": {
+          "speedup_total_cost": 0.8918081642714312,
+          "ci95": [
+            0.7982540079101107,
+            1.0075948042711953
+          ],
+          "iid_ci95": [
+            0.7982540079101107,
+            1.0075948042711953
+          ],
+          "block4_ci95": [
+            0.8053956665035001,
+            0.9907746760467702
+          ],
+          "block8_ci95": [
+            0.8238893116993823,
+            0.962604446003072
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 339304.40375
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 0.13122731666931886,
+          "ci95": [
+            0.11634740198545314,
+            0.14752325935861424
+          ],
+          "iid_ci95": [
+            0.11634740198545314,
+            0.14752325935861424
+          ],
+          "block4_ci95": [
+            0.11828953774115471,
+            0.14647921252936547
+          ],
+          "block8_ci95": [
+            0.12113051745243489,
+            0.1442807187990588
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 46859.579953125
+        },
+        "application": {
+          "speedup_total_cost": 0.8770889648378163,
+          "ci95": [
+            0.7930529291997063,
+            0.9737309482570962
+          ],
+          "iid_ci95": [
+            0.7930529291997063,
+            0.9737309482570962
+          ],
+          "block4_ci95": [
+            0.8218077273896363,
+            0.9415775770805911
+          ],
+          "block8_ci95": [
+            0.8338392764200246,
+            0.9280175716965615
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 339304.40375
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 1.0184076408959566,
+          "ci95": [
+            0.8411192941231433,
+            1.2293727143863264
+          ],
+          "iid_ci95": [
+            0.8411192941231433,
+            1.2293727143863264
+          ],
+          "block4_ci95": [
+            0.8917963019194952,
+            1.153278681111074
+          ],
+          "block8_ci95": [
+            0.9050310924354913,
+            1.13488880373916
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 46859.579953125
+        },
+        "application": {
+          "speedup_total_cost": 1.0090211664398416,
+          "ci95": [
+            0.9267149796951801,
+            1.0993979387847754
+          ],
+          "iid_ci95": [
+            0.9301521435190426,
+            1.097001517322343
+          ],
+          "block4_ci95": [
+            0.9267149796951801,
+            1.0993979387847754
+          ],
+          "block8_ci95": [
+            0.9495521241453062,
+            1.0854770156685691
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 339304.40375
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 46859.579953125
+        },
+        "application": {
+          "speedup_total_cost": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "iid_ci95": [
+            1.0,
+            1.0
+          ],
+          "block4_ci95": [
+            1.0,
+            1.0
+          ],
+          "block8_ci95": [
+            1.0,
+            1.0
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 339304.40375
+        }
+      }
+    },
+    "eager_library": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 1.0729529889391898,
+          "ci95": [
+            0.9389201504691128,
+            1.2583932451562923
+          ],
+          "iid_ci95": [
+            0.9406864779228965,
+            1.2583932451562923
+          ],
+          "block4_ci95": [
+            0.9389201504691128,
+            1.2448994183105235
+          ],
+          "block8_ci95": [
+            0.9458681853034299,
+            1.240222145088511
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 6800.517609375
+        },
+        "application": {
+          "speedup_total_cost": 1.0193244157470787,
+          "ci95": [
+            0.9219644080872015,
+            1.1320792744053123
+          ],
+          "iid_ci95": [
+            0.9224393841493065,
+            1.1320792744053123
+          ],
+          "block4_ci95": [
+            0.9219644080872015,
+            1.1293773384996943
+          ],
+          "block8_ci95": [
+            0.933350900887938,
+            1.1144301099334866
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 296857.83325
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 0.904233661423479,
+          "ci95": [
+            0.7778204367092451,
+            1.0399476747836345
+          ],
+          "iid_ci95": [
+            0.7778204367092451,
+            1.0399476747836345
+          ],
+          "block4_ci95": [
+            0.7837031674858975,
+            1.0309450874492792
+          ],
+          "block8_ci95": [
+            0.8043422210312028,
+            1.0069217508615917
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 6800.517609375
+        },
+        "application": {
+          "speedup_total_cost": 1.0025005740689847,
+          "ci95": [
+            0.9075593403522906,
+            1.1068555623648566
+          ],
+          "iid_ci95": [
+            0.9075593403522906,
+            1.1068555623648566
+          ],
+          "block4_ci95": [
+            0.925787887292626,
+            1.0931250492492914
+          ],
+          "block8_ci95": [
+            0.9360841909909988,
+            1.0804106681972359
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 296857.83325
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 7.017429703828587,
+          "ci95": [
+            5.797661571482627,
+            8.434582728845605
+          ],
+          "iid_ci95": [
+            5.797661571482627,
+            8.434582728845605
+          ],
+          "block4_ci95": [
+            6.012536366992901,
+            8.027423842010544
+          ],
+          "block8_ci95": [
+            6.0191573554594475,
+            7.925422460338442
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 6800.517609375
+        },
+        "application": {
+          "speedup_total_cost": 1.1532972584950307,
+          "ci95": [
+            1.0478818742168237,
+            1.2763826261727702
+          ],
+          "iid_ci95": [
+            1.0478818742168237,
+            1.2763826261727702
+          ],
+          "block4_ci95": [
+            1.0707731331668735,
+            1.2472500493821206
+          ],
+          "block8_ci95": [
+            1.0838261505409186,
+            1.2320844586401045
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 296857.83325
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 6.8905901939766645,
+          "ci95": [
+            6.274269757277133,
+            7.611459857904288
+          ],
+          "iid_ci95": [
+            6.274269757277133,
+            7.611459857904288
+          ],
+          "block4_ci95": [
+            6.366490847689339,
+            7.4347256298839675
+          ],
+          "block8_ci95": [
+            6.4603754417257955,
+            7.394615632484035
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 6800.517609375
+        },
+        "application": {
+          "speedup_total_cost": 1.142986189838061,
+          "ci95": [
+            1.0142256342082514,
+            1.2910910619582863
+          ],
+          "iid_ci95": [
+            1.0142256342082514,
+            1.2910910619582863
+          ],
+          "block4_ci95": [
+            1.0287684019381103,
+            1.275102517571571
+          ],
+          "block8_ci95": [
+            1.0449514384228937,
+            1.2504827813499366
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 296857.83325
+        }
+      }
+    },
+    "best_fixed": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 1.4640142952047146,
+          "ci95": [
+            1.2294499605869589,
+            1.6941378959686522
+          ],
+          "iid_ci95": [
+            1.2721641576847271,
+            1.6723394441779031
+          ],
+          "block4_ci95": [
+            1.2582768234656005,
+            1.6781978711687904
+          ],
+          "block8_ci95": [
+            1.2294499605869589,
+            1.6941378959686522
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 4983.992109375
+        },
+        "application": {
+          "speedup_total_cost": 1.1580876092269172,
+          "ci95": [
+            1.0269156627846323,
+            1.3014348755507334
+          ],
+          "iid_ci95": [
+            1.037968020898085,
+            1.301313674905205
+          ],
+          "block4_ci95": [
+            1.0339743948944504,
+            1.2964546512721455
+          ],
+          "block8_ci95": [
+            1.0269156627846323,
+            1.3014348755507334
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 261288.0364375
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 1.2338014993910427,
+          "ci95": [
+            1.0088113209244443,
+            1.5366558329542541
+          ],
+          "iid_ci95": [
+            1.0088113209244443,
+            1.516303169068858
+          ],
+          "block4_ci95": [
+            1.015564124470284,
+            1.5366558329542541
+          ],
+          "block8_ci95": [
+            1.0381927695747737,
+            1.5138685024095981
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 4983.992109375
+        },
+        "application": {
+          "speedup_total_cost": 1.138973495716042,
+          "ci95": [
+            1.035418277973941,
+            1.2560824750836612
+          ],
+          "iid_ci95": [
+            1.035418277973941,
+            1.2498214089428386
+          ],
+          "block4_ci95": [
+            1.0513921197948368,
+            1.2560824750836612
+          ],
+          "block8_ci95": [
+            1.055260137136437,
+            1.2449924229725526
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 261288.0364375
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 9.57508624134277,
+          "ci95": [
+            7.900503426077987,
+            11.438674177333878
+          ],
+          "iid_ci95": [
+            7.900503426077987,
+            11.438674177333878
+          ],
+          "block4_ci95": [
+            8.01188612485984,
+            11.394058566804903
+          ],
+          "block8_ci95": [
+            7.984406817102559,
+            11.369807931726788
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 4983.992109375
+        },
+        "application": {
+          "speedup_total_cost": 1.3102985116270092,
+          "ci95": [
+            1.1848318066359362,
+            1.4657337431226154
+          ],
+          "iid_ci95": [
+            1.1848318066359362,
+            1.4527196683225339
+          ],
+          "block4_ci95": [
+            1.1996662807285905,
+            1.4543525843971086
+          ],
+          "block8_ci95": [
+            1.2058041253150655,
+            1.4657337431226154
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 261288.0364375
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 9.402017283490697,
+          "ci95": [
+            8.075553491073178,
+            11.0582273242455
+          ],
+          "iid_ci95": [
+            8.075553491073178,
+            11.0582273242455
+          ],
+          "block4_ci95": [
+            8.193897159142752,
+            10.95185781410358
+          ],
+          "block8_ci95": [
+            8.214542903193916,
+            10.87706569232286
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 4983.992109375
+        },
+        "application": {
+          "speedup_total_cost": 1.2985837712901236,
+          "ci95": [
+            1.1849794137487542,
+            1.4336985995491287
+          ],
+          "iid_ci95": [
+            1.1849794137487542,
+            1.4336985995491287
+          ],
+          "block4_ci95": [
+            1.197241811016162,
+            1.4081129324111725
+          ],
+          "block8_ci95": [
+            1.2096972557247676,
+            1.3940434676045708
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 261288.0364375
+        }
+      }
+    },
+    "per_shape": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 1.6124278040258788,
+          "ci95": [
+            1.325681254113935,
+            1.9295388144200318
+          ],
+          "iid_ci95": [
+            1.3534911716881837,
+            1.897889516129095
+          ],
+          "block4_ci95": [
+            1.334371825282039,
+            1.9295388144200318
+          ],
+          "block8_ci95": [
+            1.325681254113935,
+            1.9076775504659689
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 4525.248
+        },
+        "application": {
+          "speedup_total_cost": 1.1105962201353785,
+          "ci95": [
+            0.9960060969066267,
+            1.2549613400973665
+          ],
+          "iid_ci95": [
+            0.9960060969066267,
+            1.2549613400973665
+          ],
+          "block4_ci95": [
+            1.0162068356450895,
+            1.209350822641745
+          ],
+          "block8_ci95": [
+            1.0451295298623096,
+            1.1829588976214926
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 272461.25275
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 1.3588773339052358,
+          "ci95": [
+            1.219609854426244,
+            1.514197647620296
+          ],
+          "iid_ci95": [
+            1.219609854426244,
+            1.514197647620296
+          ],
+          "block4_ci95": [
+            1.225430238160804,
+            1.4863034537339956
+          ],
+          "block8_ci95": [
+            1.232191387263518,
+            1.4763048648636419
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 4525.248
+        },
+        "application": {
+          "speedup_total_cost": 1.0922659469787672,
+          "ci95": [
+            0.9862408699469861,
+            1.214913062875876
+          ],
+          "iid_ci95": [
+            0.9862408699469861,
+            1.214913062875876
+          ],
+          "block4_ci95": [
+            1.010164440274748,
+            1.1865949032572056
+          ],
+          "block8_ci95": [
+            1.009006572189508,
+            1.1843819181312414
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 272461.25275
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 10.545754458857836,
+          "ci95": [
+            9.362584262051737,
+            12.085438516120528
+          ],
+          "iid_ci95": [
+            9.362584262051737,
+            12.085438516120528
+          ],
+          "block4_ci95": [
+            9.465358238032731,
+            11.826226860012179
+          ],
+          "block8_ci95": [
+            9.444291037675113,
+            11.757762108512413
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 4525.248
+        },
+        "application": {
+          "speedup_total_cost": 1.2565651878733057,
+          "ci95": [
+            1.127095277329469,
+            1.4009179918366808
+          ],
+          "iid_ci95": [
+            1.1324182852436335,
+            1.4009179918366808
+          ],
+          "block4_ci95": [
+            1.127095277329469,
+            1.3913807562794658
+          ],
+          "block8_ci95": [
+            1.150912349899595,
+            1.3742245715491277
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 272461.25275
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 10.355140746567924,
+          "ci95": [
+            9.06279730185479,
+            11.910911528515472
+          ],
+          "iid_ci95": [
+            9.102156346667146,
+            11.910911528515472
+          ],
+          "block4_ci95": [
+            9.06279730185479,
+            11.701323250076383
+          ],
+          "block8_ci95": [
+            9.075272338144973,
+            11.638151125298391
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 4525.248
+        },
+        "application": {
+          "speedup_total_cost": 1.2453308509938208,
+          "ci95": [
+            1.1291579227955248,
+            1.3609433845069954
+          ],
+          "iid_ci95": [
+            1.1291579227955248,
+            1.3609433845069954
+          ],
+          "block4_ci95": [
+            1.1584784678577242,
+            1.340900607098996
+          ],
+          "block8_ci95": [
+            1.1759412944212806,
+            1.321358343384201
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 272461.25275
+        }
+      }
+    },
+    "dispatcher": {
+      "stable_library": {
+        "rank": {
+          "speedup_total_cost": 1.0661221523742437,
+          "ci95": [
+            0.9160842642734299,
+            1.266966259066374
+          ],
+          "iid_ci95": [
+            0.9292416268063302,
+            1.227680679593526
+          ],
+          "block4_ci95": [
+            0.9160842642734299,
+            1.266966259066374
+          ],
+          "block8_ci95": [
+            0.9180580672739919,
+            1.2554668102481152
+          ],
+          "baseline_total_us": 7296.6356953125,
+          "candidate_total_us": 6844.08975
+        },
+        "application": {
+          "speedup_total_cost": 1.0961648516182065,
+          "ci95": [
+            0.9774415576494034,
+            1.2380424588505592
+          ],
+          "iid_ci95": [
+            0.9774415576494034,
+            1.2380424588505592
+          ],
+          "block4_ci95": [
+            0.9846847716761586,
+            1.225873971481794
+          ],
+          "block8_ci95": [
+            0.9988230986301592,
+            1.2126116101811304
+          ],
+          "baseline_total_us": 302594.4374375,
+          "candidate_total_us": 276048.2941875
+        }
+      },
+      "fast_library": {
+        "rank": {
+          "speedup_total_cost": 0.8984769578014374,
+          "ci95": [
+            0.7849752585603728,
+            1.0150639086760072
+          ],
+          "iid_ci95": [
+            0.7902577682870011,
+            1.0132923822211515
+          ],
+          "block4_ci95": [
+            0.7882802450097149,
+            1.0076261905152442
+          ],
+          "block8_ci95": [
+            0.7849752585603728,
+            1.0150639086760072
+          ],
+          "baseline_total_us": 6149.2569375,
+          "candidate_total_us": 6844.08975
+        },
+        "application": {
+          "speedup_total_cost": 1.0780727666727088,
+          "ci95": [
+            0.962053133350691,
+            1.2056290148173285
+          ],
+          "iid_ci95": [
+            0.962053133350691,
+            1.2056290148173285
+          ],
+          "block4_ci95": [
+            1.0001429596699754,
+            1.180606632743518
+          ],
+          "block8_ci95": [
+            1.0151838091490446,
+            1.1632891200392241
+          ],
+          "baseline_total_us": 297600.14824999997,
+          "candidate_total_us": 276048.2941875
+        }
+      },
+      "stable_reduction": {
+        "rank": {
+          "speedup_total_cost": 6.972754013554176,
+          "ci95": [
+            5.898371963964709,
+            8.048851483871243
+          ],
+          "iid_ci95": [
+            6.064152708152668,
+            8.048851483871243
+          ],
+          "block4_ci95": [
+            5.969771570524772,
+            8.000755125333104
+          ],
+          "block8_ci95": [
+            5.898371963964709,
+            8.005062759941458
+          ],
+          "baseline_total_us": 47722.154273437496,
+          "candidate_total_us": 6844.08975
+        },
+        "application": {
+          "speedup_total_cost": 1.2402370616260918,
+          "ci95": [
+            1.101394916823273,
+            1.405148192708937
+          ],
+          "iid_ci95": [
+            1.101394916823273,
+            1.405148192708937
+          ],
+          "block4_ci95": [
+            1.1150301083119434,
+            1.381385471007746
+          ],
+          "block8_ci95": [
+            1.140664683206854,
+            1.3714045204273009
+          ],
+          "baseline_total_us": 342365.32525,
+          "candidate_total_us": 276048.2941875
+        }
+      },
+      "fast_reduction": {
+        "rank": {
+          "speedup_total_cost": 6.846722013416759,
+          "ci95": [
+            6.1143202828906364,
+            7.811656300235448
+          ],
+          "iid_ci95": [
+            6.1143202828906364,
+            7.811656300235448
+          ],
+          "block4_ci95": [
+            6.245735528898453,
+            7.547587658859362
+          ],
+          "block8_ci95": [
+            6.261538478568402,
+            7.521395434039917
+          ],
+          "baseline_total_us": 46859.579953125,
+          "candidate_total_us": 6844.08975
+        },
+        "application": {
+          "speedup_total_cost": 1.229148706564854,
+          "ci95": [
+            1.1202752343626594,
+            1.3505050188777108
+          ],
+          "iid_ci95": [
+            1.1202752343626594,
+            1.3505050188777108
+          ],
+          "block4_ci95": [
+            1.1505456630972268,
+            1.3107975322581402
+          ],
+          "block8_ci95": [
+            1.1778756270020543,
+            1.2856504264862574
+          ],
+          "baseline_total_us": 339304.40375,
+          "candidate_total_us": 276048.2941875
+        }
+      }
+    }
+  },
+  "session_gate": {
+    "rank": false,
+    "application": false
+  },
+  "portfolio_comparisons": {
+    "best_fixed": {
+      "speedup_total_cost": 0.9465301613493238,
+      "ci95": [
+        0.8662587554399634,
+        1.0306711498753491
+      ],
+      "iid_ci95": [
+        0.8662587554399634,
+        1.0306711498753491
+      ],
+      "block4_ci95": [
+        0.88388861364653,
+        1.0056131169844897
+      ],
+      "block8_ci95": [
+        0.8883956911982067,
+        1.006173997700417
+      ],
+      "baseline_total_us": 261288.0364375,
+      "candidate_total_us": 276048.2941875
+    },
+    "per_shape": {
+      "speedup_total_cost": 0.9870057467731946,
+      "ci95": [
+        0.866582110348338,
+        1.125564342404569
+      ],
+      "iid_ci95": [
+        0.866582110348338,
+        1.125564342404569
+      ],
+      "block4_ci95": [
+        0.9056162308626293,
+        1.0711085133407756
+      ],
+      "block8_ci95": [
+        0.9104760590495443,
+        1.0628595194580002
+      ],
+      "baseline_total_us": 272461.25275,
+      "candidate_total_us": 276048.2941875
+    }
+  },
+  "portfolio_session_gate": {
+    "over_best_fixed": false,
+    "over_per_shape": false,
+    "two_authored_configs": false
+  },
+  "fallback_count_scope": "Calls across validation, rank bursts and application searches; global libraries count rank adapter calls but app calls bypass their adapter",
+  "fallback_counts": {
+    "stable_library": {
+      "calls": 20488,
+      "fallback_calls": 20488
+    },
+    "fast_library": {
+      "calls": 20488,
+      "fallback_calls": 20488
+    },
+    "stable_reduction": {
+      "calls": 20488,
+      "fallback_calls": 20488
+    },
+    "fast_reduction": {
+      "calls": 20488,
+      "fallback_calls": 20488
+    },
+    "eager_library": {
+      "calls": 20488,
+      "fallback_calls": 20488
+    },
+    "best_fixed": {
+      "calls": 28192,
+      "fallback_calls": 0
+    },
+    "per_shape": {
+      "calls": 28192,
+      "fallback_calls": 7048
+    },
+    "dispatcher": {
+      "calls": 28192,
+      "fallback_calls": 28192
+    }
+  },
+  "session_end_unix_ns": 1793549562215614000,
+  "session_end_monotonic_ns": 371236810869166
+}

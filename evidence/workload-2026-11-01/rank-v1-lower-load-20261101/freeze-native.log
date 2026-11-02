@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/rank_study.py", line 830, in <module>
+    main()
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/rank_study.py", line 818, in main
+    freeze()
+  File "/Users/nazeeh/Documents/ChatGPT/Continue/work/kerneldarwin/scripts/rank_study.py", line 483, in freeze
+    raise RuntimeError("Prospective stability gate failed; no candidate timing")
+RuntimeError: Prospective stability gate failed; no candidate timing

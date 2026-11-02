@@ -1,0 +1,20 @@
+{
+  "kind": "prospective_library_only_counterbalanced_window_diagnostic",
+  "frozen_at": "2026-11-02T03:47:27.206185+00:00",
+  "source_sha256": "3beb636e6668c6f46a1864b57032932b81fd9dbfb791701487c6d04a777c3bdd",
+  "measurement_sha256": "4470b506443feea5cf6a4f22b5fea01338e8a199621b02dd0f45f20f114f5b3a",
+  "one_attempt": true,
+  "candidate_timing": false,
+  "acceptance_study": false,
+  "wall_cap_seconds": 120,
+  "memory_cap_bytes": 2147483648,
+  "fixed_seed": 40731,
+  "designs": {
+    "short_ab": "40randomAB/BA pairs of originalrank128/application16 blocks",
+    "long_abba": "40randomABBA/BAAB quads;32complete originalrank128 bursts per window,2complete originalapplication16 blocks per window; retain every inner and outer sample,fold2observations per arm into ONE paired group"
+  },
+  "design_order": "Randomized short/long placement within each round to reduce phase confounding. Same single stable_library instance for every arm.",
+  "input_scope": "Original three development shapes, fixed128distinct evaluated score inputs; application inputs change per group. No heldoutshape or confirmationseeds. No outputcache or bypassed computation.",
+  "analysis": "Same paired IID/block4/block8 envelopes over40independent recordedgroups per design (not80pseudoreplicates). Compare equality control and descriptive uncertainty only. LongABBA is the sole prospectively nominated possible followup mechanism; shortAB is contemporaneous comparison. No outlier removal, favorableload scheduling or candidate selection.",
+  "stop": "No repeated diagnostic, parameter adjustment, or V2 reinterpretation. Any future candidate study needs a separate source-bound prospective design and application acceptance."
+}

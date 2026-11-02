@@ -1,0 +1,81 @@
+digraph {
+{ rank=source; "queries"; }
+{ 507408688872 [label ="Abs", shape=rectangle]; }
+"queries" -> 507408688872
+{ "C"; }
+507408688872 -> "C"
+{ 507406209672 [label ="Max", shape=rectangle]; }
+"C" -> 507406209672
+{ "D"; }
+507406209672 -> "D"
+{ rank=source; "E"; }
+{ 507406755608 [label ="CompiledBroadcastMaximum", shape=rectangle]; }
+"D" -> 507406755608
+"E" -> 507406755608
+{ "F"; }
+507406755608 -> "F"
+{ 507406755352 [label ="CompiledBroadcastDivide", shape=rectangle]; }
+"queries" -> 507406755352
+"F" -> 507406755352
+{ "G"; }
+507406755352 -> "G"
+{ 507408760904 [label ="Multiply", shape=rectangle]; }
+"G" -> 507408760904
+"G" -> 507408760904
+{ "H"; }
+507408760904 -> "H"
+{ 507406209592 [label ="Sum", shape=rectangle]; }
+"H" -> 507406209592
+{ "I"; }
+507406209592 -> "I"
+{ 507406755096 [label ="CompiledSqrtBroadcastDivideMaximumBroadcastDivide", shape=rectangle]; }
+"G" -> 507406755096
+"I" -> 507406755096
+"E" -> 507406755096
+"F" -> 507406755096
+{ "J"; }
+507406755096 -> "J"
+{ rank=source; "index"; }
+{ 507406209832 [label ="Transpose", shape=rectangle]; }
+"index" -> 507406209832
+{ "K"; }
+507406209832 -> "K"
+{ 507408761288 [label ="Matmul", shape=rectangle]; }
+"J" -> 507408761288
+"K" -> 507408761288
+{ "L"; }
+507408761288 -> "L"
+{ 507408761336 [label ="Negative", shape=rectangle]; }
+"L" -> 507408761336
+{ "M"; }
+507408761336 -> "M"
+{ 507397180008 [label ="ArgSort", shape=rectangle]; }
+"M" -> 507397180008
+{ "N"; }
+507397180008 -> "N"
+{ 507408154968 [label ="Slice", shape=rectangle]; }
+"N" -> 507408154968
+{ "O"; }
+507408154968 -> "O"
+{ 507408688680 [label ="GatherAxis", shape=rectangle]; }
+"L" -> 507408688680
+"O" -> 507408688680
+{ rank=sink; "P"; }
+507408688680 -> "P"
+{ rank=source; "Q"; }
+{ rank=source; "R"; }
+{ 507406754584 [label ="CompiledBroadcastEqualBroadcastEqualLogicalOrNotEqualLogicalOrLogicalNot", shape=rectangle]; }
+"J" -> 507406754584
+"Q" -> 507406754584
+"R" -> 507406754584
+{ "S"; }
+507406754584 -> "S"
+{ 507406209752 [label ="And", shape=rectangle]; }
+"S" -> 507406209752
+{ "T"; }
+507406209752 -> "T"
+{ 507396006920 [label ="Squeeze", shape=rectangle]; }
+"T" -> 507396006920
+{ rank=sink; "U"; }
+507396006920 -> "U"
+}

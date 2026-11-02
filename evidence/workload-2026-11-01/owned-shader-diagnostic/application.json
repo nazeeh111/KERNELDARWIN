@@ -1,0 +1,85 @@
+{
+  "kind": "baseline_only_owned_process_counter_diagnostic",
+  "pid": 47528,
+  "success": true,
+  "source_sha256": "fae44c8d69dd6ac9ef0ef0a4459bcb6d2a0e4aabb02c733a2398615028423803",
+  "study_identity": "5d2857e32e7cebdc26cddae82cefcec362ac6d3bcc385b891713b7d0cc2b1be3",
+  "environment": {
+    "mlx": "0.32.0",
+    "mlx_metal": "0.32.0",
+    "system": "Darwin",
+    "os_version": "27.2",
+    "os_build": "26B123",
+    "kernel_release": "27.2.0",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "device": {
+      "device_name": "Apple M4",
+      "architecture": "applegpu_g16g",
+      "memory_size": 34359738368
+    },
+    "gpu_cores": 10,
+    "compiler": "MLX runtime Metal JIT, bound to MLX and OS build",
+    "compile_options": {
+      "math_mode": "safe"
+    }
+  },
+  "script_sha256": "9806399bfe306b37b10c02f669292f34f5037a067f12cb1e84c0dc02262c9583",
+  "corpus_sha256": "c066057478c35531b5fbe71dc5716d2868c85556ddd36b6da6c9439e1c1d70a9",
+  "phases": [
+    {
+      "method": "stable",
+      "task": "notes",
+      "start_unix_ns": 1793519321099552000,
+      "end_unix_ns": 1793519321154177000,
+      "application_iterations": 4,
+      "independent_score_id_checks": 12
+    },
+    {
+      "method": "stable",
+      "task": "manuals",
+      "start_unix_ns": 1793519321205694000,
+      "end_unix_ns": 1793519321235000000,
+      "application_iterations": 4,
+      "independent_score_id_checks": 12
+    },
+    {
+      "method": "stable",
+      "task": "archive",
+      "start_unix_ns": 1793519321386242000,
+      "end_unix_ns": 1793519321452472000,
+      "application_iterations": 4,
+      "independent_score_id_checks": 12
+    },
+    {
+      "method": "fast",
+      "task": "notes",
+      "start_unix_ns": 1793519322004227000,
+      "end_unix_ns": 1793519322027085000,
+      "application_iterations": 4,
+      "independent_score_id_checks": 12
+    },
+    {
+      "method": "fast",
+      "task": "manuals",
+      "start_unix_ns": 1793519322650142000,
+      "end_unix_ns": 1793519322692143000,
+      "application_iterations": 4,
+      "independent_score_id_checks": 12
+    },
+    {
+      "method": "fast",
+      "task": "archive",
+      "start_unix_ns": 1793519323519503000,
+      "end_unix_ns": 1793519323601499000,
+      "application_iterations": 4,
+      "independent_score_id_checks": 12
+    }
+  ],
+  "peak_mlx_bytes": 8162404,
+  "limits": [
+    "Instrumented diagnostic only, not frozen performance or causal proof.",
+    "Only optimized stable/fast libraries; no custom candidate timing or selection.",
+    "Host phases include input preparation and numerical checks; use own-process trace data for device evidence."
+  ]
+}
