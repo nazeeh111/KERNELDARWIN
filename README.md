@@ -100,3 +100,28 @@ Hypotheses preserve evidence, missing measurements and falsifiers. The preview d
 CPU CI validates contracts and distributions. GPU validation is a manual workflow requiring an explicitly provisioned trusted self-hosted runner; this project supplies no paid compute. Open an issue with a reproducible record, workload specification and environment when reporting a problem. Do not include private data or credentials.
 
 Apache-2.0 · Copyright 2026 Nazeeh Abdul-Hadi
+
+### Promotion evidence
+
+`kd promotion path/to/record.json` reports recomputed candidate eligibility. CUDA
+promotion now requires passing candidate correctness, both eager **and correct
+compiled** paired comparisons during discovery, and fresh held-out correctness
+and comparisons against both alternatives after selection. Missing or incorrect
+compiled evidence is inconclusive, not an eager-only accepted winner. Legacy
+accepted CUDA records without this evidence cannot validate or export under this
+policy; their original files are not rewritten. CPU controls retain only their
+explicit named-reference scope and never export CUDA kernels.
+
+The public `kerneldarwin.promotion.promotion_decision(record, candidate_id)` is
+CPU-testable and does not mutate inputs. It recomputes statistics, checks fresh
+seeds/layouts, and checks typed workload/configuration/device/environment/source
+and evaluator-implementation bindings. JSON consistency does **not** authenticate
+execution or make externally supplied measurements trustworthy. Eligibility does
+not imply sanitizer validation, generalization, application speedup or safety.
+Records and callable exports publish complete bytes without overwriting an
+existing path. Failed staging can be retried; a post-publication cleanup warning
+means the complete final exists and names the owned leftover staging file.
+
+Current main remains the CUDA/Triton investigation product. PR 1's Metal/MLX
+workload studies are a separate branch, not included or validated by these CPU
+checks. Compiler presence on a Mac does not provide the main CUDA evaluator.

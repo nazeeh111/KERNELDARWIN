@@ -33,7 +33,8 @@ class ExportOutputTests(unittest.TestCase):
         modules = patch.dict(sys.modules, {'_kernel_output_control': package, '_kernel_output_control.gpu': gpu})
         modules.start()
         self.addCleanup(modules.stop)
-        namespace = {'__package__': '_kernel_output_control', 'json': json,
+        from kerneldarwin.records import snapshot_record,publish_exclusive
+        namespace = {'snapshot_record':snapshot_record,'publish_exclusive':publish_exclusive,'validate_record': lambda record: None, '__package__': '_kernel_output_control', 'json': json,
                      'WorkloadSpec': SimpleNamespace(from_dict=lambda data: SimpleNamespace(to_dict=lambda: dict(data)))}
         exec(compile(ast.Module(body=bodies, type_ignores=[]), str(source), 'exec'), namespace)
         self.export = namespace['export_record']

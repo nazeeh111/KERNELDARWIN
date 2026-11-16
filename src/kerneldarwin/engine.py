@@ -18,6 +18,7 @@ from . import __version__
 from .records import WorkloadSpec, ExperimentStore
 from .statistics import summarize, compare_paired
 from .hypotheses import diagnose
+from .promotion import promotion_decision, evidence_identity
 
 
 def new_record(spec, kind: str, device: dict) -> dict:
@@ -63,6 +64,7 @@ def investigate_cuda(spec, *, max_candidates=6, repeats=40, warmup=10, wall_seco
     torch,triton=gpu.require_cuda()
     start=time.monotonic()
     record=new_record(spec,'cuda_run',gpu.device_info(torch))
+    record['status']='no_improvement'
     record['environment']['triton']=triton.__version__
     record['environment']['torch_compile_mode']='default, fullgraph=True'
     x=gpu.make_input(spec)
@@ -92,6 +94,7 @@ def investigate_cuda(spec, *, max_candidates=6, repeats=40, warmup=10, wall_seco
     except Exception as exc:
         record['compiled_baseline']={'status':'unavailable','reason':str(exc)}
     sources=gpu.source_pair()
+    record['provenance']['source_sha256']=hashlib.sha256(json.dumps(sources,sort_keys=True).encode()).hexdigest()
     for index,config in enumerate(configs[:max_candidates]):
         if time.monotonic()-start>wall_seconds:
             break
@@ -109,12 +112,17 @@ def investigate_cuda(spec, *, max_candidates=6, repeats=40, warmup=10, wall_seco
                 comparison=compare_paired(a,b,seed=spec.seed+index)
                 # Discovery pass can nominate but never accept a winner by itself.
                 exp['timing']={'baseline_us':a,'candidate_us':b,'summary':summarize(b),'comparison':comparison,'phase':'discovery'}
+                if record['compiled_baseline'].get('status')=='measured' and record['compiled_baseline'].get('correctness_passed') is True:
+                    ca,cb=gpu.time_pairs(lambda:compiled(x),lambda:gpu.candidate(spec.family,config,x,spec.eps),repeats=repeats,warmup=warmup,seed=spec.seed+index+1002)
+                    exp['timing']['compiled']={'baseline_us':ca,'candidate_us':cb,
+                        'comparison':compare_paired(ca,cb,seed=spec.seed+index+1002),'correctness_passed':True}
+                exp['timing']['evidence_identity']=evidence_identity(record,exp)
                 exp['status']='rejected'
         except Exception as exc:
             exp['error']=f'{type(exc).__name__}: {exc}'
         exp['cost_seconds']=time.monotonic()-exp_start
         record['experiments'].append(exp)
-    eligible=[e for e in record['experiments'] if e.get('correctness',{}).get('passed') and e.get('timing',{}).get('comparison',{}).get('accepted')]
+    eligible=[e for e in record['experiments'] if promotion_decision(record,e['id'],confirmation=False)['eligible']]
     if eligible and time.monotonic()-start < wall_seconds:
         best=max(eligible,key=lambda e:e['timing']['comparison']['ci_low'])
         # Re-measure one selected candidate after search, with independent inputs.
@@ -126,14 +134,23 @@ def investigate_cuda(spec, *, max_candidates=6, repeats=40, warmup=10, wall_seco
         confirm=compare_paired(a,b,seed=spec.seed+7001)
         if not hold_correct:confirm.update(accepted=False,reason='Independent confirmation correctness failed')
         best['confirmation']={'baseline_us':a,'candidate_us':b,'comparison':confirm,'seed':spec.seed+7001,'correctness_passed':hold_correct,'actual_strides':list(x_holdout.stride())}
-        if confirm['accepted']:
+        compiled_hold=compiled(x_holdout)
+        compiled_correct=bool(torch.isfinite(compiled_hold).all() and torch.allclose(compiled_hold,expected_hold,atol=.03 if spec.dtype!='float32' else 2e-4,rtol=.03 if spec.dtype!='float32' else 2e-4))
+        ca,cb=gpu.time_pairs(lambda:compiled(x_holdout),lambda:gpu.candidate(spec.family,best['config'],x_holdout,spec.eps),repeats=repeats,warmup=warmup,seed=spec.seed+8001)
+        best['confirmation']['compiled']={'baseline_us':ca,'candidate_us':cb,
+            'comparison':compare_paired(ca,cb,seed=spec.seed+8001),'correctness_passed':compiled_correct}
+        best['confirmation']['evidence_identity']=evidence_identity(record,best)
+        if promotion_decision(record,best['id'])['eligible']:
             best['status']='accepted';record['winner_id']=best['id']
+    record['promotion_decisions']=[promotion_decision(record,e['id']) for e in record['experiments']]
     record['status']='accepted' if record['winner_id'] else 'no_improvement'
-    record['diagnosis']={'summary':'A candidate passed independent correctness and discovery/confirmation timing gates.' if record['winner_id'] else 'No candidate passed both correctness and repeatable improvement gates.',
+    record['diagnosis']={'summary':'A candidate passed independent correctness and eager plus compiled discovery/confirmation timing gates.' if record['winner_id'] else 'No candidate passed both correctness and repeatable improvement gates.',
                          'limitations':['Hypotheses are analytical explanations, not counter-proven causal conclusions.',
                                         'Compute Sanitizer has not been run by this process.','No hardware counters collected.',
                                         'Only the declared finite-input semantics and tested shapes are supported.',
                                         'Selection on GPU records requires held-out evaluation before a learning claim.']}
+    if record['compiled_baseline'].get('status')!='measured' or record['compiled_baseline'].get('correctness_passed') is not True:
+        record['diagnosis']['summary']='Inconclusive promotion: a correct compiled comparator was not available. Eager-only timing is retained without promotion.'
     if trace_path:
         record['trace']=gpu.capture_trace(baseline,Path(trace_path))
     record['budget']={'max_candidates':max_candidates,'used_candidates':len(record['experiments']),'wall_seconds':time.monotonic()-start,'limit_seconds':wall_seconds,

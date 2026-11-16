@@ -120,4 +120,8 @@ def run_control(spec, *, repeats=40, batches=(32,128,512)):
                                         'No hardware counters or GPU trace available.']}
     record['provenance']['source_sha256']=hashlib.sha256((inspect.getsource(reference)+inspect.getsource(batched)+inspect.getsource(run_control)).encode()).hexdigest()
     record['budget']={'max_candidates':len(batches),'used_candidates':len(batches),'wall_seconds':time.monotonic()-start}
+    from .promotion import evidence_identity
+    for experiment in record['experiments']:
+        for phase in ('timing','confirmation'):
+            if phase in experiment:experiment[phase]['evidence_identity']=evidence_identity(record,experiment)
     return record
