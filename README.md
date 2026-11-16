@@ -2,9 +2,7 @@
 
 # KernelDarwin
 
-### Why is this GPU program slow? Keep the experiment that answers it.
-
-An evidence-first performance investigation laboratory. Profile a bounded workload, keep competing explanations, test targeted Triton configurations, and preserve the numerical checks and timing uncertainty behind each decision.
+A laboratory for investigating kernel performance. Compare bounded workloads and candidate implementations, inspect numerical checks and paired timing samples, and keep the evidence behind each decision. The included CPU experiments exercise the workflow; the CUDA path requires a supported NVIDIA system.
 
 **v0.2.1 is a research preview.** The development host is an Apple M4, with no NVIDIA CUDA device. The release includes actual CPU control experiments, a fitted CPU intervention selector, and a prepared CUDA/Triton execution path. **No GPU speedup, GPU-trained policy, causal GPU diagnosis, sanitizer pass, or GPU superiority is claimed.** [Validation status →](docs/validation.md)
 
@@ -18,7 +16,7 @@ The shipped controls compare a higher-precision NumPy reference with batched flo
 
 The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
 
-The LAB now leads with a plain-language result and compares every candidate on a shared speedup axis, with its own recorded uncertainty and measurement phase. Select an attempt to inspect matching raw samples, numerical gates and an exact line diff. Share the current record/candidate/view, export unrounded timing CSVs, or press **⌘/Ctrl K** to search views and evidence. Its self-hosted IBM Plex typography and interruptible, reduced-motion-aware transitions serve the investigation. [Design research and verification scope →](docs/lab-refinement.md)
+In the LAB, select an attempt to inspect its raw timing samples, correctness gates and source diff. Compare candidates on a shared speedup axis with their recorded uncertainty and measurement phase. Export unrounded timing CSVs, share a record and view, or press **⌘/Ctrl K** to search. [Design and verification scope](docs/lab-refinement.md).
 
 ![All recorded candidate intervals and linked selection](docs/assets/v0.2.1/evidence-comparison-1440.png)
 
