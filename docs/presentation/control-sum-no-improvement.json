@@ -1,0 +1,721 @@
+{
+  "schema_version": 1,
+  "id": "8ed53c6da9764ad0b057e58eef4eb734",
+  "created_at": "2026-10-26T21:40:26.148483+00:00",
+  "status": "no_improvement",
+  "title": "sum \u00b7 32 \u00d7 31",
+  "evidence_kind": "cpu_control",
+  "workload": {
+    "family": "sum",
+    "shape": [
+      32,
+      31
+    ],
+    "dtype": "float32",
+    "stride": 1,
+    "eps": 1e-05,
+    "seed": 2026,
+    "actual_strides": [
+      31,
+      1
+    ]
+  },
+  "device": {
+    "kind": "cpu",
+    "name": "arm64",
+    "processor": "arm"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.3.5"
+  },
+  "baseline": {
+    "name": "numpy_float64_reference",
+    "samples_us": [
+      4.125,
+      2.916,
+      1.625,
+      1.625,
+      1.542,
+      1.458,
+      1.416,
+      1.416,
+      1.375,
+      1.375,
+      1.333,
+      1.375,
+      1.333,
+      1.375,
+      1.292,
+      1.333,
+      1.292,
+      1.375,
+      1.375,
+      1.375,
+      1.375,
+      1.333,
+      1.334,
+      1.459,
+      1.375,
+      1.292,
+      1.375,
+      1.375,
+      1.333,
+      1.334,
+      1.292,
+      1.416,
+      1.333,
+      1.708,
+      1.416,
+      1.333,
+      1.333,
+      1.375,
+      1.292,
+      1.834
+    ],
+    "summary": {
+      "median_us": 1.375,
+      "p05_us": 1.292,
+      "p95_us": 1.888099999999997,
+      "cv": 0.3285525833406872,
+      "n": 40
+    }
+  },
+  "compiled_baseline": {
+    "status": "unavailable",
+    "reason": "Not measured"
+  },
+  "hypotheses": [
+    {
+      "id": "memory-traffic",
+      "title": "Memory traffic may limit throughput",
+      "status": "untested",
+      "evidence": [
+        "Input contains 992 elements (3968 logical bytes).",
+        "Measured baseline median is 1.375 us."
+      ],
+      "missing_evidence": [
+        "Measured DRAM bytes and sustained bandwidth",
+        "Cache behavior",
+        "Timing alone does not identify a bottleneck.",
+        "Peak bandwidth is not measured sustained bandwidth.",
+        "CUDA execution is unavailable in this CPU control; GPU hypothesis remains untested."
+      ],
+      "falsifier": "A variant reducing memory traffic fails to improve independently measured latency while compute-only variants improve it.",
+      "experiment": "Compare fused versus eager execution at fixed shape/dtype; inspect DRAM traffic with Nsight Compute when available.",
+      "confidence": "low"
+    },
+    {
+      "id": "launch-overhead",
+      "title": "Launch overhead may dominate small workloads",
+      "status": "untested",
+      "evidence": [
+        "Workload has 32 rows and 31 columns.",
+        "Measured baseline median is 1.375 us."
+      ],
+      "missing_evidence": [
+        "Host/device trace with launch gaps",
+        "Normal-launch versus CUDA-graph timings",
+        "CUDA execution is unavailable in this CPU control; GPU hypothesis remains untested."
+      ],
+      "falsifier": "Increasing useful work substantially raises runtime proportionally and graph replay provides little change.",
+      "experiment": "Sweep shapes at fixed configuration and compare normal-launch versus graph replay timing separately.",
+      "confidence": "low"
+    },
+    {
+      "id": "occupancy-registers",
+      "title": "Reduction configuration may constrain occupancy",
+      "status": "untested",
+      "evidence": [
+        "Row reduction spans 31 elements."
+      ],
+      "missing_evidence": [
+        "Registers per thread",
+        "Achieved occupancy",
+        "Spill traffic",
+        "Instruction throughput",
+        "CUDA execution is unavailable in this CPU control; GPU hypothesis remains untested."
+      ],
+      "falsifier": "Warp-count or tile changes alter occupancy without improving independently measured latency.",
+      "experiment": "Vary num_warps at fixed logical work; use profiler counters to distinguish occupancy, spills, and instruction cost.",
+      "confidence": "low"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "cpu-32",
+      "parent_id": null,
+      "config": {
+        "block_size": 32,
+        "num_warps": 1
+      },
+      "intervention": "numpy_row_batch",
+      "status": "rejected",
+      "correctness": {
+        "passed": true,
+        "tests": [
+          {
+            "pattern": "random",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "zero",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "constant",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "large",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "ramp",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "full_shape_random",
+            "passed": true,
+            "shape": [
+              32,
+              31
+            ]
+          }
+        ],
+        "max_abs_error": 3.0517578125e-05,
+        "independent_float64_reference": true
+      },
+      "timing": {
+        "baseline_us": [
+          1.625,
+          1.5,
+          1.458,
+          1.416,
+          1.416,
+          1.459,
+          1.5,
+          1.5,
+          1.416,
+          1.416,
+          1.375,
+          1.416,
+          1.458,
+          1.417,
+          1.459,
+          1.416,
+          1.459,
+          1.375,
+          1.375,
+          1.5,
+          1.583,
+          1.417,
+          1.417,
+          1.375,
+          1.417,
+          1.542,
+          1.417,
+          1.417,
+          1.334,
+          1.417,
+          1.459,
+          1.375,
+          1.417,
+          1.417,
+          1.458,
+          1.417,
+          1.417,
+          1.458,
+          1.375,
+          1.416
+        ],
+        "candidate_us": [
+          2.209,
+          1.75,
+          1.708,
+          1.667,
+          1.625,
+          1.583,
+          1.708,
+          1.625,
+          1.625,
+          1.666,
+          1.625,
+          1.583,
+          1.584,
+          1.625,
+          1.583,
+          1.792,
+          1.625,
+          1.625,
+          1.625,
+          1.583,
+          1.667,
+          1.667,
+          1.583,
+          1.625,
+          1.583,
+          1.625,
+          1.583,
+          1.583,
+          1.583,
+          1.625,
+          1.75,
+          1.625,
+          1.583,
+          1.583,
+          1.584,
+          1.625,
+          1.625,
+          1.583,
+          1.625,
+          1.667
+        ],
+        "summary": {
+          "median_us": 1.625,
+          "p05_us": 1.583,
+          "p95_us": 1.7521,
+          "cv": 0.06315819263110657,
+          "n": 40
+        },
+        "comparison": {
+          "speedup": 0.872,
+          "ci_low": 0.8716923076923078,
+          "ci_high": 0.8972307692307692,
+          "accepted": false,
+          "reason": "confidence interval does not clear minimum improvement",
+          "n": 40,
+          "min_speedup": 1.03,
+          "confidence_level": 0.95,
+          "bootstrap_resamples": 2000,
+          "method": "paired bootstrap ratio of medians",
+          "seed": 2026
+        }
+      },
+      "compile_us": 0,
+      "safety": {
+        "status": "not_applicable",
+        "reason": "CPU NumPy control"
+      },
+      "source": {
+        "baseline": "def reference(family,x,eps):\n    import numpy as np\n    # Higher precision independent reference then cast to declared output dtype.\n    value=x.astype(np.float64)\n    if family=='sum':out=value.sum(axis=1)\n    elif family=='softmax':\n        e=np.exp(value-value.max(axis=1,keepdims=True));out=e/e.sum(axis=1,keepdims=True)\n    elif family=='layernorm':\n        mean=value.mean(axis=1,keepdims=True);diff=value-mean\n        out=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)\n    elif family=='fused':out=np.maximum(x.astype(np.float32)*1.5+.25,0)\n    else:raise ValueError('Unsupported family')\n    return out.astype(x.dtype)\n",
+        "candidate": "def batched(family,x,eps,batch):\n    import numpy as np\n    out=np.empty(x.shape[0] if family=='sum' else x.shape,dtype=x.dtype)\n    for start in range(0,x.shape[0],batch):\n        value=x[start:start+batch].astype(np.float32)\n        if family=='sum':part=value.sum(axis=1)\n        elif family=='softmax':\n            e=np.exp(value-value.max(axis=1,keepdims=True));part=e/e.sum(axis=1,keepdims=True)\n        elif family=='layernorm':\n            diff=value-value.mean(axis=1,keepdims=True);part=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)\n        elif family=='fused':part=np.maximum(value*1.5+.25,0)\n        else:raise ValueError('Unsupported family')\n        out[start:start+batch]=part\n    return out\n"
+      },
+      "cost_seconds": 0.012196167022921145
+    },
+    {
+      "id": "cpu-128",
+      "parent_id": null,
+      "config": {
+        "block_size": 128,
+        "num_warps": 1
+      },
+      "intervention": "numpy_row_batch",
+      "status": "rejected",
+      "correctness": {
+        "passed": true,
+        "tests": [
+          {
+            "pattern": "random",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "zero",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "constant",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "large",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "ramp",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "full_shape_random",
+            "passed": true,
+            "shape": [
+              32,
+              31
+            ]
+          }
+        ],
+        "max_abs_error": 3.0517578125e-05,
+        "independent_float64_reference": true
+      },
+      "timing": {
+        "baseline_us": [
+          2.292,
+          1.875,
+          1.542,
+          1.417,
+          1.5,
+          1.416,
+          1.417,
+          1.5,
+          1.375,
+          1.458,
+          1.417,
+          1.417,
+          1.5,
+          1.417,
+          1.417,
+          1.375,
+          1.417,
+          1.375,
+          1.417,
+          1.417,
+          1.375,
+          1.375,
+          1.333,
+          1.417,
+          1.375,
+          1.417,
+          1.417,
+          1.459,
+          1.416,
+          1.417,
+          1.458,
+          1.334,
+          1.417,
+          1.334,
+          1.375,
+          1.416,
+          1.458,
+          1.375,
+          1.375,
+          1.375
+        ],
+        "candidate_us": [
+          2.042,
+          1.791,
+          1.666,
+          1.625,
+          1.625,
+          1.667,
+          1.667,
+          1.709,
+          1.625,
+          1.584,
+          1.625,
+          1.584,
+          1.625,
+          1.667,
+          1.625,
+          1.583,
+          1.625,
+          1.583,
+          1.583,
+          1.625,
+          1.584,
+          1.625,
+          1.542,
+          1.583,
+          1.583,
+          1.583,
+          1.583,
+          1.583,
+          1.667,
+          1.625,
+          1.583,
+          1.541,
+          1.542,
+          1.541,
+          1.584,
+          1.542,
+          1.584,
+          1.542,
+          1.625,
+          1.667
+        ],
+        "summary": {
+          "median_us": 1.6045,
+          "p05_us": 1.54195,
+          "p95_us": 1.7130999999999998,
+          "cv": 0.052009931488454356,
+          "n": 40
+        },
+        "comparison": {
+          "speedup": 0.8831411654721097,
+          "ci_low": 0.8713846153846153,
+          "ci_high": 0.8948531733501738,
+          "accepted": false,
+          "reason": "confidence interval does not clear minimum improvement",
+          "n": 40,
+          "min_speedup": 1.03,
+          "confidence_level": 0.95,
+          "bootstrap_resamples": 2000,
+          "method": "paired bootstrap ratio of medians",
+          "seed": 2027
+        }
+      },
+      "compile_us": 0,
+      "safety": {
+        "status": "not_applicable",
+        "reason": "CPU NumPy control"
+      },
+      "source": {
+        "baseline": "def reference(family,x,eps):\n    import numpy as np\n    # Higher precision independent reference then cast to declared output dtype.\n    value=x.astype(np.float64)\n    if family=='sum':out=value.sum(axis=1)\n    elif family=='softmax':\n        e=np.exp(value-value.max(axis=1,keepdims=True));out=e/e.sum(axis=1,keepdims=True)\n    elif family=='layernorm':\n        mean=value.mean(axis=1,keepdims=True);diff=value-mean\n        out=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)\n    elif family=='fused':out=np.maximum(x.astype(np.float32)*1.5+.25,0)\n    else:raise ValueError('Unsupported family')\n    return out.astype(x.dtype)\n",
+        "candidate": "def batched(family,x,eps,batch):\n    import numpy as np\n    out=np.empty(x.shape[0] if family=='sum' else x.shape,dtype=x.dtype)\n    for start in range(0,x.shape[0],batch):\n        value=x[start:start+batch].astype(np.float32)\n        if family=='sum':part=value.sum(axis=1)\n        elif family=='softmax':\n            e=np.exp(value-value.max(axis=1,keepdims=True));part=e/e.sum(axis=1,keepdims=True)\n        elif family=='layernorm':\n            diff=value-value.mean(axis=1,keepdims=True);part=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)\n        elif family=='fused':part=np.maximum(value*1.5+.25,0)\n        else:raise ValueError('Unsupported family')\n        out[start:start+batch]=part\n    return out\n"
+      },
+      "cost_seconds": 0.011803708970546722
+    },
+    {
+      "id": "cpu-512",
+      "parent_id": null,
+      "config": {
+        "block_size": 512,
+        "num_warps": 1
+      },
+      "intervention": "numpy_row_batch",
+      "status": "rejected",
+      "correctness": {
+        "passed": true,
+        "tests": [
+          {
+            "pattern": "random",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "zero",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "constant",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "large",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "ramp",
+            "passed": true,
+            "shape": [
+              17,
+              31
+            ]
+          },
+          {
+            "pattern": "full_shape_random",
+            "passed": true,
+            "shape": [
+              32,
+              31
+            ]
+          }
+        ],
+        "max_abs_error": 3.0517578125e-05,
+        "independent_float64_reference": true
+      },
+      "timing": {
+        "baseline_us": [
+          1.834,
+          1.625,
+          1.583,
+          1.459,
+          1.458,
+          1.5,
+          1.417,
+          1.583,
+          1.375,
+          1.459,
+          1.458,
+          1.458,
+          1.458,
+          1.416,
+          1.459,
+          1.417,
+          1.458,
+          1.417,
+          1.417,
+          1.417,
+          1.417,
+          1.417,
+          1.458,
+          1.417,
+          1.5,
+          1.5,
+          1.417,
+          1.459,
+          1.417,
+          1.417,
+          1.416,
+          1.417,
+          1.417,
+          1.459,
+          1.417,
+          1.458,
+          1.458,
+          1.375,
+          1.417,
+          1.417
+        ],
+        "candidate_us": [
+          2.917,
+          1.791,
+          1.75,
+          1.75,
+          1.709,
+          1.75,
+          1.625,
+          2.0,
+          1.625,
+          1.625,
+          1.625,
+          1.625,
+          1.625,
+          1.625,
+          1.625,
+          1.625,
+          1.625,
+          1.583,
+          1.625,
+          1.708,
+          1.625,
+          1.583,
+          1.583,
+          1.708,
+          2.125,
+          1.666,
+          1.625,
+          1.583,
+          1.625,
+          1.583,
+          1.584,
+          1.584,
+          1.625,
+          1.583,
+          1.667,
+          1.541,
+          1.625,
+          1.666,
+          1.583,
+          2.083
+        ],
+        "summary": {
+          "median_us": 1.625,
+          "p05_us": 1.583,
+          "p95_us": 2.0851,
+          "cv": 0.13639535258577465,
+          "n": 40
+        },
+        "comparison": {
+          "speedup": 0.8846153846153846,
+          "ci_low": 0.872,
+          "ci_high": 0.8972307692307692,
+          "accepted": false,
+          "reason": "confidence interval does not clear minimum improvement",
+          "n": 40,
+          "min_speedup": 1.03,
+          "confidence_level": 0.95,
+          "bootstrap_resamples": 2000,
+          "method": "paired bootstrap ratio of medians",
+          "seed": 2028
+        }
+      },
+      "compile_us": 0,
+      "safety": {
+        "status": "not_applicable",
+        "reason": "CPU NumPy control"
+      },
+      "source": {
+        "baseline": "def reference(family,x,eps):\n    import numpy as np\n    # Higher precision independent reference then cast to declared output dtype.\n    value=x.astype(np.float64)\n    if family=='sum':out=value.sum(axis=1)\n    elif family=='softmax':\n        e=np.exp(value-value.max(axis=1,keepdims=True));out=e/e.sum(axis=1,keepdims=True)\n    elif family=='layernorm':\n        mean=value.mean(axis=1,keepdims=True);diff=value-mean\n        out=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)\n    elif family=='fused':out=np.maximum(x.astype(np.float32)*1.5+.25,0)\n    else:raise ValueError('Unsupported family')\n    return out.astype(x.dtype)\n",
+        "candidate": "def batched(family,x,eps,batch):\n    import numpy as np\n    out=np.empty(x.shape[0] if family=='sum' else x.shape,dtype=x.dtype)\n    for start in range(0,x.shape[0],batch):\n        value=x[start:start+batch].astype(np.float32)\n        if family=='sum':part=value.sum(axis=1)\n        elif family=='softmax':\n            e=np.exp(value-value.max(axis=1,keepdims=True));part=e/e.sum(axis=1,keepdims=True)\n        elif family=='layernorm':\n            diff=value-value.mean(axis=1,keepdims=True);part=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)\n        elif family=='fused':part=np.maximum(value*1.5+.25,0)\n        else:raise ValueError('Unsupported family')\n        out[start:start+batch]=part\n    return out\n"
+      },
+      "cost_seconds": 0.010898833977989852
+    }
+  ],
+  "winner_id": null,
+  "trace": {
+    "status": "unavailable",
+    "events": [],
+    "reason": "Not requested"
+  },
+  "diagnosis": {
+    "summary": "Measured CPU control: NumPy row batching compared with an independent higher-precision reference. This is not a GPU benchmark.",
+    "limitations": [
+      "CPU timing and implementation differences do not establish GPU optimization gains.",
+      "Reference float64 intermediates differ from candidate float32 intermediates within declared tolerance.",
+      "CPU policy training exercises the learning pipeline only; no CUDA transfer has been established.",
+      "No hardware counters or GPU trace available."
+    ]
+  },
+  "provenance": {
+    "gpu_execution": false,
+    "measurement": "perf_counter_ns",
+    "timing_mode": "host_cpu",
+    "author": "KERNELDARWIN 0.1.0",
+    "source_sha256": "a31d465edd2bf55165b685ce0973f06d98dc90a54607a08b2c31c75be0e76508"
+  },
+  "selection": {
+    "method": "exhaustive_cpu_control",
+    "note": "block_size means NumPy rows per batch; num_warps is an unused placeholder. Never transfer this policy to CUDA."
+  },
+  "budget": {
+    "max_candidates": 3,
+    "used_candidates": 3,
+    "wall_seconds": 0.07848958391696215
+  }
+}

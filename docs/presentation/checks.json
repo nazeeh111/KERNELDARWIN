@@ -1,0 +1,31 @@
+{
+  "all24_original_records_current_source_identity_and_validation": true,
+  "source_sha256": "a31d465edd2bf55165b685ce0973f06d98dc90a54607a08b2c31c75be0e76508",
+  "selected_pair_phases": 7,
+  "pairs_replayed": 280,
+  "all_paired_bootstrap_fields_exact": true,
+  "actual_CSV_rows_match40_unrounded_pairs_each": true,
+  "current_engine_numerical_only_no_timer": [
+    {
+      "batch": 32,
+      "max_abs_error": 3.725290298461914e-09,
+      "current_engine_numerical_gate": true
+    },
+    {
+      "batch": 128,
+      "max_abs_error": 3.725290298461914e-09,
+      "current_engine_numerical_gate": true
+    },
+    {
+      "batch": 512,
+      "max_abs_error": 3.725290298461914e-09,
+      "current_engine_numerical_gate": true
+    }
+  ],
+  "CUDA_export_refused_for_CPU_record": {
+    "exit": 1,
+    "stderr": "kerneldarwin: Only accepted CUDA evidence can export an optimized kernel\n",
+    "no_file_created": true
+  },
+  "no_selector_fit_or_new_model": true
+}
