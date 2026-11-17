@@ -14,7 +14,7 @@ A laboratory for investigating kernel performance. Compare bounded workloads and
 
 The shipped controls compare a higher-precision NumPy reference with batched float32-intermediate implementations within declared tolerances. They exercise the same record, correctness, paired timing, confirmation and learning components used by the CUDA path. They are **CPU software controls**, not evidence of GPU optimization.
 
-The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
+The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Historical fused controls used a float32 reference despite their float64 labels; see the results erratum. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
 
 In the LAB, select an attempt to inspect its raw timing samples, correctness gates and source diff. Compare candidates on a shared speedup axis with their recorded uncertainty and measurement phase. Export unrounded timing CSVs, share a record and view, or press **⌘/Ctrl K** to search. [Design and verification scope](docs/lab-refinement.md).
 
@@ -45,8 +45,12 @@ For actual local CPU controls:
 
 ```bash
 python -m pip install '.[control]'
-kd control --family softmax --shape 128 1024 --store .runs
-kd train --store evidence/cpu-2026-10-26/records --device-kind cpu --output .runs/cpu-model.json
+# Four current controls yield at least 12 observations across two families.
+kd control --family softmax --shape 32 31 --store .runs/current
+kd control --family softmax --shape 128 257 --store .runs/current
+kd control --family sum --shape 32 31 --store .runs/current
+kd control --family sum --shape 128 257 --store .runs/current
+kd train --store .runs/current --device-kind cpu --output .runs/cpu-model.json
 python -m unittest discover -s tests -v
 ```
 

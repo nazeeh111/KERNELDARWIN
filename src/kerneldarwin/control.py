@@ -26,7 +26,7 @@ def reference(family,x,eps):
     elif family=='layernorm':
         mean=value.mean(axis=1,keepdims=True);diff=value-mean
         out=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)
-    elif family=='fused':out=np.maximum(x.astype(np.float32)*1.5+.25,0)
+    elif family=='fused':out=np.maximum(value*1.5+.25,0)
     else:raise ValueError('Unsupported family')
     return out.astype(x.dtype)
 

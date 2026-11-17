@@ -163,7 +163,7 @@ def validate_record(record: dict) -> None:
         require_candidate(record,winner)
 
 
-def read_record_file(path):
+def read_record_file(path, *, validator=None, with_bytes=False):
     """Capture one bounded regular descriptor before JSON admission."""
     import stat
     if not hasattr(os,'O_NONBLOCK'):raise ValueError('Nonblocking record admission unavailable')
@@ -185,9 +185,10 @@ def read_record_file(path):
             if key in result:raise ValueError('Duplicate record key')
             result[key]=value
         return result
-    record=json.loads(b''.join(parts),object_pairs_hook=unique,parse_constant=lambda value: (_ for _ in ()).throw(ValueError(f'invalid number {value}')))
-    validate_record(record)
-    return record
+    payload=b''.join(parts)
+    record=json.loads(payload,object_pairs_hook=unique,parse_constant=lambda value: (_ for _ in ()).throw(ValueError(f'invalid number {value}')))
+    (validator or validate_record)(record)
+    return (record, payload) if with_bytes else record
 
 
 def snapshot_record(record):

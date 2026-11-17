@@ -1,0 +1,5 @@
+# Historical source for CPU evidence
+
+The adjacent snapshots are exact Git blobs from parent commit e4d490c87f3e07f40bdee0bd19c58a346be87dac: `src/kerneldarwin/control.py` (blob e759c67d23d5f51e06a478a3d51e8074875c9da9) and `src/kerneldarwin/records.py` (blob 11005787ea2e96550b4f1440882de2cecc3f344a). The evidence check pins their SHA-256 values and verifies that the control function fingerprint and displayed candidate sources match the retained records.
+
+The private, validation-only compatibility module checks the historical record contract after admission by the current bounded, duplicate-strict reader; it is derived from the archived validator but is not itself the pinned archive. Current promotion validation is deliberately stricter and refuses the 20 accepted historical records because they lack the newer identity binding. The check separately exercises current software; it does not claim the historical records meet current promotion requirements, establish authenticity of JSON claims, or repeat a scientific study.
