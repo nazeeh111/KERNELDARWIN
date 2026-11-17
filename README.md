@@ -10,6 +10,19 @@ A laboratory for investigating kernel performance. Compare bounded workloads and
 
 ![Current LAB overview with a recorded CPU finding, raw timings and verification ledger](docs/assets/v0.2.1/lab-desktop.png)
 
+## Correct does not mean faster
+
+The retained **softmax 128×1024** record separates three discovery comparisons from a selected candidate's independent 40-pair confirmation. The retained **sum 32×31** record passes the numerical gates for every candidate and still reports **no improvement**. These are the original 26 October 2026 CPU controls, not new measurements or GPU results.
+
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/presentation/gates-mobile.png">
+  <img src="docs/presentation/gates.png" alt="All 280 individual paired timing ratios and seven paired-bootstrap intervals share one speedup axis. Softmax has a separate selected-candidate confirmation. Sum passes numerical checks but none of its three candidates improves on the reference.">
+</picture>
+
+[Inspect and reopen the complete reader](docs/presentation/README.md) · [Download the source-bearing reader](docs/presentation/kerneldarwin-cpu-reader.zip) · [Actual LAB](docs/presentation/workbench-desktop.png) · [Phone selection](docs/presentation/workbench-mobile.png)
+
+A discovery interval clearing the 1.03 threshold does not by itself promote a candidate: selection must be followed by independent numerical and timing confirmation. The reference and candidates use their declared CPU implementations and precision contracts. These workload-specific timings establish neither a GPU gain nor added learned-selector benefit. The original negative results remain visible below and in the full retained dataset.
+
 ## One investigation, all the evidence
 
 The shipped controls compare a higher-precision NumPy reference with batched float32-intermediate implementations within declared tolerances. They exercise the same record, correctness, paired timing, confirmation and learning components used by the CUDA path. They are **CPU software controls**, not evidence of GPU optimization.

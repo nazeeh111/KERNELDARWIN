@@ -8,3 +8,6 @@ recursive-include scripts *.py
 include package.json package-lock.json playwright.config.js
 recursive-include tests *.py *.mjs *.js
 recursive-include scripts *.mjs
+
+recursive-include docs/presentation *.md *.json *.svg *.png *.html *.py *.csv *.zip
+include docs/presentation/LICENSE

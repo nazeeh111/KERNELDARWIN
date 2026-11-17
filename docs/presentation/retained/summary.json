@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "cpu_control",
+  "records": 24,
+  "observations": 72,
+  "note": "Measured NumPy CPU controls. No GPU execution or GPU learning claim.",
+  "accepted": 20,
+  "no_improvement": 4
+}
