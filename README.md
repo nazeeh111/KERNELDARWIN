@@ -21,7 +21,7 @@ The retained **softmax 128×1024** record separates three discovery comparisons 
   <img src="docs/presentation/gates.png" alt="All 280 individual paired timing ratios and seven paired-bootstrap intervals share one speedup axis. Softmax has a separate selected-candidate confirmation. Sum passes numerical checks but none of its three candidates improves on the reference.">
 </picture>
 
-[Inspect and reopen the complete reader](docs/presentation/README.md) · [Download the source-bearing reader](docs/presentation/kerneldarwin-cpu-reader.zip) · [Actual LAB](docs/presentation/workbench-desktop.png) · [Phone selection](docs/presentation/workbench-mobile.png)
+[Inspect and reopen the complete reader](docs/presentation/README.md) · [Download the source-bearing reader](https://raw.githubusercontent.com/nazeeh111/KERNELDARWIN/34adcf929d210f9766f642040c796badec2f0133/docs/presentation/kerneldarwin-cpu-reader.zip) · [Actual LAB](docs/presentation/workbench-desktop.png) · [Phone selection](docs/presentation/workbench-mobile.png)
 
 A discovery interval clearing the 1.03 threshold does not by itself promote a candidate: selection must be followed by independent numerical and timing confirmation. The reference and candidates use their declared CPU implementations and precision contracts. These workload-specific timings establish neither a GPU gain nor added learned-selector benefit. The original negative results remain visible below and in the full retained dataset.
 
