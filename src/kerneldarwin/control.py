@@ -26,7 +26,7 @@ def reference(family,x,eps):
     elif family=='layernorm':
         mean=value.mean(axis=1,keepdims=True);diff=value-mean
         out=diff/np.sqrt((diff*diff).mean(axis=1,keepdims=True)+eps)
-    elif family=='fused':out=np.maximum(x.astype(np.float32)*1.5+.25,0)
+    elif family=='fused':out=np.maximum(value*1.5+.25,0)
     else:raise ValueError('Unsupported family')
     return out.astype(x.dtype)
 
@@ -120,4 +120,8 @@ def run_control(spec, *, repeats=40, batches=(32,128,512)):
                                         'No hardware counters or GPU trace available.']}
     record['provenance']['source_sha256']=hashlib.sha256((inspect.getsource(reference)+inspect.getsource(batched)+inspect.getsource(run_control)).encode()).hexdigest()
     record['budget']={'max_candidates':len(batches),'used_candidates':len(batches),'wall_seconds':time.monotonic()-start}
+    from .promotion import evidence_identity
+    for experiment in record['experiments']:
+        for phase in ('timing','confirmation'):
+            if phase in experiment:experiment[phase]['evidence_identity']=evidence_identity(record,experiment)
     return record

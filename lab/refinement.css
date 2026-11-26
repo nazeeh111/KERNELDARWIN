@@ -664,3 +664,19 @@ dialog::backdrop {
     transition: none;
   }
 }
+
+/* Keep uncertainty and comparison phase legible in recorded investigations. */
+.improvement-interval, .scope-line, .finding p, .plot-caption,
+.comparison-note, .comparison-selection small, .comparison-name small,
+.chart-context, .pair-readout, .comparison-table-head,
+.rail-facts dt, .rail-facts dd { font-size: 12px; }
+.chart-axis { font-size: 12px; }
+@media (max-width: 760px) {
+  .mobile-comparison-scale .chart-axis { font-size: 30px; }
+}
+/* The narrow SVG is displayed at 90% of its viewBox width. */
+.data-chart .chart-axis { font-size: 13.5px; }
+.pair-readout { max-width: 100%; min-width: 0; white-space: normal; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .mobile-comparison-scale .chart-axis { font-size: 31px; }
+}
