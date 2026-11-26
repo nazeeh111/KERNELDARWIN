@@ -2,13 +2,15 @@
 
 # KernelDarwin
 
-A laboratory for investigating kernel performance. Compare bounded workloads and candidate implementations, inspect numerical checks and paired timing samples, and keep the evidence behind each decision. The included CPU experiments exercise the workflow; the CUDA path requires a supported NVIDIA system.
+Compare kernel implementations by their paired timing samples, correctness checks and independent confirmation. The public LAB opens a recorded **CPU control**. The CUDA/Triton path requires a supported NVIDIA system and a separately collected record.
 
-**v0.2.1 is a research preview.** The development host is an Apple M4, with no NVIDIA CUDA device. The release includes actual CPU control experiments, a fitted CPU intervention selector, and a prepared CUDA/Triton execution path. **No GPU speedup, GPU-trained policy, causal GPU diagnosis, sanitizer pass, or GPU superiority is claimed.** [Validation status →](docs/validation.md)
+[Inspect the recorded CPU comparison](https://nazeeh111.github.io/KERNELDARWIN/#overview) · [Run a CPU control](#try-the-laboratory) · [CUDA validation status](docs/validation.md) · [Methodology](docs/methodology.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
 
-[Explore the LAB](https://nazeeh111.github.io/KERNELDARWIN/) · [Quickstart](#try-the-laboratory) · [Research](docs/research.md) · [Methodology](docs/methodology.md) · [Releases](https://github.com/nazeeh111/KERNELDARWIN/releases)
+**Recorded CPU control · softmax 128 × 1024.** The 43.5% median latency reduction compares NumPy implementations in the retained arm64 run's 40-pair confirmation. CUDA performance is unmeasured in this example.
 
-![Current LAB overview with a recorded CPU finding, raw timings and verification ledger](docs/assets/v0.2.1/lab-desktop.png)
+![Recorded arm64 CPU control for softmax, showing its paired timing evidence and verification ledger](docs/assets/v0.2.1/lab-desktop.png)
+
+**v0.2.1 is a research preview.** The development host is an Apple M4. The release includes CPU controls, a fitted CPU intervention selector and a prepared CUDA/Triton execution path. See the [validation status](docs/validation.md) for the available CPU and CUDA evidence.
 
 ## Correct does not mean faster
 

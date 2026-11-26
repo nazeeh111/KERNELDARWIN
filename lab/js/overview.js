@@ -19,6 +19,7 @@ import {
   decisionText,
   scientific,
   intervalLabel,
+  evidenceLabel,
 } from "./model.js";
 import { latencyPlot, latencyRange } from "./charts.js";
 
@@ -288,7 +289,7 @@ export function renderOverview(state, actions) {
       el(
         "span",
         { class: "eyebrow" },
-        data.accepted ? "RECORDED IMPROVEMENT" : "MEASURED RATIO",
+        `${evidenceLabel(record)} · ${data.accepted ? "recorded improvement" : "measured ratio"}`,
       ),
       el(
         "div",
@@ -313,14 +314,14 @@ export function renderOverview(state, actions) {
       "p",
       {},
       record.evidence_kind === "cpu_control"
-        ? "CPU control. These measurements validate the workflow. GPU performance is not established."
+        ? "Host CPU control. CUDA performance requires a separate run on a supported NVIDIA GPU."
         : record.evidence_kind === "cuda_run"
           ? "CUDA record. Inspect collection provenance and independent verification before using the result."
           : "Reference record. No independently reproduced optimization is established.",
     ),
   );
   const plot = section(
-    "Latency fingerprint",
+    `${evidenceLabel(record)} latency samples`,
     "Every timing sample, with the selected candidate’s matched reference.",
     el(
       "div",

@@ -55,8 +55,14 @@ export function resultNarrative(record, experiment) {
     };
   if (data.accepted) {
     const saving = base - candidate;
+    const platform =
+      record.evidence_kind === "cpu_control"
+        ? "CPU "
+        : record.evidence_kind === "cuda_run"
+          ? "CUDA "
+          : "";
     return {
-      title: `A recorded ${num((saving / base) * 100, 1)}% latency reduction.`,
+      title: `A recorded ${num((saving / base) * 100, 1)}% ${platform}latency reduction.`,
       text: `${experiment.id} saves ${num(saving)} µs at the median against its matched reference. Independent confirmation is reported; the browser has not rerun the workload.`,
       tone: "positive",
     };
