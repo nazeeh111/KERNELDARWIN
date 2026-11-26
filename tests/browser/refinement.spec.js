@@ -22,7 +22,9 @@ test("interval selection links the finding, measured phase, source and reloadabl
   page,
 }) => {
   await open(page);
-  await expect(page.locator(".finding h2")).toContainText("latency reduction");
+  await expect(page.locator(".finding h2")).toContainText("43.5% CPU latency reduction");
+  await expect(page.getByRole("heading", { name: "CPU control comparisons" })).toBeVisible();
+  await expect(page.locator('.comparison-row[data-candidate="cpu-32"]')).toHaveAccessibleName(/^CPU control, /);
   await page.locator('.comparison-row[data-candidate="cpu-32"]').click();
   await expect(
     page.locator('.comparison-row[data-candidate="cpu-32"]'),

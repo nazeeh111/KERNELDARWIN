@@ -1,5 +1,5 @@
 import { el, svg, icon, section, badge } from "./dom.js";
-import { num, intervalLabel, median } from "./model.js";
+import { num, intervalLabel, median, evidenceLabel } from "./model.js";
 import {
   comparisonRows,
   comparisonDomain,
@@ -35,6 +35,7 @@ export function investigationFinding(record, experiment, actions) {
 export function candidateComparison(record, selectedId, onSelect) {
   const rows = comparisonRows(record);
   if (!rows.length) return null;
+  const scope = evidenceLabel(record);
   const [low, high] = comparisonDomain(rows);
   const selected =
     rows.find((row) => row.experiment.id === selectedId) || rows[0];
@@ -105,8 +106,10 @@ export function candidateComparison(record, selectedId, onSelect) {
     return chart;
   };
   return section(
-    "The whole search, in perspective.",
-    "A common 1× reference. Each interval belongs to its own matched measurement; phases remain separate.",
+    `${scope} comparisons`,
+    record.evidence_kind === "cpu_control"
+      ? "Host CPU timings against matched references. CUDA performance requires a separate GPU run."
+      : "A common 1× reference. Each interval belongs to its own matched measurement; phases remain separate.",
     el(
       "div",
       { class: "comparison-content" },
@@ -129,7 +132,7 @@ export function candidateComparison(record, selectedId, onSelect) {
             class: "comparison-row",
             "data-candidate": row.experiment.id,
             "aria-pressed": String(row.experiment.id === selectedId),
-            "aria-label": `${row.experiment.id}, ${row.phase}, ${row.ratio == null ? "no timing" : num(row.ratio) + " times"}, ${row.interval ? intervalLabel(row.comparison) + " " + row.interval.map((v) => num(v)).join(" to ") : "no interval"}, ${row.experiment.status}. Inspect evidence`,
+            "aria-label": `${scope}, ${row.experiment.id}, ${row.phase}, ${row.ratio == null ? "no timing" : num(row.ratio) + " times"}, ${row.interval ? intervalLabel(row.comparison) + " " + row.interval.map((v) => num(v)).join(" to ") : "no interval"}, ${row.experiment.status}. Inspect evidence`,
             onclick: () => onSelect(row.experiment.id),
           },
           el(
@@ -191,7 +194,7 @@ export function candidateComparison(record, selectedId, onSelect) {
             el(
               "small",
               {},
-              `${selected.candidate.length} matched pairs · ${selected.phase.toLowerCase()} · ${selected.experiment.status}`,
+              `${scope} · ${selected.candidate.length} matched pairs · ${selected.phase.toLowerCase()} · ${selected.experiment.status}`,
             ),
           ),
         ),
