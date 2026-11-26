@@ -27,7 +27,7 @@ A discovery interval clearing the 1.03 threshold does not by itself promote a ca
 
 The shipped controls compare a higher-precision NumPy reference with batched float32-intermediate implementations within declared tolerances. They exercise the same record, correctness, paired timing, confirmation and learning components used by the CUDA path. They are **CPU software controls**, not evidence of GPU optimization.
 
-The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
+The reproducible suite contains **24 workloads, 72 attempted interventions, four operation families and six shapes**, including strided inputs and no-improvement cases. Historical fused controls used a float32 reference despite their float64 labels; see the results erratum. Raw measurements, failed decisions, source identities and a trained model live in [the evidence directory](evidence/cpu-2026-10-26/). [Read the measured result and its limits](docs/results.md).
 
 In the LAB, select an attempt to inspect its raw timing samples, correctness gates and source diff. Compare candidates on a shared speedup axis with their recorded uncertainty and measurement phase. Export unrounded timing CSVs, share a record and view, or press **⌘/Ctrl K** to search. [Design and verification scope](docs/lab-refinement.md).
 
@@ -58,8 +58,12 @@ For actual local CPU controls:
 
 ```bash
 python -m pip install '.[control]'
-kd control --family softmax --shape 128 1024 --store .runs
-kd train --store evidence/cpu-2026-10-26/records --device-kind cpu --output .runs/cpu-model.json
+# Four current controls yield at least 12 observations across two families.
+kd control --family softmax --shape 32 31 --store .runs/current
+kd control --family softmax --shape 128 257 --store .runs/current
+kd control --family sum --shape 32 31 --store .runs/current
+kd control --family sum --shape 128 257 --store .runs/current
+kd train --store .runs/current --device-kind cpu --output .runs/cpu-model.json
 python -m unittest discover -s tests -v
 ```
 
@@ -113,3 +117,28 @@ Hypotheses preserve evidence, missing measurements and falsifiers. The preview d
 CPU CI validates contracts and distributions. GPU validation is a manual workflow requiring an explicitly provisioned trusted self-hosted runner; this project supplies no paid compute. Open an issue with a reproducible record, workload specification and environment when reporting a problem. Do not include private data or credentials.
 
 Apache-2.0 · Copyright 2026 Nazeeh Abdul-Hadi
+
+### Promotion evidence
+
+`kd promotion path/to/record.json` reports recomputed candidate eligibility. CUDA
+promotion now requires passing candidate correctness, both eager **and correct
+compiled** paired comparisons during discovery, and fresh held-out correctness
+and comparisons against both alternatives after selection. Missing or incorrect
+compiled evidence is inconclusive, not an eager-only accepted winner. Legacy
+accepted CUDA records without this evidence cannot validate or export under this
+policy; their original files are not rewritten. CPU controls retain only their
+explicit named-reference scope and never export CUDA kernels.
+
+The public `kerneldarwin.promotion.promotion_decision(record, candidate_id)` is
+CPU-testable and does not mutate inputs. It recomputes statistics, checks fresh
+seeds/layouts, and checks typed workload/configuration/device/environment/source
+and evaluator-implementation bindings. JSON consistency does **not** authenticate
+execution or make externally supplied measurements trustworthy. Eligibility does
+not imply sanitizer validation, generalization, application speedup or safety.
+Records and callable exports publish complete bytes without overwriting an
+existing path. Failed staging can be retried; a post-publication cleanup warning
+means the complete final exists and names the owned leftover staging file.
+
+Current main remains the CUDA/Triton investigation product. PR 1's Metal/MLX
+workload studies are a separate branch, not included or validated by these CPU
+checks. Compiler presence on a Mac does not provide the main CUDA evaluator.

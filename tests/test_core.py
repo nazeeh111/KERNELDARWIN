@@ -32,6 +32,13 @@ def confirmed_record():
                  "timing": discovery, "confirmation": confirmation}
     data.update(status="accepted", winner_id="candidate", experiments=[candidate])
     data["workload"]["actual_strides"] = [17, 1]
+    from kerneldarwin.promotion import cpu_reference_identity,evidence_identity
+    sources,digest=cpu_reference_identity()
+    data['baseline']={'name':'numpy_float64_reference','samples_us':first}
+    data['provenance']={'gpu_execution':False,'source_sha256':digest,'measurement':'perf_counter_ns','timing_mode':'host_cpu'}
+    data['environment']={'numpy':'synthetic-fixture'}
+    candidate['source']=sources;candidate['correctness']['independent_float64_reference']=True
+    for phase in (discovery,confirmation):phase['evidence_identity']=evidence_identity(data,candidate)
     return data
 
 

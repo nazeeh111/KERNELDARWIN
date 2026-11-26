@@ -11,7 +11,7 @@ import subprocess
 import sys
 import tempfile
 from . import __version__
-from .records import WorkloadSpec,ExperimentStore,validate_record
+from .records import WorkloadSpec,ExperimentStore,validate_record,snapshot_record,publish_exclusive,read_record_file
 
 
 def dump(value):
@@ -44,7 +44,7 @@ def parser():
             c.add_argument('--warmup',type=positive,default=10)
             c.add_argument('--trace',action='store_true')
             c.add_argument('--model',type=Path)
-    for name in ('show','validate'):
+    for name in ('show','validate','promotion'):
         c=commands.add_parser(name);c.add_argument('record',type=Path)
     c=commands.add_parser('train',help='Train on recorded observations, with grouped held-out evaluation')
     c.add_argument('--store',type=Path,default=Path('.runs'));c.add_argument('--output',type=Path,required=True)
@@ -63,8 +63,7 @@ def parser():
 
 
 def read_record(path):
-    if path.stat().st_size > 50_000_000:raise ValueError('Record too large (>50 MB)')
-    record=json.loads(path.read_text());validate_record(record);return record
+    return read_record_file(path)
 
 
 def regression(before,after):
@@ -89,6 +88,8 @@ def regression(before,after):
 
 
 def export_record(record,output):
+    record=snapshot_record(record)
+    validate_record(record)
     if record['evidence_kind']!='cuda_run' or record['status']!='accepted':raise ValueError('Only accepted CUDA evidence can export an optimized kernel')
     winner=next((e for e in record['experiments'] if e['id']==record['winner_id']),None)
     if not winner or not winner.get('confirmation',{}).get('comparison',{}).get('accepted'):raise ValueError('Independent confirmation required')
@@ -104,8 +105,7 @@ def export_record(record,output):
     if output.exists():raise ValueError('Output exists; choose a new export path')
     output.parent.mkdir(parents=True,exist_ok=True)
     try:
-        with output.open('x', encoding='utf-8') as handle:
-            handle.write(source)
+        publish_exclusive(output,source.encode('utf-8'))
     except FileExistsError as exc:
         raise ValueError('Output exists; choose a new export path') from exc
     return {'export':str(output),'record_id':record['id'],'safety':winner.get('safety')}
@@ -117,8 +117,15 @@ def main(argv=None):
         if args.command=='doctor':
             from .gpu import doctor
             dump(doctor());return 0
-        if args.command in ('show','validate'):
-            record=read_record(args.record);dump(record if args.command=='show' else {'valid':True,'id':record['id']});return 0
+        if args.command in ('show','validate','promotion'):
+            record=read_record(args.record)
+            if args.command=='promotion':
+                from .promotion import promotion_decision
+                if len(record['experiments'])>64:raise ValueError('Promotion inspection is limited to64 candidates per invocation')
+                decisions=[promotion_decision(record,e['id']) for e in record['experiments']]
+                dump({'id':record['id'],'decisions':decisions,'execution_attested':False})
+                return 0 if any(d['eligible'] for d in decisions) else 2
+            dump(record if args.command=='show' else {'valid':True,'id':record['id']});return 0
         if args.command in ('investigate','control'):
             if args.repeats<20:raise ValueError('At least 20 repeats required for performance gates')
             spec=WorkloadSpec(family=args.family,shape=tuple(args.shape),dtype=args.dtype,stride=args.stride,seed=args.seed);spec.validate()
@@ -179,7 +186,7 @@ def main(argv=None):
             print(f'KERNELDARWIN LAB: http://127.0.0.1:{args.port} (read-only; Ctrl-C to stop)',flush=True)
             with http.server.ThreadingHTTPServer(('127.0.0.1',args.port),handler) as server:server.serve_forever()
         return 0
-    except (ValueError,RuntimeError,OSError,KeyError,TypeError,subprocess.TimeoutExpired) as exc:
+    except (ValueError,RuntimeError,OSError,KeyError,TypeError,RecursionError,OverflowError,subprocess.TimeoutExpired) as exc:
         print(f'kerneldarwin: {exc}',file=sys.stderr);return 1
     except ImportError as exc:
         print(f'Missing optional dependency: {exc}. Install .[control] or .[cuda] for the requested backend.',file=sys.stderr);return 1
